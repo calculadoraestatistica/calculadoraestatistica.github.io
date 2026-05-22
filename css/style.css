@@ -285,6 +285,7 @@ a.card:hover {
 /* --- Bloco "por que confiar" -------------------------------------------- */
 .feature-grid {
   display: grid; gap: 1.1rem; grid-template-columns: 1fr;
+  max-width: 760px; margin-inline: auto;
 }
 .feature {
   display: flex; gap: .85rem; align-items: flex-start;
@@ -627,7 +628,7 @@ textarea.input {
 
 @media (min-width: 960px) {
   .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
-  .feature-grid { grid-template-columns: repeat(4, 1fr); }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Navegação em telas grandes: sempre visível, na horizontal */
   .nav-toggle { display: none; }
