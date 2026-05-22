@@ -37,15 +37,11 @@
   }
 
   /* --- Anúncios (AdSense) ------------------------------------------------ */
+  /* A biblioteca do AdSense é carregada diretamente no <head> de cada página.
+     Este bloco apenas cria as unidades de anúncio manuais nos espaços
+     .ad-slot quando um ID do AdSense estiver definido em config.js. */
   var cfg = window.SITE_CONFIG || {};
   if (cfg.adsenseClient) {
-    var lib = document.createElement('script');
-    lib.async = true;
-    lib.crossOrigin = 'anonymous';
-    lib.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' +
-              encodeURIComponent(cfg.adsenseClient);
-    document.head.appendChild(lib);
-
     var slots = document.querySelectorAll('.ad-slot');
     for (var s = 0; s < slots.length; s++) {
       var ins = document.createElement('ins');

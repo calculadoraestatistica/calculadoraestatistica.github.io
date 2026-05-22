@@ -2,22 +2,18 @@
    config.js — Configuração do site
    --------------------------------------------------------------------------
    MONETIZAÇÃO (Google AdSense)
-   Enquanto "adsenseClient" estiver vazio, os espaços de anúncio ficam ocultos
-   e o site funciona normalmente, sem nenhum anúncio.
+   A biblioteca do Google AdSense é carregada diretamente no <head> de cada
+   página (a tag <script> do AdSense, com o ID ca-pub-7516029395999799).
+   Com os "Anúncios automáticos" ligados no painel do AdSense, o Google cuida
+   sozinho do posicionamento dos anúncios — nada mais precisa ser feito aqui.
 
-   Quando a sua conta do Google AdSense for aprovada:
-     1. Copie o seu ID de publisher (algo como "ca-pub-1234567890123456").
-     2. Cole-o no campo "adsenseClient" abaixo e salve.
-     3. Pronto: a biblioteca do AdSense é carregada e os anúncios aparecem
-        nos espaços já posicionados (após o resultado e no meio dos artigos).
-        Com os "Anúncios automáticos" ligados no painel do AdSense, o Google
-        cuida do posicionamento sozinho.
-
-   Para controle manual, crie unidades de anúncio no painel do AdSense e
-   preencha o atributo data-ad-slot de cada <div class="ad-slot"> nas páginas.
+   O campo "adsenseClient" abaixo é usado APENAS para posicionamento MANUAL:
+   quando preenchido, o site cria unidades de anúncio nos espaços
+   <div class="ad-slot"> das páginas. Para usar o modo manual, crie unidades
+   no painel do AdSense e preencha o atributo data-ad-slot de cada espaço.
    ========================================================================== */
 window.SITE_CONFIG = {
-  // Cole aqui o seu ID do AdSense quando tiver. Ex.: "ca-pub-1234567890123456"
+  // ID do publisher no AdSense (ca-pub-...). Preencha só para anúncios manuais.
   adsenseClient: "",
 
   // Endereço público do site (usado em metadados).
