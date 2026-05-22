@@ -652,3 +652,24 @@ textarea.input {
   .main-nav a { padding: .5rem .8rem; }
   .main-nav .nav-cta { margin-top: 0; margin-left: .4rem; padding: .55rem 1.1rem; }
 }
+
+/* --- Pagina de apoio / doacoes ----------------------------------------- */
+.donate-card { text-align: center; }
+.donate-card h3 { font-size: 1.18rem; }
+.donate-qr {
+  width: 190px; height: 190px; margin: 1.1rem auto 0; display: block;
+  border: 1px solid var(--c-line); border-radius: var(--radius-sm);
+  padding: 8px; background: #fff;
+}
+.pix-key {
+  display: inline-block; font-family: var(--font-mono); font-weight: 700;
+  color: var(--c-ink); background: var(--c-primary-soft);
+  padding: .3rem .6rem; border-radius: 6px;
+}
+.pix-code {
+  display: block; width: 100%; margin-top: .8rem; padding: .7rem .8rem;
+  background: var(--c-softer); border: 1px solid var(--c-line);
+  border-radius: var(--radius-sm); font-family: var(--font-mono);
+  font-size: .76rem; line-height: 1.55; word-break: break-all;
+  color: var(--c-ink); text-align: left;
+}
