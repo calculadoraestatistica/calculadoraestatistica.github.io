@@ -70,7 +70,7 @@
       </svg>
       <span class="brand__name">Calculadora <span>Estatística</span></span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
       <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -162,19 +162,19 @@
 
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular significância</button>
-        <a class="btn btn--ghost" href="#" id="ab-example">Preencher com exemplo</a>
+        <button class="btn btn--ghost" type="button" id="ab-example">Preencher com exemplo</button>
       </div>
 
       <section class="result" id="ab-result" hidden aria-live="polite"></section>
     </form>
 
-    <p class="muted" style="font-size:.92rem">Quer planejar o teste antes de começar? Use a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a> e descubra de quantos visitantes você precisa.</p>
+    <p class="muted text-sm">Quer planejar o teste antes de começar? Use a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a> e descubra de quantos visitantes você precisa.</p>
 
     <div class="ad-slot" data-ad-slot=""></div>
 
     <article class="prose">
 
-      <div class="toc" aria-label="Conteúdo do artigo">
+      <nav class="toc" aria-label="Conteúdo do artigo">
         <strong>Neste artigo</strong>
         <ol>
           <li><a href="#o-que-e">O que é um teste A/B</a></li>
@@ -187,7 +187,7 @@
           <li><a href="#areas">Teste A/B além do marketing</a></li>
           <li><a href="#faq">Perguntas frequentes</a></li>
         </ol>
-      </div>
+      </nav>
 
       <h2 id="o-que-e">O que é um teste A/B</h2>
       <p>Um <strong>teste A/B</strong> é um experimento controlado que compara duas versões de algo para descobrir qual delas tem o melhor desempenho. A versão A é o <em>controle</em> — normalmente o que já existe. A versão B é a <em>variação</em> — a mudança que você quer testar. Você divide o público aleatoriamente entre as duas e mede uma métrica de interesse, quase sempre a <strong>taxa de conversão</strong>.</p>
@@ -242,10 +242,6 @@
           <li><a href="/guias/estatistica-marketing-cro.html">Guia de estatística para Marketing e CRO</a> — poder estatístico, MDE e as armadilhas dos experimentos.</li>
           <li><a href="/tamanho-amostra-ab.html">Calculadora de tamanho de amostra</a> — planeje o teste antes de coletar um único dado.</li>
         </ul>
-        <!-- MONETIZAÇÃO (afiliados): para recomendar cursos/livros, troque os itens acima
-             por links de parceiro (ex.: Hotmart, Amazon) neste formato:
-             <li><a href="SEU_LINK_DE_AFILIADO" rel="sponsored nofollow" target="_blank">Nome do curso/livro</a> — descrição curta.</li>
-             Mantenha a linha de aviso abaixo sempre que houver links pagos. -->
         <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
       </div>
 
@@ -385,14 +381,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/" style="color:#fff">
+        <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="#2563eb"/>
             <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
             <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
             <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
           </svg>
-          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+          <span class="brand__name">Calculadora Estatística</span>
         </a>
         <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
       </div>

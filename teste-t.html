@@ -69,7 +69,7 @@
       </svg>
       <span class="brand__name">Calculadora <span>Estatística</span></span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
       <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -110,7 +110,7 @@
 
       <fieldset class="field-group">
         <legend>Tipo de teste t</legend>
-        <div class="segmented" role="radiogroup" aria-label="Tipo de teste t" style="margin-top:.6rem">
+        <div class="segmented" role="radiogroup" aria-label="Tipo de teste t">
           <label><input type="radio" name="t-mode" value="one" checked><span>Uma amostra</span></label>
           <label><input type="radio" name="t-mode" value="two"><span>Duas amostras</span></label>
           <label><input type="radio" name="t-mode" value="paired"><span>Pareado</span></label>
@@ -204,7 +204,7 @@
 
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular teste t</button>
-        <a class="btn btn--ghost" href="#" id="t-example">Preencher com exemplo</a>
+        <button class="btn btn--ghost" type="button" id="t-example">Preencher com exemplo</button>
       </div>
 
       <section class="result" id="t-result" hidden aria-live="polite"></section>
@@ -214,7 +214,7 @@
 
     <article class="prose">
 
-      <div class="toc" aria-label="Conteúdo do artigo">
+      <nav class="toc" aria-label="Conteúdo do artigo">
         <strong>Neste artigo</strong>
         <ol>
           <li><a href="#o-que-e">O que é o teste t de Student</a></li>
@@ -225,7 +225,7 @@
           <li><a href="#exemplo">Exemplo resolvido</a></li>
           <li><a href="#faq">Perguntas frequentes</a></li>
         </ol>
-      </div>
+      </nav>
 
       <h2 id="o-que-e">O que é o teste t de Student</h2>
       <p>O <strong>teste t de Student</strong> é o procedimento estatístico mais usado para comparar <strong>médias</strong>. Ele responde a uma pergunta direta: a diferença entre duas médias — ou entre uma média e um valor de referência — é grande o bastante para ser considerada real, ou pode ser apenas variação aleatória da amostra?</p>
@@ -336,14 +336,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/" style="color:#fff">
+        <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="#2563eb"/>
             <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
             <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
             <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
           </svg>
-          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+          <span class="brand__name">Calculadora Estatística</span>
         </a>
         <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
       </div>

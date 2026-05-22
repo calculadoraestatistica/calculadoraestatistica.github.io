@@ -610,6 +610,16 @@ textarea.input {
 .btn--sm { padding: .5rem .85rem; font-size: .9rem; }
 .group-list { display: grid; gap: .9rem; }
 
+/* --- Estilos movidos de atributos inline -------------------------------- */
+.site-footer .brand,
+.site-footer .brand__name { color: #fff; }
+.field-group > .segmented { margin-top: .6rem; }
+.help--block { margin: .4rem 0 .8rem; }
+.text-sm { font-size: .92rem; }
+.mt-2 { margin-top: 2rem; }
+.text-center .lead { margin-inline: auto; }
+.text-center .hero__actions { justify-content: center; }
+
 /* --- Responsivo ---------------------------------------------------------- */
 @media (min-width: 560px) {
   .field-row { grid-template-columns: 1fr 1fr; }

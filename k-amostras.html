@@ -71,7 +71,7 @@
       </svg>
       <span class="brand__name">Calculadora <span>Estatística</span></span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
       <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -112,7 +112,7 @@
 
       <fieldset class="field-group">
         <legend>Tipo de análise</legend>
-        <div class="segmented" role="radiogroup" aria-label="Tipo de análise" style="margin-top:.6rem">
+        <div class="segmented" role="radiogroup" aria-label="Tipo de análise">
           <label><input type="radio" name="ka-method" value="anova" checked><span>ANOVA (paramétrico)</span></label>
           <label><input type="radio" name="ka-method" value="kruskal"><span>Kruskal-Wallis (não-paramétrico)</span></label>
         </div>
@@ -120,7 +120,7 @@
 
       <fieldset class="field-group">
         <legend>Seus grupos</legend>
-        <p class="help" style="margin:.4rem 0 .8rem">Cole os valores de cada grupo separados por espaço, vírgula ou quebra de linha.</p>
+        <p class="help help--block">Cole os valores de cada grupo separados por espaço, vírgula ou quebra de linha.</p>
         <div class="group-list" id="ka-groups"></div>
         <div class="matrix-controls">
           <button type="button" class="btn btn--ghost btn--sm" id="ka-add">+ Grupo</button>
@@ -146,7 +146,7 @@
 
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular</button>
-        <a class="btn btn--ghost" href="#" id="ka-example">Preencher com exemplo</a>
+        <button class="btn btn--ghost" type="button" id="ka-example">Preencher com exemplo</button>
       </div>
 
       <section class="result" id="ka-result" hidden aria-live="polite"></section>
@@ -156,7 +156,7 @@
 
     <article class="prose">
 
-      <div class="toc" aria-label="Conteúdo do artigo">
+      <nav class="toc" aria-label="Conteúdo do artigo">
         <strong>Neste artigo</strong>
         <ol>
           <li><a href="#o-que-e">O que é comparar k amostras</a></li>
@@ -169,7 +169,7 @@
           <li><a href="#exemplo">Exemplo resolvido</a></li>
           <li><a href="#faq">Perguntas frequentes</a></li>
         </ol>
-      </div>
+      </nav>
 
       <h2 id="o-que-e">O que é comparar k amostras</h2>
       <p>Muitas perguntas de pesquisa envolvem <strong>mais de dois grupos</strong>. Três métodos de ensino produzem notas diferentes? Quatro fertilizantes geram colheitas distintas? Cinco versões de uma página de venda têm tempos de permanência diferentes? Em todos esses casos você quer comparar <strong>k grupos</strong> — onde k é três, quatro, cinco ou mais — e descobrir se as médias deles são realmente diferentes ou se a variação observada é apenas acaso amostral.</p>
@@ -326,14 +326,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/" style="color:#fff">
+        <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="#2563eb"/>
             <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
             <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
             <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
           </svg>
-          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+          <span class="brand__name">Calculadora Estatística</span>
         </a>
         <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
       </div>

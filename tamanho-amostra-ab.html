@@ -69,7 +69,7 @@
       </svg>
       <span class="brand__name">Calculadora <span>Estatística</span></span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
       <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
@@ -182,30 +182,30 @@
 
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular amostra</button>
-        <a class="btn btn--ghost" href="#" id="ss-example">Preencher com exemplo</a>
+        <button class="btn btn--ghost" type="button" id="ss-example">Preencher com exemplo</button>
       </div>
 
       <section class="result" id="ss-result" hidden aria-live="polite"></section>
     </form>
 
-    <p class="muted" style="font-size:.92rem">Já coletou os dados? Veja se a diferença é significativa na <a href="/teste-ab.html">calculadora de teste A/B</a>.</p>
+    <p class="muted text-sm">Já coletou os dados? Veja se a diferença é significativa na <a href="/teste-ab.html">calculadora de teste A/B</a>.</p>
 
     <div class="ad-slot" data-ad-slot=""></div>
 
     <article class="prose">
 
-      <div class="toc" aria-label="Conteúdo do artigo">
+      <nav class="toc" aria-label="Conteúdo do artigo">
         <strong>Neste artigo</strong>
         <ol>
           <li><a href="#por-que">Por que calcular a amostra antes</a></li>
           <li><a href="#como">Como a calculadora funciona</a></li>
           <li><a href="#poder">O que é poder estatístico</a></li>
-          <li><a href="#mde">Como escolher o efeito mínimo</a></li>
+          <li><a href="#efeito-minimo">Como escolher o efeito mínimo</a></li>
           <li><a href="#duracao">Quanto tempo deixar o teste rodando</a></li>
           <li><a href="#exemplo">Exemplo resolvido</a></li>
           <li><a href="#faq">Perguntas frequentes</a></li>
         </ol>
-      </div>
+      </nav>
 
       <h2 id="por-que">Por que calcular a amostra antes do teste</h2>
       <p>O erro mais comum em testes A/B não está na conta final — está em começar sem um plano. Quem inicia um teste sem definir o tamanho de amostra cai sempre em uma de duas armadilhas. Ou olha o painel todo dia e <strong>para no primeiro momento em que aparece "significativo"</strong>, o que infla enormemente a chance de um falso positivo. Ou deixa rodando para sempre, gastando tráfego em um teste que nunca conclui.</p>
@@ -235,7 +235,7 @@
         <p>Confiança 95% e poder 80% são as configurações de partida para quase todo teste A/B. Só mude se tiver um motivo claro: mais confiança quando o erro custa caro, mais poder quando perder um ganho real é inaceitável.</p>
       </div>
 
-      <h2 id="mde">Como escolher o efeito mínimo detectável</h2>
+      <h2 id="efeito-minimo">Como escolher o efeito mínimo detectável</h2>
       <p>O MDE é a decisão mais estratégica — e a que mais confunde. Ele responde: "qual é a menor melhoria que ainda vale a pena para o meu negócio?"</p>
       <p>Você pode informá-lo de duas formas:</p>
       <ul>
@@ -308,14 +308,14 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/" style="color:#fff">
+        <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
             <rect width="64" height="64" rx="14" fill="#2563eb"/>
             <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
             <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
             <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
           </svg>
-          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+          <span class="brand__name">Calculadora Estatística</span>
         </a>
         <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
       </div>
