@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estatística para Enfermagem: Guia Prático e Didático</title>
+<meta name="description" content="Guia de estatística para enfermagem: aprenda a interpretar valor-p, intervalo de confiança, risco relativo e NNT em artigos científicos e a aplicar a prática baseada em evidências.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/guias/estatistica-enfermagem.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Estatística para Enfermagem: Guia Prático e Didático">
+<meta property="og:description" content="Aprenda a interpretar estatística em artigos científicos de enfermagem: valor-p, intervalo de confiança, risco relativo, NNT e qual teste usar em cada situação.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/guias/estatistica-enfermagem.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Estatística para Enfermagem: Guia Prático e Didático",
+  "inLanguage": "pt-BR",
+  "url": "https://calculadoraestatistica.com.br/guias/estatistica-enfermagem.html",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "description": "Guia de estatística para enfermagem: como interpretar valor-p, intervalo de confiança, risco relativo e NNT em artigos científicos e aplicar a prática baseada em evidências.",
+  "author": {"@type": "Organization", "name": "Calculadora Estatística"},
+  "publisher": {"@type": "Organization", "name": "Calculadora Estatística"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Guias","item":"https://calculadoraestatistica.com.br/#guias"},
+    {"@type":"ListItem","position":3,"name":"Estatística para Enfermagem","item":"https://calculadoraestatistica.com.br/guias/estatistica-enfermagem.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Preciso saber estatística para trabalhar na enfermagem?","acceptedAnswer":{"@type":"Answer","text":"Sim, no nível de interpretação. Você não precisa calcular testes à mão, mas precisa entender valor-p, intervalo de confiança e medidas de efeito para ler artigos científicos, fundamentar a prática baseada em evidências e produzir TCC, monografias e trabalhos de pós-graduação."}},
+    {"@type":"Question","name":"O que significa p<0,05 em um artigo de enfermagem?","acceptedAnswer":{"@type":"Answer","text":"Significa que, se não existisse diferença real entre os grupos, a probabilidade de observar uma diferença tão grande quanto a do estudo seria menor que 5%. Indica significância estatística, mas não mede o tamanho do efeito nem garante relevância clínica."}},
+    {"@type":"Question","name":"Qual é a diferença entre risco relativo e razão de chances?","acceptedAnswer":{"@type":"Answer","text":"O risco relativo (RR) compara a probabilidade de um desfecho entre dois grupos e é usado em ensaios clínicos e coortes. A razão de chances (odds ratio) compara chances, não probabilidades, e é típica de estudos caso-controle. Quando o desfecho é raro, os dois valores ficam próximos."}},
+    {"@type":"Question","name":"O que é o número necessário para tratar (NNT)?","acceptedAnswer":{"@type":"Answer","text":"O NNT é quantos pacientes precisam receber uma intervenção para evitar um desfecho ruim a mais em comparação ao grupo controle. É o inverso da redução absoluta de risco. Quanto menor o NNT, mais eficiente é a intervenção."}},
+    {"@type":"Question","name":"Qual teste estatístico devo usar na minha pesquisa de enfermagem?","acceptedAnswer":{"@type":"Answer","text":"Depende do tipo de dado. Para comparar médias entre dois grupos (dor, pressão, tempo de internação), use o teste t. Para comparar proporções ou taxas (taxa de infecção, adesão), use o teste de proporção. Para estimar uma média ou prevalência, use o intervalo de confiança."}},
+    {"@type":"Question","name":"Um resultado não significativo prova que o tratamento não funciona?","acceptedAnswer":{"@type":"Answer","text":"Não. Ausência de significância estatística não é prova de ausência de efeito. Em geral indica que a amostra foi pequena demais para detectar a diferença. Avalie o intervalo de confiança e o tamanho da amostra antes de concluir que não há efeito."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/#guias">Guias</a></li>
+          <li>Estatística para Enfermagem</li>
+        </ol>
+      </nav>
+      <h1>Estatística para Enfermagem</h1>
+      <p class="lead">Um guia prático para <strong>ler artigos científicos com segurança</strong>, entender valor-p, intervalo de confiança e medidas de efeito, e aplicar a estatística no dia a dia da prática baseada em evidências.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#por-que">Por que enfermagem precisa de estatística</a></li>
+          <li><a href="#conceitos">Os conceitos que mais aparecem nos artigos</a></li>
+          <li><a href="#valor-p">Como ler o valor-p sem cair em armadilhas</a></li>
+          <li><a href="#intervalo">Intervalo de confiança: o número mais informativo</a></li>
+          <li><a href="#efeito">Medidas de efeito: RR, odds ratio, RRA e NNT</a></li>
+          <li><a href="#estudos">Tipos de estudo e nível de evidência</a></li>
+          <li><a href="#qual-teste">Qual teste usar em cada situação</a></li>
+          <li><a href="#erros">Erros comuns ao interpretar estatística</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="por-que">Por que enfermagem precisa de estatística</h2>
+      <p>A enfermagem moderna é uma profissão baseada em evidências. Isso significa que as decisões de cuidado — qual curativo usar, com que frequência mudar o paciente de decúbito, como orientar a adesão a um tratamento — devem se apoiar em pesquisa de boa qualidade, e não apenas na tradição ou na intuição. E pesquisa de boa qualidade vem quase sempre embalada em <strong>números</strong>: porcentagens, médias, valores-p e intervalos de confiança.</p>
+      <p>Você não precisa virar estatístico. O objetivo deste guia é diferente e mais útil: capacitar você a <strong>interpretar</strong> a estatística que encontra, sem decorar fórmulas. Na prática, isso aparece em quatro frentes do cotidiano do enfermeiro:</p>
+      <ul>
+        <li><strong>Ler artigos científicos.</strong> Diretrizes, protocolos institucionais e revisões trazem resultados estatísticos. Entender o que eles dizem — e o que não dizem — é o que separa aplicar uma evidência de repetir um boato.</li>
+        <li><strong>Prática baseada em evidências.</strong> Avaliar criticamente um estudo antes de mudar uma conduta exige saber distinguir um efeito real de um achado frágil.</li>
+        <li><strong>TCC, monografia e pós-graduação.</strong> Trabalhos de conclusão, especializações e mestrados profissionais quase sempre envolvem coletar dados e analisá-los. Saber escolher o teste certo evita retrabalho e bancas difíceis.</li>
+        <li><strong>Indicadores assistenciais.</strong> Taxa de infecção hospitalar, incidência de lesão por pressão, taxa de queda, tempo médio de internação — todo serviço de enfermagem monitora indicadores, e interpretá-los corretamente orienta a melhoria contínua.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          A meta deste guia
+        </div>
+        <p>Ao final, você deve ser capaz de abrir um artigo de enfermagem, encontrar o valor-p e o intervalo de confiança, dizer com suas palavras o que eles significam e julgar se o resultado é forte o bastante para mudar uma conduta.</p>
+      </div>
+
+      <h2 id="conceitos">Os conceitos que mais aparecem nos artigos</h2>
+      <p>Antes de interpretar resultados, vale fixar cinco conceitos. Eles aparecem em praticamente todo artigo quantitativo de enfermagem.</p>
+      <p><strong>População e amostra.</strong> A <em>população</em> é o conjunto completo de pessoas sobre quem você quer concluir algo — por exemplo, todos os pacientes internados em unidades de clínica médica do Brasil. Como é impossível estudar todo mundo, o pesquisador examina uma <em>amostra</em>: um subconjunto menor. Toda a estatística existe para responder a uma pergunta: o que vi nesta amostra também vale para a população?</p>
+      <p><strong>Variável.</strong> É qualquer característica que pode assumir valores diferentes entre os participantes. Variáveis <em>quantitativas</em> são numéricas (idade, pressão arterial, escore de dor, tempo de internação). Variáveis <em>qualitativas</em> ou categóricas representam categorias (sexo, presença ou ausência de infecção, tipo de curativo). Saber o tipo de variável é o primeiro passo para escolher o teste certo.</p>
+      <p><strong>Média e desvio padrão.</strong> A <em>média</em> é o valor típico de uma variável quantitativa — some todos os valores e divida pela quantidade. Mas a média sozinha esconde informação: dois grupos podem ter a mesma média de dor e níveis de sofrimento bem diferentes. Por isso vem acompanhada do <em>desvio padrão</em>, que mede o quanto os valores se espalham em torno da média. Desvio padrão pequeno significa grupo homogêneo; grande, grupo heterogêneo.</p>
+      <p><strong>Valor-p.</strong> É a probabilidade de observar um resultado tão extremo quanto o do estudo <em>se na realidade não houvesse efeito algum</em>. É a ferramenta que separa um achado real do acaso da amostragem. Voltaremos a ele em detalhe na próxima seção.</p>
+      <p><strong>Intervalo de confiança.</strong> Como a amostra é só uma parte da população, qualquer número que ela produz traz incerteza. O intervalo de confiança expressa essa incerteza: em vez de um único valor, ele oferece uma <em>faixa</em> de valores plausíveis para o resultado real na população.</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Em uma frase
+        </div>
+        <p>O estudo mede uma <strong>amostra</strong>; queremos concluir sobre a <strong>população</strong>. O <strong>valor-p</strong> diz se o achado é forte o bastante para não ser acaso, e o <strong>intervalo de confiança</strong> diz o tamanho provável desse achado na população real.</p>
+      </div>
+
+      <h2 id="valor-p">Como ler o valor-p sem cair em armadilhas</h2>
+      <p>O valor-p é, ao mesmo tempo, o número mais citado e o mais mal interpretado da literatura em saúde. Vale entender exatamente o que ele responde. Imagine um estudo que compara dois protocolos de prevenção de infecção. O valor-p responde à pergunta: <em>"Se os dois protocolos fossem na verdade igualmente eficazes, qual seria a probabilidade de eu observar, só por sorte da amostragem, uma diferença tão grande quanto a que medi?"</em></p>
+      <p>Um valor-p pequeno significa que o resultado observado seria muito improvável num mundo sem diferença real — logo, é mais plausível que a diferença exista. O limite convencional é 0,05 (5%):</p>
+      <ul>
+        <li><strong>p &lt; 0,05</strong> → diferença <strong>estatisticamente significativa</strong>. Há evidência de um efeito real.</li>
+        <li><strong>p ≥ 0,05</strong> → diferença <strong>não significativa</strong>. Não há evidência suficiente para afirmar que existe efeito.</li>
+      </ul>
+      <p>Até aqui, tudo simples. O problema mora no que o valor-p <em>não</em> é. Esta é a parte que mais derruba leitores de artigos e bancas de TCC:</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O que o valor-p NÃO significa
+        </div>
+        <p>O valor-p <strong>não</strong> é a probabilidade de a hipótese estar certa ou errada. Um p de 0,03 <strong>não</strong> quer dizer "97% de chance de o tratamento funcionar". Ele também <strong>não</strong> mede o tamanho do efeito: um p minúsculo pode acompanhar uma diferença clínica irrelevante. E "p ≥ 0,05" <strong>não</strong> prova que os grupos são iguais — costuma significar apenas que a amostra foi pequena demais para detectar a diferença.</p>
+      </div>
+      <p>A armadilha mais importante para a enfermagem é a confusão entre <strong>significância estatística</strong> e <strong>relevância clínica</strong>. Significância estatística responde "a diferença é real?". Relevância clínica responde "a diferença importa para o paciente?". São perguntas diferentes.</p>
+      <p>Um exemplo: um estudo com 9.000 pacientes encontra que um novo protocolo reduz o tempo de internação em 1,5 hora, com p = 0,001. A diferença é estatisticamente significativa, sem dúvida. Mas 1,5 hora em uma internação de vários dias talvez não justifique treinar toda a equipe e mudar a rotina. Com amostras grandes, diferenças minúsculas e sem importância prática viram "significativas" com facilidade. Por isso, depois de olhar o valor-p, sempre pergunte: <em>qual é o tamanho do efeito, e ele muda a vida do paciente?</em></p>
+
+      <h2 id="intervalo">Intervalo de confiança: o número mais informativo</h2>
+      <p>Se você só pudesse olhar um número em um artigo clínico, deveria escolher o <strong>intervalo de confiança</strong> (IC), e não o valor-p. A razão é simples: o valor-p dá uma resposta de "sim ou não", enquanto o intervalo de confiança mostra o <em>tamanho</em> provável do efeito e o quanto de incerteza ele carrega.</p>
+      <p>Um IC de 95% é a forma mais comum. A leitura prática é: "os métodos do estudo produzem, na grande maioria das vezes, uma faixa que contém o verdadeiro valor da população". Quanto mais <em>estreito</em> o intervalo, mais precisa é a estimativa; quanto mais <em>largo</em>, mais incerta — em geral por causa de amostra pequena.</p>
+      <p>O intervalo de confiança traz, de graça, três informações que o valor-p sozinho não dá:</p>
+      <ul>
+        <li><strong>O tamanho do efeito.</strong> Um IC para a redução do tempo de internação de "12 a 36 horas" diz muito mais que um simples "p &lt; 0,05".</li>
+        <li><strong>A precisão do estudo.</strong> Um IC estreito (por exemplo, 24 a 28 horas) inspira mais confiança que um largo (2 a 50 horas), mesmo que ambos sejam significativos.</li>
+        <li><strong>A própria significância.</strong> Há um atalho: para uma <em>diferença</em> entre grupos, se o IC de 95% inclui o zero, o resultado não é significativo a 5%. Para uma <em>razão</em> (risco relativo, odds ratio), o número de "nenhum efeito" é o 1 — se o IC inclui o 1, não é significativo.</li>
+      </ul>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Dois estudos, mesmo valor-p
+        </div>
+        <p>Dois estudos relatam "p = 0,04" para a redução de quedas com um programa de orientação. O estudo 1 traz IC de 95% de 2% a 38% de redução; o estudo 2, de 18% a 22%. Os dois são significativos, mas o estudo 2 é muito mais útil: ele diz com precisão <em>quanto</em> esperar. O estudo 1 é compatível tanto com um efeito quase nulo quanto com um efeito grande.</p>
+      </div>
+      <p>Quando você mesmo for estimar uma média ou uma prevalência na sua pesquisa, pode calcular o IC diretamente na <a href="/intervalo-confianca.html">calculadora de intervalo de confiança</a>.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="efeito">Medidas de efeito: RR, odds ratio, RRA e NNT</h2>
+      <p>Artigos da área da saúde quase nunca se contentam com "houve diferença". Eles quantificam o efeito com medidas específicas. As quatro mais comuns na enfermagem aparecem abaixo. Para fixar, vamos usar um único exemplo: um estudo compara uma escova dental especial (grupo intervenção) com a escova comum (grupo controle) na prevenção de pneumonia associada à ventilação mecânica.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Grupo</th><th class="num">Pacientes</th><th class="num">Com pneumonia</th><th class="num">Risco</th></tr></thead>
+          <tbody>
+            <tr><td>Controle — escova comum</td><td class="num">200</td><td class="num">40</td><td class="num">20%</td></tr>
+            <tr><td>Intervenção — escova especial</td><td class="num">200</td><td class="num">24</td><td class="num">12%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A partir desses dois riscos — 20% no controle e 12% na intervenção — derivam-se todas as medidas de efeito:</p>
+      <ol class="steps">
+        <li><strong>Risco relativo (RR).</strong> É o risco do desfecho no grupo intervenção dividido pelo risco no grupo controle: RR = 12% ÷ 20% = 0,60. Interpretação: quem usou a escova especial teve 60% do risco do grupo controle, ou seja, uma redução de 40% no risco relativo. RR igual a 1 significa "nenhum efeito"; menor que 1, fator de proteção; maior que 1, fator de risco. É a medida típica de ensaios clínicos e coortes.</li>
+        <li><strong>Razão de chances (odds ratio, OR).</strong> Trabalha com <em>chances</em>, não com probabilidades. A chance no controle é 40÷160 = 0,25; na intervenção, 24÷176 ≈ 0,136. OR = 0,136 ÷ 0,25 ≈ 0,55. É a medida típica dos estudos caso-controle. Quando o desfecho é raro, a OR fica próxima do RR; quando o desfecho é comum, a OR exagera o efeito e deve ser lida com cuidado.</li>
+        <li><strong>Redução absoluta de risco (RRA).</strong> É a diferença direta entre os riscos: RRA = 20% − 12% = 8 pontos percentuais. Diferente do risco relativo, a RRA mostra o impacto real na população estudada. Uma redução relativa de 40% pode parecer enorme, mas se o risco de base fosse 1%, a redução absoluta seria de apenas 0,4 ponto.</li>
+        <li><strong>Número necessário para tratar (NNT).</strong> É o inverso da redução absoluta de risco: NNT = 1 ÷ 0,08 = 12,5, ou seja, 13 pacientes. Interpretação: é preciso usar a escova especial em 13 pacientes para evitar um caso de pneumonia que ocorreria com a escova comum. Quanto menor o NNT, mais eficiente a intervenção. O NNT traduz a estatística em uma linguagem direta de cuidado.</li>
+      </ol>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Risco relativo engana; risco absoluto e NNT esclarecem
+        </div>
+        <p>Manchetes e resumos adoram a redução relativa ("o risco caiu 40%!") porque o número soa impressionante. Mas o que importa para o paciente é a redução absoluta e o NNT. Sempre que ler "reduziu X% o risco", procure o risco de base e, se possível, o NNT — só assim você sabe se o efeito é grande de verdade.</p>
+      </div>
+
+      <h2 id="estudos">Tipos de estudo e nível de evidência</h2>
+      <p>Nem toda evidência tem o mesmo peso. O <em>delineamento</em> do estudo — como ele foi planejado — determina o quanto podemos confiar em suas conclusões, especialmente sobre causa e efeito. Conhecer os principais tipos ajuda você a calibrar o quanto levar a sério um artigo.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Tipo de estudo</th><th>Como funciona</th><th>Força da evidência</th></tr></thead>
+          <tbody>
+            <tr><td>Revisão sistemática e metanálise</td><td>Reúne e combina estatisticamente vários estudos sobre a mesma pergunta.</td><td>Muito alta</td></tr>
+            <tr><td>Ensaio clínico randomizado (ECR)</td><td>Sorteia os participantes entre intervenção e controle; é o padrão-ouro para testar tratamentos.</td><td>Alta</td></tr>
+            <tr><td>Coorte</td><td>Acompanha grupos expostos e não expostos ao longo do tempo para ver quem desenvolve o desfecho.</td><td>Moderada</td></tr>
+            <tr><td>Caso-controle</td><td>Parte de quem já tem o desfecho e olha para trás em busca de exposições passadas.</td><td>Moderada a baixa</td></tr>
+            <tr><td>Transversal (prevalência)</td><td>Mede exposição e desfecho num único momento; bom para descrever, fraco para causa e efeito.</td><td>Baixa</td></tr>
+            <tr><td>Relato e série de casos</td><td>Descreve um ou poucos pacientes; gera hipóteses, não conclusões.</td><td>Muito baixa</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A lógica dessa hierarquia é o <strong>controle de vieses</strong>. No ensaio clínico randomizado, o sorteio distribui de forma equilibrada características conhecidas e desconhecidas entre os grupos, o que permite atribuir a diferença à intervenção. Nos estudos observacionais — coorte, caso-controle, transversal — não há sorteio, então fatores de confusão podem mascarar ou inflar o efeito. Isso não os torna inúteis: muitas perguntas de enfermagem (cuidado, percepção, prevalência) não podem ser sorteadas e dependem de bons estudos observacionais. Só significa que a conclusão pede mais cautela.</p>
+
+      <h2 id="qual-teste">Qual teste usar em cada situação</h2>
+      <p>Quando chega a hora de analisar os seus próprios dados — no TCC, na especialização ou num projeto de melhoria do serviço —, a pergunta inevitável é "qual teste eu uso?". A resposta depende do que você está comparando. Três situações cobrem a maioria das pesquisas de enfermagem.</p>
+      <p><strong>Comparar médias de uma variável numérica entre dois grupos.</strong> Use o <a href="/teste-t.html">teste t de Student</a>. É o caso quando o desfecho é um número: escore de dor, pressão arterial, tempo de internação, nível de ansiedade, glicemia. Exemplo: a dor média após o curativo A é diferente da dor média após o curativo B?</p>
+      <p><strong>Comparar proporções ou taxas entre grupos.</strong> Use o <a href="/teste-proporcao.html">teste de proporção</a>. É o caso quando o desfecho é "sim ou não": teve infecção ou não, aderiu ao tratamento ou não, houve queda ou não. Exemplo: a taxa de infecção do sítio cirúrgico difere entre dois protocolos de antissepsia?</p>
+      <p><strong>Estimar uma única média ou prevalência.</strong> Use o <a href="/intervalo-confianca.html">intervalo de confiança</a>. É o caso quando você não compara grupos, apenas descreve: qual é o tempo médio de internação na unidade? Qual é a prevalência de lesão por pressão? O IC entrega o valor e a margem de incerteza.</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Exemplo resolvido: tempo de cicatrização entre dois curativos
+        </div>
+        <p>Uma enfermeira quer saber se um novo curativo de hidrocoloide cicatriza feridas mais rápido que o curativo convencional. Como o desfecho é numérico (dias até a cicatrização), o teste indicado é o teste t.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Definir a pergunta e a hipótese nula.</strong> Pergunta: o tempo médio de cicatrização difere entre os dois curativos? Hipótese nula: não há diferença — as médias dos dois grupos são iguais na população.</li>
+        <li><strong>Coletar os dados de cada grupo.</strong> Grupo convencional: 30 pacientes, tempo médio de 21 dias, desvio padrão de 5 dias. Grupo hidrocoloide: 30 pacientes, tempo médio de 17 dias, desvio padrão de 4 dias.</li>
+        <li><strong>Escolher o teste.</strong> Duas médias, dois grupos independentes, variável numérica → teste t para amostras independentes.</li>
+        <li><strong>Rodar o teste.</strong> Informe médias, desvios padrão e tamanhos de amostra na <a href="/teste-t.html">calculadora de teste t</a>. Ela devolve a estatística t, o valor-p e o intervalo de confiança da diferença.</li>
+        <li><strong>Interpretar.</strong> Suponha valor-p = 0,002 e IC de 95% da diferença de 1,5 a 6,5 dias. Como p &lt; 0,05, a diferença é estatisticamente significativa; como o intervalo não inclui o zero, ele confirma a significância. O hidrocoloide reduziu a cicatrização em algo entre 1,5 e 6,5 dias.</li>
+        <li><strong>Avaliar a relevância clínica.</strong> Uma redução de até 6,5 dias na cicatrização é clinicamente importante: menos tempo de tratamento, menos risco de infecção, menos custo. Aqui significância estatística e relevância clínica caminham juntas — e essa é a conclusão que sustenta uma mudança de protocolo.</li>
+      </ol>
+
+      <div class="recommend">
+        <div class="recommend__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Ferramentas para a sua pesquisa
+        </div>
+        <p>Para colocar este guia em prática no seu TCC, monografia ou projeto assistencial:</p>
+        <ul>
+          <li><a href="/teste-t.html">Calculadora de teste t</a> — compare médias de dor, pressão, tempo de internação e outros desfechos numéricos.</li>
+          <li><a href="/teste-proporcao.html">Calculadora de teste de proporção</a> — compare taxas de infecção, adesão e outros desfechos do tipo "sim ou não".</li>
+          <li><a href="/intervalo-confianca.html">Calculadora de intervalo de confiança</a> — estime uma média ou uma prevalência com a margem de incerteza.</li>
+          <li><a href="/tamanho-amostra.html">Calculadora de tamanho de amostra</a> — descubra de quantos participantes você precisa antes de iniciar a coleta.</li>
+        </ul>
+        <!-- MONETIZAÇÃO (afiliados): para recomendar cursos/livros, troque os itens acima
+             por links de parceiro (ex.: Hotmart, Amazon) neste formato:
+             <li><a href="SEU_LINK_DE_AFILIADO" rel="sponsored nofollow" target="_blank">Nome do curso/livro</a> — descrição curta.</li>
+             Mantenha a linha de aviso abaixo sempre que houver links pagos. -->
+        <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
+      </div>
+
+      <h2 id="erros">Erros comuns ao interpretar estatística</h2>
+      <p>Mesmo profissionais experientes tropeçam nas mesmas armadilhas ao ler ou produzir estatística. Conhecê-las de antemão protege a sua leitura crítica e o seu trabalho acadêmico:</p>
+      <ol>
+        <li><strong>Confundir significância estatística com relevância clínica.</strong> O erro número um. Um p minúsculo não garante que o efeito importe para o paciente. Sempre verifique o tamanho do efeito.</li>
+        <li><strong>Achar que "p ≥ 0,05" prova ausência de efeito.</strong> Resultado não significativo costuma significar amostra pequena demais, não "tratamentos iguais". Ausência de evidência não é evidência de ausência.</li>
+        <li><strong>Olhar só a redução relativa.</strong> "Reduziu 50% o risco" impressiona, mas pode esconder uma redução absoluta minúscula se o risco de base for baixo. Procure sempre a RRA e o NNT.</li>
+        <li><strong>Tratar correlação como causa.</strong> Dois fenômenos andarem juntos não prova que um cause o outro. Só delineamentos como o ensaio randomizado sustentam afirmações fortes de causa e efeito.</li>
+        <li><strong>Ignorar o tamanho e a representatividade da amostra.</strong> Um estudo com 18 pacientes de um único hospital dificilmente fala pela população. Amostra pequena gera intervalos de confiança largos e conclusões frágeis.</li>
+        <li><strong>Generalizar além da população estudada.</strong> Um resultado obtido em idosos internados em UTI não vale automaticamente para gestantes na atenção básica. Confira se a amostra do estudo se parece com os seus pacientes.</li>
+        <li><strong>Escolher o teste errado para o tipo de variável.</strong> Aplicar teste de média a dados categóricos — ou o contrário — invalida a análise. Defina primeiro se a variável é numérica ou categórica.</li>
+      </ol>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Preciso saber estatística para trabalhar na enfermagem?</summary>
+          <div class="faq__answer"><p>No nível de interpretação, sim. Você não precisa calcular testes à mão, mas precisa entender valor-p, intervalo de confiança e medidas de efeito para ler artigos científicos com senso crítico, sustentar a prática baseada em evidências e produzir TCC, monografias e trabalhos de pós-graduação.</p></div>
+        </details>
+        <details>
+          <summary>O que significa p&lt;0,05 em um artigo de enfermagem?</summary>
+          <div class="faq__answer"><p>Significa que, se não existisse diferença real entre os grupos, a probabilidade de observar uma diferença tão grande quanto a do estudo seria menor que 5%. Indica significância estatística — mas não mede o tamanho do efeito nem garante que ele seja clinicamente relevante.</p></div>
+        </details>
+        <details>
+          <summary>Qual é a diferença entre risco relativo e razão de chances?</summary>
+          <div class="faq__answer"><p>O risco relativo (RR) compara probabilidades de um desfecho entre dois grupos e é usado em ensaios clínicos e coortes. A razão de chances (odds ratio) compara chances, não probabilidades, e é típica de estudos caso-controle. Quando o desfecho é raro, os dois valores ficam próximos; quando é comum, a odds ratio exagera o efeito.</p></div>
+        </details>
+        <details>
+          <summary>O que é o número necessário para tratar (NNT)?</summary>
+          <div class="faq__answer"><p>É quantos pacientes precisam receber uma intervenção para evitar um desfecho ruim a mais em comparação ao grupo controle. Matematicamente, é o inverso da redução absoluta de risco. Quanto menor o NNT, mais eficiente é a intervenção — um NNT de 10 é melhor que um de 50.</p></div>
+        </details>
+        <details>
+          <summary>Qual teste estatístico devo usar na minha pesquisa?</summary>
+          <div class="faq__answer"><p>Depende do tipo de dado. Para comparar médias de uma variável numérica entre dois grupos (dor, pressão, tempo de internação), use o <a href="/teste-t.html">teste t</a>. Para comparar proporções ou taxas (infecção, adesão), use o <a href="/teste-proporcao.html">teste de proporção</a>. Para estimar uma média ou prevalência, use o <a href="/intervalo-confianca.html">intervalo de confiança</a>.</p></div>
+        </details>
+        <details>
+          <summary>Um resultado não significativo prova que o tratamento não funciona?</summary>
+          <div class="faq__answer"><p>Não. Ausência de significância estatística não é prova de ausência de efeito. Na maioria das vezes indica que a amostra foi pequena demais para detectar a diferença. Avalie o intervalo de confiança e o tamanho da amostra antes de concluir que não há efeito algum.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Compare médias de dor, pressão ou tempo de internação entre dois grupos.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare taxas de infecção, adesão e outros desfechos do tipo sim ou não.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Estime uma média ou uma prevalência com a margem de incerteza.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Coloque a estatística a serviço do cuidado</h2>
+        <p>Da leitura crítica de um artigo ao seu TCC: use as calculadoras gratuitas e em português para analisar dados de enfermagem com segurança.</p>
+        <a class="btn btn--light btn--lg" href="/teste-t.html">Abrir a calculadora de teste t</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

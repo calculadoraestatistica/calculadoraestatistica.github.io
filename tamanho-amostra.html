@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Tamanho de Amostra para Pesquisa — Grátis</title>
+<meta name="description" content="Descubra quantas pessoas entrevistar na sua pesquisa para uma margem de erro desejada. Calculadora de tamanho de amostra grátis, em português, com nível de confiança e correção para população finita.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/tamanho-amostra.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Tamanho de Amostra para Pesquisa">
+<meta property="og:description" content="Descubra quantas pessoas entrevistar na sua pesquisa para atingir a margem de erro que você quer.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/tamanho-amostra.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Tamanho de Amostra para Pesquisa",
+  "url": "https://calculadoraestatistica.com.br/tamanho-amostra.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de tamanho de amostra para pesquisas e questionários."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Tamanho de Amostra","item":"https://calculadoraestatistica.com.br/tamanho-amostra.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quantas pessoas preciso entrevistar numa pesquisa?","acceptedAnswer":{"@type":"Answer","text":"Depende da margem de erro e do nível de confiança que você quer. Para uma margem de 5% a 95% de confiança, são necessárias cerca de 385 respostas — independentemente do tamanho da população, desde que ela seja grande."}},
+    {"@type":"Question","name":"O que é margem de erro numa pesquisa?","acceptedAnswer":{"@type":"Answer","text":"É o intervalo de incerteza em torno do resultado. Uma margem de 3% significa que, se 60% responderam sim, o valor real está provavelmente entre 57% e 63%. Quanto menor a margem, maior a amostra necessária."}},
+    {"@type":"Question","name":"Por que usar 50% como proporção esperada?","acceptedAnswer":{"@type":"Answer","text":"Porque 50% é o cenário mais conservador: é a proporção que exige a maior amostra. Se você não sabe que percentual esperar nas respostas, usar 50% garante que a amostra será suficiente em qualquer caso."}},
+    {"@type":"Question","name":"O tamanho da população influencia a amostra?","acceptedAnswer":{"@type":"Answer","text":"Pouco, quando a população é grande. A amostra necessária quase não muda entre uma população de 100 mil e uma de 10 milhões. A correção para população finita só faz diferença real em populações pequenas, abaixo de alguns milhares."}},
+    {"@type":"Question","name":"Qual a diferença entre amostra de pesquisa e de teste A/B?","acceptedAnswer":{"@type":"Answer","text":"A amostra de pesquisa estima uma proporção com uma margem de erro. A amostra de teste A/B compara duas proporções e depende do efeito mínimo detectável e do poder estatístico. São fórmulas e calculadoras diferentes."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Tamanho de Amostra</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Tamanho de Amostra</h1>
+      <p class="lead">Descubra <strong>quantas pessoas entrevistar</strong> na sua pesquisa para chegar à margem de erro que você precisa — antes de aplicar o primeiro questionário.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="ta-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11H3v10h6V11z"/><path d="M15 3H9v18h6V3z"/><path d="M21 7h-6v14h6V7z"/></svg>
+        Calcular tamanho da amostra
+      </h2>
+      <p class="calculator__hint">Informe a margem de erro que você aceita e o nível de confiança desejado. A calculadora devolve quantas respostas a pesquisa precisa.</p>
+
+      <fieldset class="field-group">
+        <legend>Parâmetros da pesquisa</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="ta-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="ta-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="ta-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ta-margin">Margem de erro</label>
+            <div class="input-affix">
+              <input class="input" type="text" inputmode="decimal" id="ta-margin" placeholder="Ex.: 5" autocomplete="off">
+              <span class="input-affix__unit">%</span>
+            </div>
+            <span class="help">A incerteza que você aceita no resultado, para mais ou para menos.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Ajustes (opcionais)</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="ta-prop">Proporção esperada</label>
+            <div class="input-affix">
+              <input class="input" type="text" inputmode="decimal" id="ta-prop" placeholder="Ex.: 50" autocomplete="off">
+              <span class="input-affix__unit">%</span>
+            </div>
+            <span class="help">Deixe 50% se não souber — é o cenário mais conservador.</span>
+          </div>
+          <div class="field">
+            <label for="ta-pop">Tamanho da população</label>
+            <input class="input" type="text" inputmode="numeric" id="ta-pop" placeholder="Ex.: 20000" autocomplete="off">
+            <span class="help">Deixe em branco se a população for muito grande ou desconhecida.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="ta-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular tamanho de amostra</button>
+        <a class="btn btn--ghost" href="#" id="ta-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="ta-result" hidden aria-live="polite"></section>
+    </form>
+
+    <p class="muted" style="font-size:.92rem">Vai comparar duas versões em vez de estimar uma proporção? Use a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a>.</p>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é tamanho de amostra</a></li>
+          <li><a href="#como">Como a calculadora funciona</a></li>
+          <li><a href="#margem">Margem de erro e nível de confiança</a></li>
+          <li><a href="#proporcao">Por que usar 50% quando não se sabe a proporção</a></li>
+          <li><a href="#populacao">Correção para população finita</a></li>
+          <li><a href="#ab">Amostra de pesquisa x amostra de teste A/B</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é tamanho de amostra</h2>
+      <p>Sempre que você quer conhecer a opinião de um grupo grande de pessoas — os clientes de uma empresa, os eleitores de uma cidade, os moradores de um bairro — é inviável perguntar a todo mundo. Em vez disso, você entrevista uma parte: a <strong>amostra</strong>. O <strong>tamanho de amostra</strong> é simplesmente o número de pessoas que você precisa ouvir para que o resultado da amostra represente bem o todo.</p>
+      <p>O ponto central — e que costuma surpreender — é que esse número não depende do tamanho da população. Uma pesquisa de opinião que entrevista cerca de 1.100 pessoas tem praticamente a mesma precisão para uma cidade de 200 mil habitantes e para um país inteiro. O que define a amostra é a <strong>precisão que você quer</strong>, não o tamanho do universo pesquisado.</p>
+      <p>Calcular a amostra <em>antes</em> de aplicar o questionário evita os dois erros clássicos. Entrevistar gente de menos produz um resultado com margem de erro larga demais para ser útil. Entrevistar gente demais desperdiça tempo e dinheiro com uma precisão que ninguém vai usar. Esta calculadora encontra o número certo: o menor tamanho de amostra que atinge a precisão desejada.</p>
+
+      <h2 id="como">Como a calculadora funciona</h2>
+      <p>A calculadora estima quantas respostas você precisa para medir uma <strong>proporção</strong> — o percentual de pessoas que escolhem determinada resposta — com a margem de erro e a confiança que você definir. A fórmula clássica para uma população grande é:</p>
+      <div class="formula">n = z² · p · (1 − p) ÷ E²
+        <span class="formula__where">n é o tamanho da amostra; z vem do nível de confiança; p é a proporção esperada; E é a margem de erro (ambos como proporção, de 0 a 1).</span>
+      </div>
+      <p>Cada ingrediente tem um papel claro. Mexa em qualquer um e o número muda:</p>
+      <ul>
+        <li><strong>Nível de confiança</strong> — define o valor de z. A 95% de confiança, z ≈ 1,96; a 99%, z ≈ 2,58. Mais confiança exige amostra maior.</li>
+        <li><strong>Margem de erro (E)</strong> — entra ao quadrado no denominador. Reduzir a margem pela metade <strong>quadruplica</strong> a amostra.</li>
+        <li><strong>Proporção esperada (p)</strong> — o termo p·(1−p) é máximo em p = 0,5. Sem informação prévia, usa-se 50% por segurança.</li>
+      </ul>
+      <p>Se você informar o <strong>tamanho da população</strong>, a calculadora ainda aplica a correção para população finita, que reduz o número quando o universo é pequeno. Os detalhes estão nas seções abaixo.</p>
+
+      <h2 id="margem">Margem de erro e nível de confiança</h2>
+      <p>Esses dois conceitos andam juntos e definem a precisão da pesquisa. É comum confundi-los, mas eles respondem a perguntas diferentes.</p>
+      <p>A <strong>margem de erro</strong> é o tamanho da faixa de incerteza em torno do resultado. Se uma pesquisa aponta que 60% dos clientes estão satisfeitos, com margem de erro de 3%, o valor real está provavelmente entre <strong>57% e 63%</strong>. Quanto menor a margem que você exige, mais gente precisa entrevistar.</p>
+      <p>O <strong>nível de confiança</strong> diz com que frequência esse intervalo acerta. Uma confiança de 95% significa que, se a mesma pesquisa fosse repetida muitas vezes, em 95% delas o intervalo conteria o valor verdadeiro. É o padrão da maioria das pesquisas de opinião e mercado.</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Comece pela margem de erro
+        </div>
+        <p>A pergunta prática é: "que faixa de incerteza eu aceito no resultado?". Pesquisas de mercado costumam trabalhar com 5%; estudos que exigem mais precisão usam 3% ou até 2% — ao custo de uma amostra bem maior. Mantenha 95% de confiança, salvo um motivo claro para mudar.</p>
+      </div>
+
+      <h2 id="proporcao">Por que usar 50% quando não se sabe a proporção</h2>
+      <p>A fórmula precisa de uma estimativa da proporção esperada, p — o percentual de pessoas que você imagina que vão dar determinada resposta. Mas há um problema circular: muitas vezes esse percentual é justamente o que a pesquisa quer descobrir. Como informar p antes de coletar os dados?</p>
+      <p>A resposta está no termo <strong>p · (1 − p)</strong>, que mede a variabilidade das respostas. Esse produto atinge o valor máximo exatamente quando p = 0,5 (50%):</p>
+      <ul>
+        <li>p = 0,5 → p·(1−p) = 0,25 — variabilidade <strong>máxima</strong></li>
+        <li>p = 0,3 → p·(1−p) = 0,21</li>
+        <li>p = 0,1 → p·(1−p) = 0,09 — variabilidade pequena</li>
+      </ul>
+      <p>Como esse termo aparece no numerador, usar 50% gera a <strong>maior amostra possível</strong>. É o cenário mais conservador: se você dimensionar a pesquisa para p = 50% e a proporção real for outra qualquer, a margem de erro só vai ficar <em>melhor</em> do que a planejada, nunca pior.</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Quando vale informar p
+        </div>
+        <p>Se uma pesquisa anterior ou um estudo-piloto já indicou um valor — digamos, que só 15% dos clientes usam um recurso —, informar p = 15% reduz bastante a amostra necessária. Use essa opção apenas quando tiver uma estimativa confiável; na dúvida, deixe 50%.</p>
+      </div>
+
+      <h2 id="populacao">Correção para população finita</h2>
+      <p>A fórmula básica supõe uma população "infinita" — grande o bastante para que entrevistar algumas centenas de pessoas não faça diferença no total. Para a maioria das pesquisas isso vale: a amostra necessária é quase idêntica para um universo de 100 mil ou de 10 milhões.</p>
+      <p>Mas quando a população é <strong>pequena</strong>, entra a <strong>correção para população finita</strong>. A ideia é intuitiva: se a sua empresa tem só 300 funcionários, não faz sentido calcular uma amostra de 385 — você ajusta o número para baixo. A correção é:</p>
+      <div class="formula">n = n₀ ÷ [ 1 + (n₀ − 1) ÷ N ]
+        <span class="formula__where">n₀ é a amostra da fórmula básica e N é o tamanho da população.</span>
+      </div>
+      <p>Veja o efeito para uma margem de 5% a 95% de confiança, em que n₀ ≈ 385:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>População (N)</th><th class="num">Amostra ajustada</th></tr></thead>
+          <tbody>
+            <tr><td>500</td><td class="num">218</td></tr>
+            <tr><td>2.000</td><td class="num">323</td></tr>
+            <tr><td>10.000</td><td class="num">370</td></tr>
+            <tr><td>100.000 ou mais</td><td class="num">≈ 385</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A correção quase não muda nada para populações grandes, mas economiza muitas entrevistas em grupos pequenos. Por isso o campo é opcional: preencha-o só quando o universo for limitado e conhecido.</p>
+
+      <h2 id="ab">Amostra de pesquisa x amostra de teste A/B</h2>
+      <p>Esta calculadora resolve <strong>quantas pessoas entrevistar numa pesquisa</strong> — um questionário, uma enquete, uma pesquisa de satisfação. O objetivo é <em>estimar uma proporção</em> (quantos % pensam X) com uma margem de erro definida.</p>
+      <p>É um problema diferente do <strong>tamanho de amostra para teste A/B</strong>. Num teste A/B você não estima um número, você <em>compara duas versões</em> — página A contra página B — para ver qual converte mais. Esse cálculo depende de outros ingredientes: a taxa de conversão atual, o efeito mínimo detectável e o poder estatístico. A fórmula é outra e o resultado, também.</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Qual usar
+        </div>
+        <p>Vai aplicar um questionário e medir um percentual? É esta calculadora. Vai comparar duas variantes e medir qual tem desempenho melhor? Use a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a>.</p>
+      </div>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma empresa quer fazer uma pesquisa de satisfação com seus clientes — uma base grande, de centenas de milhares de pessoas. Ela aceita uma <strong>margem de erro de 5%</strong>, quer <strong>95% de confiança</strong> e não tem ideia de qual percentual vai se dizer satisfeito, então usa a proporção conservadora de <strong>50%</strong>.</p>
+      <ol class="steps">
+        <li>Converter para proporções: margem E = 0,05; proporção p = 0,50.</li>
+        <li>Nível de confiança 95% → z ≈ 1,96.</li>
+        <li>Aplicar a fórmula: n = 1,96² × 0,5 × 0,5 ÷ 0,05² = 0,9604 ÷ 0,0025.</li>
+        <li>Resultado: n ≈ 384,16, que se arredonda para cima → <strong>385 respostas</strong>.</li>
+      </ol>
+      <p>A empresa precisa de <strong>385 respostas válidas</strong>. Como a base de clientes é enorme, a correção para população finita não muda esse número. Se a base tivesse, digamos, 2.000 clientes, a amostra cairia para cerca de 323. Use o botão <em>"Preencher com exemplo"</em> para ver esse cálculo na calculadora.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Conte com a taxa de resposta
+        </div>
+        <p>O número da calculadora é de respostas <strong>válidas</strong>, não de convites enviados. Se você espera que apenas 1 em cada 4 pessoas responda, precisa convidar cerca de quatro vezes mais gente para chegar às 385 respostas.</p>
+      </div>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Quantas pessoas preciso entrevistar numa pesquisa?</summary>
+          <div class="faq__answer"><p>Depende da margem de erro e da confiança desejadas, não do tamanho da população. Para uma margem de 5% a 95% de confiança, são cerca de 385 respostas. Para 3% de margem, o número sobe para aproximadamente 1.067.</p></div>
+        </details>
+        <details>
+          <summary>O que é margem de erro?</summary>
+          <div class="faq__answer"><p>É a faixa de incerteza em torno do resultado. Com margem de 3%, um resultado de 60% significa que o valor real está provavelmente entre 57% e 63%. Quanto menor a margem exigida, maior a amostra necessária.</p></div>
+        </details>
+        <details>
+          <summary>Por que a calculadora usa 50% como proporção esperada?</summary>
+          <div class="faq__answer"><p>Porque o termo p·(1−p) da fórmula é máximo em 50%, o que gera a maior amostra possível. É o cenário mais conservador: se a proporção real for outra, a margem de erro só fica melhor do que a planejada.</p></div>
+        </details>
+        <details>
+          <summary>O tamanho da população importa?</summary>
+          <div class="faq__answer"><p>Pouco, quando a população é grande — a amostra é quase a mesma para 100 mil ou 10 milhões de pessoas. A correção para população finita só reduz a amostra de forma relevante em universos pequenos, de alguns milhares ou menos.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre esta calculadora e a de teste A/B?</summary>
+          <div class="faq__answer"><p>Esta estima uma proporção com uma margem de erro (quantas pessoas entrevistar). A de <a href="/tamanho-amostra-ab.html">teste A/B</a> compara duas versões e depende do efeito mínimo detectável e do poder estatístico. São fórmulas diferentes para objetivos diferentes.</p></div>
+        </details>
+        <details>
+          <summary>Preciso de uma amostra maior se a confiança for 99%?</summary>
+          <div class="faq__answer"><p>Sim. Subir de 95% para 99% de confiança aumenta o valor de z de 1,96 para 2,58 e eleva a amostra em cerca de 73%. Use 99% apenas quando errar tiver um custo alto; 95% é o padrão para a maioria das pesquisas.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/tamanho-amostra-ab.html"><h3>Amostra de Teste A/B</h3><p>Para comparar duas versões, não para estimar uma proporção.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Coletou os dados? Calcule a margem de erro do seu resultado.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare uma proporção com um valor de referência.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Pesquisa pronta, hora de analisar</h2>
+        <p>Depois de coletar as respostas, calcule a margem de erro real do seu resultado.</p>
+        <a class="btn btn--light btn--lg" href="/intervalo-confianca.html">Abrir a Calculadora de Intervalo de Confiança</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('ta-form'), result = $('ta-result'), errBox = $('ta-error');
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('ta-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    $('ta-margin').value = '5';
+    $('ta-prop').value = '50';
+    $('ta-pop').value = '';
+    document.querySelector('input[name="ta-conf"][value="0.95"]').checked = true;
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var conf = parseFloat(Fmt.radio('ta-conf'));
+
+    var marginPct = parseNum($('ta-margin').value);
+    if (isNaN(marginPct)) {
+      showError('Preencha a margem de erro desejada.');
+      return;
+    }
+    if (marginPct <= 0 || marginPct >= 100) {
+      showError('A margem de erro deve estar entre 0% e 100%.');
+      return;
+    }
+    var margin = marginPct / 100;
+
+    var propPct = parseNum($('ta-prop').value);
+    if (isNaN(propPct)) propPct = 50;
+    if (propPct < 0 || propPct > 100) {
+      showError('A proporção esperada deve estar entre 0% e 100%.');
+      return;
+    }
+    var proportion = propPct / 100;
+
+    var pop = parseNum($('ta-pop').value);
+    var opts = { confidence: conf, marginError: margin, proportion: proportion };
+    var hasPop = !isNaN(pop);
+    if (hasPop) {
+      if (pop <= 0) {
+        showError('O tamanho da população deve ser maior que zero.');
+        return;
+      }
+      opts.population = pop;
+    }
+
+    var r = Stats.surveySampleSize(opts);
+    if (r.error) { showError(r.error); return; }
+    render(r, conf, margin, proportion, hasPop ? pop : null);
+  }
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>';
+
+  function metric(label, value, cls, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value' + (cls ? ' ' + cls : '') + '">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, conf, margin, proportion, pop) {
+    var metrics =
+      metric('Amostra necessária', Fmt.int(r.n), 'is-pos', 'respostas válidas') +
+      metric('Nível de confiança', Fmt.pct(conf, 0)) +
+      metric('Margem de erro', Fmt.pct(margin, 1), '', 'para mais ou para menos');
+
+    if (pop != null) {
+      metrics += metric('Sem a correção', Fmt.int(r.nInfinite), '',
+        'amostra para população grande');
+    }
+
+    var interp =
+      '<p>Para estimar uma proporção com <strong>' + Fmt.pct(margin, 1) +
+      ' de margem de erro</strong> e <strong>' + Fmt.pct(conf, 0) +
+      ' de confiança</strong>, a sua pesquisa precisa de <strong>' + Fmt.int(r.n) +
+      ' respostas válidas</strong>. O cálculo usa uma proporção esperada de ' +
+      Fmt.pct(proportion, 0) +
+      (proportion === 0.5 ? ' — o cenário mais conservador, que exige a maior amostra' : '') +
+      '.</p>';
+
+    if (pop != null) {
+      interp += '<p>Como você informou uma população de <strong>' + Fmt.int(pop) +
+        ' pessoas</strong>, a calculadora aplicou a correção para população finita. ' +
+        'Sem essa correção, a fórmula pediria ' + Fmt.int(r.nInfinite) +
+        ' respostas; por se tratar de uma população limitada, o número necessário cai para ' +
+        Fmt.int(r.n) + '.</p>';
+    } else {
+      interp += '<p>Esse número vale para uma população grande ou desconhecida. ' +
+        'Se o seu universo for pequeno e conhecido, informe o tamanho da população ' +
+        'para aplicar a correção e, possivelmente, reduzir a amostra.</p>';
+    }
+
+    interp += '<p>Lembre-se de que esse total é de respostas <strong>válidas</strong>. ' +
+      'Considere a taxa de resposta esperada e convide pessoas suficientes para alcançá-lo.</p>';
+
+    result.className = 'result result--neutral';
+    result.innerHTML =
+      '<div class="result__banner">' + ICON +
+        '<div><div class="result__headline">Tamanho de amostra recomendado</div>' +
+        '<div class="result__sub">Este é o número de respostas que a sua pesquisa precisa coletar.</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

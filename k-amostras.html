@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de ANOVA e k Amostras — Online e Grátis</title>
+<meta name="description" content="Calculadora de ANOVA grátis e em português para comparar três ou mais grupos. Faça a ANOVA de uma via (paramétrica) ou o teste de Kruskal-Wallis (não-paramétrico): estatística, graus de liberdade, valor-p e tamanho do efeito.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/k-amostras.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de ANOVA e k Amostras">
+<meta property="og:description" content="Compare três ou mais grupos com a ANOVA de uma via ou o teste de Kruskal-Wallis. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/k-amostras.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de ANOVA e k Amostras",
+  "url": "https://calculadoraestatistica.com.br/k-amostras.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de ANOVA de uma via e do teste de Kruskal-Wallis para comparar três ou mais grupos."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de ANOVA e k Amostras","item":"https://calculadoraestatistica.com.br/k-amostras.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é a ANOVA?","acceptedAnswer":{"@type":"Answer","text":"A ANOVA (análise de variância) de uma via é um teste de hipótese que compara as médias de três ou mais grupos ao mesmo tempo. Ela verifica se pelo menos um grupo difere dos demais, comparando a variação entre os grupos com a variação dentro deles."}},
+    {"@type":"Question","name":"Por que não fazer vários testes t em vez da ANOVA?","acceptedAnswer":{"@type":"Answer","text":"Cada teste t carrega um risco de falso positivo. Ao repetir vários testes para comparar todos os pares de grupos, esses riscos se acumulam e a chance de um erro tipo I fica bem acima de 5%. A ANOVA faz uma única comparação global e mantém o erro sob controle."}},
+    {"@type":"Question","name":"Qual a diferença entre ANOVA e Kruskal-Wallis?","acceptedAnswer":{"@type":"Answer","text":"A ANOVA é paramétrica: pressupõe dados aproximadamente normais e variâncias semelhantes entre os grupos. O teste de Kruskal-Wallis é a alternativa não-paramétrica, baseada em postos, indicada quando esses pressupostos não se sustentam ou quando os dados são ordinais."}},
+    {"@type":"Question","name":"O que significa um resultado significativo na ANOVA?","acceptedAnswer":{"@type":"Answer","text":"Um valor-p abaixo do nível de significância indica que pelo menos um grupo tem média diferente dos outros. A ANOVA não diz qual grupo difere — para isso são usados testes post-hoc, como o teste de Tukey."}},
+    {"@type":"Question","name":"O que é o eta-quadrado na ANOVA?","acceptedAnswer":{"@type":"Answer","text":"O eta-quadrado (η²) é uma medida do tamanho do efeito. Indica a proporção da variação total dos dados explicada pela diferença entre os grupos: valores em torno de 0,01 são pequenos, 0,06 são médios e 0,14 ou mais são grandes."}},
+    {"@type":"Question","name":"Quantos grupos a ANOVA exige?","acceptedAnswer":{"@type":"Answer","text":"A ANOVA é usada para comparar três ou mais grupos. Com apenas dois grupos, ela é matematicamente equivalente ao teste t de duas amostras, e o teste t é mais direto."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de ANOVA e k Amostras</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de ANOVA e k Amostras</h1>
+      <p class="lead">Compare <strong>três ou mais grupos de uma vez</strong> e descubra se alguma média se destaca — com a ANOVA de uma via (paramétrica) ou o teste de Kruskal-Wallis (não-paramétrico).</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="ka-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg>
+        Calcular a comparação de k grupos
+      </h2>
+      <p class="calculator__hint">Escolha o tipo de análise, cole os valores de cada grupo e veja se as diferenças entre as médias são estatisticamente significativas.</p>
+
+      <fieldset class="field-group">
+        <legend>Tipo de análise</legend>
+        <div class="segmented" role="radiogroup" aria-label="Tipo de análise" style="margin-top:.6rem">
+          <label><input type="radio" name="ka-method" value="anova" checked><span>ANOVA (paramétrico)</span></label>
+          <label><input type="radio" name="ka-method" value="kruskal"><span>Kruskal-Wallis (não-paramétrico)</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Seus grupos</legend>
+        <p class="help" style="margin:.4rem 0 .8rem">Cole os valores de cada grupo separados por espaço, vírgula ou quebra de linha.</p>
+        <div class="group-list" id="ka-groups"></div>
+        <div class="matrix-controls">
+          <button type="button" class="btn btn--ghost btn--sm" id="ka-add">+ Grupo</button>
+          <button type="button" class="btn btn--ghost btn--sm" id="ka-del">− Grupo</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row field-row--single">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="ka-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="ka-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="ka-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="ka-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular</button>
+        <a class="btn btn--ghost" href="#" id="ka-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="ka-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é comparar k amostras</a></li>
+          <li><a href="#por-que-anova">Por que não fazer vários testes t</a></li>
+          <li><a href="#anova">ANOVA de uma via</a></li>
+          <li><a href="#kruskal">Kruskal-Wallis: a alternativa não-paramétrica</a></li>
+          <li><a href="#pressupostos">Pressupostos da ANOVA</a></li>
+          <li><a href="#posthoc">E depois? Os testes post-hoc</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é comparar k amostras</h2>
+      <p>Muitas perguntas de pesquisa envolvem <strong>mais de dois grupos</strong>. Três métodos de ensino produzem notas diferentes? Quatro fertilizantes geram colheitas distintas? Cinco versões de uma página de venda têm tempos de permanência diferentes? Em todos esses casos você quer comparar <strong>k grupos</strong> — onde k é três, quatro, cinco ou mais — e descobrir se as médias deles são realmente diferentes ou se a variação observada é apenas acaso amostral.</p>
+      <p>O <a href="/teste-t.html">teste t</a> resolve bem a comparação de <em>dois</em> grupos. Mas, a partir de três, ele deixa de ser a ferramenta adequada — e o motivo é mais sério do que parece. Esta calculadora oferece os dois testes corretos para o problema de k amostras: a <strong>ANOVA de uma via</strong>, paramétrica, e o teste de <strong>Kruskal-Wallis</strong>, não-paramétrico. Os dois trabalham sobre exatamente os mesmos dados — basta trocar o tipo de análise no topo da calculadora.</p>
+      <p>A pergunta que ambos respondem é a mesma: <strong>existe pelo menos um grupo cuja distribuição difere dos demais?</strong> A diferença está nas suposições que cada um exige, como veremos adiante.</p>
+
+      <h2 id="por-que-anova">Por que não fazer vários testes t</h2>
+      <p>A tentação é natural: com três grupos A, B e C, por que não rodar três testes t — A contra B, A contra C, B contra C — e olhar os resultados? O problema tem nome técnico: <strong>inflação do erro tipo I</strong>.</p>
+      <p>Cada teste de hipótese carrega um risco de <strong>falso positivo</strong>: a chance de declarar uma diferença que, na verdade, não existe. Com o nível de significância usual de 5%, esse risco é de 0,05 <em>por teste</em>. Quando você faz vários testes, esses riscos se acumulam.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O risco de falso positivo se multiplica
+        </div>
+        <p>Com 3 grupos são 3 comparações de pares; com 4 grupos, 6; com 5 grupos, 10. Se cada teste tem 5% de risco de falso positivo, a probabilidade de cometer <em>pelo menos um</em> erro sobe rápido: já com 3 testes independentes ela chega a cerca de 14%, e com 10 testes ultrapassa 40%. O "nível de significância de 5%" deixa de valer para a conclusão como um todo.</p>
+      </div>
+      <p>A ANOVA resolve isso de forma elegante: faz <strong>uma única comparação global</strong>, com um único valor-p, mantendo o erro tipo I no patamar escolhido (5%, por exemplo). Só depois, e apenas se essa comparação global for significativa, é que se investiga quais pares diferem — com técnicas próprias, descritas na seção sobre <a href="#posthoc">testes post-hoc</a>. Reserve o <a href="/teste-t.html">teste t</a> para quando houver de fato apenas dois grupos a comparar.</p>
+
+      <h2 id="anova">ANOVA de uma via</h2>
+      <p>O nome <strong>análise de variância</strong> parece estranho — afinal, queremos comparar <em>médias</em>, não variâncias. A genialidade do método está justamente aí: a ANOVA descobre se as médias diferem <strong>analisando duas fontes de variação</strong> dos dados.</p>
+      <p>A primeira é a <strong>variação entre os grupos</strong>: o quanto as médias dos grupos se afastam da média geral. A segunda é a <strong>variação dentro dos grupos</strong>: o quanto os valores individuais oscilam em torno da média do seu próprio grupo — é o "ruído" natural dos dados. A estatística do teste, chamada <strong>F</strong>, é simplesmente a razão entre as duas:</p>
+      <div class="formula">F = variância entre os grupos ÷ variância dentro dos grupos
+        <span class="formula__where">Se as médias forem todas iguais, as duas variâncias estimam a mesma coisa e F fica perto de 1. Quanto mais as médias diferem, maior o F.</span>
+      </div>
+      <p>Em termos mais formais, a variação entre grupos é a <strong>soma de quadrados entre</strong> (SQ entre) dividida pelos seus graus de liberdade; o mesmo vale para a variação <strong>dentro</strong>. Essas razões são os <strong>quadrados médios</strong> (QM):</p>
+      <div class="formula">F = QM<sub>entre</sub> ÷ QM<sub>dentro</sub>, &nbsp; com QM = SQ ÷ graus de liberdade</div>
+      <p>Os graus de liberdade têm duas peças. Os <strong>graus de liberdade entre grupos</strong> valem k − 1 (número de grupos menos 1). Os <strong>graus de liberdade dentro dos grupos</strong> valem N − k (total de observações menos o número de grupos). Com o F e esse par de graus de liberdade, a calculadora consulta a <strong>distribuição F</strong> e obtém o <strong>valor-p</strong>: a probabilidade de observar um F tão grande se, na realidade, todas as médias fossem iguais.</p>
+
+      <h2 id="kruskal">Kruskal-Wallis: a alternativa não-paramétrica</h2>
+      <p>A ANOVA é poderosa, mas tem um preço: ela pressupõe que os dados de cada grupo seguem aproximadamente uma distribuição normal e que as variâncias são parecidas. Quando esses pressupostos falham — dados muito assimétricos, presença de valores extremos, amostras pequenas — ou quando a variável é apenas <strong>ordinal</strong> (notas de satisfação de 1 a 5, por exemplo), a ANOVA pode dar conclusões frágeis.</p>
+      <p>O <strong>teste de Kruskal-Wallis</strong> é a alternativa <strong>não-paramétrica</strong>. Em vez de trabalhar com os valores originais, ele os converte em <strong>postos</strong>: junta todas as observações de todos os grupos, ordena-as do menor para o maior e substitui cada valor pela sua posição (1, 2, 3, …). A análise passa a ser feita sobre esses postos.</p>
+      <p>A lógica é intuitiva. Se os grupos forem equivalentes, os postos altos e baixos devem se espalhar de forma parecida entre eles — a soma de postos de cada grupo será proporcional ao seu tamanho. Se um grupo concentra os valores mais altos (postos grandes) e outro os mais baixos, a estatística do teste, chamada <strong>H</strong>, cresce. Sob a hipótese de grupos iguais, o H segue aproximadamente uma distribuição qui-quadrado com k − 1 graus de liberdade, e daí sai o valor-p.</p>
+      <p>Como usa apenas a ordem dos dados, o Kruskal-Wallis é <strong>robusto a valores extremos</strong> e não exige normalidade. Ele é, para três ou mais grupos, o equivalente do que o teste de <a href="/wilcoxon.html">Mann-Whitney</a> é para dois grupos. O preço é uma perda modesta de poder estatístico quando os dados <em>de fato</em> são normais — nesse caso, a ANOVA detecta diferenças com um pouco mais de sensibilidade.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="pressupostos">Pressupostos da ANOVA</h2>
+      <p>Para que o valor-p da ANOVA seja confiável, três condições devem ser razoavelmente atendidas:</p>
+      <ul>
+        <li><strong>Normalidade</strong> — dentro de cada grupo, os dados (mais precisamente, os resíduos) seguem aproximadamente uma distribuição normal. Com amostras maiores, pequenos desvios deixam de ser problema, graças ao teorema central do limite.</li>
+        <li><strong>Homogeneidade de variâncias</strong> — também chamada de <em>homocedasticidade</em>: os grupos têm variâncias semelhantes. Testes como o de Levene ajudam a verificar essa condição. Quando ela falha de forma clara, existem variantes como a ANOVA de Welch.</li>
+        <li><strong>Independência</strong> — cada observação é independente das demais, dentro e entre os grupos. Esse é o pressuposto mais importante e o mais difícil de corrigir depois: ele depende de um bom desenho do estudo.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Quando os pressupostos não se sustentam
+        </div>
+        <p>Se os dados são muito assimétricos, têm valores extremos influentes ou são ordinais, troque para o teste de Kruskal-Wallis no topo da calculadora. Ele responde à mesma pergunta sem exigir normalidade nem variâncias iguais — basta um clique, sobre os mesmos dados.</p>
+      </div>
+
+      <h2 id="posthoc">E depois? Os testes post-hoc</h2>
+      <p>Um resultado significativo na ANOVA ou no Kruskal-Wallis traz uma conclusão importante, mas <strong>incompleta</strong>: ele afirma que <em>pelo menos um</em> grupo difere — sem dizer <em>qual</em>. Com quatro grupos, a diferença pode estar em um único par, ou em vários.</p>
+      <p>Para identificar exatamente onde estão as diferenças, usam-se os <strong>testes post-hoc</strong> (ou comparações múltiplas). Eles comparam os pares de grupos, mas — e este é o ponto — <strong>ajustam o nível de significância</strong> para que a inflação do erro tipo I não volte a ocorrer. Os mais conhecidos são:</p>
+      <ul>
+        <li><strong>Teste de Tukey (HSD)</strong> — o mais comum após uma ANOVA significativa. Compara todos os pares de médias controlando o erro global.</li>
+        <li><strong>Correção de Bonferroni</strong> — simples e geral: divide o nível de significância pelo número de comparações. É conservadora.</li>
+        <li><strong>Teste de Dunn</strong> — a opção post-hoc usual após um Kruskal-Wallis significativo, trabalhando sobre os postos.</li>
+      </ul>
+      <p>A regra de ouro é a sequência: <strong>primeiro</strong> o teste global (ANOVA ou Kruskal-Wallis); <strong>só se ele for significativo</strong>, parte-se para o post-hoc. Sem essa porta de entrada, voltaríamos ao problema das comparações múltiplas descontroladas.</p>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>A calculadora devolve um cartão com a conclusão e um conjunto de indicadores. Na <strong>ANOVA</strong>, eles são:</p>
+      <ul>
+        <li><strong>Estatística F</strong> — a razão entre a variância entre grupos e a variância dentro deles. Valores próximos de 1 sugerem médias parecidas; valores altos, médias diferentes.</li>
+        <li><strong>Graus de liberdade entre grupos</strong> — valem k − 1 e, junto com os de dentro, definem a distribuição F.</li>
+        <li><strong>Graus de liberdade dentro dos grupos</strong> — valem N − k.</li>
+        <li><strong>Valor-p</strong> — a probabilidade de ver um F tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), pelo menos um grupo difere.</li>
+        <li><strong>Eta-quadrado (η²)</strong> — o tamanho do efeito: a fração da variação total explicada pelos grupos. Em torno de 0,01 é pequeno, 0,06 é médio e 0,14 ou mais é grande.</li>
+        <li><strong>Número de grupos</strong> — quantos grupos entraram na análise.</li>
+      </ul>
+      <p>No <strong>Kruskal-Wallis</strong>, os indicadores são a <strong>estatística H</strong>, os <strong>graus de liberdade</strong> (k − 1), o <strong>valor-p</strong>, o <strong>número de grupos</strong> e o <strong>total de observações</strong>. A leitura do valor-p é a mesma: abaixo do nível de significância, há diferença entre os grupos — só que, aqui, a conclusão é sobre os postos (a tendência de um grupo apresentar valores sistematicamente maiores ou menores).</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Significativo não quer dizer "todos diferentes"
+        </div>
+        <p>Um valor-p pequeno indica que <em>pelo menos um</em> grupo se destaca — não que todos os grupos diferem entre si. Para saber exatamente quais pares são diferentes, é preciso um teste post-hoc. E lembre-se de olhar o tamanho do efeito: com amostras grandes, diferenças triviais ficam "significativas".</p>
+      </div>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma escola comparou <strong>três métodos de estudo</strong> em três turmas de cinco alunos cada e registrou a nota final de cada aluno. A pergunta: o método de estudo influencia a nota média?</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Método</th><th class="num">Notas</th><th class="num">Média</th></tr></thead>
+          <tbody>
+            <tr><td>Grupo 1</td><td class="num">85, 88, 82, 90, 87</td><td class="num">86,4</td></tr>
+            <tr><td>Grupo 2</td><td class="num">78, 75, 80, 82, 79</td><td class="num">78,8</td></tr>
+            <tr><td>Grupo 3</td><td class="num">92, 95, 90, 94, 91</td><td class="num">92,4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="steps">
+        <li><strong>Médias e média geral:</strong> as médias dos grupos são 86,4, 78,8 e 92,4; a média geral das 15 notas é 85,87.</li>
+        <li><strong>Variação entre grupos:</strong> as médias dos grupos estão bem afastadas da média geral, o que gera uma soma de quadrados entre grande — sinal de que os métodos podem diferir.</li>
+        <li><strong>Variação dentro dos grupos:</strong> dentro de cada turma as notas oscilam pouco, então a soma de quadrados dentro é pequena.</li>
+        <li><strong>Estatística F:</strong> com a variância entre grupos muito maior que a variância dentro deles, o F resultante é alto e o valor-p fica bem abaixo de 0,001.</li>
+      </ol>
+      <p>Como o valor-p é muito menor que 0,05, a conclusão é que <strong>pelo menos um método difere</strong> dos demais: o método de estudo está associado à nota. O eta-quadrado, próximo de 0,9, indica um efeito grande — boa parte da variação nas notas é explicada pelo grupo. A ANOVA, porém, não diz se os três métodos diferem entre si ou apenas um deles; isso exigiria um teste post-hoc. Use o botão <em>"Preencher com exemplo"</em> para ver o cálculo completo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é a ANOVA?</summary>
+          <div class="faq__answer"><p>A ANOVA (análise de variância) de uma via é um teste de hipótese que compara as médias de três ou mais grupos de uma só vez. Ela verifica se pelo menos um grupo difere dos demais comparando a variação entre os grupos com a variação dentro deles.</p></div>
+        </details>
+        <details>
+          <summary>Por que não fazer vários testes t em vez da ANOVA?</summary>
+          <div class="faq__answer"><p>Porque cada teste t carrega um risco de falso positivo, e esses riscos se acumulam quando você faz muitos testes. Comparar todos os pares de três grupos eleva a chance de erro tipo I para cerca de 14%, bem acima dos 5% pretendidos. A ANOVA faz uma única comparação global e mantém o erro sob controle. Veja o <a href="/teste-t.html">teste t</a> para o caso de apenas dois grupos.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre ANOVA e Kruskal-Wallis?</summary>
+          <div class="faq__answer"><p>A ANOVA é paramétrica: pressupõe dados aproximadamente normais e variâncias semelhantes. O Kruskal-Wallis é a alternativa não-paramétrica, baseada em postos, indicada quando esses pressupostos não se sustentam ou quando os dados são ordinais. É o equivalente, para k grupos, do teste de <a href="/wilcoxon.html">Mann-Whitney</a>.</p></div>
+        </details>
+        <details>
+          <summary>O que significa um resultado significativo?</summary>
+          <div class="faq__answer"><p>Um valor-p abaixo do nível de significância indica que pelo menos um grupo difere dos outros. Nem a ANOVA nem o Kruskal-Wallis dizem qual grupo difere — para isso são usados testes post-hoc, como o teste de Tukey ou o de Dunn.</p></div>
+        </details>
+        <details>
+          <summary>O que é o eta-quadrado?</summary>
+          <div class="faq__answer"><p>O eta-quadrado (η²) é uma medida do tamanho do efeito: a proporção da variação total dos dados explicada pela diferença entre os grupos. Valores em torno de 0,01 são pequenos, 0,06 são médios e 0,14 ou mais são grandes. Ele complementa o valor-p, que sozinho não revela a força do efeito.</p></div>
+        </details>
+        <details>
+          <summary>Posso usar a ANOVA com apenas dois grupos?</summary>
+          <div class="faq__answer"><p>Pode — e o resultado é matematicamente equivalente ao teste t de duas amostras (o F é igual ao quadrado do t). Mas, com só dois grupos, o <a href="/teste-t.html">teste t</a> é mais direto e ainda fornece o intervalo de confiança da diferença. A ANOVA brilha mesmo a partir de três grupos.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Para comparar as médias de apenas dois grupos.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/wilcoxon.html"><h3>Wilcoxon e Mann-Whitney</h3><p>Testes não-paramétricos para dois grupos.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/guias/como-escolher-teste-estatistico.html"><h3>Qual teste usar?</h3><p>Um guia para escolher o teste estatístico certo.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Na dúvida sobre qual teste usar?</h2>
+        <p>Veja o guia que ajuda a escolher o teste estatístico certo para o seu tipo de dado.</p>
+        <a class="btn btn--light btn--lg" href="/guias/como-escolher-teste-estatistico.html">Abrir o guia de escolha</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('ka-form'), result = $('ka-result'), errBox = $('ka-error');
+  var list = $('ka-groups');
+  var G = 3, MING = 2, MAXG = 6;
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  // Lê o texto atualmente digitado em cada textarea de grupo
+  function readState() {
+    var texts = [];
+    var areas = list.querySelectorAll('textarea[data-group]');
+    for (var i = 0; i < areas.length; i++) {
+      texts[parseInt(areas[i].getAttribute('data-group'), 10)] = areas[i].value;
+    }
+    return texts;
+  }
+
+  // (Re)constrói a lista de grupos preservando o texto já digitado
+  function buildGroups(preset) {
+    var texts = preset || (list.querySelector('textarea') ? readState() : []);
+    var h = '';
+    for (var i = 0; i < G; i++) {
+      var v = (texts[i] != null) ? texts[i] : '';
+      h += '<div class="field">' +
+        '<label for="ka-g' + i + '">Grupo ' + (i + 1) + '</label>' +
+        '<textarea class="input" id="ka-g' + i + '" data-group="' + i + '" rows="3" ' +
+        'inputmode="decimal" autocomplete="off" ' +
+        'placeholder="Ex.: 12, 15, 11, 14">' + esc(v) + '</textarea>' +
+        '</div>';
+    }
+    list.innerHTML = h;
+  }
+  buildGroups();
+
+  $('ka-add').addEventListener('click', function () {
+    if (G < MAXG) { G++; buildGroups(); }
+  });
+  $('ka-del').addEventListener('click', function () {
+    if (G > MING) { G--; buildGroups(); }
+  });
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  // Converte um texto em lista de números (espaço, vírgula ou ; como separador)
+  function parseList(text) {
+    var parts = String(text == null ? '' : text).split(/[\s,;]+/);
+    var out = [];
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i] === '') continue;
+      var v = parseNum(parts[i]);
+      if (!isNaN(v)) out.push(v);
+    }
+    return out;
+  }
+
+  $('ka-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    G = 3;
+    document.querySelector('input[name="ka-method"][value="anova"]').checked = true;
+    buildGroups(['85, 88, 82, 90, 87', '78, 75, 80, 82, 79', '92, 95, 90, 94, 91']);
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var texts = readState();
+    var groups = [];
+    for (var i = 0; i < G; i++) {
+      var vals = parseList(texts[i]);
+      if (vals.length < 2) {
+        showError('O Grupo ' + (i + 1) + ' precisa de pelo menos 2 valores numéricos. ' +
+          'Cole os valores separados por espaço, vírgula ou quebra de linha.');
+        return;
+      }
+      groups.push(vals);
+    }
+    var conf = parseFloat(Fmt.radio('ka-conf'));
+    var method = Fmt.radio('ka-method');
+    var r = method === 'kruskal'
+      ? Stats.kruskalWallisTest({ groups: groups, confidence: conf })
+      : Stats.anovaTest({ groups: groups, confidence: conf });
+    if (r.error) { showError(r.error); return; }
+    render(r, method, conf);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  // Tamanho de efeito do eta-quadrado (referências de Cohen)
+  function etaForca(v) {
+    if (v < 0.01) return 'desprezível';
+    if (v < 0.06) return 'pequeno';
+    if (v < 0.14) return 'médio';
+    return 'grande';
+  }
+
+  function render(r, method, conf) {
+    var sig = r.significant;
+    var isKruskal = method === 'kruskal';
+
+    var metrics;
+    if (isKruskal) {
+      metrics =
+        metric('Estatística H', Fmt.num(r.H, 3)) +
+        metric('Graus de liberdade', Fmt.int(r.df)) +
+        metric('Valor-p', Fmt.p(r.pValue)) +
+        metric('Nº de grupos', Fmt.int(r.k)) +
+        metric('Total de observações', Fmt.int(r.N));
+    } else {
+      metrics =
+        metric('Estatística F', Fmt.num(r.F, 3)) +
+        metric('gl entre grupos', Fmt.int(r.dfB)) +
+        metric('gl dentro dos grupos', Fmt.int(r.dfW)) +
+        metric('Valor-p', Fmt.p(r.pValue)) +
+        metric('Eta-quadrado (η²)', Fmt.num(r.etaSquared, 3), 'efeito ' + etaForca(r.etaSquared)) +
+        metric('Nº de grupos', Fmt.int(r.k));
+    }
+
+    var headline = sig ? 'Diferença estatisticamente significativa'
+                       : 'Diferença não significativa';
+    var sub = sig
+      ? 'Pelo menos um grupo se destaca dos demais — a variação não parece ser acaso.'
+      : 'Não há evidência suficiente de diferença entre os grupos.';
+
+    var testNome = isKruskal ? 'teste de Kruskal-Wallis' : 'ANOVA de uma via';
+    var interp;
+    if (sig) {
+      interp = '<p>Com <strong>' + Fmt.pct(conf, 0) + ' de confiança</strong>, o resultado da ' +
+        testNome + ' é <strong>estatisticamente significativo</strong>: o valor-p (' +
+        Fmt.p(r.pValue) + ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) +
+        '). Isso indica que <strong>pelo menos um dos ' + r.k + ' grupos</strong> ';
+      if (isKruskal) {
+        interp += 'tende a apresentar valores sistematicamente diferentes dos demais — a conclusão ' +
+          'se baseia nos postos das observações.</p>';
+      } else {
+        interp += 'tem média diferente das demais. O eta-quadrado de <strong>' +
+          Fmt.num(r.etaSquared, 3) + '</strong> aponta um tamanho de efeito <strong>' +
+          etaForca(r.etaSquared) + '</strong>.</p>';
+      }
+      interp += '<p><strong>Atenção:</strong> o teste não revela <em>qual</em> grupo difere, ' +
+        'nem quais pares são diferentes entre si. Para isso é preciso um teste post-hoc ' +
+        '— como o de Tukey, após a ANOVA, ou o de Dunn, após o Kruskal-Wallis.</p>';
+    } else {
+      interp = '<p>Com ' + Fmt.pct(conf, 0) + ' de confiança, o resultado da ' + testNome +
+        ' <strong>não é estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é maior ou igual ao nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'Os dados são compatíveis com a hipótese de que ';
+      interp += isKruskal
+        ? 'os ' + r.k + ' grupos têm distribuições semelhantes.</p>'
+        : 'os ' + r.k + ' grupos têm a mesma média.</p>';
+      interp += '<p>Não detectar diferença não prova que ela não existe: amostras pequenas ' +
+        'reduzem o poder do teste. Vale considerar um tamanho de amostra maior.</p>';
+    }
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

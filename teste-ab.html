@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Teste A/B — Significância Estatística Grátis</title>
+<meta name="description" content="Calculadora de teste A/B grátis e em português. Descubra se a diferença entre duas versões é estatisticamente significativa: valor-p, intervalo de confiança e interpretação automática.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/teste-ab.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Teste A/B — Significância Estatística">
+<meta property="og:description" content="Descubra se a diferença entre duas versões é estatisticamente significativa. Grátis, em português, com explicação didática.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/teste-ab.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Teste A/B",
+  "url": "https://calculadoraestatistica.com.br/teste-ab.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de significância estatística para testes A/B."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Teste A/B","item":"https://calculadoraestatistica.com.br/teste-ab.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é um teste A/B?","acceptedAnswer":{"@type":"Answer","text":"É um experimento que compara duas versões (A e B) de uma página, e-mail ou anúncio para descobrir qual gera mais conversões, usando estatística para separar diferença real de acaso."}},
+    {"@type":"Question","name":"O que significa um resultado estatisticamente significativo?","acceptedAnswer":{"@type":"Answer","text":"Significa que o valor-p ficou abaixo do nível de significância escolhido (em geral 5%). É improvável que a diferença observada entre as variantes tenha surgido por puro acaso."}},
+    {"@type":"Question","name":"Qual nível de confiança usar em um teste A/B?","acceptedAnswer":{"@type":"Answer","text":"95% é o padrão de mercado. Use 99% quando o custo de uma decisão errada for alto e 90% apenas em testes exploratórios."}},
+    {"@type":"Question","name":"Quantos visitantes preciso para um teste A/B?","acceptedAnswer":{"@type":"Answer","text":"Depende da sua taxa de conversão atual e do efeito que você quer detectar. Calcule o tamanho de amostra antes de iniciar o teste."}},
+    {"@type":"Question","name":"Posso parar o teste assim que der significativo?","acceptedAnswer":{"@type":"Answer","text":"Não. Olhar o resultado várias vezes e parar no primeiro momento favorável (peeking) infla muito a taxa de falsos positivos. Defina o tamanho de amostra antes e só decida ao atingi-lo."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Teste A/B</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Teste A/B</h1>
+      <p class="lead">Compare duas versões e descubra, em segundos, se a diferença entre elas é <strong>estatisticamente significativa</strong> — ou se pode ser só acaso.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="ab-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg>
+        Calcular significância do teste
+      </h2>
+      <p class="calculator__hint">Informe os visitantes e as conversões de cada variante. Conversão é a ação que você mede: compra, cadastro, clique, etc.</p>
+
+      <fieldset class="field-group">
+        <legend>Variante A — Controle</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="visA">Visitantes</label>
+            <input class="input" type="text" inputmode="numeric" id="visA" placeholder="Ex.: 16450" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="convA">Conversões</label>
+            <input class="input" type="text" inputmode="numeric" id="convA" placeholder="Ex.: 1840" autocomplete="off">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Variante B — Variação</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="visB">Visitantes</label>
+            <input class="input" type="text" inputmode="numeric" id="visB" placeholder="Ex.: 16320" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="convB">Conversões</label>
+            <input class="input" type="text" inputmode="numeric" id="convB" placeholder="Ex.: 2010" autocomplete="off">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Configuração do teste</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="ab-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="ab-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="ab-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tipo de teste</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo de teste">
+              <label><input type="radio" name="ab-tails" value="2" checked><span>Bicaudal</span></label>
+              <label><input type="radio" name="ab-tails" value="1"><span>Unicaudal</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="ab-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular significância</button>
+        <a class="btn btn--ghost" href="#" id="ab-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="ab-result" hidden aria-live="polite"></section>
+    </form>
+
+    <p class="muted" style="font-size:.92rem">Quer planejar o teste antes de começar? Use a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a> e descubra de quantos visitantes você precisa.</p>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é um teste A/B</a></li>
+          <li><a href="#significancia">O que é significância estatística</a></li>
+          <li><a href="#como-funciona">Como a calculadora faz a conta</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#caudas">Bicaudal, unicaudal e nível de confiança</a></li>
+          <li><a href="#exemplo">Exemplo resolvido passo a passo</a></li>
+          <li><a href="#erros">7 erros que invalidam um teste A/B</a></li>
+          <li><a href="#areas">Teste A/B além do marketing</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é um teste A/B</h2>
+      <p>Um <strong>teste A/B</strong> é um experimento controlado que compara duas versões de algo para descobrir qual delas tem o melhor desempenho. A versão A é o <em>controle</em> — normalmente o que já existe. A versão B é a <em>variação</em> — a mudança que você quer testar. Você divide o público aleatoriamente entre as duas e mede uma métrica de interesse, quase sempre a <strong>taxa de conversão</strong>.</p>
+      <p>O exemplo clássico vem do marketing digital: duas versões de uma página de vendas, dois assuntos de e-mail, dois botões de cores diferentes. Mas a mesma lógica vale para qualquer área. Um hospital pode comparar dois protocolos de orientação ao paciente; um aplicativo pode comparar dois fluxos de cadastro; uma escola pode comparar dois métodos de ensino. Sempre que existem dois grupos e uma taxa de sucesso, há um teste A/B possível.</p>
+      <p>O problema é que, ao olhar dois números — digamos, 11% de conversão contra 12% —, é impossível saber a olho nu se a diferença é real ou se foi sorte. Se você jogar duas moedas honestas 100 vezes cada, uma quase sempre dará mais "cara" que a outra; isso não significa que ela seja "melhor". O teste A/B usa estatística exatamente para distinguir <strong>sinal</strong> (uma diferença verdadeira) de <strong>ruído</strong> (variação aleatória).</p>
+
+      <h2 id="significancia">O que é significância estatística</h2>
+      <p>A <strong>significância estatística</strong> é o critério que separa uma diferença confiável de uma diferença que pode ter aparecido por acaso. Para chegar a ela, todo teste de hipótese parte de uma suposição pessimista chamada <strong>hipótese nula</strong>: a de que <em>não existe diferença alguma</em> entre A e B, e qualquer distância observada é puro ruído amostral.</p>
+      <p>A calculadora então mede o quanto os seus dados "discordam" dessa hipótese e resume isso em um número, o <strong>valor-p</strong>. O valor-p responde a uma pergunta muito específica:</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O que o valor-p mede
+        </div>
+        <p>"Se A e B fossem realmente iguais, qual seria a probabilidade de eu observar uma diferença tão grande quanto a que medi — ou ainda maior — só por acaso?"</p>
+      </div>
+      <p>Um valor-p pequeno significa que o seu resultado seria muito raro num mundo onde A e B são iguais. Logo, é mais plausível que eles <em>não</em> sejam iguais. Você compara o valor-p com um limite definido <strong>antes</strong> do teste, o <strong>nível de significância</strong> (representado pela letra grega α, alfa). O padrão é α = 5% (0,05):</p>
+      <ul>
+        <li><strong>valor-p &lt; 0,05</strong> → resultado <strong>estatisticamente significativo</strong>. A diferença provavelmente é real.</li>
+        <li><strong>valor-p ≥ 0,05</strong> → resultado <strong>não significativo</strong>. Não há evidência suficiente para afirmar que A e B são diferentes.</li>
+      </ul>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Cuidado com a interpretação
+        </div>
+        <p>O valor-p <strong>não</strong> é a probabilidade de a sua variante ser melhor, e "não significativo" <strong>não</strong> prova que A e B são iguais — só indica que faltam dados. Significância estatística também não é o mesmo que importância prática: com uma amostra gigantesca, até uma diferença minúscula e irrelevante pode dar "significativa".</p>
+      </div>
+
+      <h2 id="como-funciona">Como a calculadora faz a conta</h2>
+      <p>Por baixo dos panos, esta calculadora aplica um <strong>teste z para duas proporções</strong>. É o procedimento padrão para comparar duas taxas de conversão. São quatro passos:</p>
+      <p><strong>1. Taxa de conversão de cada variante.</strong> Basta dividir as conversões pelos visitantes:</p>
+      <div class="formula">p<sub>A</sub> = conversões<sub>A</sub> ÷ visitantes<sub>A</sub>  &nbsp;e&nbsp;  p<sub>B</sub> = conversões<sub>B</sub> ÷ visitantes<sub>B</sub></div>
+      <p><strong>2. Proporção combinada.</strong> Sob a hipótese nula, A e B vêm da mesma população. Por isso juntamos tudo numa única taxa, a proporção combinada (<em>pooled</em>):</p>
+      <div class="formula">p̄ = (conversões<sub>A</sub> + conversões<sub>B</sub>) ÷ (visitantes<sub>A</sub> + visitantes<sub>B</sub>)</div>
+      <p><strong>3. Erro padrão e estatística z.</strong> O erro padrão mede quanta variação aleatória é esperada na diferença entre as duas taxas. A estatística z divide a diferença observada por esse erro padrão — ou seja, mede a diferença em "número de erros padrão":</p>
+      <div class="formula">EP = √[ p̄ · (1 − p̄) · (1/n<sub>A</sub> + 1/n<sub>B</sub>) ]<br>
+        z = (p<sub>B</sub> − p<sub>A</sub>) ÷ EP
+        <span class="formula__where">n<sub>A</sub> e n<sub>B</sub> são os números de visitantes de cada variante.</span>
+      </div>
+      <p><strong>4. Valor-p.</strong> Quanto maior o |z|, mais longe você está do cenário "sem diferença". A calculadora converte o z em valor-p usando a distribuição normal padrão (Φ é a sua função de distribuição acumulada):</p>
+      <div class="formula">valor-p (bicaudal) = 2 · [ 1 − Φ(|z|) ]</div>
+      <p>Além do veredito, a calculadora devolve o <strong>intervalo de confiança da diferença</strong> — a faixa de valores plausíveis para o ganho real de conversão. Esse intervalo é mais informativo que o "sim ou não" da significância, porque mostra o <em>tamanho</em> provável do efeito.</p>
+
+      <div class="recommend">
+        <div class="recommend__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Para se aprofundar
+        </div>
+        <p>O teste A/B é a porta de entrada da estatística aplicada. Para dominar o assunto na sua área:</p>
+        <ul>
+          <li><a href="/guias/estatistica-marketing-cro.html">Guia de estatística para Marketing e CRO</a> — poder estatístico, MDE e as armadilhas dos experimentos.</li>
+          <li><a href="/tamanho-amostra-ab.html">Calculadora de tamanho de amostra</a> — planeje o teste antes de coletar um único dado.</li>
+        </ul>
+        <!-- MONETIZAÇÃO (afiliados): para recomendar cursos/livros, troque os itens acima
+             por links de parceiro (ex.: Hotmart, Amazon) neste formato:
+             <li><a href="SEU_LINK_DE_AFILIADO" rel="sponsored nofollow" target="_blank">Nome do curso/livro</a> — descrição curta.</li>
+             Mantenha a linha de aviso abaixo sempre que houver links pagos. -->
+        <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
+      </div>
+
+      <h2 id="interpretar">Como interpretar o resultado da calculadora</h2>
+      <p>Depois de calcular, você verá um cartão colorido com a conclusão e seis indicadores. Veja o que cada um diz:</p>
+      <ul>
+        <li><strong>Taxa de conversão A e B</strong> — o desempenho bruto de cada versão, em porcentagem.</li>
+        <li><strong>Diferença relativa (uplift)</strong> — quanto a variante B cresceu (ou caiu) em relação a A. Um uplift de +10% significa que B converte 10% melhor que A em termos relativos.</li>
+        <li><strong>Valor-p</strong> — a probabilidade de ver essa diferença por acaso. Quanto menor, mais forte a evidência.</li>
+        <li><strong>Estatística z</strong> — a diferença medida em erros padrão. Em um teste bicaudal a 95%, |z| acima de 1,96 já indica significância.</li>
+        <li><strong>Confiança no resultado</strong> — é simplesmente 1 − valor-p. Um valor-p de 0,02 vira "98% de confiança". Atenção: isso <em>não</em> é a probabilidade de B vencer; é apenas o complemento do valor-p.</li>
+        <li><strong>Intervalo de confiança da diferença</strong> — a faixa provável do ganho real. Se o intervalo cruza o zero, a vantagem ainda é incerta.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          A regra de ouro
+        </div>
+        <p>Decida quem vence olhando o conjunto: o veredito de significância, o tamanho do uplift e o intervalo de confiança. Um resultado significativo com uplift minúsculo pode não valer o esforço de implementar. Um resultado não significativo com uplift promissor pode só precisar de mais dados.</p>
+      </div>
+
+      <h2 id="caudas">Bicaudal, unicaudal e nível de confiança</h2>
+      <p>Dois ajustes mudam o rigor do teste. O primeiro é o <strong>tipo de teste</strong>:</p>
+      <ul>
+        <li><strong>Bicaudal</strong> — testa se B é <em>diferente</em> de A, para mais ou para menos. É a opção mais segura e recomendada na maioria dos casos, porque um teste A/B pode piorar a conversão.</li>
+        <li><strong>Unicaudal</strong> — testa apenas se B é <em>melhor</em> que A. Detecta diferenças com mais facilidade, mas só é válido se você definiu essa direção <strong>antes</strong> de coletar os dados e aceita ignorar a possibilidade de piora.</li>
+      </ul>
+      <p>O segundo ajuste é o <strong>nível de confiança</strong>, o complemento do nível de significância:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Confiança</th><th>Significância (α)</th><th>Quando usar</th></tr></thead>
+          <tbody>
+            <tr><td>90%</td><td>0,10</td><td>Testes exploratórios, baixo custo de erro.</td></tr>
+            <tr><td>95%</td><td>0,05</td><td>Padrão de mercado. Use na dúvida.</td></tr>
+            <tr><td>99%</td><td>0,01</td><td>Decisões caras ou de alto risco.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Quanto maior a confiança exigida, mais difícil é alcançar significância — e maior a amostra necessária. Aumentar a confiança reduz o risco de <strong>falso positivo</strong> (erro tipo I: declarar vencedor quem não é), mas aumenta o risco de <strong>falso negativo</strong> (erro tipo II: não detectar uma melhoria que existe).</p>
+
+      <h2 id="exemplo">Exemplo resolvido passo a passo</h2>
+      <p>Uma loja virtual testou uma nova página de produto. Veja os números coletados em duas semanas:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Variante</th><th class="num">Visitantes</th><th class="num">Conversões</th><th class="num">Taxa</th></tr></thead>
+          <tbody>
+            <tr><td>A — página atual</td><td class="num">16.450</td><td class="num">1.840</td><td class="num">11,19%</td></tr>
+            <tr><td>B — página nova</td><td class="num">16.320</td><td class="num">2.010</td><td class="num">12,32%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="steps">
+        <li><strong>Taxas:</strong> p<sub>A</sub> = 1840 ÷ 16450 = 0,1119 (11,19%); p<sub>B</sub> = 2010 ÷ 16320 = 0,1232 (12,32%).</li>
+        <li><strong>Proporção combinada:</strong> p̄ = (1840 + 2010) ÷ (16450 + 16320) = 3850 ÷ 32770 = 0,1175.</li>
+        <li><strong>Erro padrão:</strong> EP = √[0,1175 · 0,8825 · (1/16450 + 1/16320)] ≈ 0,00356.</li>
+        <li><strong>Estatística z:</strong> z = (0,1232 − 0,1119) ÷ 0,00356 ≈ 3,18.</li>
+        <li><strong>Valor-p:</strong> para z = 3,18, o valor-p bicaudal é ≈ 0,0015 — bem abaixo de 0,05.</li>
+      </ol>
+      <p>Conclusão: a diferença é <strong>estatisticamente significativa</strong> a 95% de confiança. A variante B converte cerca de 10% melhor (uplift relativo) e o resultado dificilmente é fruto do acaso. Use o botão <em>"Preencher com exemplo"</em> acima para ver esse cálculo na calculadora.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="erros">7 erros que invalidam um teste A/B</h2>
+      <p>Mais perigoso que não fazer um teste é fazer um teste mal feito — ele dá uma falsa sensação de certeza. Evite estas armadilhas:</p>
+      <ol>
+        <li><strong>Parar o teste no primeiro momento favorável (peeking).</strong> Ficar olhando o resultado e encerrar assim que aparece "significativo" infla o falso positivo de 5% para 20%, 30% ou mais. Defina o tamanho de amostra antes e só decida ao atingi-lo.</li>
+        <li><strong>Não calcular o tamanho de amostra.</strong> Sem saber de quantos visitantes você precisa, o teste vira loteria. Use a <a href="/tamanho-amostra-ab.html">calculadora de amostra</a> antes de começar.</li>
+        <li><strong>Rodar por tempo curto demais.</strong> Um teste precisa cobrir ciclos completos — incluindo fins de semana e dias de pagamento. O ideal é durar pelo menos uma a duas semanas inteiras.</li>
+        <li><strong>Testar várias variações sem ajuste.</strong> Quanto mais versões você compara ao mesmo tempo, maior a chance de uma "vencer" por sorte. Com muitas variantes, é preciso corrigir o nível de significância.</li>
+        <li><strong>Mudar o teste no meio do caminho.</strong> Alterar a página, o tráfego ou o público durante o experimento contamina os dados. Congele tudo até o fim.</li>
+        <li><strong>Confundir significância com relevância.</strong> Um uplift de 0,1% pode ser "significativo" com amostra enorme e ainda assim não pagar o custo da mudança. Olhe sempre o tamanho do efeito.</li>
+        <li><strong>Ignorar a segmentação.</strong> Uma variante pode vencer no celular e perder no computador. Uma média geral pode esconder isso — quando fizer sentido, analise os segmentos.</li>
+      </ol>
+
+      <h2 id="areas">Teste A/B além do marketing</h2>
+      <p>Embora tenha virado sinônimo de otimização de conversão (CRO), o teste A/B é, na essência, uma <strong>comparação de duas proporções</strong> — e isso aparece em todo lugar:</p>
+      <ul>
+        <li><strong>Saúde e enfermagem:</strong> comparar a taxa de adesão a um tratamento entre dois grupos, ou a taxa de complicação entre dois protocolos. Veja o <a href="/guias/estatistica-enfermagem.html">guia de estatística para enfermagem</a>.</li>
+        <li><strong>Psicologia e pesquisa:</strong> comparar a proporção de participantes que apresentam determinado comportamento em duas condições experimentais. Veja o <a href="/guias/estatistica-psicologia.html">guia de estatística para psicologia</a>.</li>
+        <li><strong>Produto e tecnologia:</strong> comparar a taxa de retenção, de ativação ou de erro entre duas versões de um aplicativo.</li>
+      </ul>
+      <p>Quando o que você compara não são taxas, mas <strong>médias</strong> — tempo, nota, pressão arterial, faturamento por cliente —, o teste certo passa a ser o <a href="/teste-t.html">teste t de Student</a>. E se você quer comparar uma única proporção com um valor de referência, use o <a href="/teste-proporcao.html">teste de proporção</a>.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é um teste A/B?</summary>
+          <div class="faq__answer"><p>É um experimento que divide o público aleatoriamente entre duas versões — A (controle) e B (variação) — e mede qual gera mais conversões. A estatística entra para garantir que a diferença observada seja real, e não acaso.</p></div>
+        </details>
+        <details>
+          <summary>O que significa "estatisticamente significativo"?</summary>
+          <div class="faq__answer"><p>Significa que o valor-p ficou abaixo do nível de significância escolhido (em geral 5%). É improvável que a diferença entre as variantes tenha surgido por puro acaso — há evidência de um efeito real.</p></div>
+        </details>
+        <details>
+          <summary>Qual nível de confiança devo usar?</summary>
+          <div class="faq__answer"><p>95% é o padrão e funciona para a maioria dos casos. Use 99% quando uma decisão errada custar caro e 90% apenas em testes exploratórios, em que um falso positivo tem pouca consequência.</p></div>
+        </details>
+        <details>
+          <summary>Quantos visitantes preciso para um teste A/B?</summary>
+          <div class="faq__answer"><p>Depende da sua taxa de conversão atual e do tamanho do efeito que você quer detectar. Quanto menor a melhoria esperada, maior a amostra. Calcule antes na <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra</a>.</p></div>
+        </details>
+        <details>
+          <summary>Posso encerrar o teste assim que der significativo?</summary>
+          <div class="faq__answer"><p>Não. Verificar o resultado repetidamente e parar no primeiro momento favorável (peeking) infla muito a taxa de falsos positivos. Defina o tamanho de amostra no início e só tome a decisão quando atingi-lo.</p></div>
+        </details>
+        <details>
+          <summary>O resultado deu não significativo. E agora?</summary>
+          <div class="faq__answer"><p>Não significativo não prova que as versões são iguais — em geral significa que faltam dados. Verifique se você atingiu o tamanho de amostra planejado. Se sim, a mudança provavelmente teve efeito pequeno demais para valer a pena.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/tamanho-amostra-ab.html"><h3>Tamanho de amostra A/B</h3><p>Descubra de quantos visitantes você precisa antes de começar.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare uma proporção com um valor de referência.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Para comparar médias em vez de taxas de conversão.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Planeje o próximo teste com segurança</h2>
+        <p>Antes de coletar dados, descubra quantos visitantes e quantos dias o seu teste A/B precisa.</p>
+        <a class="btn btn--light btn--lg" href="/tamanho-amostra-ab.html">Calcular tamanho de amostra</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('ab-form'), result = $('ab-result'), errBox = $('ab-error');
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('ab-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    $('visA').value = '16450'; $('convA').value = '1840';
+    $('visB').value = '16320'; $('convB').value = '2010';
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var nA = parseNum($('visA').value), xA = parseNum($('convA').value);
+    var nB = parseNum($('visB').value), xB = parseNum($('convB').value);
+    if ([nA, xA, nB, xB].some(function (v) { return isNaN(v); })) {
+      showError('Preencha os quatro campos de visitantes e conversões com números.');
+      return;
+    }
+    var conf = parseFloat(Fmt.radio('ab-conf'));
+    var tails = parseInt(Fmt.radio('ab-tails'), 10);
+    var r = Stats.abTest({ nA: nA, xA: xA, nB: nB, xB: xB, confidence: conf, tails: tails });
+    if (r.error) { showError(r.error); return; }
+    render(r, conf);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, cls, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value' + (cls ? ' ' + cls : '') + '">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, conf) {
+    var sig = r.significant;
+    var winner = r.winner === 'B' ? 'B (variação)' : (r.winner === 'A' ? 'A (controle)' : null);
+    var confTxt = Fmt.pct(conf, 0);
+    var headline, sub;
+
+    if (sig && winner) {
+      headline = 'Resultado estatisticamente significativo';
+      sub = 'A variante ' + winner + ' teve o melhor desempenho — a diferença provavelmente não é acaso.';
+    } else if (sig) {
+      headline = 'Resultado estatisticamente significativo';
+      sub = 'A diferença entre as variantes provavelmente não é acaso.';
+    } else {
+      headline = 'Ainda sem significância estatística';
+      sub = 'A diferença observada pode ser fruto do acaso. Vale coletar mais dados.';
+    }
+
+    var upliftCls = r.relUplift == null ? '' : (r.relUplift >= 0 ? 'is-pos' : 'is-neg');
+    var upliftTxt = r.relUplift == null ? '—' :
+      (r.relUplift >= 0 ? '+' : '') + Fmt.pct(r.relUplift, 1);
+
+    var metrics =
+      metric('Taxa de conversão A', Fmt.pct(r.pA, 2)) +
+      metric('Taxa de conversão B', Fmt.pct(r.pB, 2)) +
+      metric('Diferença relativa', upliftTxt, upliftCls, 'B em relação a A') +
+      metric('Valor-p', Fmt.p(r.pValue), '', r.tails === 1 ? 'teste unicaudal' : 'teste bicaudal') +
+      metric('Estatística z', Fmt.num(r.z, 2)) +
+      metric('Confiança no resultado', Fmt.pct(Math.max(0, 1 - r.pValue), 2), '', '= 1 − valor-p');
+
+    var interp;
+    if (sig) {
+      interp = '<p>Com <strong>' + confTxt + ' de confiança</strong>, a diferença entre as variantes é ' +
+        '<strong>estatisticamente significativa</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'É improvável que essa diferença tenha surgido por acaso' +
+        (winner ? ' — a variante <strong>' + winner + '</strong> venceu' : '') + '.</p>' +
+        '<p>O intervalo de confiança de ' + confTxt + ' indica que a diferença real de conversão ' +
+        '(B − A) está, provavelmente, entre <strong>' + Fmt.pct(r.ciLow, 2) + '</strong> e <strong>' +
+        Fmt.pct(r.ciHigh, 2) + '</strong> em pontos percentuais.</p>';
+    } else {
+      interp = '<p>Com ' + confTxt + ' de confiança, <strong>ainda não há significância estatística</strong>: ' +
+        'o valor-p (' + Fmt.p(r.pValue) + ') é maior ou igual ao nível de significância (' +
+        Fmt.pct(r.alpha, 0) + '). A diferença observada pode ser fruto do acaso.</p>' +
+        '<p>O intervalo de confiança da diferença vai de <strong>' + Fmt.pct(r.ciLow, 2) +
+        '</strong> a <strong>' + Fmt.pct(r.ciHigh, 2) + '</strong>. Como ele inclui o zero, ' +
+        'não dá para afirmar qual variante é melhor. Verifique se você atingiu o ' +
+        '<a href="/tamanho-amostra-ab.html">tamanho de amostra planejado</a> antes de descartar o teste.</p>';
+    }
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

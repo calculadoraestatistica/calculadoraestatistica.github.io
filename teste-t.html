@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Teste t de Student — Online e Grátis</title>
+<meta name="description" content="Calculadora de teste t de Student grátis e em português: uma amostra, duas amostras independentes ou dados pareados. Estatística t, graus de liberdade, valor-p e interpretação.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/teste-t.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Teste t de Student">
+<meta property="og:description" content="Compare médias com o teste t: uma amostra, duas amostras ou pareado. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/teste-t.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Teste t de Student",
+  "url": "https://calculadoraestatistica.com.br/teste-t.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de teste t de Student para uma amostra, duas amostras e dados pareados."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Teste t","item":"https://calculadoraestatistica.com.br/teste-t.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quando usar o teste t de Student?","acceptedAnswer":{"@type":"Answer","text":"Use o teste t para comparar médias quando o desvio padrão da população é desconhecido e a amostra é estimada a partir dos dados. É o caso mais comum na prática."}},
+    {"@type":"Question","name":"Qual a diferença entre teste t e teste z?","acceptedAnswer":{"@type":"Answer","text":"O teste z exige conhecer o desvio padrão da população; o teste t usa o desvio padrão estimado da amostra e a distribuição t, que tem caudas mais largas para compensar essa incerteza."}},
+    {"@type":"Question","name":"O que são graus de liberdade no teste t?","acceptedAnswer":{"@type":"Answer","text":"São o número de valores livres para variar no cálculo. Em uma amostra, são n menos 1. Eles determinam o formato da distribuição t usada para obter o valor-p."}},
+    {"@type":"Question","name":"O que é um teste t pareado?","acceptedAnswer":{"@type":"Answer","text":"É o teste para medidas repetidas nos mesmos indivíduos, como antes e depois de um tratamento. Ele analisa a média das diferenças individuais."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Teste t</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Teste t de Student</h1>
+      <p class="lead">Compare <strong>médias</strong> e descubra se a diferença é estatisticamente significativa — para uma amostra, duas amostras independentes ou dados pareados.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="t-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Calcular o teste t
+      </h2>
+      <p class="calculator__hint">Escolha o tipo de teste e informe a média, o desvio padrão e o tamanho de cada amostra.</p>
+
+      <fieldset class="field-group">
+        <legend>Tipo de teste t</legend>
+        <div class="segmented" role="radiogroup" aria-label="Tipo de teste t" style="margin-top:.6rem">
+          <label><input type="radio" name="t-mode" value="one" checked><span>Uma amostra</span></label>
+          <label><input type="radio" name="t-mode" value="two"><span>Duas amostras</span></label>
+          <label><input type="radio" name="t-mode" value="paired"><span>Pareado</span></label>
+        </div>
+      </fieldset>
+
+      <div data-panel="one">
+        <fieldset class="field-group">
+          <legend>Sua amostra</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="o-mean">Média da amostra</label>
+              <input class="input" type="text" inputmode="decimal" id="o-mean" placeholder="Ex.: 138" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="o-sd">Desvio padrão</label>
+              <input class="input" type="text" inputmode="decimal" id="o-sd" placeholder="Ex.: 16" autocomplete="off">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="o-n">Tamanho da amostra (n)</label>
+              <input class="input" type="text" inputmode="numeric" id="o-n" placeholder="Ex.: 40" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="o-mu0">Valor de comparação (μ₀)</label>
+              <input class="input" type="text" inputmode="decimal" id="o-mu0" placeholder="Ex.: 130" autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div data-panel="two" hidden>
+        <fieldset class="field-group">
+          <legend>Grupo 1</legend>
+          <div class="field-row">
+            <div class="field"><label for="t1-mean">Média</label><input class="input" type="text" inputmode="decimal" id="t1-mean" placeholder="Ex.: 10" autocomplete="off"></div>
+            <div class="field"><label for="t1-sd">Desvio padrão</label><input class="input" type="text" inputmode="decimal" id="t1-sd" placeholder="Ex.: 2" autocomplete="off"></div>
+          </div>
+          <div class="field-row field-row--single">
+            <div class="field"><label for="t1-n">Tamanho (n₁)</label><input class="input" type="text" inputmode="numeric" id="t1-n" placeholder="Ex.: 30" autocomplete="off"></div>
+          </div>
+        </fieldset>
+        <fieldset class="field-group">
+          <legend>Grupo 2</legend>
+          <div class="field-row">
+            <div class="field"><label for="t2-mean">Média</label><input class="input" type="text" inputmode="decimal" id="t2-mean" placeholder="Ex.: 8.5" autocomplete="off"></div>
+            <div class="field"><label for="t2-sd">Desvio padrão</label><input class="input" type="text" inputmode="decimal" id="t2-sd" placeholder="Ex.: 2.5" autocomplete="off"></div>
+          </div>
+          <div class="field-row field-row--single">
+            <div class="field"><label for="t2-n">Tamanho (n₂)</label><input class="input" type="text" inputmode="numeric" id="t2-n" placeholder="Ex.: 30" autocomplete="off"></div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div data-panel="paired" hidden>
+        <fieldset class="field-group">
+          <legend>Diferenças (depois − antes)</legend>
+          <div class="field-row">
+            <div class="field"><label for="p-mean">Média das diferenças</label><input class="input" type="text" inputmode="decimal" id="p-mean" placeholder="Ex.: 4.2" autocomplete="off"></div>
+            <div class="field"><label for="p-sd">Desvio padrão das diferenças</label><input class="input" type="text" inputmode="decimal" id="p-sd" placeholder="Ex.: 6.5" autocomplete="off"></div>
+          </div>
+          <div class="field-row field-row--single">
+            <div class="field"><label for="p-n">Número de pares (n)</label><input class="input" type="text" inputmode="numeric" id="p-n" placeholder="Ex.: 25" autocomplete="off"></div>
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="t-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="t-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="t-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tipo de teste</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo de teste">
+              <label><input type="radio" name="t-tails" value="2" checked><span>Bicaudal</span></label>
+              <label><input type="radio" name="t-tails" value="1"><span>Unicaudal</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="t-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular teste t</button>
+        <a class="btn btn--ghost" href="#" id="t-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="t-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é o teste t de Student</a></li>
+          <li><a href="#tipos">Os três tipos de teste t</a></li>
+          <li><a href="#como">Como o cálculo funciona</a></li>
+          <li><a href="#pressupostos">Pressupostos do teste t</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é o teste t de Student</h2>
+      <p>O <strong>teste t de Student</strong> é o procedimento estatístico mais usado para comparar <strong>médias</strong>. Ele responde a uma pergunta direta: a diferença entre duas médias — ou entre uma média e um valor de referência — é grande o bastante para ser considerada real, ou pode ser apenas variação aleatória da amostra?</p>
+      <p>O nome vem de William Sealy Gosset, que publicou o método em 1908 sob o pseudônimo "Student", enquanto trabalhava na cervejaria Guinness. O problema dele era prático: tirar conclusões a partir de <em>amostras pequenas</em>, sem conhecer o desvio padrão verdadeiro da população. É exatamente para isso que o teste t serve — e é por isso que ele é tão comum em pesquisa de saúde, psicologia, educação e qualidade.</p>
+      <p>A diferença em relação ao <a href="/teste-z.html">teste z</a> está aí: o teste z exige que você conheça o desvio padrão da população; o teste t trabalha com o desvio padrão <em>estimado</em> a partir da própria amostra. Para compensar essa incerteza extra, ele usa a <strong>distribuição t</strong>, parecida com a curva normal, mas com caudas um pouco mais largas — mais conservadora.</p>
+
+      <h2 id="tipos">Os três tipos de teste t</h2>
+      <p>Escolher o tipo certo é o passo mais importante. Esta calculadora oferece os três:</p>
+      <h3>1. Teste t para uma amostra</h3>
+      <p>Compara a média de um único grupo com um <strong>valor de referência conhecido</strong> (μ₀). Exemplo: o peso médio dos pacotes que saem de uma linha de produção é mesmo 500 g? A nota média de uma turma difere da média histórica da escola?</p>
+      <h3>2. Teste t para duas amostras independentes</h3>
+      <p>Compara as médias de <strong>dois grupos diferentes e independentes</strong>. Exemplo: o tempo de recuperação difere entre quem recebeu o tratamento A e quem recebeu o B? Esta calculadora usa o <strong>teste de Welch</strong>, que não exige que os dois grupos tenham a mesma variância — a recomendação moderna como padrão.</p>
+      <h3>3. Teste t pareado</h3>
+      <p>Compara <strong>duas medidas feitas nos mesmos indivíduos</strong>, normalmente antes e depois de uma intervenção. Como cada pessoa é seu próprio controle, ele analisa a média das diferenças individuais. Exemplo: a pressão arterial dos mesmos pacientes caiu após oito semanas de medicação?</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Pareado ou independente?
+        </div>
+        <p>Se os mesmos sujeitos foram medidos duas vezes, o teste é <strong>pareado</strong> — usá-lo como independente desperdiça informação e poder estatístico. Se são dois grupos distintos de pessoas, é <strong>independente</strong>.</p>
+      </div>
+
+      <h2 id="como">Como o cálculo funciona</h2>
+      <p>Apesar dos três tipos, a ideia é sempre a mesma: dividir a diferença observada pelo <strong>erro padrão</strong> — uma medida de quanta variação aleatória é esperada. O resultado é a <strong>estatística t</strong>:</p>
+      <div class="formula">t = (diferença observada) ÷ (erro padrão)
+        <span class="formula__where">Quanto maior o |t|, mais distante você está da hipótese de "nenhuma diferença".</span>
+      </div>
+      <p>Para o teste de uma amostra, por exemplo, a diferença observada é (média − μ₀) e o erro padrão é o desvio padrão dividido pela raiz de n:</p>
+      <div class="formula">t = (x̄ − μ₀) ÷ (s ÷ √n)</div>
+      <p>Em seguida, a calculadora precisa dos <strong>graus de liberdade</strong> (df) — em uma amostra, df = n − 1. Eles definem o formato exato da distribuição t. Por fim, o <strong>valor-p</strong> traduz o t e os df em probabilidade, usando a função de distribuição da t (calculada aqui pela função beta incompleta, de alta precisão).</p>
+
+      <h2 id="pressupostos">Pressupostos do teste t</h2>
+      <p>O teste t é robusto, mas tem condições para funcionar bem:</p>
+      <ul>
+        <li><strong>Dados quantitativos:</strong> a variável medida é numérica (peso, tempo, nota, pressão).</li>
+        <li><strong>Amostra aleatória:</strong> os dados representam a população de interesse.</li>
+        <li><strong>Normalidade aproximada:</strong> os dados (ou as diferenças, no caso pareado) seguem aproximadamente uma distribuição normal. Com amostras maiores que ~30, pequenos desvios deixam de ser problema.</li>
+        <li><strong>Independência:</strong> no teste de duas amostras, os dois grupos não se influenciam.</li>
+      </ul>
+      <p>Quando esses pressupostos falham de forma grave — dados muito assimétricos ou amostras minúsculas —, testes não paramétricos (como Mann-Whitney ou Wilcoxon) são alternativas.</p>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>A calculadora devolve seis indicadores:</p>
+      <ul>
+        <li><strong>Estatística t</strong> — a diferença em número de erros padrão.</li>
+        <li><strong>Graus de liberdade</strong> — definem a distribuição usada para o valor-p.</li>
+        <li><strong>Valor-p</strong> — a probabilidade de observar uma diferença tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), o resultado é significativo.</li>
+        <li><strong>Erro padrão</strong> — a variação aleatória esperada na estimativa.</li>
+        <li><strong>Estimativa pontual</strong> — a média (uma amostra) ou a diferença das médias (duas amostras e pareado).</li>
+        <li><strong>Intervalo de confiança</strong> — a faixa provável do valor real. Se um intervalo para a diferença incluir o zero, a diferença não é significativa.</li>
+      </ul>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma equipe de saúde mede a pressão sistólica de <strong>40 pacientes</strong> de um posto. A média foi <strong>138 mmHg</strong>, com desvio padrão de <strong>16 mmHg</strong>. O valor de referência considerado saudável é <strong>130 mmHg</strong>. A pressão média desse grupo difere do valor de referência?</p>
+      <ol class="steps">
+        <li>Erro padrão: EP = 16 ÷ √40 ≈ 2,53.</li>
+        <li>Estatística t: t = (138 − 130) ÷ 2,53 ≈ 3,16.</li>
+        <li>Graus de liberdade: df = 40 − 1 = 39.</li>
+        <li>Valor-p bicaudal para t = 3,16 e df = 39: ≈ 0,003.</li>
+      </ol>
+      <p>Como 0,003 &lt; 0,05, a diferença é <strong>estatisticamente significativa</strong>: a pressão média desse grupo é, de fato, mais alta que o valor de referência. Use o botão <em>"Preencher com exemplo"</em> para ver o cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Quando devo usar o teste t?</summary>
+          <div class="faq__answer"><p>Sempre que quiser comparar médias e o desvio padrão da população for desconhecido — o que é quase sempre o caso na prática. Para comparar proporções ou taxas, use o <a href="/teste-ab.html">teste A/B</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre teste t e teste z?</summary>
+          <div class="faq__answer"><p>O teste z exige conhecer o desvio padrão da população e usa a distribuição normal. O teste t usa o desvio padrão estimado da amostra e a distribuição t, com caudas mais largas para compensar essa incerteza. Com amostras grandes, os dois praticamente coincidem.</p></div>
+        </details>
+        <details>
+          <summary>O que são graus de liberdade?</summary>
+          <div class="faq__answer"><p>São o número de valores livres para variar ao estimar uma estatística. Em uma amostra, são n − 1. Eles determinam o formato da distribuição t: quanto maiores, mais a t se aproxima da curva normal.</p></div>
+        </details>
+        <details>
+          <summary>Posso usar o teste t com amostras pequenas?</summary>
+          <div class="faq__answer"><p>Pode — ele foi criado justamente para isso. Mas, com amostras muito pequenas, a suposição de normalidade fica mais importante e o teste perde poder para detectar diferenças reais.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-z.html"><h3>Teste Z</h3><p>Para quando o desvio padrão da população é conhecido.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Estime a faixa provável de uma média.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-ab.html"><h3>Teste A/B</h3><p>Para comparar taxas e proporções.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Precisa de estatística para a sua área?</h2>
+        <p>Veja os guias práticos de estatística para enfermagem, psicologia e marketing.</p>
+        <a class="btn btn--light btn--lg" href="/#guias">Ver os guias por área</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('t-form'), result = $('t-result'), errBox = $('t-error');
+  var panels = document.querySelectorAll('[data-panel]');
+
+  function currentMode() { return Fmt.radio('t-mode'); }
+
+  function syncPanels() {
+    var mode = currentMode();
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].hidden = panels[i].getAttribute('data-panel') !== mode;
+    }
+  }
+  var modeRadios = document.querySelectorAll('input[name="t-mode"]');
+  for (var m = 0; m < modeRadios.length; m++) {
+    modeRadios[m].addEventListener('change', syncPanels);
+  }
+  syncPanels();
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('t-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('input[name="t-mode"][value="one"]').checked = true;
+    syncPanels();
+    $('o-mean').value = '138'; $('o-sd').value = '16';
+    $('o-n').value = '40'; $('o-mu0').value = '130';
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var mode = currentMode();
+    var conf = parseFloat(Fmt.radio('t-conf'));
+    var tails = parseInt(Fmt.radio('t-tails'), 10);
+    var opts = { mode: mode, confidence: conf, tails: tails };
+    var vals;
+
+    if (mode === 'one') {
+      vals = [parseNum($('o-mean').value), parseNum($('o-sd').value),
+              parseNum($('o-n').value), parseNum($('o-mu0').value)];
+      if (vals.some(function (v) { return isNaN(v); })) {
+        showError('Preencha a média, o desvio padrão, o tamanho da amostra e o valor de comparação.');
+        return;
+      }
+      opts.mean = vals[0]; opts.sd = vals[1]; opts.n = vals[2]; opts.mu0 = vals[3];
+    } else if (mode === 'two') {
+      vals = [parseNum($('t1-mean').value), parseNum($('t1-sd').value), parseNum($('t1-n').value),
+              parseNum($('t2-mean').value), parseNum($('t2-sd').value), parseNum($('t2-n').value)];
+      if (vals.some(function (v) { return isNaN(v); })) {
+        showError('Preencha média, desvio padrão e tamanho dos dois grupos.');
+        return;
+      }
+      opts.mean1 = vals[0]; opts.sd1 = vals[1]; opts.n1 = vals[2];
+      opts.mean2 = vals[3]; opts.sd2 = vals[4]; opts.n2 = vals[5];
+    } else {
+      vals = [parseNum($('p-mean').value), parseNum($('p-sd').value), parseNum($('p-n').value)];
+      if (vals.some(function (v) { return isNaN(v); })) {
+        showError('Preencha a média das diferenças, o desvio padrão e o número de pares.');
+        return;
+      }
+      opts.meanDiff = vals[0]; opts.sdDiff = vals[1]; opts.n = vals[2];
+    }
+
+    var r = Stats.tTest(opts);
+    if (r.error) { showError(r.error); return; }
+    render(r, mode, conf);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, mode, conf) {
+    var sig = r.significant;
+    var dfTxt = Number.isInteger(r.df) ? String(r.df) : Fmt.num(r.df, 1);
+    var estLabel = r.estimateLabel === 'media' ? 'Média da amostra' :
+                   (mode === 'paired' ? 'Diferença média' : 'Diferença das médias');
+
+    var metrics =
+      metric('Estatística t', Fmt.num(r.t, 3)) +
+      metric('Graus de liberdade', dfTxt) +
+      metric('Valor-p', Fmt.p(r.pValue), r.tails === 1 ? 'unicaudal' : 'bicaudal') +
+      metric('Erro padrão', Fmt.num(r.se, 3)) +
+      metric(estLabel, Fmt.num(r.estimate, 3)) +
+      metric('IC ' + Fmt.pct(conf, 0), '[' + Fmt.num(r.ciLow, 2) + '; ' + Fmt.num(r.ciHigh, 2) + ']');
+
+    var headline = sig ? 'Diferença estatisticamente significativa' : 'Diferença não significativa';
+    var sub = sig
+      ? 'O valor-p ficou abaixo do nível de significância — a diferença provavelmente é real.'
+      : 'Não há evidência suficiente para afirmar que existe diferença.';
+
+    var interp;
+    if (sig) {
+      interp = '<p>Com <strong>' + Fmt.pct(conf, 0) + ' de confiança</strong>, o resultado é ' +
+        '<strong>estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'A estimativa é de <strong>' + Fmt.num(r.estimate, 3) + '</strong>, com intervalo de ' +
+        Fmt.pct(conf, 0) + ' entre ' + Fmt.num(r.ciLow, 3) + ' e ' + Fmt.num(r.ciHigh, 3) + '.</p>';
+    } else {
+      interp = '<p>Com ' + Fmt.pct(conf, 0) + ' de confiança, o resultado <strong>não é ' +
+        'estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é maior ou igual ao nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'O intervalo de confiança (de ' + Fmt.num(r.ciLow, 3) + ' a ' + Fmt.num(r.ciHigh, 3) +
+        ') indica a faixa de valores ainda compatível com os seus dados.</p>';
+    }
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

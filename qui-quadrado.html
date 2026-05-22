@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Qui-Quadrado (Teste de Independência) — Grátis</title>
+<meta name="description" content="Calculadora de qui-quadrado grátis e em português. Teste de independência entre variáveis categóricas a partir de uma tabela de contingência: estatística χ², graus de liberdade, valor-p e V de Cramér.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/qui-quadrado.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Qui-Quadrado (Teste de Independência)">
+<meta property="og:description" content="Teste de independência entre variáveis categóricas, a partir de uma tabela de contingência. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/qui-quadrado.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Qui-Quadrado",
+  "url": "https://calculadoraestatistica.com.br/qui-quadrado.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora do teste qui-quadrado de independência a partir de uma tabela de contingência."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Qui-Quadrado","item":"https://calculadoraestatistica.com.br/qui-quadrado.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é o teste qui-quadrado?","acceptedAnswer":{"@type":"Answer","text":"É um teste de hipótese que verifica se duas variáveis categóricas estão associadas, comparando as frequências observadas em uma tabela de contingência com as frequências esperadas sob independência."}},
+    {"@type":"Question","name":"Quando usar o teste qui-quadrado?","acceptedAnswer":{"@type":"Answer","text":"Use o qui-quadrado de independência quando você tem duas variáveis categóricas e quer saber se elas estão relacionadas — por exemplo, sexo e preferência, tratamento e desfecho, região e opinião."}},
+    {"@type":"Question","name":"O que são graus de liberdade no qui-quadrado?","acceptedAnswer":{"@type":"Answer","text":"Em uma tabela de contingência, os graus de liberdade são (número de linhas menos 1) multiplicado por (número de colunas menos 1)."}},
+    {"@type":"Question","name":"Qual o valor mínimo esperado por célula?","acceptedAnswer":{"@type":"Answer","text":"A aproximação do qui-quadrado funciona bem quando todas as frequências esperadas são pelo menos 5. Com valores esperados menores, prefira o teste exato de Fisher."}},
+    {"@type":"Question","name":"O que é o V de Cramér?","acceptedAnswer":{"@type":"Answer","text":"É uma medida do tamanho do efeito que varia de 0 a 1. Indica a força da associação entre as variáveis: valores próximos de 0,1 são fracos, de 0,3 são moderados e de 0,5 ou mais são fortes."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Qui-Quadrado</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Qui-Quadrado</h1>
+      <p class="lead">Descubra se <strong>duas variáveis categóricas estão associadas</strong> — o teste de independência a partir de uma tabela de contingência, com valor-p e tamanho do efeito.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="qq-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+        Calcular o teste qui-quadrado
+      </h2>
+      <p class="calculator__hint">Monte a tabela de contingência com as <strong>frequências observadas</strong> (contagens). Use os botões para ajustar o número de linhas e colunas.</p>
+
+      <fieldset class="field-group">
+        <legend>Tabela de contingência</legend>
+        <p class="help" style="margin:.4rem 0 .8rem">Os cabeçalhos são editáveis. Cada célula recebe uma contagem (número de casos).</p>
+        <div class="table-wrap" id="qq-table-wrap" aria-live="polite"></div>
+        <div class="matrix-controls">
+          <button type="button" class="btn btn--ghost btn--sm" id="qq-add-row">+ Linha</button>
+          <button type="button" class="btn btn--ghost btn--sm" id="qq-del-row">− Linha</button>
+          <button type="button" class="btn btn--ghost btn--sm" id="qq-add-col">+ Coluna</button>
+          <button type="button" class="btn btn--ghost btn--sm" id="qq-del-col">− Coluna</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row field-row--single">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="qq-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="qq-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="qq-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="qq-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular qui-quadrado</button>
+        <a class="btn btn--ghost" href="#" id="qq-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="qq-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é o teste qui-quadrado</a></li>
+          <li><a href="#quando">Quando usar</a></li>
+          <li><a href="#tabela">A tabela de contingência</a></li>
+          <li><a href="#como">Como o cálculo funciona</a></li>
+          <li><a href="#pressupostos">Pressupostos do teste</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é o teste qui-quadrado</h2>
+      <p>O <strong>teste qui-quadrado de independência</strong> (χ²) responde a uma pergunta muito comum em pesquisa: <strong>duas variáveis categóricas estão associadas ou são independentes?</strong> Em outras palavras, conhecer o valor de uma variável muda a probabilidade da outra?</p>
+      <p>Pense em situações como: o sexo da pessoa influencia a preferência por um produto? A região do país está associada à intenção de voto? O tipo de tratamento está relacionado ao desfecho clínico? Em todos esses casos, você não tem números para medir — tem <strong>categorias</strong> para contar. O teste qui-quadrado é a ferramenta certa para esse tipo de dado.</p>
+      <p>A lógica é elegante. Se as duas variáveis fossem completamente independentes, seria possível prever quantos casos cairiam em cada combinação de categorias só a partir dos totais. O teste compara essas <strong>frequências esperadas</strong> com as <strong>frequências realmente observadas</strong>. Se a diferença entre o observado e o esperado for grande demais para ser acaso, conclui-se que existe associação.</p>
+
+      <h2 id="quando">Quando usar</h2>
+      <p>O qui-quadrado de independência é indicado quando:</p>
+      <ul>
+        <li><strong>As duas variáveis são categóricas</strong> — sexo, região, faixa etária, marca preferida, desfecho (curou / não curou). Não servem variáveis numéricas contínuas.</li>
+        <li><strong>Você tem contagens, não médias</strong> — o dado é "quantas pessoas em cada combinação", não "qual a média de cada grupo". Para comparar médias, use o <a href="/teste-t.html">teste t</a> ou a <a href="/k-amostras.html">ANOVA</a>.</li>
+        <li><strong>As observações são independentes</strong> — cada caso entra em uma única célula da tabela, e um caso não influencia outro.</li>
+      </ul>
+      <p>Se você quer comparar apenas <em>duas proporções</em> (por exemplo, a taxa de sucesso de dois grupos), o <a href="/teste-proporcao.html">teste de proporção</a> e o qui-quadrado levam à mesma conclusão — em uma tabela 2×2, o χ² é matematicamente equivalente ao teste z de duas proporções.</p>
+
+      <h2 id="tabela">A tabela de contingência</h2>
+      <p>O ponto de partida do teste é a <strong>tabela de contingência</strong> (ou tabela de dupla entrada). Ela cruza as categorias das duas variáveis: cada linha é uma categoria da primeira variável, cada coluna é uma categoria da segunda, e cada célula contém a <strong>contagem</strong> de casos naquela combinação.</p>
+      <p>A calculadora acima monta essa tabela para você. Comece com o tamanho 2×2 e use os botões para acrescentar linhas e colunas conforme as suas categorias. Some sempre <em>contagens</em> — número de pessoas, de respostas, de casos —, nunca porcentagens ou médias.</p>
+
+      <h2 id="como">Como o cálculo funciona</h2>
+      <p>O teste tem quatro passos. O primeiro é calcular, para cada célula, a <strong>frequência esperada</strong> sob a hipótese de independência. Ela depende apenas dos totais da linha e da coluna:</p>
+      <div class="formula">E<sub>ij</sub> = (total da linha i × total da coluna j) ÷ total geral</div>
+      <p>O segundo passo é medir o quanto cada célula observada (O) se afasta do seu valor esperado (E). A <strong>estatística qui-quadrado</strong> soma essas diferenças, ao quadrado, ponderadas pelo valor esperado:</p>
+      <div class="formula">χ² = Σ (O<sub>ij</sub> − E<sub>ij</sub>)² ÷ E<sub>ij</sub>
+        <span class="formula__where">A soma percorre todas as células da tabela. Quanto maior o χ², maior o descompasso entre o observado e o esperado.</span>
+      </div>
+      <p>O terceiro passo são os <strong>graus de liberdade</strong>, que dependem só do formato da tabela:</p>
+      <div class="formula">df = (nº de linhas − 1) × (nº de colunas − 1)</div>
+      <p>Por fim, a calculadora converte o χ² e os graus de liberdade em <strong>valor-p</strong> usando a distribuição qui-quadrado. Um valor-p pequeno significa que um descompasso tão grande seria raríssimo se as variáveis fossem independentes — logo, há associação.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="pressupostos">Pressupostos do teste</h2>
+      <p>O qui-quadrado é prático, mas a sua precisão depende de uma condição importante sobre o <strong>tamanho das frequências esperadas</strong>:</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          A regra das frequências esperadas
+        </div>
+        <p>A aproximação do qui-quadrado é confiável quando <strong>todas as frequências esperadas são pelo menos 5</strong>. A calculadora mostra a menor frequência esperada da tabela; se ela ficar abaixo de 5, o resultado deve ser interpretado com cautela. Nesse caso, o <strong>teste exato de Fisher</strong> é a alternativa recomendada, especialmente para tabelas 2×2.</p>
+      </div>
+      <p>Além disso, o teste exige <strong>observações independentes</strong> (cada caso conta uma vez) e <strong>contagens absolutas</strong> nas células. Nunca aplique o qui-quadrado sobre porcentagens, médias ou dados em que a mesma pessoa aparece em mais de uma célula.</p>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>A calculadora devolve um cartão com a conclusão e seis indicadores:</p>
+      <ul>
+        <li><strong>Qui-quadrado (χ²)</strong> — o tamanho total do descompasso entre observado e esperado. Sozinho, diz pouco; precisa ser comparado com a distribuição.</li>
+        <li><strong>Graus de liberdade</strong> — definem qual distribuição qui-quadrado usar para obter o valor-p.</li>
+        <li><strong>Valor-p</strong> — a probabilidade de ver um descompasso tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), há associação significativa.</li>
+        <li><strong>V de Cramér</strong> — o tamanho do efeito. Vai de 0 a 1 e mede a <em>força</em> da associação: em torno de 0,1 é fraca, 0,3 é moderada e 0,5 ou mais é forte.</li>
+        <li><strong>Total de casos</strong> — a soma de todas as células da tabela.</li>
+        <li><strong>Menor frequência esperada</strong> — para checar o pressuposto: se for menor que 5, interprete com cautela.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Significância e força são coisas diferentes
+        </div>
+        <p>Um valor-p pequeno confirma que <em>existe</em> associação, mas não diz se ela é <em>forte</em>. Com amostras muito grandes, associações triviais ficam "significativas". Por isso, olhe sempre o V de Cramér: ele responde à pergunta que de fato importa — qual o tamanho da associação?</p>
+      </div>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Um hospital testou um novo protocolo de orientação ao paciente. De <strong>60 pacientes</strong> que receberam o protocolo, <strong>45 melhoraram</strong> a adesão ao tratamento; de <strong>60 pacientes</strong> do grupo controle, <strong>30 melhoraram</strong>. A melhora está associada ao protocolo?</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th></th><th class="num">Melhorou</th><th class="num">Não melhorou</th><th class="num">Total</th></tr></thead>
+          <tbody>
+            <tr><td>Grupo com protocolo</td><td class="num">45</td><td class="num">15</td><td class="num">60</td></tr>
+            <tr><td>Grupo controle</td><td class="num">30</td><td class="num">30</td><td class="num">60</td></tr>
+            <tr><td>Total</td><td class="num">75</td><td class="num">45</td><td class="num">120</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="steps">
+        <li><strong>Frequências esperadas:</strong> para a célula "protocolo × melhorou", E = (60 × 75) ÷ 120 = 37,5. Todas as quatro células esperadas valem 37,5 ou 22,5.</li>
+        <li><strong>Estatística χ²:</strong> somando (O − E)² ÷ E nas quatro células: 1,5 + 2,5 + 1,5 + 2,5 = <strong>8,0</strong>.</li>
+        <li><strong>Graus de liberdade:</strong> df = (2 − 1) × (2 − 1) = 1.</li>
+        <li><strong>Valor-p:</strong> para χ² = 8,0 e df = 1, o valor-p ≈ 0,0047.</li>
+      </ol>
+      <p>Como 0,0047 &lt; 0,05, a associação é <strong>estatisticamente significativa</strong>: a melhora na adesão está relacionada ao protocolo. O V de Cramér ≈ 0,26 indica uma associação de força moderada. Use o botão <em>"Preencher com exemplo"</em> para ver esse cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é o teste qui-quadrado?</summary>
+          <div class="faq__answer"><p>É um teste de hipótese que verifica se duas variáveis categóricas estão associadas. Ele compara as frequências observadas em uma tabela de contingência com as frequências que seriam esperadas se as variáveis fossem independentes.</p></div>
+        </details>
+        <details>
+          <summary>Quando devo usar o qui-quadrado?</summary>
+          <div class="faq__answer"><p>Quando você tem duas variáveis categóricas e quer saber se elas estão relacionadas — como sexo e preferência, tratamento e desfecho, escolaridade e opinião. Para comparar médias, use o <a href="/teste-t.html">teste t</a> ou a <a href="/k-amostras.html">ANOVA</a>.</p></div>
+        </details>
+        <details>
+          <summary>O que são graus de liberdade no qui-quadrado?</summary>
+          <div class="faq__answer"><p>São calculados como (número de linhas − 1) × (número de colunas − 1). Uma tabela 2×2 tem 1 grau de liberdade; uma tabela 3×4 tem 6. Eles determinam a distribuição usada para o valor-p.</p></div>
+        </details>
+        <details>
+          <summary>E se as frequências esperadas forem menores que 5?</summary>
+          <div class="faq__answer"><p>A aproximação do qui-quadrado perde precisão. A calculadora avisa quando a menor frequência esperada fica abaixo de 5. Nesses casos, prefira o teste exato de Fisher, sobretudo em tabelas 2×2.</p></div>
+        </details>
+        <details>
+          <summary>Qui-quadrado prova causa e efeito?</summary>
+          <div class="faq__answer"><p>Não. O teste mostra que existe uma <em>associação</em> entre as variáveis, mas associação não é causalidade. Outras variáveis podem explicar a relação observada.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre qui-quadrado e teste de proporção?</summary>
+          <div class="faq__answer"><p>Em uma tabela 2×2, são equivalentes — chegam ao mesmo valor-p. O qui-quadrado é mais geral: funciona com tabelas de qualquer tamanho, comparando muitas categorias de uma vez.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Para comparar duas proporções diretamente.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/k-amostras.html"><h3>ANOVA e k amostras</h3><p>Para comparar médias de três ou mais grupos.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/guias/como-escolher-teste-estatistico.html"><h3>Qual teste usar?</h3><p>Um guia para escolher o teste estatístico certo.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Na dúvida sobre qual teste usar?</h2>
+        <p>Veja o guia que ajuda a escolher o teste estatístico certo para o seu tipo de dado.</p>
+        <a class="btn btn--light btn--lg" href="/guias/como-escolher-teste-estatistico.html">Abrir o guia de escolha</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('qq-form'), result = $('qq-result'), errBox = $('qq-error');
+  var wrap = $('qq-table-wrap');
+  var R = 2, C = 2, MAXR = 6, MAXC = 6;
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  function readState() {
+    var st = { rowLab: [], colLab: [], cells: {} };
+    var cl = wrap.querySelectorAll('[data-col-label]');
+    for (var i = 0; i < cl.length; i++) st.colLab[i] = cl[i].value;
+    var rl = wrap.querySelectorAll('[data-row-label]');
+    for (var i = 0; i < rl.length; i++) st.rowLab[i] = rl[i].value;
+    var cells = wrap.querySelectorAll('[data-cell]');
+    for (var i = 0; i < cells.length; i++) {
+      st.cells[cells[i].getAttribute('data-cell')] = cells[i].value;
+    }
+    return st;
+  }
+
+  function buildTable(preset) {
+    var st = preset || (wrap.querySelector('table') ? readState() : { rowLab: [], colLab: [], cells: {} });
+    var defCol = ['Categoria 1', 'Categoria 2', 'Categoria 3', 'Categoria 4', 'Categoria 5', 'Categoria 6'];
+    var defRow = ['Grupo 1', 'Grupo 2', 'Grupo 3', 'Grupo 4', 'Grupo 5', 'Grupo 6'];
+    var h = '<table class="matrix-grid"><thead><tr><th class="matrix-corner"></th>';
+    for (var c = 0; c < C; c++) {
+      var cl = (st.colLab[c] != null && st.colLab[c] !== '') ? st.colLab[c] : defCol[c];
+      h += '<th><input class="input" type="text" data-col-label aria-label="Rótulo da coluna ' +
+        (c + 1) + '" value="' + esc(cl) + '"></th>';
+    }
+    h += '</tr></thead><tbody>';
+    for (var r = 0; r < R; r++) {
+      var rl = (st.rowLab[r] != null && st.rowLab[r] !== '') ? st.rowLab[r] : defRow[r];
+      h += '<tr><th><input class="input" type="text" data-row-label aria-label="Rótulo da linha ' +
+        (r + 1) + '" value="' + esc(rl) + '"></th>';
+      for (var c = 0; c < C; c++) {
+        var key = r + '_' + c;
+        var v = st.cells[key] != null ? st.cells[key] : '';
+        h += '<td><input class="input" type="text" inputmode="numeric" data-cell="' + key +
+          '" aria-label="Contagem linha ' + (r + 1) + ' coluna ' + (c + 1) + '" value="' + esc(v) + '"></td>';
+      }
+      h += '</tr>';
+    }
+    h += '</tbody></table>';
+    wrap.innerHTML = h;
+  }
+  buildTable();
+
+  $('qq-add-row').addEventListener('click', function () { if (R < MAXR) { R++; buildTable(); } });
+  $('qq-del-row').addEventListener('click', function () { if (R > 2) { R--; buildTable(); } });
+  $('qq-add-col').addEventListener('click', function () { if (C < MAXC) { C++; buildTable(); } });
+  $('qq-del-col').addEventListener('click', function () { if (C > 2) { C--; buildTable(); } });
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('qq-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    R = 2; C = 2;
+    buildTable({
+      rowLab: ['Grupo com protocolo', 'Grupo controle'],
+      colLab: ['Melhorou', 'Não melhorou'],
+      cells: { '0_0': '45', '0_1': '15', '1_0': '30', '1_1': '30' }
+    });
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var st = readState();
+    var table = [];
+    for (var r = 0; r < R; r++) {
+      var row = [];
+      for (var c = 0; c < C; c++) {
+        var v = parseNum(st.cells[r + '_' + c]);
+        if (isNaN(v)) {
+          showError('Preencha todas as células da tabela com números (use 0 onde não houver casos).');
+          return;
+        }
+        row.push(v);
+      }
+      table.push(row);
+    }
+    var conf = parseFloat(Fmt.radio('qq-conf'));
+    var res = Stats.chiSquareTest({ table: table, confidence: conf });
+    if (res.error) { showError(res.error); return; }
+    render(res, conf);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function cramerForca(v) {
+    if (v < 0.1) return 'desprezível';
+    if (v < 0.3) return 'fraca';
+    if (v < 0.5) return 'moderada';
+    return 'forte';
+  }
+
+  function render(r, conf) {
+    var sig = r.significant;
+    var lowExpected = r.minExpected < 5;
+
+    var metrics =
+      metric('Qui-quadrado (χ²)', Fmt.num(r.chi2, 3)) +
+      metric('Graus de liberdade', String(r.df)) +
+      metric('Valor-p', Fmt.p(r.pValue)) +
+      metric('V de Cramér', Fmt.num(r.cramerV, 3), 'efeito ' + cramerForca(r.cramerV)) +
+      metric('Total de casos', Fmt.int(r.n)) +
+      metric('Menor esperado', Fmt.num(r.minExpected, 2), lowExpected ? 'abaixo de 5 — atenção' : 'ok (≥ 5)');
+
+    var headline = sig ? 'Associação estatisticamente significativa'
+                       : 'Associação não significativa';
+    var sub = sig
+      ? 'As variáveis provavelmente estão relacionadas — o descompasso não é acaso.'
+      : 'Não há evidência suficiente de associação entre as variáveis.';
+
+    var interp;
+    if (sig) {
+      interp = '<p>Com <strong>' + Fmt.pct(conf, 0) + ' de confiança</strong>, existe ' +
+        '<strong>associação estatisticamente significativa</strong> entre as duas variáveis: ' +
+        'o valor-p (' + Fmt.p(r.pValue) + ') é menor que o nível de significância (' +
+        Fmt.pct(r.alpha, 0) + '). O V de Cramér de <strong>' + Fmt.num(r.cramerV, 3) +
+        '</strong> indica uma associação de força <strong>' + cramerForca(r.cramerV) + '</strong>.</p>';
+    } else {
+      interp = '<p>Com ' + Fmt.pct(conf, 0) + ' de confiança, <strong>não há associação ' +
+        'estatisticamente significativa</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é maior ou igual ao nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'As frequências observadas são compatíveis com a hipótese de independência entre as variáveis.</p>';
+    }
+    if (lowExpected) {
+      interp += '<p><strong>Atenção:</strong> a menor frequência esperada (' +
+        Fmt.num(r.minExpected, 2) + ') ficou abaixo de 5. A aproximação do qui-quadrado ' +
+        'pode ser imprecisa — considere o teste exato de Fisher, sobretudo em tabelas 2×2.</p>';
+    }
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

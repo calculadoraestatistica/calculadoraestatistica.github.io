@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Teste Z — Online e Grátis</title>
+<meta name="description" content="Calculadora de teste z grátis e em português para uma média com desvio padrão populacional conhecido. Estatística z, erro padrão, valor-p, intervalo de confiança e interpretação.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/teste-z.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Teste Z">
+<meta property="og:description" content="Teste uma média contra um valor de referência quando o desvio padrão da população é conhecido. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/teste-z.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Teste Z",
+  "url": "https://calculadoraestatistica.com.br/teste-z.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de teste z para uma média com desvio padrão populacional conhecido."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Teste Z","item":"https://calculadoraestatistica.com.br/teste-z.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quando usar o teste z?","acceptedAnswer":{"@type":"Answer","text":"Use o teste z para comparar uma média com um valor de referência quando o desvio padrão da população é conhecido. Na prática isso ocorre com instrumentos padronizados e processos bem documentados, ou quando a amostra é grande."}},
+    {"@type":"Question","name":"Qual a diferença entre teste z e teste t?","acceptedAnswer":{"@type":"Answer","text":"O teste z usa o desvio padrão da população e a distribuição normal padrão. O teste t usa o desvio padrão estimado da amostra e a distribuição t, com caudas mais largas para compensar essa incerteza. Quando o sigma da população é desconhecido, o correto é o teste t."}},
+    {"@type":"Question","name":"O que é a estatística z?","acceptedAnswer":{"@type":"Answer","text":"É a distância entre a média da amostra e o valor de comparação, medida em número de erros padrão. Quanto maior o valor absoluto de z, mais distante você está da hipótese de nenhuma diferença."}},
+    {"@type":"Question","name":"O que é o valor-p no teste z?","acceptedAnswer":{"@type":"Answer","text":"É a probabilidade de observar uma diferença tão grande quanto a medida, ou maior, se a média verdadeira fosse igual ao valor de comparação. Se o valor-p for menor que o nível de significância, o resultado é estatisticamente significativo."}},
+    {"@type":"Question","name":"O que significa z crítico?","acceptedAnswer":{"@type":"Answer","text":"É o valor de corte da distribuição normal para o nível de confiança escolhido. Para 95% de confiança em um teste bicaudal, o z crítico é aproximadamente 1,96. Se o z calculado ultrapassar esse valor, o resultado é significativo."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Teste Z</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Teste Z</h1>
+      <p class="lead">Compare a <strong>média de uma amostra</strong> com um valor de referência quando o <strong>desvio padrão da população é conhecido</strong> — e descubra se a diferença é estatisticamente significativa.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="z-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Calcular o teste Z
+      </h2>
+      <p class="calculator__hint">Informe a média e o tamanho da amostra, o desvio padrão da população e o valor de comparação.</p>
+
+      <fieldset class="field-group">
+        <legend>Sua amostra</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="z-mean">Média da amostra</label>
+            <input class="input" type="text" inputmode="decimal" id="z-mean" placeholder="Ex.: 104" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="z-n">Tamanho da amostra (n)</label>
+            <input class="input" type="text" inputmode="numeric" id="z-n" placeholder="Ex.: 60" autocomplete="off">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Parâmetros da população</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="z-sigma">Desvio padrão populacional (σ)</label>
+            <input class="input" type="text" inputmode="decimal" id="z-sigma" placeholder="Ex.: 15" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="z-mu0">Valor de comparação (μ₀)</label>
+            <input class="input" type="text" inputmode="decimal" id="z-mu0" placeholder="Ex.: 100" autocomplete="off">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="z-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="z-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="z-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tipo de teste</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo de teste">
+              <label><input type="radio" name="z-tails" value="2" checked><span>Bicaudal</span></label>
+              <label><input type="radio" name="z-tails" value="1"><span>Unicaudal</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="z-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular teste Z</button>
+        <a class="btn btn--ghost" href="#" id="z-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="z-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é o teste Z</a></li>
+          <li><a href="#quando">Quando usar o teste Z</a></li>
+          <li><a href="#z-vs-t">Teste Z ou teste t?</a></li>
+          <li><a href="#como">Como o cálculo funciona</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é o teste Z</h2>
+      <p>O <strong>teste z</strong> é um teste de hipótese que compara a <strong>média de uma amostra</strong> com um <strong>valor de referência</strong> conhecido. Ele responde a uma pergunta direta: a diferença entre a média que você observou e o valor esperado é grande o bastante para ser real, ou pode ser apenas variação aleatória de quem entrou na amostra?</p>
+      <p>A marca registrada do teste z é um pré-requisito: você precisa <strong>conhecer o desvio padrão da população</strong> (representado pela letra grega σ, sigma). Não o desvio padrão da sua amostra — o da população inteira de onde a amostra veio. Esse conhecimento é o que permite usar a <strong>distribuição normal padrão</strong> diretamente, sem nenhuma correção, para calcular as probabilidades.</p>
+      <p>Por trás do nome está o <em>escore z</em>: a ideia, central em toda a estatística, de medir uma distância em "número de desvios padrão". O teste z aplica esse mesmo conceito à média da amostra. Quando o resultado se afasta muito do valor de referência — medido em erros padrão —, fica improvável que essa distância tenha surgido por acaso.</p>
+
+      <h2 id="quando">Quando usar o teste Z</h2>
+      <p>O teste z para uma média é o procedimento certo quando duas condições se combinam:</p>
+      <ul>
+        <li><strong>O desvio padrão populacional é conhecido.</strong> Isso é mais comum do que parece: testes psicométricos padronizados (QI, provas de larga escala), instrumentos de medição calibrados e processos industriais bem documentados costumam ter um σ estabelecido por anos de dados históricos.</li>
+        <li><strong>A amostra vem de uma população aproximadamente normal — ou é grande.</strong> Com uma amostra grande (em geral n acima de ~30), o Teorema Central do Limite garante que a média amostral segue aproximadamente uma distribuição normal, mesmo que os dados originais não sejam normais.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          A pergunta de partida
+        </div>
+        <p>Antes de escolher o teste z, faça uma pergunta honesta: o desvio padrão que você vai usar veio da população (de uma norma, de um manual técnico, de anos de histórico) ou foi calculado a partir desta amostra? Se foi calculado da amostra, o teste correto é o t.</p>
+      </div>
+
+      <h2 id="z-vs-t">Teste Z ou teste t?</h2>
+      <p>Essa é a dúvida mais comum — e a resposta é simples. Os dois testes comparam médias e seguem a mesma lógica; a diferença está em <strong>de onde vem o desvio padrão</strong>:</p>
+      <ul>
+        <li><strong>Teste z</strong> — usa o desvio padrão da <em>população</em> (σ), tratado como um número fixo e conhecido. As probabilidades vêm da distribuição normal padrão.</li>
+        <li><strong><a href="/teste-t.html">Teste t</a></strong> — usa o desvio padrão <em>estimado da amostra</em> (s). Como essa estimativa carrega incerteza, o teste t emprega a distribuição t, parecida com a normal, mas com caudas um pouco mais largas — mais conservadora.</li>
+      </ul>
+      <p>Na prática, o desvio padrão da população quase nunca é conhecido, e por isso o <a href="/teste-t.html">teste t de Student</a> é o mais usado no dia a dia da pesquisa. O teste z fica reservado para os casos em que σ realmente é conhecido. Há ainda um ponto tranquilizador: conforme a amostra cresce, a distribuição t se aproxima cada vez mais da normal. Com amostras grandes, teste z e teste t produzem resultados praticamente idênticos.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O erro mais frequente
+        </div>
+        <p>Usar o teste z com o desvio padrão calculado a partir da própria amostra subestima a incerteza e deixa o valor-p artificialmente pequeno. Em amostras pequenas, isso pode transformar um resultado não significativo em "significativo". Na dúvida, use o teste t.</p>
+      </div>
+
+      <h2 id="como">Como o cálculo funciona</h2>
+      <p>O teste z para uma média tem três passos. O primeiro é o <strong>erro padrão da média</strong> — quanta variação aleatória é esperada de uma amostra para outra. Ele é o desvio padrão da população dividido pela raiz do tamanho da amostra:</p>
+      <div class="formula">EP = σ ÷ √n
+        <span class="formula__where">Quanto maior a amostra, menor o erro padrão — médias de amostras grandes são mais estáveis.</span>
+      </div>
+      <p>O segundo passo é a <strong>estatística z</strong>: a distância entre a média da amostra (x̄) e o valor de comparação (μ₀), medida em número de erros padrão.</p>
+      <div class="formula">z = (x̄ − μ₀) ÷ (σ ÷ √n)
+        <span class="formula__where">Quanto maior o |z|, mais distante você está da hipótese de "nenhuma diferença".</span>
+      </div>
+      <p>O terceiro passo é traduzir o z em <strong>valor-p</strong>. Aqui entra a distribuição normal padrão e a sua função de distribuição acumulada, representada por Φ (a letra grega fi). Φ(z) dá a probabilidade de a normal padrão ficar abaixo de z. O valor-p combina isso com o tipo de teste:</p>
+      <div class="formula">valor-p (bicaudal) = 2 · [ 1 − Φ(|z|) ]</div>
+      <p>No teste bicaudal, você pergunta se a média é simplesmente <em>diferente</em> do valor de referência. No teste unicaudal, pergunta se ela é <em>maior</em> (ou <em>menor</em>) — e o valor-p é a metade do bicaudal. A calculadora ainda devolve o <strong>z crítico</strong>, o corte da distribuição normal para o nível de confiança: para 95% bicaudal, ele vale aproximadamente 1,96.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>A calculadora devolve seis indicadores. Veja o que cada um significa:</p>
+      <ul>
+        <li><strong>Estatística z</strong> — a diferença entre a média e o valor de comparação, em número de erros padrão.</li>
+        <li><strong>Valor-p</strong> — a probabilidade de observar uma diferença tão grande por acaso. Se for menor que o nível de significância (α, em geral 0,05), o resultado é significativo.</li>
+        <li><strong>Erro padrão</strong> — a variação aleatória esperada na estimativa da média.</li>
+        <li><strong>Média da amostra</strong> — a estimativa pontual: o melhor palpite, a partir dos seus dados, para a média verdadeira.</li>
+        <li><strong>z crítico</strong> — o valor de corte da normal para o nível de confiança. Se o |z| calculado o ultrapassa, o resultado é significativo.</li>
+        <li><strong>Intervalo de confiança</strong> — a faixa provável da média verdadeira da população. Se o valor de comparação μ₀ ficar <em>fora</em> desse intervalo, a diferença é significativa.</li>
+      </ul>
+      <p>Valor-p e intervalo de confiança contam a mesma história por dois caminhos. O valor-p compara uma probabilidade com α; o intervalo mostra a faixa de valores plausíveis. Quando o μ₀ cai fora do intervalo, o valor-p fica abaixo de α — os dois sempre concordam.</p>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma escola aplica um teste de QI padronizado em uma turma de <strong>60 alunos</strong>. O QI médio observado foi <strong>104</strong>. O teste é padronizado para ter, na população, média <strong>100</strong> e desvio padrão <strong>15</strong> — ou seja, σ é conhecido. A turma tem um desempenho médio diferente da referência populacional?</p>
+      <ol class="steps">
+        <li>Erro padrão: EP = 15 ÷ √60 ≈ 1,936.</li>
+        <li>Estatística z: z = (104 − 100) ÷ 1,936 ≈ 2,07.</li>
+        <li>Valor-p bicaudal para z = 2,07: ≈ 0,039.</li>
+        <li>Intervalo de confiança de 95% para a média: 104 ± 1,96 · 1,936, ou seja, de ≈ 100,2 a ≈ 107,8.</li>
+      </ol>
+      <p>Como 0,039 &lt; 0,05, a diferença é <strong>estatisticamente significativa</strong> a 95% de confiança: a turma tem, de fato, um QI médio acima da referência populacional. Repare que o valor 100 fica fora do intervalo de confiança — os dois critérios concordam. Use o botão <em>"Preencher com exemplo"</em> para ver esse cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Quando devo usar o teste z?</summary>
+          <div class="faq__answer"><p>Use o teste z para comparar uma média com um valor de referência quando o desvio padrão da população é conhecido — por exemplo, com testes padronizados, instrumentos calibrados ou processos com longo histórico de dados. Para comparar proporções, use o <a href="/teste-ab.html">teste A/B</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre teste z e teste t?</summary>
+          <div class="faq__answer"><p>O teste z usa o desvio padrão da população e a distribuição normal padrão. O <a href="/teste-t.html">teste t</a> usa o desvio padrão estimado da amostra e a distribuição t, com caudas mais largas para compensar a incerteza dessa estimativa. Quando σ é desconhecido — o caso mais comum —, o correto é o teste t. Com amostras grandes, os dois praticamente coincidem.</p></div>
+        </details>
+        <details>
+          <summary>O que é a estatística z?</summary>
+          <div class="faq__answer"><p>É a distância entre a média da amostra e o valor de comparação, medida em número de erros padrão. Um z de 2, por exemplo, indica que a média observada está a dois erros padrão do valor de referência. Quanto maior o valor absoluto de z, mais forte a evidência contra a hipótese de nenhuma diferença.</p></div>
+        </details>
+        <details>
+          <summary>O que é o valor-p no teste z?</summary>
+          <div class="faq__answer"><p>É a probabilidade de observar uma diferença tão grande quanto a medida, ou maior, supondo que a média verdadeira seja igual ao valor de comparação. Se o valor-p for menor que o nível de significância (em geral 0,05), o resultado é estatisticamente significativo.</p></div>
+        </details>
+        <details>
+          <summary>O que significa z crítico?</summary>
+          <div class="faq__answer"><p>É o valor de corte da distribuição normal padrão para o nível de confiança escolhido. Em um teste bicaudal a 95%, o z crítico vale cerca de 1,96; a 99%, cerca de 2,576. Se o |z| calculado ultrapassar o z crítico, o resultado é significativo naquele nível.</p></div>
+        </details>
+        <details>
+          <summary>O teste z bicaudal e o unicaudal dão o mesmo valor-p?</summary>
+          <div class="faq__answer"><p>Não. O valor-p unicaudal é a metade do bicaudal. O teste bicaudal verifica se a média é apenas <em>diferente</em> do valor de referência; o unicaudal verifica uma direção específica (maior ou menor) e só é válido se essa direção foi definida antes de coletar os dados.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Para comparar médias quando o desvio padrão da população é desconhecido.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Estime a faixa provável de uma média ou proporção.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare uma proporção com um valor de referência.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Precisa de estatística para a sua área?</h2>
+        <p>Veja os guias práticos de estatística para enfermagem, psicologia e marketing.</p>
+        <a class="btn btn--light btn--lg" href="/#guias">Ver os guias por área</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('z-form'), result = $('z-result'), errBox = $('z-error');
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('z-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    $('z-mean').value = '104'; $('z-sigma').value = '15';
+    $('z-n').value = '60'; $('z-mu0').value = '100';
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var mean = parseNum($('z-mean').value);
+    var sigma = parseNum($('z-sigma').value);
+    var n = parseNum($('z-n').value);
+    var mu0 = parseNum($('z-mu0').value);
+    if ([mean, sigma, n, mu0].some(function (v) { return isNaN(v); })) {
+      showError('Preencha a média da amostra, o desvio padrão populacional, o tamanho da amostra e o valor de comparação.');
+      return;
+    }
+    var conf = parseFloat(Fmt.radio('z-conf'));
+    var tails = parseInt(Fmt.radio('z-tails'), 10);
+    var r = Stats.zTest({ mean: mean, sigma: sigma, n: n, mu0: mu0, confidence: conf, tails: tails });
+    if (r.error) { showError(r.error); return; }
+    render(r, conf);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, conf) {
+    var sig = r.significant;
+
+    var metrics =
+      metric('Estatística z', Fmt.num(r.z, 3)) +
+      metric('Valor-p', Fmt.p(r.pValue), r.tails === 1 ? 'unicaudal' : 'bicaudal') +
+      metric('Erro padrão', Fmt.num(r.se, 3)) +
+      metric('Média da amostra', Fmt.num(r.estimate, 3)) +
+      metric('z crítico', Fmt.num(r.zCritical, 3), Fmt.pct(conf, 0)) +
+      metric('IC ' + Fmt.pct(conf, 0), '[' + Fmt.num(r.ciLow, 2) + '; ' + Fmt.num(r.ciHigh, 2) + ']');
+
+    var headline = sig ? 'Diferença estatisticamente significativa' : 'Diferença não significativa';
+    var sub = sig
+      ? 'O valor-p ficou abaixo do nível de significância — a diferença provavelmente é real.'
+      : 'Não há evidência suficiente para afirmar que a média difere do valor de comparação.';
+
+    var interp;
+    if (sig) {
+      interp = '<p>Com <strong>' + Fmt.pct(conf, 0) + ' de confiança</strong>, o resultado é ' +
+        '<strong>estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'A média da amostra é <strong>' + Fmt.num(r.estimate, 3) + '</strong>, com intervalo de ' +
+        Fmt.pct(conf, 0) + ' entre ' + Fmt.num(r.ciLow, 3) + ' e ' + Fmt.num(r.ciHigh, 3) + '. ' +
+        'Como esse intervalo não inclui o valor de comparação, a diferença é considerada real.</p>';
+    } else {
+      interp = '<p>Com ' + Fmt.pct(conf, 0) + ' de confiança, o resultado <strong>não é ' +
+        'estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+        ') é maior ou igual ao nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+        'O intervalo de confiança de ' + Fmt.pct(conf, 0) + ' (de ' + Fmt.num(r.ciLow, 3) +
+        ' a ' + Fmt.num(r.ciHigh, 3) + ') ainda é compatível com o valor de comparação — ' +
+        'não dá para afirmar que a média da população difere dele.</p>';
+    }
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

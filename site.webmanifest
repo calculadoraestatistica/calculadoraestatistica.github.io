@@ -1,0 +1,14 @@
+{
+  "name": "Calculadora Estatística",
+  "short_name": "Calc Estatística",
+  "description": "Calculadoras estatísticas online e gratuitas em português: teste A/B, teste t, teste z, valor-p e tamanho de amostra.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estatística para Marketing e CRO: Guia de Testes A/B</title>
+<meta name="description" content="Guia de estatística aplicada a marketing e CRO (otimização de conversão): teste A/B, significância, valor-p, poder estatístico, efeito mínimo detectável (MDE) e os erros que invalidam um experimento.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/guias/estatistica-marketing-cro.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Estatística para Marketing e CRO: Guia de Testes A/B">
+<meta property="og:description" content="Como usar estatística em marketing digital e otimização de conversão: teste A/B, significância, poder, MDE e os erros mais comuns.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/guias/estatistica-marketing-cro.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Estatística para Marketing e CRO: Guia de Testes A/B",
+  "url": "https://calculadoraestatistica.com.br/guias/estatistica-marketing-cro.html",
+  "inLanguage": "pt-BR",
+  "description": "Guia de estatística aplicada a marketing e CRO: teste A/B, significância, valor-p, poder estatístico, efeito mínimo detectável e erros comuns.",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "author": {"@type": "Organization", "name": "Calculadora Estatística"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculadora Estatística",
+    "logo": {"@type": "ImageObject", "url": "https://calculadoraestatistica.com.br/og-image.png"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Guias","item":"https://calculadoraestatistica.com.br/#guias"},
+    {"@type":"ListItem","position":3,"name":"Estatística para Marketing e CRO","item":"https://calculadoraestatistica.com.br/guias/estatistica-marketing-cro.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é CRO em marketing?","acceptedAnswer":{"@type":"Answer","text":"CRO (Conversion Rate Optimization) é a otimização da taxa de conversão: o processo de aumentar a porcentagem de visitantes que realizam uma ação desejada — comprar, cadastrar, clicar — usando experimentos como o teste A/B em vez de achismo."}},
+    {"@type":"Question","name":"Quanto tempo deve durar um teste A/B?","acceptedAnswer":{"@type":"Answer","text":"O teste deve cobrir ao menos uma a duas semanas inteiras, incluindo todos os dias da semana e ciclos de comportamento do público, e só termina ao atingir o tamanho de amostra planejado — o que vier por último."}},
+    {"@type":"Question","name":"O que é efeito mínimo detectável (MDE)?","acceptedAnswer":{"@type":"Answer","text":"O MDE é a menor melhoria na taxa de conversão que você quer ser capaz de detectar com o teste. Quanto menor o MDE, maior o tráfego necessário, porque efeitos pequenos exigem amostras grandes para se separarem do acaso."}},
+    {"@type":"Question","name":"O que significa 95% de confiança em um teste A/B?","acceptedAnswer":{"@type":"Answer","text":"Significa que o nível de significância é 5%: se A e B fossem realmente iguais, um teste como esse declararia um vencedor por acaso em apenas 5% das vezes. Não é a probabilidade de a variante B ser melhor."}},
+    {"@type":"Question","name":"Posso parar o teste A/B assim que der significativo?","acceptedAnswer":{"@type":"Answer","text":"Não. Observar o resultado repetidamente e encerrar no primeiro momento favorável (peeking) infla a taxa de falsos positivos muito acima dos 5% planejados. Defina o tamanho de amostra antes e só decida ao atingi-lo."}},
+    {"@type":"Question","name":"Métrica de vaidade é problema em CRO?","acceptedAnswer":{"@type":"Answer","text":"Sim. Métricas de vaidade — visitas, curtidas, impressões — sobem com facilidade mas não refletem receita nem conversão. Em CRO, escolha como métrica primária aquela ligada ao objetivo de negócio e fixe-a antes do teste."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/#guias">Guias</a></li>
+          <li>Estatística para Marketing e CRO</li>
+        </ol>
+      </nav>
+      <h1>Estatística para Marketing e CRO</h1>
+      <p class="lead">Como usar estatística para tomar decisões de marketing com dados — e não com "achismo". Um guia prático de testes A/B, significância, poder estatístico e dos erros que invalidam um experimento.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#por-que">Por que marketing precisa de estatística</a></li>
+          <li><a href="#ciclo">O teste A/B e o ciclo de experimentação</a></li>
+          <li><a href="#metricas">As métricas que importam</a></li>
+          <li><a href="#significancia">Significância estatística sem mistério</a></li>
+          <li><a href="#poder-mde">Poder estatístico e efeito mínimo detectável</a></li>
+          <li><a href="#erros">Os erros que invalidam um teste A/B</a></li>
+          <li><a href="#alem-landing">Testes A/B além da landing page</a></li>
+          <li><a href="#reportar">Como reportar o resultado para o time</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="por-que">Por que marketing precisa de estatística</h2>
+      <p>Marketing digital é, antes de tudo, uma disciplina de decisões: qual chamada usar no anúncio, qual cor de botão, qual assunto de e-mail, qual desconto oferecer. Por muito tempo essas escolhas foram feitas no instinto — a opinião de quem grita mais alto na reunião ou a preferência pessoal do diretor. O problema é que o instinto erra com frequência, e ninguém percebe: sem medir, é impossível saber se a decisão foi boa ou ruim.</p>
+      <p>A estatística entra para substituir o "achismo" por evidência. Em vez de discutir qual versão de uma página é melhor, você coloca as duas no ar, mede o desempenho de cada uma e deixa os números decidirem. É exatamente isso que define o <strong>CRO</strong> — sigla de <em>Conversion Rate Optimization</em>, ou otimização da taxa de conversão. CRO é o processo contínuo de aumentar a porcentagem de visitantes que realizam a ação desejada (comprar, cadastrar-se, clicar, baixar) usando experimentos controlados e dados, não palpites.</p>
+      <p>O motivo de precisar de estatística — e não só de uma planilha — é simples: dois números quase nunca são iguais. Se uma página converte 4,1% e a outra 4,4%, a versão de 4,4% parece melhor. Mas e se você rodasse o mesmo teste de novo? A diferença pode sumir, ou até inverter. A estatística existe para responder à única pergunta que importa em CRO: <strong>essa diferença é real, ou é só sorte?</strong> Quem ignora isso acaba "otimizando" a conversão em círculos, implementando mudanças que não fazem efeito algum.</p>
+
+      <h2 id="ciclo">O teste A/B e o ciclo de experimentação</h2>
+      <p>O instrumento central do CRO é o <strong>teste A/B</strong>: um experimento controlado que compara duas versões de algo para descobrir qual converte melhor. A versão A é o <em>controle</em> — o que já está no ar. A versão B é a <em>variação</em> — a mudança que você quer avaliar. O público é dividido aleatoriamente entre as duas, e a estatística separa diferença verdadeira de ruído. Se quiser ver a mecânica completa e calcular um teste, use a <a href="/teste-ab.html">calculadora de teste A/B</a>.</p>
+      <p>Mais importante que o teste isolado é o <strong>ciclo de experimentação</strong> — a rotina que transforma CRO de evento esporádico em método. Ele tem quatro etapas que se repetem:</p>
+      <ol>
+        <li><strong>Hipótese.</strong> Toda boa experimentação começa com uma frase verificável, não com um palpite vago. Em vez de "acho que o site está ruim", escreva: "se eu mover o botão de compra para acima da dobra, a taxa de conversão vai aumentar, porque hoje muitos visitantes não rolam a página". A hipótese deve dizer <em>o que</em> muda, <em>qual</em> métrica afeta e <em>por quê</em>.</li>
+        <li><strong>Variação.</strong> Construa a versão B implementando a mudança da hipótese. Mude apenas o elemento que você quer testar: se alterar o botão, o título e a imagem ao mesmo tempo, e B vencer, você não saberá qual mudança causou o resultado.</li>
+        <li><strong>Execução.</strong> Coloque A e B no ar dividindo o tráfego, e deixe o teste rodar até atingir o tamanho de amostra planejado e cobrir ciclos completos de comportamento (incluindo fins de semana). Esta etapa exige paciência — voltar a mexer agora estraga tudo.</li>
+        <li><strong>Análise.</strong> Com os dados coletados, calcule a significância, o tamanho do efeito e o intervalo de confiança. Decida: implementar a variação, descartá-la ou rodar de novo. Em seguida, registre o aprendizado e gere a próxima hipótese — e o ciclo recomeça.</li>
+      </ol>
+      <p>A maioria dos testes não produz um vencedor estrondoso, e está tudo bem. O valor do CRO está no acúmulo: dezenas de experimentos por ano, cada um confirmando ou derrubando uma crença, vão construindo um site genuinamente otimizado e um time que entende o próprio público.</p>
+
+      <h2 id="metricas">As métricas que importam</h2>
+      <p>Um teste A/B só é tão bom quanto a métrica que ele mede. A métrica central do CRO é a <strong>taxa de conversão</strong>: a proporção de pessoas que realizam a ação desejada entre todas as que tiveram a oportunidade.</p>
+      <div class="formula">taxa de conversão = conversões ÷ visitantes</div>
+      <p>O que conta como "conversão" depende do objetivo da página. Numa loja, é a compra finalizada; numa landing page de captação, é o formulário enviado; num e-mail, pode ser o clique no link. O importante é escolher <strong>uma métrica primária</strong> ligada ao negócio e decidi-la <em>antes</em> do teste.</p>
+      <p>Ao reportar um resultado, existem duas formas de expressar a diferença — e confundi-las gera mal-entendidos sérios:</p>
+      <ul>
+        <li><strong>Uplift absoluto:</strong> a diferença direta entre as taxas, em pontos percentuais. Se A converte 4,0% e B converte 5,0%, o uplift absoluto é de <strong>1,0 ponto percentual</strong>.</li>
+        <li><strong>Uplift relativo:</strong> o quanto B cresceu em relação a A, em porcentagem. No mesmo exemplo, B converte 25% melhor que A (1,0 ÷ 4,0 = 0,25), então o uplift relativo é <strong>+25%</strong>.</li>
+      </ul>
+      <p>Nenhum dos dois está errado, mas eles precisam de rótulo claro. Dizer "a variante teve +25%" sem especificar que é relativo, num cenário em que a taxa-base é baixa, faz uma melhoria modesta parecer espetacular. A prática segura: relate sempre os dois e diga qual é qual.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Cuidado com as métricas de vaidade
+        </div>
+        <p>Visitas, curtidas, impressões, seguidores e tempo na página são <strong>métricas de vaidade</strong>: sobem com facilidade, ficam bonitas no relatório e quase não dizem nada sobre receita. Uma campanha pode dobrar o tráfego e reduzir a conversão. Em CRO, ancore cada teste numa métrica ligada ao objetivo de negócio — e desconfie de qualquer experimento "vencedor" que só melhorou um número de vaidade.</p>
+      </div>
+
+      <h2 id="significancia">Significância estatística sem mistério</h2>
+      <p>A <strong>significância estatística</strong> é o critério que separa uma diferença confiável de uma que pode ter aparecido por acaso. Apesar da fama de complicada, a ideia é direta. Todo teste parte de uma suposição pessimista, a <strong>hipótese nula</strong>: a de que <em>não existe diferença alguma</em> entre A e B, e qualquer distância observada é puro ruído amostral. O teste tenta reunir evidência contra essa hipótese.</p>
+      <p>Essa evidência é resumida em um número: o <strong>valor-p</strong>. Ele responde a uma pergunta bem específica — e não àquela que a intuição sugere:</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O que o valor-p mede
+        </div>
+        <p>"Se A e B fossem realmente iguais, qual seria a probabilidade de eu observar uma diferença tão grande quanto a que medi — ou ainda maior — só por acaso?"</p>
+      </div>
+      <p>Um valor-p pequeno significa que o seu resultado seria muito raro num mundo onde A e B são iguais; logo, é mais plausível que eles <em>não</em> sejam iguais. Você compara o valor-p com um limite definido <strong>antes</strong> do teste, o <strong>nível de significância</strong> (a letra grega α, alfa). O padrão de mercado é α = 5% (0,05): se o valor-p ficar abaixo de 0,05, o resultado é <strong>estatisticamente significativo</strong>; se ficar igual ou acima, é <strong>não significativo</strong> — falta evidência.</p>
+      <p>O <strong>nível de confiança</strong> é apenas o complemento do nível de significância: confiança de 95% corresponde a α de 5%. E aqui está a interpretação correta dos famosos "95% de confiança" no contexto de um teste A/B: <em>não</em> é a probabilidade de a variante B ser melhor. Significa que, se A e B fossem de fato iguais e você repetisse esse experimento muitas vezes, um teste como esse declararia um "vencedor" por puro acaso em apenas 5% das vezes. É o controle da sua taxa de falso alarme, não uma aposta na variante.</p>
+      <p>Duas armadilhas de interpretação merecem destaque. Primeira: "não significativo" <strong>não</strong> prova que A e B são iguais — em geral só indica que faltam dados. Segunda: significância estatística não é o mesmo que importância prática. Com uma amostra gigantesca, até um uplift minúsculo e irrelevante para o negócio pode dar "significativo". Por isso a significância nunca decide sozinha — ela anda junto com o tamanho do efeito.</p>
+
+      <h2 id="poder-mde">Poder estatístico e efeito mínimo detectável</h2>
+      <p>Significância controla um tipo de erro: o <strong>falso positivo</strong> (declarar vencedor quem não é). Mas existe o erro oposto, o <strong>falso negativo</strong>: a variante B é genuinamente melhor e o teste não consegue perceber. A defesa contra esse erro é o <strong>poder estatístico</strong>.</p>
+      <p>O poder é a probabilidade de o teste detectar um efeito real, quando ele de fato existe. O padrão de mercado é <strong>80%</strong>: um teste bem dimensionado tem 80% de chance de acusar significância se a melhoria for verdadeira — e, portanto, 20% de chance de deixá-la passar batido. Poder baixo é o motivo por trás de incontáveis testes "inconclusivos": a melhoria estava lá, mas não havia tráfego suficiente para enxergá-la.</p>
+      <p>O poder está amarrado a um conceito prático: o <strong>efeito mínimo detectável</strong>, ou <strong>MDE</strong> (<em>Minimum Detectable Effect</em>). O MDE é a menor melhoria na taxa de conversão que você quer ser capaz de detectar com o teste. É uma decisão de negócio: "abaixo de +5% relativo, a mudança nem vale o esforço de implementar, então não preciso enxergar efeitos menores que isso".</p>
+      <p>Definir o MDE é o que permite calcular, <em>antes</em> de começar, de quanto tráfego o teste precisa. E a relação tem uma consequência incômoda que todo profissional de CRO precisa internalizar:</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Detectar efeitos pequenos exige muito tráfego
+        </div>
+        <p>Quanto menor o MDE, maior a amostra necessária — e o crescimento não é linear. Detectar um uplift relativo de +20% pode pedir alguns milhares de visitantes; querer enxergar +5% pode exigir <em>dezenas de vezes</em> mais. Sites com pouco tráfego não conseguem detectar pequenos ganhos em prazo razoável: ou testam mudanças ousadas, capazes de produzir efeitos grandes, ou aceitam que certos testes finos estão fora do seu alcance. Ignorar isso leva a rodar testes condenados a serem inconclusivos desde o primeiro dia.</p>
+      </div>
+      <p>Por isso o tamanho da amostra deve ser <strong>planejado antes</strong>, nunca improvisado depois. Antes de subir qualquer teste, defina taxa-base, MDE, confiança (95%) e poder (80%), e calcule o número de visitantes na <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a>. Se o resultado disser que você precisaria de seis meses de tráfego, é melhor saber disso antes de gastar seis meses descobrindo.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <div class="recommend">
+        <div class="recommend__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Ferramentas para a sua próxima campanha
+        </div>
+        <p>A teoria só vira resultado quando você roda os números. Use estas ferramentas do site em cada experimento de CRO:</p>
+        <ul>
+          <li><a href="/tamanho-amostra-ab.html">Calculadora de tamanho de amostra A/B</a> — planeje o teste antes de coletar o primeiro dado.</li>
+          <li><a href="/teste-ab.html">Calculadora de teste A/B</a> — apure a significância e o intervalo de confiança ao fim do teste.</li>
+          <li><a href="/teste-proporcao.html">Calculadora de teste de proporção</a> — compare uma taxa de conversão com uma meta de referência.</li>
+        </ul>
+        <!-- MONETIZAÇÃO (afiliados): para recomendar cursos/livros, troque os itens acima
+             por links de parceiro (ex.: Hotmart, Amazon) neste formato:
+             <li><a href="SEU_LINK_DE_AFILIADO" rel="sponsored nofollow" target="_blank">Nome do curso/livro</a> — descrição curta.</li>
+             Mantenha a linha de aviso abaixo sempre que houver links pagos. -->
+        <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
+      </div>
+
+      <h2 id="erros">Os erros que invalidam um teste A/B</h2>
+      <p>Mais perigoso que não testar é testar mal: um teste mal feito entrega uma falsa sensação de certeza, e o time implementa mudanças baseadas em ruído. A tabela abaixo reúne os erros mais comuns em CRO, o estrago que cada um causa e como evitá-lo.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Erro</th><th>Consequência</th><th>Como evitar</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Peeking</strong> (parar cedo)</td>
+              <td>Olhar o resultado várias vezes e encerrar no primeiro "significativo" infla o falso positivo de 5% para 20%, 30% ou mais.</td>
+              <td>Defina o tamanho de amostra no início e só decida ao atingi-lo.</td>
+            </tr>
+            <tr>
+              <td>Não calcular a amostra</td>
+              <td>Sem saber de quantos visitantes precisa, o teste vira loteria — termina cedo ou tarde demais.</td>
+              <td>Calcule a amostra antes na <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra</a>.</td>
+            </tr>
+            <tr>
+              <td>Duração curta demais</td>
+              <td>Cobrir só dias úteis, ou poucos dias, captura um público atípico e não representa o comportamento real.</td>
+              <td>Rode por uma a duas semanas inteiras, cobrindo todos os dias e ciclos do público.</td>
+            </tr>
+            <tr>
+              <td>Muitas variações sem correção</td>
+              <td>Quanto mais versões competem ao mesmo tempo, maior a chance de uma "vencer" por puro acaso.</td>
+              <td>Limite o número de variantes ou corrija o nível de significância para comparações múltiplas.</td>
+            </tr>
+            <tr>
+              <td>Não segmentar (paradoxo de Simpson)</td>
+              <td>Uma variante pode vencer no celular e perder no desktop; a média geral esconde — e pode até inverter — o resultado.</td>
+              <td>Quando fizer sentido, analise os segmentos relevantes, mas defina-os antes para não "garimpar" resultados.</td>
+            </tr>
+            <tr>
+              <td>Mudar o teste no meio</td>
+              <td>Alterar a página, o público ou a divisão de tráfego durante o experimento contamina e mistura os dados.</td>
+              <td>Congele variação, tráfego e segmentação até o fim. Se precisar mudar, recomece o teste.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>O fio condutor de quase todos esses erros é a pressa. CRO recompensa a disciplina: planejar antes, congelar durante e só decidir depois. Um teste rodado com rigor, mesmo que dê "não significativo", ensina algo verdadeiro; um teste apressado só produz uma certeza falsa.</p>
+
+      <h2 id="alem-landing">Testes A/B além da landing page</h2>
+      <p>O teste A/B virou sinônimo de página de destino, mas a mesma lógica se aplica a praticamente todo canal de marketing — porque, no fundo, ele é sempre uma <strong>comparação de duas taxas de conversão</strong>:</p>
+      <ul>
+        <li><strong>E-mail marketing:</strong> teste duas linhas de assunto e compare a taxa de abertura, ou dois textos de CTA e compare a taxa de clique. A maioria das plataformas de e-mail já traz teste A/B embutido — mas cuidado: muitas declaram um vencedor com amostras pequenas demais.</li>
+        <li><strong>Anúncios pagos:</strong> compare duas criativos, dois títulos ou duas chamadas, medindo a taxa de clique (CTR) ou a taxa de conversão pós-clique. Plataformas de anúncios otimizam sozinhas, mas vale validar diferenças importantes com estatística própria.</li>
+        <li><strong>Preços e ofertas:</strong> teste dois valores, duas estruturas de frete ou dois formatos de desconto, comparando a taxa de compra. Aqui o cuidado ético e legal é maior — evite cobrar preços diferentes de forma percebida como injusta.</li>
+        <li><strong>Fluxos de produto:</strong> compare dois fluxos de cadastro, de checkout ou de onboarding, medindo a taxa de conclusão de cada etapa. É CRO aplicado dentro do produto.</li>
+      </ul>
+      <p>Em todos esses casos, o que você compara são duas proporções: abriu ou não abriu, clicou ou não clicou, comprou ou não comprou. Por isso o motor estatístico é sempre o mesmo — um teste de proporções. Quando você tem apenas um grupo e quer comparar a taxa dele com uma meta fixa ("nosso checkout precisa converter ao menos 60%"), o instrumento é o <a href="/teste-proporcao.html">teste de proporção</a>. Quando tem dois grupos lado a lado, é o teste A/B clássico.</p>
+
+      <h2 id="reportar">Como reportar o resultado para o time</h2>
+      <p>Um teste bem rodado ainda pode falhar na última etapa: a comunicação. Apresentar só "a variante B venceu" esconde tudo que importa para uma boa decisão. Um relatório de teste A/B sólido tem quatro elementos, sempre nesta ordem:</p>
+      <ol>
+        <li><strong>Significância</strong> — o resultado passou no critério? Cite o valor-p e o nível de confiança usado.</li>
+        <li><strong>Tamanho do efeito</strong> — de quanto foi o ganho? Informe o uplift absoluto e o relativo, com rótulo.</li>
+        <li><strong>Intervalo de confiança</strong> — qual a faixa plausível do ganho real? É o que diz se o efeito pode ser grande ou apenas marginal.</li>
+        <li><strong>Recomendação</strong> — o que fazer: implementar, descartar ou rodar de novo. E por quê.</li>
+      </ol>
+      <p>Veja como isso fica num caso concreto. Uma loja virtual testou uma nova página de produto por duas semanas e coletou os números abaixo.</p>
+      <ol class="steps">
+        <li><strong>Os dados.</strong> Variante A (página atual): 16.450 visitantes, 1.840 conversões → taxa de 11,19%. Variante B (página nova): 16.320 visitantes, 2.010 conversões → taxa de 12,32%.</li>
+        <li><strong>Significância.</strong> O teste de duas proporções devolve valor-p ≈ 0,0015, bem abaixo de 0,05. O resultado é estatisticamente significativo a 95% de confiança.</li>
+        <li><strong>Tamanho do efeito.</strong> O uplift absoluto é de 1,13 ponto percentual (12,32% − 11,19%). O uplift relativo é de cerca de +10% (1,13 ÷ 11,19), ou seja, B converte 10% melhor que A.</li>
+        <li><strong>Intervalo de confiança.</strong> O intervalo de 95% para a diferença real fica, aproximadamente, entre +0,44 e +1,83 ponto percentual. Como ele não cruza o zero, há ganho real — e, mesmo no pior cenário plausível, a variação ainda melhora a conversão.</li>
+        <li><strong>Recomendação.</strong> "Implementar a variante B. A nova página converte cerca de 10% melhor, o resultado é significativo (p ≈ 0,0015) e o tamanho de amostra planejado foi atingido. Próximo passo: testar o mesmo padrão de página nas outras categorias da loja."</li>
+      </ol>
+      <p>Repare que a recomendação não se apoia só no "deu significativo": ela junta significância, magnitude, intervalo e contexto de negócio. Esse é o formato que faz a gestão confiar nos testes — e que protege o time de implementar resultados frágeis. Para gerar os números de significância e intervalo do seu próprio teste, use a <a href="/teste-ab.html">calculadora de teste A/B</a>.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é CRO em marketing?</summary>
+          <div class="faq__answer"><p>CRO (<em>Conversion Rate Optimization</em>) é a otimização da taxa de conversão: o processo contínuo de aumentar a porcentagem de visitantes que realizam a ação desejada — comprar, cadastrar, clicar — usando experimentos controlados, como o teste A/B, em vez de palpites.</p></div>
+        </details>
+        <details>
+          <summary>Quanto tempo deve durar um teste A/B?</summary>
+          <div class="faq__answer"><p>O teste precisa cobrir ao menos uma a duas semanas inteiras, incluindo todos os dias da semana e os ciclos de comportamento do seu público, e só termina quando atingir o tamanho de amostra planejado — vale sempre o critério que demorar mais para ser cumprido.</p></div>
+        </details>
+        <details>
+          <summary>O que é o efeito mínimo detectável (MDE)?</summary>
+          <div class="faq__answer"><p>O MDE é a menor melhoria na taxa de conversão que você quer ser capaz de detectar com o teste. É uma decisão de negócio: efeitos menores que o MDE são considerados pequenos demais para valer o esforço. Quanto menor o MDE, maior o tráfego necessário.</p></div>
+        </details>
+        <details>
+          <summary>O que significa 95% de confiança em um teste A/B?</summary>
+          <div class="faq__answer"><p>Corresponde a um nível de significância de 5%: se A e B fossem realmente iguais, um teste como esse declararia um vencedor por acaso em apenas 5% das vezes. Não é a probabilidade de a variante B ser melhor — é o controle da sua taxa de falso alarme.</p></div>
+        </details>
+        <details>
+          <summary>Posso encerrar o teste assim que der significativo?</summary>
+          <div class="faq__answer"><p>Não. Observar o resultado repetidamente e parar no primeiro momento favorável (peeking) infla a taxa de falsos positivos muito acima dos 5% planejados. Defina o tamanho de amostra no início, na <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra</a>, e só decida ao atingi-lo.</p></div>
+        </details>
+        <details>
+          <summary>Métrica de vaidade é mesmo um problema em CRO?</summary>
+          <div class="faq__answer"><p>Sim. Métricas de vaidade — visitas, curtidas, impressões — sobem com facilidade mas não refletem receita nem conversão. Em CRO, escolha como métrica primária aquela ligada ao objetivo de negócio e fixe-a antes de iniciar o teste, para não se iludir com um "vencedor" que só melhorou um número decorativo.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-ab.html"><h3>Teste A/B</h3><p>Apure a significância e o intervalo de confiança do seu teste de conversão.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra-ab.html"><h3>Tamanho de amostra A/B</h3><p>Descubra de quantos visitantes você precisa antes de começar.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare uma taxa de conversão com uma meta de referência.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Comece o próximo teste com o pé direito</h2>
+        <p>Antes de coletar dados, descubra quantos visitantes e quantos dias o seu teste A/B precisa para ter poder estatístico.</p>
+        <a class="btn btn--light btn--lg" href="/tamanho-amostra-ab.html">Calcular tamanho de amostra</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

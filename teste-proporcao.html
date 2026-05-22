@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Teste de Proporção — Online e Grátis</title>
+<meta name="description" content="Calculadora de teste de proporção grátis e em português: compare uma proporção com um valor de referência ou duas proporções entre si. Estatística z, valor-p, intervalo de confiança e interpretação.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/teste-proporcao.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Teste de Proporção">
+<meta property="og:description" content="Compare uma proporção com um valor de referência ou duas proporções entre si, com valor-p. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/teste-proporcao.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Teste de Proporção",
+  "url": "https://calculadoraestatistica.com.br/teste-proporcao.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de teste de proporção para comparar uma proporção com um valor de referência ou duas proporções entre si."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Teste de Proporção","item":"https://calculadoraestatistica.com.br/teste-proporcao.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é o teste de proporção?","acceptedAnswer":{"@type":"Answer","text":"É um teste de hipótese que verifica se uma proporção observada numa amostra difere de um valor de referência, ou se duas proporções de grupos diferentes são distintas entre si. Trabalha com dados de contagem do tipo sucesso ou fracasso."}},
+    {"@type":"Question","name":"Qual a diferença entre teste de proporção e teste t?","acceptedAnswer":{"@type":"Answer","text":"O teste de proporção compara taxas ou percentuais calculados a partir de contagens de sucesso e fracasso. O teste t compara médias de variáveis quantitativas, como peso, tempo ou nota. Se o seu dado é uma porcentagem de pessoas, use o teste de proporção."}},
+    {"@type":"Question","name":"O teste de proporção é o mesmo que teste A/B?","acceptedAnswer":{"@type":"Answer","text":"O teste A/B é exatamente um teste de proporção com dois grupos: ele compara a taxa de conversão de duas variantes. A calculadora de teste de proporção, no modo duas proporções, faz a mesma conta que a calculadora de teste A/B."}},
+    {"@type":"Question","name":"O que significa um resultado significativo no teste de proporção?","acceptedAnswer":{"@type":"Answer","text":"Significa que o valor-p ficou abaixo do nível de significância escolhido, em geral 5%. É improvável que a diferença entre a proporção observada e o valor de referência, ou entre os dois grupos, tenha surgido por puro acaso."}},
+    {"@type":"Question","name":"Qual o tamanho de amostra mínimo para o teste de proporção?","acceptedAnswer":{"@type":"Answer","text":"A aproximação normal usada no teste funciona bem quando há pelo menos cerca de 5 a 10 sucessos e 5 a 10 fracassos esperados em cada grupo. Com amostras muito pequenas ou proporções próximas de 0% ou 100%, prefira testes exatos, como o teste binomial."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Teste de Proporção</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Teste de Proporção</h1>
+      <p class="lead">Descubra se uma <strong>proporção</strong> difere de um valor de referência — ou se <strong>duas proporções</strong> são diferentes entre si — com valor-p e interpretação automática.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="prop-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+        Calcular o teste de proporção
+      </h2>
+      <p class="calculator__hint">Escolha o tipo de teste e informe o número de sucessos e o tamanho de cada amostra. Sucesso é a ocorrência que você está contando: votos a favor, cliques, curas, etc.</p>
+
+      <fieldset class="field-group">
+        <legend>Tipo de teste</legend>
+        <div class="segmented" role="radiogroup" aria-label="Tipo de teste" style="margin-top:.6rem">
+          <label><input type="radio" name="prop-mode" value="one" checked><span>Uma proporção</span></label>
+          <label><input type="radio" name="prop-mode" value="two"><span>Duas proporções</span></label>
+        </div>
+      </fieldset>
+
+      <div data-panel="one">
+        <fieldset class="field-group">
+          <legend>Sua amostra</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="one-x">Sucessos</label>
+              <input class="input" type="text" inputmode="numeric" id="one-x" placeholder="Ex.: 540" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="one-n">Tamanho da amostra (n)</label>
+              <input class="input" type="text" inputmode="numeric" id="one-n" placeholder="Ex.: 1000" autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="field-group">
+          <legend>Hipótese</legend>
+          <div class="field-row field-row--single">
+            <div class="field">
+              <label for="one-p0">Proporção hipotética p₀ (em %)</label>
+              <input class="input" type="text" inputmode="decimal" id="one-p0" placeholder="Ex.: 50" autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div data-panel="two" hidden>
+        <fieldset class="field-group">
+          <legend>Grupo 1</legend>
+          <div class="field-row">
+            <div class="field"><label for="two-x1">Sucessos</label><input class="input" type="text" inputmode="numeric" id="two-x1" placeholder="Ex.: 1840" autocomplete="off"></div>
+            <div class="field"><label for="two-n1">Tamanho (n₁)</label><input class="input" type="text" inputmode="numeric" id="two-n1" placeholder="Ex.: 16450" autocomplete="off"></div>
+          </div>
+        </fieldset>
+        <fieldset class="field-group">
+          <legend>Grupo 2</legend>
+          <div class="field-row">
+            <div class="field"><label for="two-x2">Sucessos</label><input class="input" type="text" inputmode="numeric" id="two-x2" placeholder="Ex.: 2010" autocomplete="off"></div>
+            <div class="field"><label for="two-n2">Tamanho (n₂)</label><input class="input" type="text" inputmode="numeric" id="two-n2" placeholder="Ex.: 16320" autocomplete="off"></div>
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="prop-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="prop-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="prop-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tipo de teste</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo de teste">
+              <label><input type="radio" name="prop-tails" value="2" checked><span>Bicaudal</span></label>
+              <label><input type="radio" name="prop-tails" value="1"><span>Unicaudal</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="prop-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular teste de proporção</button>
+        <a class="btn btn--ghost" href="#" id="prop-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="prop-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é o teste de proporção</a></li>
+          <li><a href="#um-ou-dois">Uma proporção vs duas proporções</a></li>
+          <li><a href="#quando">Quando usar</a></li>
+          <li><a href="#como">Como o cálculo funciona</a></li>
+          <li><a href="#ab">Relação com o teste A/B</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é o teste de proporção</h2>
+      <p>O <strong>teste de proporção</strong> é o procedimento estatístico usado para tirar conclusões sobre <strong>percentuais e taxas</strong>. Ele responde a uma pergunta simples: a proporção que você observou numa amostra é compatível com um valor esperado — ou a diferença é grande o bastante para ser considerada real?</p>
+      <p>A diferença em relação ao <a href="/teste-t.html">teste t de Student</a> está no tipo de dado. O teste t lida com variáveis <em>quantitativas</em>, como peso, tempo ou nota: cada observação é um número numa escala contínua. O teste de proporção lida com dados <strong>categóricos do tipo sucesso ou fracasso</strong>: cada observação é simplesmente um "sim" ou um "não". Você não mede o quanto, você conta quantos.</p>
+      <p>Exemplos de proporção estão em todo lugar: a porcentagem de eleitores que apoiam um candidato, a taxa de pacientes que respondem a um tratamento, a fração de visitantes que clicam num botão, a proporção de peças defeituosas numa linha de produção. Sempre que o seu dado é uma <strong>contagem de ocorrências sobre um total</strong>, o teste de proporção é a ferramenta certa.</p>
+      <p>Tecnicamente, esta calculadora usa um <strong>teste z para proporções</strong>. Quando a amostra é razoavelmente grande, a distribuição da proporção observada se aproxima muito bem de uma curva normal — e isso permite calcular o valor-p de forma rápida e precisa, sem precisar de tabelas.</p>
+
+      <h2 id="um-ou-dois">Uma proporção vs duas proporções</h2>
+      <p>O teste de proporção aparece em duas situações diferentes, e a calculadora oferece as duas em modos separados. Escolher o modo certo é o primeiro passo.</p>
+      <h3>1. Teste para uma proporção</h3>
+      <p>Compara a proporção observada num único grupo com um <strong>valor de referência conhecido</strong> (p₀). Você tem uma única amostra e uma hipótese fixa contra a qual compará-la. Exemplos: a fração de eleitores que apoia uma proposta difere de 50%? A taxa de defeitos de um lote é mesmo igual à meta de 2%? A proporção de aprovados numa prova é diferente da média histórica de 70%?</p>
+      <h3>2. Teste para duas proporções</h3>
+      <p>Compara as proporções de <strong>dois grupos diferentes e independentes</strong>, sem nenhum valor de referência externo. Aqui não existe p₀: o que está sendo testado é se um grupo tem uma taxa diferente da do outro. Exemplos: a taxa de cura difere entre quem recebeu o remédio e quem recebeu o placebo? A proporção de clientes que recompram é diferente entre dois canais de venda?</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Um valor de referência ou um segundo grupo?
+        </div>
+        <p>Se você compara a sua amostra com um número fixo e já conhecido — uma meta, uma média histórica, os 50% de um "cara ou coroa" —, use o modo <strong>uma proporção</strong>. Se você tem dois grupos coletados em paralelo e quer saber qual tem a maior taxa, use o modo <strong>duas proporções</strong>.</p>
+      </div>
+
+      <h2 id="quando">Quando usar</h2>
+      <p>O teste de proporção é indicado quando todas estas condições valem:</p>
+      <ul>
+        <li><strong>Dado de contagem binário:</strong> cada observação só pode ser sucesso ou fracasso — não há valores intermediários.</li>
+        <li><strong>Amostra aleatória:</strong> as observações representam a população (ou processo) de interesse.</li>
+        <li><strong>Observações independentes:</strong> o resultado de uma observação não influencia o das outras.</li>
+        <li><strong>Amostra suficiente:</strong> a aproximação normal funciona bem quando há pelo menos cerca de 5 a 10 sucessos <em>e</em> 5 a 10 fracassos esperados. Com proporções muito próximas de 0% ou 100%, ou amostras minúsculas, prefira o teste binomial exato.</li>
+      </ul>
+      <p>Se em vez de uma proporção você quer comparar <strong>médias</strong> — tempo, peso, faturamento, nota —, o teste adequado é o <a href="/teste-t.html">teste t</a> (ou o <a href="/teste-z.html">teste z</a>, quando o desvio padrão da população é conhecido). E para estimar a faixa provável de uma proporção, sem testar uma hipótese, use o <a href="/intervalo-confianca.html">intervalo de confiança</a>.</p>
+
+      <h2 id="como">Como o cálculo funciona</h2>
+      <p>A lógica é a mesma de qualquer teste de hipótese: medir a distância entre o que foi observado e o que a hipótese nula prevê, em unidades de <strong>erro padrão</strong>. O resultado é a <strong>estatística z</strong>.</p>
+      <p>No modo de <strong>uma proporção</strong>, a hipótese nula é "a proporção verdadeira é igual a p₀". A calculadora compara a proporção observada (p̂ = sucessos ÷ n) com p₀:</p>
+      <div class="formula">z = (p̂ − p₀) ÷ √[ p₀ · (1 − p₀) ÷ n ]
+        <span class="formula__where">p̂ é a proporção observada; p₀ é a proporção hipotética; n é o tamanho da amostra. O erro padrão usa p₀ porque, sob a hipótese nula, é ele o valor verdadeiro.</span>
+      </div>
+      <p>No modo de <strong>duas proporções</strong>, a hipótese nula é "os dois grupos têm a mesma proporção". Como, sob essa hipótese, ambos vêm da mesma população, juntam-se os dois numa única taxa combinada (p̄) para estimar o erro padrão:</p>
+      <div class="formula">p̄ = (x₁ + x₂) ÷ (n₁ + n₂)<br>
+        z = (p̂₂ − p̂₁) ÷ √[ p̄ · (1 − p̄) · (1/n₁ + 1/n₂) ]
+      </div>
+      <p>Em seguida, a calculadora converte o z em <strong>valor-p</strong> usando a distribuição normal padrão. Quanto maior o |z|, mais longe você está do cenário "nenhuma diferença" e menor o valor-p. Por fim, ela devolve um <strong>intervalo de confiança</strong>: no modo de uma proporção, o intervalo de Wilson para a proporção observada; no modo de duas proporções, o intervalo para a diferença entre os grupos.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="ab">Relação com o teste A/B</h2>
+      <p>Se você já conhece o <a href="/teste-ab.html">teste A/B</a>, talvez tenha percebido que o modo de <strong>duas proporções</strong> descreve exatamente o que um teste A/B faz. Não é coincidência: <strong>o teste A/B é um teste de proporção com dois grupos</strong>.</p>
+      <p>Num teste A/B, "sucesso" é a conversão — uma compra, um cadastro, um clique — e "tamanho da amostra" é o número de visitantes de cada variante. Comparar a taxa de conversão da variante A com a da variante B é, palavra por palavra, comparar duas proporções. A estatística z, a proporção combinada e o valor-p são calculados pela mesma fórmula apresentada na seção anterior.</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Qual calculadora usar?
+        </div>
+        <p>Os dois caminhos chegam ao mesmo resultado. Se o seu contexto é otimização de conversão — páginas, e-mails, anúncios —, a <a href="/teste-ab.html">calculadora de teste A/B</a> traz a linguagem e as métricas certas (visitantes, conversões, uplift). Para um contexto mais geral — saúde, pesquisa, qualidade —, o modo "duas proporções" desta calculadora fala em sucessos e amostras.</p>
+      </div>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>Depois de calcular, você verá um cartão colorido com a conclusão e seis indicadores. O coração da decisão é a comparação entre o <strong>valor-p</strong> e o <strong>nível de significância</strong> (α, alfa) — o complemento do nível de confiança: 95% de confiança equivale a α = 0,05.</p>
+      <ul>
+        <li><strong>Valor-p &lt; α</strong> → resultado <strong>estatisticamente significativo</strong>. A diferença observada — entre a sua proporção e p₀, ou entre os dois grupos — provavelmente é real.</li>
+        <li><strong>Valor-p ≥ α</strong> → resultado <strong>não significativo</strong>. Não há evidência suficiente para afirmar que existe diferença; ela pode ser apenas variação aleatória.</li>
+      </ul>
+      <p>Os demais indicadores ajudam a entender o tamanho do efeito:</p>
+      <ul>
+        <li><strong>Proporção observada</strong> — a taxa medida na sua amostra (modo uma proporção) ou a taxa de cada grupo (modo duas proporções).</li>
+        <li><strong>Estatística z</strong> — a diferença medida em erros padrão. Num teste bicaudal a 95%, |z| acima de 1,96 indica significância.</li>
+        <li><strong>Intervalo de confiança</strong> — a faixa provável do valor real. No modo de duas proporções, se o intervalo da diferença incluir o zero, a diferença não é significativa.</li>
+      </ul>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Significância não é importância
+        </div>
+        <p>Um resultado significativo não garante que a diferença seja <em>grande</em> ou <em>relevante</em>. Com uma amostra enorme, até uma diferença minúscula entre proporções pode dar "significativa". Olhe sempre o tamanho da diferença e o intervalo de confiança, não só o veredito do valor-p.</p>
+      </div>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma pesquisa de opinião entrevistou <strong>1.000 eleitores</strong> sobre uma nova proposta. <strong>540</strong> declararam apoio. Antes da pesquisa, a expectativa era de um cenário dividido, com <strong>50%</strong> de apoio. A proporção observada difere desse valor de referência?</p>
+      <p>Este é um caso clássico do modo <strong>uma proporção</strong>: uma única amostra comparada com um número fixo, p₀ = 0,50.</p>
+      <ol class="steps">
+        <li><strong>Proporção observada:</strong> p̂ = 540 ÷ 1000 = 0,540 (54%).</li>
+        <li><strong>Erro padrão sob a hipótese nula:</strong> EP = √[0,50 · 0,50 ÷ 1000] = √0,00025 ≈ 0,01581.</li>
+        <li><strong>Estatística z:</strong> z = (0,540 − 0,500) ÷ 0,01581 ≈ 2,53.</li>
+        <li><strong>Valor-p bicaudal:</strong> para z ≈ 2,53, o valor-p é ≈ 0,011 — abaixo de 0,05.</li>
+      </ol>
+      <p>Como 0,011 &lt; 0,05, a diferença é <strong>estatisticamente significativa</strong>: o apoio à proposta é, de fato, maior que os 50% esperados. Os 4 pontos percentuais acima da referência dificilmente são fruto do acaso amostral. Use o botão <em>"Preencher com exemplo"</em> para ver esse cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é o teste de proporção?</summary>
+          <div class="faq__answer"><p>É um teste de hipótese que verifica se uma proporção observada numa amostra difere de um valor de referência, ou se duas proporções de grupos diferentes são distintas entre si. Ele trabalha com dados de contagem do tipo sucesso ou fracasso.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre teste de proporção e teste t?</summary>
+          <div class="faq__answer"><p>O teste de proporção compara taxas e percentuais calculados a partir de contagens de sucesso e fracasso. O <a href="/teste-t.html">teste t</a> compara médias de variáveis quantitativas, como peso, tempo ou nota. Se o seu dado é uma porcentagem de pessoas ou de itens, use o teste de proporção.</p></div>
+        </details>
+        <details>
+          <summary>O teste de proporção é o mesmo que teste A/B?</summary>
+          <div class="faq__answer"><p>O <a href="/teste-ab.html">teste A/B</a> é exatamente um teste de proporção com dois grupos: ele compara a taxa de conversão de duas variantes. O modo "duas proporções" desta calculadora faz a mesma conta — só muda a linguagem usada para apresentar os campos e os resultados.</p></div>
+        </details>
+        <details>
+          <summary>O que significa um resultado significativo?</summary>
+          <div class="faq__answer"><p>Significa que o valor-p ficou abaixo do nível de significância escolhido, em geral 5%. É improvável que a diferença entre a proporção observada e o valor de referência — ou entre os dois grupos — tenha surgido por puro acaso.</p></div>
+        </details>
+        <details>
+          <summary>Qual o tamanho de amostra mínimo para o teste?</summary>
+          <div class="faq__answer"><p>A aproximação normal funciona bem quando há pelo menos cerca de 5 a 10 sucessos e 5 a 10 fracassos esperados em cada grupo. Com amostras muito pequenas, ou proporções próximas de 0% ou 100%, prefira testes exatos, como o teste binomial.</p></div>
+        </details>
+        <details>
+          <summary>Devo usar teste bicaudal ou unicaudal?</summary>
+          <div class="faq__answer"><p>Use bicaudal quando quiser detectar qualquer diferença — para mais ou para menos. É a opção mais segura e recomendada. O unicaudal testa apenas uma direção e só é válido se você definiu essa direção antes de coletar os dados.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-ab.html"><h3>Teste A/B</h3><p>Compare a taxa de conversão de duas variantes.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-z.html"><h3>Teste Z</h3><p>Compare médias com o desvio padrão da população conhecido.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Estime a faixa provável de uma proporção ou média.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Precisa de estatística para a sua área?</h2>
+        <p>Veja os guias práticos de estatística para enfermagem, psicologia e marketing.</p>
+        <a class="btn btn--light btn--lg" href="/#guias">Ver os guias por área</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('prop-form'), result = $('prop-result'), errBox = $('prop-error');
+  var panels = document.querySelectorAll('[data-panel]');
+
+  function currentMode() { return Fmt.radio('prop-mode'); }
+
+  function syncPanels() {
+    var mode = currentMode();
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].hidden = panels[i].getAttribute('data-panel') !== mode;
+    }
+  }
+  var modeRadios = document.querySelectorAll('input[name="prop-mode"]');
+  for (var m = 0; m < modeRadios.length; m++) {
+    modeRadios[m].addEventListener('change', syncPanels);
+  }
+  syncPanels();
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('prop-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('input[name="prop-mode"][value="one"]').checked = true;
+    syncPanels();
+    $('one-x').value = '540'; $('one-n').value = '1000';
+    $('one-p0').value = '50';
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var mode = currentMode();
+    var conf = parseFloat(Fmt.radio('prop-conf'));
+    var tails = parseInt(Fmt.radio('prop-tails'), 10);
+    var r;
+
+    if (mode === 'one') {
+      var x = parseNum($('one-x').value);
+      var n = parseNum($('one-n').value);
+      var p0pct = parseNum($('one-p0').value);
+      if ([x, n, p0pct].some(function (v) { return isNaN(v); })) {
+        showError('Preencha os sucessos, o tamanho da amostra e a proporção hipotética.');
+        return;
+      }
+      r = Stats.oneProportionTest({
+        x: x, n: n, p0: p0pct / 100, confidence: conf, tails: tails
+      });
+    } else {
+      var x1 = parseNum($('two-x1').value);
+      var n1 = parseNum($('two-n1').value);
+      var x2 = parseNum($('two-x2').value);
+      var n2 = parseNum($('two-n2').value);
+      if ([x1, n1, x2, n2].some(function (v) { return isNaN(v); })) {
+        showError('Preencha os sucessos e o tamanho dos dois grupos.');
+        return;
+      }
+      r = Stats.abTest({
+        nA: n1, xA: x1, nB: n2, xB: x2, confidence: conf, tails: tails
+      });
+    }
+
+    if (r.error) { showError(r.error); return; }
+    render(r, mode, conf);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, mode, conf) {
+    var sig = r.significant;
+    var confTxt = Fmt.pct(conf, 0);
+    var tailTxt = r.tails === 1 ? 'unicaudal' : 'bicaudal';
+    var metrics, interp;
+
+    if (mode === 'one') {
+      metrics =
+        metric('Proporção observada', Fmt.pct(r.phat, 2)) +
+        metric('Estatística z', Fmt.num(r.z, 3)) +
+        metric('Valor-p', Fmt.p(r.pValue), 'teste ' + tailTxt) +
+        metric('Nível de significância', Fmt.pct(r.alpha, 0), 'α') +
+        metric('Confiança', confTxt) +
+        metric('IC ' + confTxt + ' da proporção',
+          '[' + Fmt.pct(r.ciLow, 2) + '; ' + Fmt.pct(r.ciHigh, 2) + ']');
+    } else {
+      metrics =
+        metric('Proporção grupo 1', Fmt.pct(r.pA, 2)) +
+        metric('Proporção grupo 2', Fmt.pct(r.pB, 2)) +
+        metric('Diferença', Fmt.pct(r.absDiff, 2), 'grupo 2 − grupo 1') +
+        metric('Estatística z', Fmt.num(r.z, 3)) +
+        metric('Valor-p', Fmt.p(r.pValue), 'teste ' + tailTxt) +
+        metric('IC ' + confTxt + ' da diferença',
+          '[' + Fmt.pct(r.ciLow, 2) + '; ' + Fmt.pct(r.ciHigh, 2) + ']');
+    }
+
+    var headline = sig ? 'Diferença estatisticamente significativa'
+                       : 'Diferença não significativa';
+    var sub = sig
+      ? 'O valor-p ficou abaixo do nível de significância — a diferença provavelmente é real.'
+      : 'Não há evidência suficiente para afirmar que existe diferença.';
+
+    if (mode === 'one') {
+      if (sig) {
+        interp = '<p>Com <strong>' + confTxt + ' de confiança</strong>, o resultado é ' +
+          '<strong>estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+          ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+          'A proporção observada de <strong>' + Fmt.pct(r.phat, 2) + '</strong> difere do valor ' +
+          'hipotético — a diferença dificilmente é fruto do acaso amostral.</p>' +
+          '<p>O intervalo de confiança de ' + confTxt + ' para a proporção verdadeira vai de ' +
+          '<strong>' + Fmt.pct(r.ciLow, 2) + '</strong> a <strong>' + Fmt.pct(r.ciHigh, 2) +
+          '</strong>.</p>';
+      } else {
+        interp = '<p>Com ' + confTxt + ' de confiança, o resultado <strong>não é ' +
+          'estatisticamente significativo</strong>: o valor-p (' + Fmt.p(r.pValue) +
+          ') é maior ou igual ao nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+          'A proporção observada (' + Fmt.pct(r.phat, 2) + ') é compatível com o valor ' +
+          'hipotético — a diferença pode ser apenas variação aleatória.</p>' +
+          '<p>O intervalo de confiança de ' + confTxt + ' (de <strong>' + Fmt.pct(r.ciLow, 2) +
+          '</strong> a <strong>' + Fmt.pct(r.ciHigh, 2) + '</strong>) mostra a faixa de ' +
+          'valores ainda compatível com os seus dados.</p>';
+      }
+    } else {
+      if (sig) {
+        interp = '<p>Com <strong>' + confTxt + ' de confiança</strong>, a diferença entre os ' +
+          'dois grupos é <strong>estatisticamente significativa</strong>: o valor-p (' +
+          Fmt.p(r.pValue) + ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) +
+          '). É improvável que a diferença de <strong>' + Fmt.pct(r.absDiff, 2) +
+          '</strong> entre as proporções tenha surgido por acaso.</p>' +
+          '<p>O intervalo de confiança de ' + confTxt + ' para a diferença real ' +
+          '(grupo 2 − grupo 1) vai de <strong>' + Fmt.pct(r.ciLow, 2) + '</strong> a <strong>' +
+          Fmt.pct(r.ciHigh, 2) + '</strong>.</p>';
+      } else {
+        interp = '<p>Com ' + confTxt + ' de confiança, a diferença entre os dois grupos ' +
+          '<strong>não é estatisticamente significativa</strong>: o valor-p (' + Fmt.p(r.pValue) +
+          ') é maior ou igual ao nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
+          'A diferença observada pode ser fruto do acaso.</p>' +
+          '<p>O intervalo de confiança da diferença vai de <strong>' + Fmt.pct(r.ciLow, 2) +
+          '</strong> a <strong>' + Fmt.pct(r.ciHigh, 2) + '</strong>. Como ele inclui o zero, ' +
+          'não dá para afirmar qual grupo tem a maior proporção.</p>';
+      }
+    }
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

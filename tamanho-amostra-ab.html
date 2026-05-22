@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Tamanho de Amostra para Teste A/B — Grátis</title>
+<meta name="description" content="Calcule quantos visitantes o seu teste A/B precisa e por quantos dias ele deve rodar. Calculadora grátis em português, com poder estatístico e nível de confiança.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/tamanho-amostra-ab.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Tamanho de Amostra para Teste A/B">
+<meta property="og:description" content="Descubra quantos visitantes e quantos dias o seu teste A/B precisa antes de começar.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/tamanho-amostra-ab.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Tamanho de Amostra para Teste A/B",
+  "url": "https://calculadoraestatistica.com.br/tamanho-amostra-ab.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de tamanho de amostra e duração para testes A/B."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Tamanho de Amostra para Teste A/B","item":"https://calculadoraestatistica.com.br/tamanho-amostra-ab.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Por que calcular o tamanho de amostra antes do teste A/B?","acceptedAnswer":{"@type":"Answer","text":"Porque sem um alvo definido você não sabe quando parar. Definir a amostra antes evita parar cedo demais (falso positivo) ou tarde demais, e torna o resultado confiável."}},
+    {"@type":"Question","name":"O que é poder estatístico?","acceptedAnswer":{"@type":"Answer","text":"É a probabilidade de o teste detectar um efeito que realmente existe. O padrão é 80%: um teste com 80% de poder encontra a melhoria verdadeira em 80% das vezes."}},
+    {"@type":"Question","name":"O que é o efeito mínimo detectável (MDE)?","acceptedAnswer":{"@type":"Answer","text":"É a menor melhoria que vale a pena detectar. Quanto menor o efeito que você quer captar, maior a amostra necessária."}},
+    {"@type":"Question","name":"Quanto tempo um teste A/B deve durar?","acceptedAnswer":{"@type":"Answer","text":"Tempo suficiente para atingir o tamanho de amostra calculado e, no mínimo, uma a duas semanas inteiras, para cobrir as variações entre dias da semana."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Tamanho de Amostra para Teste A/B</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Tamanho de Amostra para Teste A/B</h1>
+      <p class="lead">Descubra <strong>quantos visitantes</strong> o seu teste precisa e <strong>por quantos dias</strong> ele deve rodar — antes de coletar o primeiro dado.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="ss-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Planejar o teste A/B
+      </h2>
+      <p class="calculator__hint">Informe a sua taxa de conversão atual e o tamanho da melhoria que você quer ser capaz de detectar.</p>
+
+      <fieldset class="field-group">
+        <legend>Sua conversão hoje</legend>
+        <div class="field-row field-row--single">
+          <div class="field">
+            <label for="baseline">Taxa de conversão atual</label>
+            <div class="input-affix">
+              <input class="input" type="text" inputmode="decimal" id="baseline" placeholder="Ex.: 5" autocomplete="off">
+              <span class="input-affix__unit">%</span>
+            </div>
+            <span class="help">A taxa da sua versão atual (controle).</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>O que você quer detectar</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Tipo do efeito mínimo</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo do efeito mínimo">
+              <label><input type="radio" name="ss-mde-type" value="rel" checked><span>Relativo</span></label>
+              <label><input type="radio" name="ss-mde-type" value="abs"><span>Absoluto</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="mde">Efeito mínimo detectável</label>
+            <div class="input-affix">
+              <input class="input" type="text" inputmode="decimal" id="mde" placeholder="Ex.: 10" autocomplete="off">
+              <span class="input-affix__unit" id="mde-unit">%</span>
+            </div>
+            <span class="help" id="mde-help">Aumento relativo sobre a taxa atual.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Rigor do teste</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="ss-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="ss-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="ss-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Poder estatístico</label>
+            <div class="segmented" role="radiogroup" aria-label="Poder estatístico">
+              <label><input type="radio" name="ss-power" value="0.80" checked><span>80%</span></label>
+              <label><input type="radio" name="ss-power" value="0.90"><span>90%</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Tipo de teste</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo de teste">
+              <label><input type="radio" name="ss-tails" value="2" checked><span>Bicaudal</span></label>
+              <label><input type="radio" name="ss-tails" value="1"><span>Unicaudal</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="daily">Visitantes por dia <span class="muted">(opcional)</span></label>
+            <input class="input" type="text" inputmode="numeric" id="daily" placeholder="Ex.: 800" autocomplete="off">
+            <span class="help">Total dos dois grupos somados, para estimar a duração.</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="ss-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular amostra</button>
+        <a class="btn btn--ghost" href="#" id="ss-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="ss-result" hidden aria-live="polite"></section>
+    </form>
+
+    <p class="muted" style="font-size:.92rem">Já coletou os dados? Veja se a diferença é significativa na <a href="/teste-ab.html">calculadora de teste A/B</a>.</p>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#por-que">Por que calcular a amostra antes</a></li>
+          <li><a href="#como">Como a calculadora funciona</a></li>
+          <li><a href="#poder">O que é poder estatístico</a></li>
+          <li><a href="#mde">Como escolher o efeito mínimo</a></li>
+          <li><a href="#duracao">Quanto tempo deixar o teste rodando</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="por-que">Por que calcular a amostra antes do teste</h2>
+      <p>O erro mais comum em testes A/B não está na conta final — está em começar sem um plano. Quem inicia um teste sem definir o tamanho de amostra cai sempre em uma de duas armadilhas. Ou olha o painel todo dia e <strong>para no primeiro momento em que aparece "significativo"</strong>, o que infla enormemente a chance de um falso positivo. Ou deixa rodando para sempre, gastando tráfego em um teste que nunca conclui.</p>
+      <p>Calcular o tamanho de amostra antes resolve os dois problemas. Você fixa uma meta — "preciso de 12.000 visitantes por variante" — e só toma a decisão quando atinge esse número. O resultado passa a ser confiável porque o critério de parada foi definido <em>antes</em> de ver qualquer dado.</p>
+
+      <h2 id="como">Como a calculadora funciona</h2>
+      <p>O tamanho de amostra de um teste A/B depende de quatro ingredientes. Mexa em qualquer um deles e o número muda:</p>
+      <ul>
+        <li><strong>Taxa de conversão atual</strong> — o ponto de partida. Taxas muito baixas exigem amostras maiores.</li>
+        <li><strong>Efeito mínimo detectável (MDE)</strong> — a menor melhoria que você quer ser capaz de enxergar. Quanto menor, maior a amostra.</li>
+        <li><strong>Nível de confiança</strong> — controla o risco de falso positivo. 95% é o padrão.</li>
+        <li><strong>Poder estatístico</strong> — controla o risco de falso negativo. 80% é o padrão.</li>
+      </ul>
+      <p>A calculadora combina esses valores na fórmula clássica de comparação de duas proporções (baseada na aproximação normal), considerando os dois grupos de tamanho igual:</p>
+      <div class="formula">n por variante = [ z<sub>α</sub>·√(2·p̄·q̄) + z<sub>β</sub>·√(p₁·q₁ + p₂·q₂) ]² ÷ (p₂ − p₁)²
+        <span class="formula__where">p₁ é a taxa atual, p₂ a taxa-alvo, q = 1 − p, p̄ a média das duas; z<sub>α</sub> e z<sub>β</sub> vêm da confiança e do poder.</span>
+      </div>
+
+      <h2 id="poder">O que é poder estatístico</h2>
+      <p>Se o nível de confiança protege contra "ver" um efeito que não existe, o <strong>poder estatístico</strong> protege contra o oposto: <em>não ver</em> um efeito que existe. O poder é a probabilidade de o teste detectar uma melhoria verdadeira.</p>
+      <p>O padrão de mercado é <strong>80%</strong>. Isso significa que, se a sua variante realmente é melhor na magnitude que você definiu, o teste vai detectar isso em 80% das vezes — e vai falhar (falso negativo) em 20%. Subir para 90% de poder dá mais segurança, mas exige uma amostra bem maior. Para a maioria dos times, 80% é o equilíbrio adequado.</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Confiança e poder
+        </div>
+        <p>Confiança 95% e poder 80% são as configurações de partida para quase todo teste A/B. Só mude se tiver um motivo claro: mais confiança quando o erro custa caro, mais poder quando perder um ganho real é inaceitável.</p>
+      </div>
+
+      <h2 id="mde">Como escolher o efeito mínimo detectável</h2>
+      <p>O MDE é a decisão mais estratégica — e a que mais confunde. Ele responde: "qual é a menor melhoria que ainda vale a pena para o meu negócio?"</p>
+      <p>Você pode informá-lo de duas formas:</p>
+      <ul>
+        <li><strong>Relativo:</strong> um aumento percentual sobre a taxa atual. Um MDE relativo de 10% sobre uma conversão de 5% mira em 5,5%.</li>
+        <li><strong>Absoluto:</strong> um aumento em pontos percentuais. Um MDE absoluto de 1 ponto sobre 5% mira em 6%.</li>
+      </ul>
+      <p>A tentação é escolher um MDE pequeno para "não perder nada". O problema é que detectar melhorias minúsculas custa caro: reduzir o MDE pela metade <strong>quadruplica</strong> a amostra necessária. Seja realista — mire na menor melhoria que justificaria, de fato, implementar a mudança.</p>
+
+      <h2 id="duracao">Quanto tempo deixar o teste rodando</h2>
+      <p>O tamanho de amostra responde "quantas pessoas". A duração responde "por quantos dias" — basta dividir a amostra total pelo tráfego diário. Mas há uma regra extra: <strong>todo teste deve rodar por pelo menos uma a duas semanas inteiras</strong>, mesmo que a amostra seja atingida antes.</p>
+      <p>O motivo é que o comportamento muda ao longo da semana. Quem visita um site na segunda-feira de manhã não é o mesmo público da sexta à noite. Encerrar um teste depois de três dias corridos pode capturar só um "tipo" de visitante e distorcer o resultado. Sempre feche o teste no fim de semanas completas.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma loja converte hoje <strong>5%</strong> dos visitantes e quer detectar uma melhoria <strong>relativa de 10%</strong> (ou seja, chegar a 5,5%), com 95% de confiança e 80% de poder, em um teste bicaudal.</p>
+      <ol class="steps">
+        <li>Taxa atual p₁ = 0,05; taxa-alvo p₂ = 0,05 × 1,10 = 0,055.</li>
+        <li>Com z<sub>α</sub> ≈ 1,96 (95%, bicaudal) e z<sub>β</sub> ≈ 0,84 (80% de poder), a fórmula resulta em cerca de <strong>31.234 visitantes por variante</strong>.</li>
+        <li>Amostra total ≈ 62.468 visitantes (somando A e B).</li>
+        <li>Com 800 visitantes por dia, o teste deve rodar ≈ 79 dias — cerca de 11 semanas.</li>
+      </ol>
+      <p>Esse número costuma surpreender, e é exatamente por isso que vale calculá-lo antes: melhorias pequenas em taxas baixas exigem muito tráfego. Use o botão <em>"Preencher com exemplo"</em> para ver o cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Por que preciso calcular a amostra antes do teste?</summary>
+          <div class="faq__answer"><p>Porque sem um alvo definido você não sabe quando parar. Fixar a amostra antes evita o "peeking" — parar no primeiro resultado favorável — que transforma um teste de 5% de falso positivo em algo muito menos confiável.</p></div>
+        </details>
+        <details>
+          <summary>O que acontece se a taxa de conversão for muito baixa?</summary>
+          <div class="faq__answer"><p>Quanto menor a taxa, maior a amostra necessária. Conversões de 1% a 2% costumam exigir dezenas ou centenas de milhares de visitantes para detectar melhorias modestas.</p></div>
+        </details>
+        <details>
+          <summary>Devo usar MDE relativo ou absoluto?</summary>
+          <div class="faq__answer"><p>O relativo é mais intuitivo para a maioria dos times ("quero crescer 10%"). O absoluto é útil quando você raciocina em pontos percentuais. A calculadora aceita os dois — escolha o que for mais natural para você.</p></div>
+        </details>
+        <details>
+          <summary>Posso parar antes de atingir a amostra calculada?</summary>
+          <div class="faq__answer"><p>Não, se quiser um resultado confiável. Parar cedo é a principal causa de falsos positivos em testes A/B. Espere atingir a amostra e completar pelo menos uma a duas semanas inteiras.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-ab.html"><h3>Teste A/B</h3><p>Já coletou os dados? Veja se a diferença é significativa.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra.html"><h3>Tamanho de Amostra</h3><p>Para pesquisas e questionários, não testes A/B.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare proporções fora do contexto de conversão.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Teste planejado, hora de medir</h2>
+        <p>Quando o teste atingir a amostra, traga os números para a calculadora de significância.</p>
+        <a class="btn btn--light btn--lg" href="/teste-ab.html">Abrir a Calculadora de Teste A/B</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('ss-form'), result = $('ss-result'), errBox = $('ss-error');
+
+  // Atualiza a unidade do MDE conforme o tipo escolhido
+  function syncMdeType() {
+    var t = Fmt.radio('ss-mde-type');
+    if (t === 'abs') {
+      $('mde-unit').textContent = 'pp';
+      $('mde-help').textContent = 'Aumento absoluto, em pontos percentuais.';
+    } else {
+      $('mde-unit').textContent = '%';
+      $('mde-help').textContent = 'Aumento relativo sobre a taxa atual.';
+    }
+  }
+  var typeRadios = document.querySelectorAll('input[name="ss-mde-type"]');
+  for (var i = 0; i < typeRadios.length; i++) {
+    typeRadios[i].addEventListener('change', syncMdeType);
+  }
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('ss-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    $('baseline').value = '5';
+    $('mde').value = '10';
+    $('daily').value = '800';
+    document.querySelector('input[name="ss-mde-type"][value="rel"]').checked = true;
+    syncMdeType();
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var baseline = parseNum($('baseline').value);
+    var mde = parseNum($('mde').value);
+    if (isNaN(baseline) || isNaN(mde)) {
+      showError('Preencha a taxa de conversão atual e o efeito mínimo detectável.');
+      return;
+    }
+    if (baseline <= 0 || baseline >= 100) {
+      showError('A taxa de conversão atual deve estar entre 0% e 100%.');
+      return;
+    }
+    var p1 = baseline / 100, p2;
+    var mdeType = Fmt.radio('ss-mde-type');
+    if (mdeType === 'abs') {
+      p2 = p1 + mde / 100;
+    } else {
+      p2 = p1 * (1 + mde / 100);
+    }
+    if (p2 <= 0 || p2 >= 1) {
+      showError('A taxa-alvo ficou fora da faixa de 0% a 100%. Reveja o efeito mínimo.');
+      return;
+    }
+    var conf = parseFloat(Fmt.radio('ss-conf'));
+    var power = parseFloat(Fmt.radio('ss-power'));
+    var tails = parseInt(Fmt.radio('ss-tails'), 10);
+    var r = Stats.abSampleSize({ p1: p1, p2: p2, confidence: conf, power: power, tails: tails });
+    if (r.error) { showError(r.error); return; }
+
+    var daily = parseNum($('daily').value);
+    render(r, p1, p2, conf, power, daily);
+  }
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, p1, p2, conf, power, daily) {
+    var metrics =
+      metric('Amostra por variante', Fmt.int(r.perVariant), 'visitantes em cada versão') +
+      metric('Amostra total', Fmt.int(r.total), 'somando A e B') +
+      metric('Taxa-alvo', Fmt.pct(p2, 2), 'de ' + Fmt.pct(p1, 2) + ' para cá');
+
+    var durationTxt = '';
+    if (!isNaN(daily) && daily > 0) {
+      var days = Math.ceil(r.total / daily);
+      var weeks = days / 7;
+      var weekTxt = weeks >= 1 ? ' (~' + Fmt.num(weeks, 1) + ' semanas)' : '';
+      metrics += metric('Duração estimada', days + ' dias', weekTxt ? weekTxt.replace(/[()~]/g, '').trim() : 'rode pelo menos 1 semana');
+      durationTxt = ' Com ' + Fmt.int(daily) + ' visitantes por dia, o teste deve rodar cerca de <strong>' +
+        days + ' dias</strong>' + weekTxt + '. Rode-o por semanas inteiras e não pare antes disso.';
+    } else {
+      durationTxt = ' Informe os visitantes por dia para estimar também a duração do teste.';
+    }
+
+    var interp = '<p>Para detectar uma mudança da taxa de <strong>' + Fmt.pct(p1, 2) +
+      '</strong> para <strong>' + Fmt.pct(p2, 2) + '</strong>, com ' + Fmt.pct(conf, 0) +
+      ' de confiança e ' + Fmt.pct(power, 0) + ' de poder estatístico, você precisa de <strong>' +
+      Fmt.int(r.perVariant) + ' visitantes por variante</strong> (total de ' + Fmt.int(r.total) +
+      ').' + durationTxt + '</p>';
+
+    result.className = 'result result--neutral';
+    result.innerHTML =
+      '<div class="result__banner">' + ICON +
+        '<div><div class="result__headline">Plano do teste A/B</div>' +
+        '<div class="result__sub">Estes são os números que você precisa atingir antes de decidir.</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

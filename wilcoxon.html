@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Wilcoxon e Mann-Whitney — Online e Grátis</title>
+<meta name="description" content="Calculadora de Wilcoxon e Mann-Whitney grátis e em português: testes não-paramétricos para comparar dois grupos, independentes ou pareados, sem supor normalidade. Estatística U ou W, valor-p e interpretação.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/wilcoxon.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Wilcoxon e Mann-Whitney">
+<meta property="og:description" content="Testes não-paramétricos para comparar dois grupos, independentes ou pareados, sem supor normalidade. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/wilcoxon.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Wilcoxon e Mann-Whitney",
+  "url": "https://calculadoraestatistica.com.br/wilcoxon.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora dos testes não-paramétricos de Wilcoxon e Mann-Whitney para comparar dois grupos independentes ou pareados sem supor normalidade."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Wilcoxon e Mann-Whitney","item":"https://calculadoraestatistica.com.br/wilcoxon.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Qual a diferença entre o teste de Wilcoxon e o de Mann-Whitney?","acceptedAnswer":{"@type":"Answer","text":"O teste de Mann-Whitney compara dois grupos independentes (pessoas diferentes em cada grupo); o teste de Wilcoxon dos postos sinalizados compara duas medidas dos mesmos indivíduos, como antes e depois de uma intervenção."}},
+    {"@type":"Question","name":"Quando usar um teste não-paramétrico?","acceptedAnswer":{"@type":"Answer","text":"Use Wilcoxon ou Mann-Whitney quando os dados não seguem uma distribuição normal, quando há valores extremos, quando a amostra é pequena ou quando os dados são ordinais. São a alternativa ao teste t nessas situações."}},
+    {"@type":"Question","name":"O que é a estatística U de Mann-Whitney?","acceptedAnswer":{"@type":"Answer","text":"A estatística U mede o quanto os postos de um grupo se sobrepõem aos do outro. Valores extremos de U indicam que um grupo tende a ter valores sistematicamente maiores que o outro."}},
+    {"@type":"Question","name":"O teste de Mann-Whitney compara médias ou medianas?","acceptedAnswer":{"@type":"Answer","text":"O teste compara as distribuições dos dois grupos por meio dos postos. Quando as distribuições têm formato parecido, ele pode ser interpretado como uma comparação de medianas."}},
+    {"@type":"Question","name":"Preciso supor normalidade para usar esses testes?","acceptedAnswer":{"@type":"Answer","text":"Não. É justamente a vantagem dos testes não-paramétricos: eles não exigem que os dados sigam uma distribuição normal, pois trabalham com a ordem (postos) dos valores e não com as próprias medidas."}},
+    {"@type":"Question","name":"Quantos dados são necessários para o teste?","acceptedAnswer":{"@type":"Answer","text":"Esta calculadora pede pelo menos 2 valores por grupo. Como o valor-p usa a aproximação normal, amostras com cerca de 8 a 10 observações ou mais tornam o resultado mais confiável."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Wilcoxon e Mann-Whitney</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Wilcoxon e Mann-Whitney</h1>
+      <p class="lead">Compare <strong>dois grupos sem supor normalidade</strong> — os testes não-paramétricos para amostras independentes (Mann-Whitney) ou pareadas (Wilcoxon), com valor-p e interpretação.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="wx-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Calcular o teste não-paramétrico
+      </h2>
+      <p class="calculator__hint">Escolha o tipo de teste e cole os dados dos dois grupos. O teste trabalha com a <strong>ordem dos valores</strong>, sem exigir distribuição normal.</p>
+
+      <fieldset class="field-group">
+        <legend>Tipo de teste</legend>
+        <div class="segmented" role="radiogroup" aria-label="Tipo de teste" style="margin-top:.6rem">
+          <label><input type="radio" name="wx-mode" value="ind" checked><span>Duas amostras independentes</span></label>
+          <label><input type="radio" name="wx-mode" value="paired"><span>Amostras pareadas</span></label>
+        </div>
+      </fieldset>
+
+      <div data-panel="ind">
+        <fieldset class="field-group">
+          <legend>Seus dados</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="wx-g1">Grupo 1</label>
+              <textarea class="input" id="wx-g1" rows="4" placeholder="Ex.: 12 15 14 18 11 16" autocomplete="off"></textarea>
+            </div>
+            <div class="field">
+              <label for="wx-g2">Grupo 2</label>
+              <textarea class="input" id="wx-g2" rows="4" placeholder="Ex.: 20 22 19 25 21 23" autocomplete="off"></textarea>
+            </div>
+          </div>
+          <p class="help">Cole os valores separados por espaço, vírgula ou quebra de linha.</p>
+        </fieldset>
+      </div>
+
+      <div data-panel="paired" hidden>
+        <fieldset class="field-group">
+          <legend>Seus dados pareados</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="wx-before">Antes</label>
+              <textarea class="input" id="wx-before" rows="4" placeholder="Ex.: 8 7 9 6 8 7" autocomplete="off"></textarea>
+            </div>
+            <div class="field">
+              <label for="wx-after">Depois</label>
+              <textarea class="input" id="wx-after" rows="4" placeholder="Ex.: 6 5 8 5 6 4" autocomplete="off"></textarea>
+            </div>
+          </div>
+          <p class="help">Cole os valores na mesma ordem dos pares; as duas colunas devem ter a mesma quantidade de números.</p>
+        </fieldset>
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="wx-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="wx-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="wx-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tipo de teste</label>
+            <div class="segmented" role="radiogroup" aria-label="Tipo de teste">
+              <label><input type="radio" name="wx-tails" value="2" checked><span>Bicaudal</span></label>
+              <label><input type="radio" name="wx-tails" value="1"><span>Unicaudal</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="wx-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular</button>
+        <a class="btn btn--ghost" href="#" id="wx-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="wx-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que são os testes de Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="#nomes">Os nomes explicados</a></li>
+          <li><a href="#quando">Quando usar</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que são os testes de Wilcoxon e Mann-Whitney</h2>
+      <p>Os testes de <strong>Mann-Whitney</strong> e de <strong>Wilcoxon</strong> são procedimentos <strong>não-paramétricos</strong> para comparar dois grupos. Eles respondem à mesma pergunta do <a href="/teste-t.html">teste t</a> — os dois grupos diferem? —, mas sem exigir que os dados sigam uma distribuição normal.</p>
+      <p>A palavra "não-paramétrico" significa que o teste não depende de parâmetros como a média e o desvio padrão de uma curva normal. Em vez de trabalhar com os valores originais, esses testes trabalham com a <strong>ordem</strong> dos valores — os chamados <strong>postos</strong> (ou <em>ranks</em>). Essa é a ideia-chave: se você ordena todos os dados do menor para o maior e um grupo ocupa sistematicamente as posições mais altas, há evidência de que esse grupo tende a ter valores maiores.</p>
+      <p>Por trabalharem com posições, e não com as medidas em si, esses testes são <strong>robustos a valores extremos</strong> e funcionam bem mesmo com amostras pequenas ou com dados ordinais (notas de 1 a 5, graus de satisfação, escalas de dor). São, na prática, as alternativas mais usadas ao teste t quando os pressupostos deste não se sustentam.</p>
+      <p>Esta calculadora cobre os dois cenários: o teste de <strong>Mann-Whitney</strong>, para <strong>dois grupos independentes</strong>, e o teste de <strong>Wilcoxon dos postos sinalizados</strong>, para <strong>amostras pareadas</strong> (as mesmas unidades medidas duas vezes).</p>
+
+      <h2 id="nomes">Os nomes explicados</h2>
+      <p>A nomenclatura desses testes confunde muita gente, porque o nome "Wilcoxon" aparece em mais de um lugar. Vale separar com calma:</p>
+      <ul>
+        <li><strong>Teste de Mann-Whitney (ou U de Mann-Whitney):</strong> compara <em>dois grupos independentes</em>. Foi proposto por Henry Mann e Donald Whitney em 1947, generalizando uma ideia anterior de Frank Wilcoxon. Por isso também é chamado de <strong>teste da soma de postos de Wilcoxon</strong> — os dois nomes designam exatamente o mesmo teste, e levam ao mesmo valor-p.</li>
+        <li><strong>Teste de Wilcoxon dos postos sinalizados:</strong> compara <em>duas medidas pareadas</em> dos mesmos indivíduos. É o equivalente não-paramétrico do teste t pareado. O "sinalizado" vem do fato de o teste considerar o <em>sinal</em> de cada diferença (se subiu ou desceu).</li>
+      </ul>
+      <p>Em resumo: <strong>"soma de postos"</strong> é o teste para grupos independentes (Mann-Whitney); <strong>"postos sinalizados"</strong> é o teste para dados pareados (Wilcoxon pareado). Escolher entre eles é o mesmo que escolher entre o teste t de duas amostras e o teste t pareado — depende de os dados serem ou não medidos nas mesmas unidades.</p>
+
+      <h2 id="quando">Quando usar</h2>
+      <p>Wilcoxon e Mann-Whitney são a <strong>alternativa não-paramétrica ao <a href="/teste-t.html">teste t</a></strong>. Considere usá-los quando:</p>
+      <ul>
+        <li><strong>Os dados não são normais.</strong> Distribuições assimétricas, com cauda longa ou com vários picos, violam o pressuposto de normalidade do teste t. Os testes de postos não fazem essa suposição.</li>
+        <li><strong>Há valores extremos (outliers).</strong> Como o cálculo usa posições, e não os valores em si, um número muito grande ou muito pequeno não distorce o resultado tanto quanto distorceria uma média.</li>
+        <li><strong>A amostra é pequena.</strong> Com poucos dados é difícil verificar a normalidade, e o teste t fica vulnerável. Os testes de postos são uma escolha mais segura.</li>
+        <li><strong>Os dados são ordinais.</strong> Quando a variável é uma ordem ou uma escala (satisfação, nível de concordância, grau de dor), faz sentido comparar posições, não médias.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          E se os dados forem normais?
+        </div>
+        <p>Quando os pressupostos do teste t são razoáveis, prefira o <a href="/teste-t.html">teste t</a>: ele tem um pouco mais de poder para detectar diferenças reais. Os testes de postos brilham justamente quando esses pressupostos falham — e, mesmo aí, costumam perder muito pouco poder.</p>
+      </div>
+      <p>Se você precisa comparar <strong>três ou mais grupos</strong> sem supor normalidade, o caminho é o teste de Kruskal-Wallis, disponível na <a href="/k-amostras.html">calculadora de k amostras</a>.</p>
+
+      <h2 id="como">Como funciona</h2>
+      <p>A mecânica dos dois testes parte da mesma ideia: substituir os valores pelos seus <strong>postos</strong>. Postos são as posições dos dados quando todos são ordenados do menor para o maior — o menor valor recebe posto 1, o seguinte posto 2, e assim por diante. Quando há valores empatados, todos recebem o <em>posto médio</em> das posições que ocupariam.</p>
+      <p><strong>No teste de Mann-Whitney</strong> (grupos independentes), juntam-se os dois grupos, ordena-se tudo e somam-se os postos de cada grupo. A partir dessa soma, calcula-se a <strong>estatística U</strong>, que mede o grau de sobreposição entre os grupos:</p>
+      <div class="formula">U = R<sub>1</sub> − n<sub>1</sub>(n<sub>1</sub> + 1) ÷ 2
+        <span class="formula__where">R<sub>1</sub> é a soma dos postos do grupo 1 e n<sub>1</sub> o seu tamanho. O teste usa o menor entre U₁ e U₂.</span>
+      </div>
+      <p><strong>No teste de Wilcoxon pareado</strong>, calcula-se a diferença de cada par, ordenam-se essas diferenças pelo valor absoluto e somam-se separadamente os postos das diferenças positivas e das negativas. A <strong>estatística W</strong> é a menor dessas duas somas. Diferenças exatamente iguais a zero são descartadas.</p>
+      <p>Por fim, para obter o <strong>valor-p</strong>, esta calculadora converte U ou W em um escore z, usando a <strong>aproximação normal</strong> — válida porque, com tamanho de amostra razoável, a distribuição de U e de W se aproxima da normal:</p>
+      <div class="formula">z = (estatística − média esperada) ÷ erro padrão
+        <span class="formula__where">A média e o erro padrão dependem dos tamanhos das amostras e de uma correção para empates.</span>
+      </div>
+      <p>O escore z é então traduzido em valor-p pela curva normal. Um valor-p pequeno indica que a sobreposição observada entre os grupos seria improvável se os dois viessem da mesma distribuição.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>A calculadora devolve um cartão com a conclusão e alguns indicadores. Os principais:</p>
+      <ul>
+        <li><strong>Estatística U ou W</strong> — o resumo numérico da sobreposição entre os grupos (U para amostras independentes, W para pareadas). Sozinha, diz pouco; precisa ser comparada com a distribuição.</li>
+        <li><strong>Estatística z</strong> — a estatística padronizada que alimenta a aproximação normal.</li>
+        <li><strong>Valor-p</strong> — a probabilidade de observar uma diferença tão grande por acaso, se os dois grupos viessem da mesma distribuição. Se for menor que o nível de significância (em geral 0,05), o resultado é significativo.</li>
+        <li><strong>Medianas (modo independente)</strong> — a mediana de cada grupo ajuda a ver a <em>direção</em> da diferença: qual grupo tende a apresentar valores maiores.</li>
+        <li><strong>Tamanho das amostras</strong> — o número de observações usado no teste.</li>
+      </ul>
+      <p>A conclusão é direta: se o valor-p ficar abaixo do nível de significância, há <strong>diferença estatisticamente significativa</strong> entre os grupos — eles provavelmente vêm de distribuições diferentes. Caso contrário, não há evidência suficiente para afirmar que diferem.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Compara distribuições, não exatamente médias
+        </div>
+        <p>A rigor, esses testes comparam as <strong>distribuições</strong> dos dois grupos. Só quando as distribuições têm formato semelhante a conclusão pode ser lida como uma comparação de <strong>medianas</strong>. Por isso a calculadora mostra as medianas: elas dão a leitura prática mais comum. Lembre, ainda, que o valor-p aqui usa a aproximação normal — com amostras muito pequenas, trate o resultado como indicativo.</p>
+      </div>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma pesquisadora compara a pontuação de satisfação de clientes em duas lojas. A <strong>Loja A</strong> teve as notas <strong>12, 15, 14, 18, 11, 16</strong>; a <strong>Loja B</strong> teve <strong>20, 22, 19, 25, 21, 23</strong>. Como são clientes diferentes, o teste indicado é o de Mann-Whitney. As notas diferem entre as lojas?</p>
+      <ol class="steps">
+        <li><strong>Ordenar e atribuir postos:</strong> juntando os 12 valores e ordenando, as notas da Loja A (11 a 18) ocupam as posições mais baixas e as da Loja B (19 a 25), as mais altas. A soma dos postos da Loja A é 1+2+3+4+5+6 = 21; a da Loja B é 7+8+9+10+11+12 = 57.</li>
+        <li><strong>Estatística U:</strong> U₁ = 21 − 6·7÷2 = 0 e U₂ = 6·6 − 0 = 36. O teste usa U = 0 — não há nenhuma sobreposição entre os grupos.</li>
+        <li><strong>Aproximação normal:</strong> com n₁ = n₂ = 6, a média esperada de U é 18 e o erro padrão ≈ 6,24, o que leva a um escore z ≈ −2,88.</li>
+        <li><strong>Valor-p:</strong> para z ≈ −2,88, o valor-p bicaudal ≈ 0,004.</li>
+      </ol>
+      <p>Como 0,004 &lt; 0,05, a diferença é <strong>estatisticamente significativa</strong>: a satisfação difere entre as lojas, com a Loja B apresentando notas sistematicamente maiores (mediana 21,5 contra 14,5 da Loja A). Use o botão <em>"Preencher com exemplo"</em> para ver esse cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Qual a diferença entre o teste de Wilcoxon e o de Mann-Whitney?</summary>
+          <div class="faq__answer"><p>O teste de Mann-Whitney compara dois grupos independentes — pessoas diferentes em cada grupo. O teste de Wilcoxon dos postos sinalizados compara duas medidas dos mesmos indivíduos, como antes e depois de uma intervenção. É a mesma escolha que existe entre o <a href="/teste-t.html">teste t</a> de duas amostras e o teste t pareado.</p></div>
+        </details>
+        <details>
+          <summary>Quando devo usar um teste não-paramétrico?</summary>
+          <div class="faq__answer"><p>Quando os dados não seguem uma distribuição normal, quando há valores extremos, quando a amostra é pequena ou quando a variável é ordinal. Nesses casos, Wilcoxon e Mann-Whitney são mais confiáveis que o teste t.</p></div>
+        </details>
+        <details>
+          <summary>O que é a estatística U de Mann-Whitney?</summary>
+          <div class="faq__answer"><p>É um número que mede o quanto os postos de um grupo se sobrepõem aos do outro. Quando os dois grupos se misturam bastante, U fica perto do valor esperado; quando um grupo domina as posições altas, U fica nos extremos — sinal de diferença entre os grupos.</p></div>
+        </details>
+        <details>
+          <summary>Esses testes comparam médias ou medianas?</summary>
+          <div class="faq__answer"><p>Tecnicamente, eles comparam as distribuições inteiras por meio dos postos. Quando as duas distribuições têm formato parecido, o resultado pode ser interpretado como uma comparação de medianas — a leitura prática mais comum.</p></div>
+        </details>
+        <details>
+          <summary>Preciso supor normalidade?</summary>
+          <div class="faq__answer"><p>Não. Essa é a principal vantagem dos testes não-paramétricos: eles trabalham com a ordem (postos) dos valores, e não com as medidas em si, então não exigem que os dados sigam uma curva normal.</p></div>
+        </details>
+        <details>
+          <summary>Quantos dados são necessários?</summary>
+          <div class="faq__answer"><p>Esta calculadora pede pelo menos 2 valores por grupo. Como o valor-p usa a aproximação normal, amostras com cerca de 8 a 10 observações ou mais tornam o resultado mais confiável. Com amostras minúsculas, interprete o valor-p como indicativo.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>A versão paramétrica, para comparar médias.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/k-amostras.html"><h3>ANOVA e k amostras</h3><p>Para comparar três ou mais grupos.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/guias/como-escolher-teste-estatistico.html"><h3>Qual teste usar?</h3><p>Um guia para escolher o teste estatístico certo.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Na dúvida sobre qual teste usar?</h2>
+        <p>Veja o guia que ajuda a escolher o teste estatístico certo para o seu tipo de dado.</p>
+        <a class="btn btn--light btn--lg" href="/guias/como-escolher-teste-estatistico.html">Abrir o guia de escolha</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('wx-form'), result = $('wx-result'), errBox = $('wx-error');
+  var panels = document.querySelectorAll('[data-panel]');
+
+  function currentMode() { return Fmt.radio('wx-mode'); }
+
+  function syncPanels() {
+    var mode = currentMode();
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].hidden = panels[i].getAttribute('data-panel') !== mode;
+    }
+  }
+  var modeRadios = document.querySelectorAll('input[name="wx-mode"]');
+  for (var m = 0; m < modeRadios.length; m++) {
+    modeRadios[m].addEventListener('change', syncPanels);
+  }
+  syncPanels();
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  // Converte um texto livre em um array de números.
+  function parseList(texto) {
+    var partes = String(texto).split(/[\s,;]+/);
+    var nums = [];
+    for (var i = 0; i < partes.length; i++) {
+      if (partes[i] === '') continue;
+      var v = parseNum(partes[i]);
+      if (!isNaN(v)) nums.push(v);
+    }
+    return nums;
+  }
+
+  // Mediana de um array de números.
+  function median(arr) {
+    if (!arr.length) return NaN;
+    var s = arr.slice().sort(function (a, b) { return a - b; });
+    var mid = Math.floor(s.length / 2);
+    return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2;
+  }
+
+  $('wx-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('input[name="wx-mode"][value="ind"]').checked = true;
+    syncPanels();
+    $('wx-g1').value = '12, 15, 14, 18, 11, 16';
+    $('wx-g2').value = '20, 22, 19, 25, 21, 23';
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var mode = currentMode();
+    var conf = parseFloat(Fmt.radio('wx-conf'));
+    var tails = parseInt(Fmt.radio('wx-tails'), 10);
+    var r, extra;
+
+    if (mode === 'ind') {
+      var g1 = parseList($('wx-g1').value);
+      var g2 = parseList($('wx-g2').value);
+      if (g1.length < 2 || g2.length < 2) {
+        showError('Cole pelo menos 2 números válidos em cada grupo.');
+        return;
+      }
+      r = Stats.mannWhitneyTest({ group1: g1, group2: g2, confidence: conf, tails: tails });
+      if (r.error) { showError(r.error); return; }
+      extra = { med1: median(g1), med2: median(g2) };
+    } else {
+      var before = parseList($('wx-before').value);
+      var after = parseList($('wx-after').value);
+      if (before.length < 2 || after.length < 2) {
+        showError('Cole pelo menos 2 números válidos em cada coluna.');
+        return;
+      }
+      if (before.length !== after.length) {
+        showError('As colunas "Antes" e "Depois" precisam ter a mesma quantidade de números.');
+        return;
+      }
+      r = Stats.wilcoxonSignedRankTest({ before: before, after: after, confidence: conf, tails: tails });
+      if (r.error) { showError(r.error); return; }
+      extra = {};
+    }
+    render(r, mode, conf, extra);
+  }
+
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  var ICON_NO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, mode, conf, extra) {
+    var sig = r.significant;
+    var tailTxt = r.tails === 1 ? 'unicaudal' : 'bicaudal';
+    var metrics, testName;
+
+    if (mode === 'ind') {
+      testName = 'teste de Mann-Whitney';
+      metrics =
+        metric('Estatística U', Fmt.num(r.U, 2)) +
+        metric('Estatística z', Fmt.num(r.z, 3)) +
+        metric('Valor-p', Fmt.p(r.pValue), tailTxt) +
+        metric('Mediana grupo 1', Fmt.num(extra.med1, 2)) +
+        metric('Mediana grupo 2', Fmt.num(extra.med2, 2)) +
+        metric('Tamanho das amostras', 'n₁ = ' + Fmt.int(r.n1) + ', n₂ = ' + Fmt.int(r.n2));
+    } else {
+      testName = 'teste de Wilcoxon dos postos sinalizados';
+      metrics =
+        metric('Estatística W', Fmt.num(r.W, 2)) +
+        metric('Soma de postos +', Fmt.num(r.wPlus, 1)) +
+        metric('Soma de postos −', Fmt.num(r.wMinus, 1)) +
+        metric('Estatística z', Fmt.num(r.z, 3)) +
+        metric('Valor-p', Fmt.p(r.pValue), tailTxt) +
+        metric('Pares válidos', Fmt.int(r.n));
+    }
+
+    var headline = sig ? 'Diferença estatisticamente significativa' : 'Diferença não significativa';
+    var sub = sig
+      ? 'O valor-p ficou abaixo do nível de significância — os grupos provavelmente diferem.'
+      : 'Não há evidência suficiente para afirmar que os grupos diferem.';
+
+    var interp;
+    if (sig) {
+      interp = '<p>Com <strong>' + Fmt.pct(conf, 0) + ' de confiança</strong>, o ' + testName +
+        ' aponta uma <strong>diferença estatisticamente significativa</strong> entre os grupos: ' +
+        'o valor-p (' + Fmt.p(r.pValue) + ') é menor que o nível de significância (' +
+        Fmt.pct(r.alpha, 0) + '). As duas distribuições provavelmente não são iguais.</p>';
+    } else {
+      interp = '<p>Com ' + Fmt.pct(conf, 0) + ' de confiança, o ' + testName +
+        ' <strong>não</strong> aponta diferença estatisticamente significativa: ' +
+        'o valor-p (' + Fmt.p(r.pValue) + ') é maior ou igual ao nível de significância (' +
+        Fmt.pct(r.alpha, 0) + '). Os dados são compatíveis com a hipótese de que os dois grupos ' +
+        'vêm da mesma distribuição.</p>';
+    }
+    if (mode === 'ind') {
+      interp += '<p>As medianas observadas foram <strong>' + Fmt.num(extra.med1, 2) +
+        '</strong> no grupo 1 e <strong>' + Fmt.num(extra.med2, 2) + '</strong> no grupo 2.</p>';
+    }
+    interp += '<p>Este teste compara as <strong>distribuições</strong> (e, quando elas têm formato ' +
+      'semelhante, as <strong>medianas</strong>) dos dois grupos, sem supor normalidade. ' +
+      'O valor-p foi obtido pela <strong>aproximação normal</strong> da estatística do teste.</p>';
+
+    result.className = 'result ' + (sig ? 'result--significant' : 'result--ns');
+    result.innerHTML =
+      '<div class="result__banner">' + (sig ? ICON_OK : ICON_NO) +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

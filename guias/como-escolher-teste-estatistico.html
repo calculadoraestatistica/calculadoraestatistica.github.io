@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como Escolher o Teste Estatístico Certo — Guia Prático</title>
+<meta name="description" content="Guia para escolher o teste de hipótese adequado conforme o tipo de dado, o número de grupos e os pressupostos. Tabela-resumo e exemplos para decidir entre teste t, qui-quadrado, ANOVA e mais.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/guias/como-escolher-teste-estatistico.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Como Escolher o Teste Estatístico Certo — Guia Prático">
+<meta property="og:description" content="Aprenda a escolher o teste de hipótese certo conforme o tipo de dado, o número de grupos e os pressupostos, com tabela-resumo e exemplos.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/guias/como-escolher-teste-estatistico.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Como Escolher o Teste Estatístico Certo — Guia Prático",
+  "inLanguage": "pt-BR",
+  "url": "https://calculadoraestatistica.com.br/guias/como-escolher-teste-estatistico.html",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "description": "Guia para escolher o teste de hipótese adequado conforme o tipo de dado, o número de grupos e os pressupostos, com tabela-resumo e exemplos.",
+  "author": {"@type": "Organization", "name": "Calculadora Estatística"},
+  "publisher": {"@type": "Organization", "name": "Calculadora Estatística"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Guias","item":"https://calculadoraestatistica.com.br/#guias"},
+    {"@type":"ListItem","position":3,"name":"Como escolher o teste estatístico","item":"https://calculadoraestatistica.com.br/guias/como-escolher-teste-estatistico.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Como sei qual teste estatístico usar?","acceptedAnswer":{"@type":"Answer","text":"Responda a quatro perguntas na ordem: que tipo de dado você tem (categórico ou numérico), o que você quer fazer (estimar ou comparar), quantos grupos está comparando (1, 2 ou 3 ou mais) e se os grupos são independentes ou pareados. As respostas levam diretamente a um teste. Em caso de dúvida sobre os pressupostos, use a tabela-resumo deste guia."}},
+    {"@type":"Question","name":"Qual a diferença entre teste paramétrico e não-paramétrico?","acceptedAnswer":{"@type":"Answer","text":"Testes paramétricos, como o teste t e a ANOVA, supõem que os dados seguem aproximadamente uma distribuição normal e comparam médias. Testes não-paramétricos, como Wilcoxon, Mann-Whitney e Kruskal-Wallis, não exigem normalidade e trabalham com a ordem (postos) dos valores. Use a versão não-paramétrica quando a amostra é pequena, há valores extremos ou a distribuição é claramente assimétrica."}},
+    {"@type":"Question","name":"Quando usar qui-quadrado e quando usar teste de proporção?","acceptedAnswer":{"@type":"Answer","text":"Use o teste de proporção quando quer comparar duas proporções diretamente ou comparar uma proporção com um valor de referência. Use o qui-quadrado quando quer verificar a associação entre duas variáveis categóricas em uma tabela de contingência, especialmente com mais de duas categorias. Em uma tabela 2x2, os dois testes levam à mesma conclusão."}},
+    {"@type":"Question","name":"Devo usar teste z ou teste t para comparar com um valor de referência?","acceptedAnswer":{"@type":"Answer","text":"Use o teste z quando o desvio padrão da população é conhecido, o que é raro na prática. Use o teste t quando o desvio padrão é estimado a partir da própria amostra, o que é o caso quase sempre. Por isso, na maioria das pesquisas reais o teste t de uma amostra é a escolha correta."}},
+    {"@type":"Question","name":"O que muda entre grupos independentes e pareados?","acceptedAnswer":{"@type":"Answer","text":"Grupos independentes são formados por pessoas diferentes, sem ligação entre uma medida e outra. Grupos pareados são medidas ligadas, como a mesma pessoa avaliada antes e depois, ou pares casados por características. Dados pareados exigem o teste t pareado ou o Wilcoxon de postos sinalizados; usar o teste para grupos independentes nesse caso desperdiça informação e pode levar à conclusão errada."}},
+    {"@type":"Question","name":"E se eu escolher o teste errado?","acceptedAnswer":{"@type":"Answer","text":"Escolher o teste errado pode produzir um valor-p incorreto e levar a uma conclusão equivocada: declarar uma diferença que não existe ou ignorar uma diferença real. Os erros mais comuns são aplicar teste de média a dados categóricos, ignorar o pareamento dos dados e insistir em um teste paramétrico quando os pressupostos foram violados. Definir o tipo de dado e o desenho do estudo antes de calcular evita a maioria desses erros."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/#guias">Guias</a></li>
+          <li>Como escolher o teste estatístico</li>
+        </ol>
+      </nav>
+      <h1>Como Escolher o Teste Estatístico Certo</h1>
+      <p class="lead">Um guia de decisão para encontrar o <strong>teste de hipótese adequado</strong> ao seu tipo de dado, ao número de grupos que você compara e aos pressupostos do seu estudo — com tabela-resumo e exemplos práticos.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#por-que">Por que escolher o teste certo importa</a></li>
+          <li><a href="#perguntas">As perguntas que definem o teste</a></li>
+          <li><a href="#categoricos">Dados categóricos: proporções e qui-quadrado</a></li>
+          <li><a href="#referencia">Dados numéricos: comparar com um valor de referência</a></li>
+          <li><a href="#dois-grupos">Dados numéricos: comparar dois grupos</a></li>
+          <li><a href="#tres-grupos">Dados numéricos: comparar três ou mais grupos</a></li>
+          <li><a href="#parametrico">Paramétrico ou não-paramétrico?</a></li>
+          <li><a href="#estimar">Estimar em vez de testar</a></li>
+          <li><a href="#tabela">Tabela-resumo: qual teste usar</a></li>
+          <li><a href="#erros">Erros comuns na escolha do teste</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="por-que">Por que escolher o teste certo importa</h2>
+      <p>Toda análise estatística termina em um número — quase sempre o <strong>valor-p</strong> — que sustenta uma conclusão: "há diferença", "não há diferença", "as variáveis estão associadas". Mas esse número só é confiável se o teste que o produziu for o teste <em>correto</em> para o tipo de dado e para o desenho do estudo. Usar o teste errado não gera um aviso de erro: ele devolve um valor-p de aparência perfeitamente normal — e completamente enganoso.</p>
+      <p>As consequências são concretas. Um teste inadequado pode declarar significativa uma diferença que não existe, fazendo você mudar um protocolo, lançar um produto ou publicar uma conclusão sem base real. Ou pode esconder uma diferença verdadeira, levando a descartar um tratamento que de fato funciona. Em um TCC ou artigo, o teste errado é um dos motivos mais frequentes de correção exigida pela banca ou pelos revisores.</p>
+      <p>A boa notícia é que escolher o teste não é um ato de memória nem de sorte. É o resultado de <strong>uma sequência curta de perguntas objetivas</strong> sobre os seus dados. Responda a elas na ordem certa e o teste praticamente se escolhe sozinho. Este guia percorre essas perguntas e, ao final, traz uma tabela-resumo que liga cada situação à calculadora correspondente.</p>
+
+      <h2 id="perguntas">As perguntas que definem o teste</h2>
+      <p>Antes de pensar em qualquer fórmula, responda a cinco perguntas. Elas funcionam como um roteiro: cada resposta elimina opções e estreita o caminho até um único teste.</p>
+      <p><strong>1. Que tipo de dado você tem?</strong> Esta é a pergunta mais importante. Dados <em>categóricos</em> (ou qualitativos) representam categorias que você conta: sexo, região, "comprou ou não comprou", "curou ou não curou". O resultado bruto é uma contagem ou uma proporção. Dados <em>numéricos</em> (ou quantitativos) são valores que você mede: altura, tempo, escore de satisfação, faturamento, pressão arterial. O resultado bruto é uma média. Aplicar um teste de média a dados categóricos — ou o contrário — invalida a análise logo de saída.</p>
+      <p><strong>2. O que você quer fazer com esse dado?</strong> Existem três objetivos típicos. <em>Estimar</em> um valor da população — por exemplo, "qual é a satisfação média dos clientes?" — pede um intervalo de confiança, não um teste. <em>Comparar com um valor de referência</em> — "a média do meu processo é diferente da meta de 100?" — pede um teste de uma amostra. <em>Comparar grupos entre si</em> — "o grupo A difere do grupo B?" — pede um teste de duas ou mais amostras.</p>
+      <p><strong>3. Quantos grupos você está comparando?</strong> Se a resposta for comparar grupos, conte-os. <em>Um</em> grupo contra um valor fixo, <em>dois</em> grupos entre si, ou <em>três ou mais</em> grupos simultaneamente. O número de grupos muda o teste: comparar dois grupos é tarefa do teste t; comparar três ou mais é tarefa da ANOVA. Não se deve comparar muitos grupos dois a dois com vários testes t, porque isso infla a chance de um falso positivo.</p>
+      <p><strong>4. Os grupos são independentes ou pareados?</strong> Grupos <em>independentes</em> são formados por indivíduos diferentes, sem ligação entre uma medida e outra — pacientes do grupo A e pacientes do grupo B, por exemplo. Grupos <em>pareados</em> (ou dependentes) trazem medidas ligadas: a mesma pessoa avaliada antes e depois de uma intervenção, ou pares formados de propósito. Dados pareados têm um teste próprio, que aproveita a ligação entre as medidas e é mais sensível.</p>
+      <p><strong>5. Os pressupostos paramétricos valem?</strong> Os testes paramétricos clássicos — teste t, ANOVA — supõem que os dados numéricos seguem aproximadamente uma distribuição <em>normal</em> e, ao comparar grupos, que as variâncias são parecidas. Quando esses pressupostos se sustentam, os testes paramétricos são os mais potentes. Quando não — amostra pequena, distribuição torta, valores extremos —, existem versões não-paramétricas que não dependem da normalidade.</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          O roteiro em uma frase
+        </div>
+        <p>Tipo de dado → objetivo → número de grupos → independentes ou pareados → pressupostos. Responda nessa ordem e cada pergunta corta metade das opções. Ao chegar na última, em geral resta um único teste — e ele está na tabela-resumo no fim deste guia.</p>
+      </div>
+
+      <h2 id="categoricos">Dados categóricos: proporções e qui-quadrado</h2>
+      <p>Quando o dado é uma <strong>categoria que você conta</strong>, e não um número que você mede, o universo de testes muda completamente. Aqui não há médias nem desvios padrão: há contagens e proporções. Dois testes do site cobrem a maior parte dessas situações, e a escolha entre eles depende do que você quer descobrir.</p>
+      <p>Use o <a href="/teste-proporcao.html">teste de proporção</a> quando o foco é uma proporção em si. Ele resolve dois casos. O primeiro é <em>comparar duas proporções</em>: a taxa de conversão da página A difere da taxa da página B? A proporção de pacientes que aderiram ao tratamento difere entre dois protocolos? O segundo é <em>comparar uma proporção com um valor de referência</em>: a taxa de defeitos do meu processo, de 3%, é diferente da meta contratual de 2%?</p>
+      <p>Use o <a href="/qui-quadrado.html">qui-quadrado</a> quando o foco é a <em>associação</em> entre duas variáveis categóricas organizadas em uma tabela de contingência. A pergunta típica é "a região do país está associada à preferência de marca?" ou "o tipo de tratamento está relacionado ao desfecho clínico?". O qui-quadrado brilha quando há mais de duas categorias em pelo menos uma das variáveis — uma situação que o teste de proporção não cobre.</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Os dois levam à mesma conclusão em 2x2
+        </div>
+        <p>Quando você compara apenas duas proporções, montar uma tabela 2x2 e rodar o qui-quadrado dá exatamente o mesmo valor-p do teste de proporção — em uma tabela 2x2 os dois testes são matematicamente equivalentes. Escolha o teste de proporção quando quiser também o tamanho do efeito entre as duas taxas; escolha o qui-quadrado quando houver três categorias ou mais.</p>
+      </div>
+      <p>Um caso particular e muito comum de comparação de duas proporções é o <strong>teste A/B</strong> de marketing e produto. Para esse cenário específico — duas versões, uma métrica de conversão — o site tem uma ferramenta dedicada, a <a href="/teste-ab.html">calculadora de teste A/B</a>, que entrega o uplift e a confiança no resultado já no vocabulário de quem faz experimentos.</p>
+
+      <h2 id="referencia">Dados numéricos: comparar com um valor de referência</h2>
+      <p>Passemos aos <strong>dados numéricos</strong>. O primeiro objetivo possível não é comparar dois grupos, e sim confrontar a média de <em>um único grupo</em> com um valor fixo conhecido — uma meta, uma norma, um padrão histórico. Exemplos: o peso médio dos pacotes saídos da linha é diferente dos 500 g declarados? O tempo médio de atendimento do call center difere da meta de 4 minutos?</p>
+      <p>Há duas ferramentas para isso, e a escolha entre elas depende de uma pergunta única: <em>você conhece o desvio padrão da população?</em></p>
+      <ul>
+        <li><strong>Desvio padrão da população conhecido</strong> → <a href="/teste-z.html">teste z</a>. É o caso quando um processo é tão bem documentado que a variabilidade populacional (σ) é considerada um valor fixo e conhecido. Na prática, isso é raro.</li>
+        <li><strong>Desvio padrão estimado da própria amostra</strong> → <a href="/teste-t.html">teste t de uma amostra</a>. É o caso quase universal: você não conhece o σ da população e o calcula a partir dos próprios dados coletados. O teste t incorpora a incerteza extra dessa estimativa.</li>
+      </ul>
+      <p>Na imensa maioria das pesquisas reais, o desvio padrão da população é desconhecido — então o <strong>teste t de uma amostra é a escolha padrão</strong>. O teste z fica reservado a contextos industriais muito controlados ou a exercícios didáticos. Em amostras grandes os dois resultados praticamente coincidem, mas em amostras pequenas o teste t é o único correto.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="dois-grupos">Dados numéricos: comparar dois grupos</h2>
+      <p>Este é, de longe, o cenário mais frequente: você tem uma variável numérica e quer saber se a sua média difere entre <strong>dois grupos</strong>. A dor média é menor com o curativo A ou com o B? O tempo no site é maior na versão nova ou na antiga? O faturamento médio por loja mudou depois do treinamento?</p>
+      <p>Duas decisões definem o teste. A primeira é se os grupos são <em>independentes ou pareados</em>; a segunda é se os <em>pressupostos paramétricos</em> se sustentam.</p>
+      <p><strong>Grupos independentes.</strong> São pessoas diferentes em cada grupo, sem ligação entre as medidas. Se os dados numéricos forem aproximadamente normais, use o <a href="/teste-t.html">teste t para amostras independentes</a>. Ele compara as duas médias e devolve o valor-p e o intervalo de confiança da diferença.</p>
+      <p><strong>Grupos pareados.</strong> As medidas estão ligadas: a mesma pessoa antes e depois, ou pares casados de propósito. Aqui o teste correto é o <a href="/teste-t.html">teste t pareado</a>, que analisa as <em>diferenças</em> dentro de cada par. Tratar dados pareados como independentes desperdiça a maior força do desenho pareado e costuma esconder um efeito real.</p>
+      <p><strong>Quando a normalidade falha.</strong> Se a amostra é pequena, há valores extremos ou a distribuição é claramente assimétrica, troque o teste t pela alternativa não-paramétrica, reunida no site na <a href="/wilcoxon.html">calculadora de Wilcoxon e Mann-Whitney</a>. Para dois grupos <em>independentes</em>, o teste é o de <strong>Mann-Whitney</strong>; para dois grupos <em>pareados</em>, é o <strong>Wilcoxon de postos sinalizados</strong>. Ambos trabalham com a ordem dos valores em vez das médias e não exigem distribuição normal.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Não ignore o pareamento
+        </div>
+        <p>O erro mais caro nesta etapa é confundir dados pareados com independentes. "Antes e depois" na mesma pessoa é sempre pareado. Usar o teste para grupos independentes nesse caso joga fora a informação de que cada par começa de um ponto de partida diferente — e isso, em geral, derruba a sensibilidade do teste e pode mascarar uma diferença que existe.</p>
+      </div>
+
+      <h2 id="tres-grupos">Dados numéricos: comparar três ou mais grupos</h2>
+      <p>Quando há uma variável numérica e <strong>três grupos ou mais</strong> para comparar, surge uma tentação perigosa: rodar vários testes t, dois a dois. Não faça isso. Cada teste t carrega uma chance de falso positivo; encadeados, esses riscos se acumulam e a probabilidade de "achar" uma diferença inexistente dispara. A solução é um teste único que avalia todos os grupos de uma vez.</p>
+      <p>Esse teste é a <strong>ANOVA</strong> (análise de variância), disponível na <a href="/k-amostras.html">calculadora de ANOVA e k amostras</a>. A ANOVA responde a uma pergunta global: "há alguma diferença entre as médias destes grupos?". Ela é a extensão natural do teste t para três ou mais grupos e supõe, como ele, que os dados são aproximadamente normais e que as variâncias dos grupos são parecidas.</p>
+      <p>Quando esses pressupostos não se sustentam — distribuição assimétrica, amostras pequenas, presença de valores extremos —, a alternativa é o <strong>Kruskal-Wallis</strong>, também disponível na <a href="/k-amostras.html">mesma calculadora de k amostras</a>. O Kruskal-Wallis é o equivalente não-paramétrico da ANOVA: trabalha com os postos dos valores e não exige normalidade. É, na prática, a generalização do teste de Mann-Whitney para três grupos ou mais.</p>
+      <p>Vale notar o que esses testes <em>não</em> dizem: tanto a ANOVA quanto o Kruskal-Wallis informam apenas que existe <em>alguma</em> diferença entre os grupos, sem apontar <em>quais</em> pares diferem. Identificar os pares específicos é tarefa das chamadas comparações múltiplas (testes post-hoc), uma etapa que vem depois e só faz sentido quando o teste global já indicou significância.</p>
+
+      <h2 id="parametrico">Paramétrico ou não-paramétrico?</h2>
+      <p>A escolha entre a versão paramétrica e a não-paramétrica de um teste apareceu em todas as seções anteriores. Vale agora reuni-la em um só lugar, porque é uma das decisões que mais geram dúvida.</p>
+      <p><strong>Testes paramétricos</strong> — teste z, teste t, ANOVA — comparam <em>médias</em> e se apoiam em pressupostos sobre a distribuição dos dados, sobretudo a <em>normalidade</em>. Ao comparar grupos, esperam também que as variâncias sejam semelhantes (homogeneidade). Quando esses pressupostos se sustentam, os testes paramétricos são os mais <em>potentes</em>: detectam diferenças reais com amostras menores.</p>
+      <p><strong>Testes não-paramétricos</strong> — Mann-Whitney, Wilcoxon, Kruskal-Wallis — não exigem normalidade. Em vez de usar os valores brutos, eles os ordenam e trabalham com os <em>postos</em> (a posição de cada valor na fila ordenada). Por isso são robustos a valores extremos e funcionam bem com distribuições tortas, ao custo de um pouco menos de potência quando os dados <em>seriam</em> normais.</p>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Quando recorrer aos testes de postos
+        </div>
+        <p>Prefira a versão não-paramétrica quando: a <strong>amostra é pequena</strong> (poucas dezenas de casos) e você não consegue confirmar a normalidade; existem <strong>valores extremos</strong> que puxam a média; a distribuição é <strong>claramente assimétrica</strong> (rendas, tempos de espera, contagens); ou o dado é <strong>ordinal</strong> — uma escala de posições, como "ruim, regular, bom, ótimo", sem distância numérica garantida entre os níveis. Com amostras grandes e distribuição razoavelmente simétrica, o teste paramétrico é seguro e mais sensível.</p>
+      </div>
+      <p>Os pares são fáceis de memorizar: o Mann-Whitney substitui o teste t para grupos independentes; o Wilcoxon de postos sinalizados substitui o teste t pareado; o Kruskal-Wallis substitui a ANOVA. Em todos eles, a hipótese nula deixa de ser "as médias são iguais" e passa a ser, em essência, "as distribuições são iguais" — uma diferença sutil de interpretação que vale registrar no relatório.</p>
+
+      <h2 id="estimar">Estimar em vez de testar</h2>
+      <p>Nem toda pergunta estatística é um teste de hipótese. Muitas vezes você não quer comparar nada — quer apenas <strong>estimar um valor</strong> da população com uma margem de incerteza. "Qual é a satisfação média dos clientes?" "Qual é a prevalência de um problema?" Para essas perguntas, o instrumento é o <a href="/intervalo-confianca.html">intervalo de confiança</a>, não um valor-p.</p>
+      <p>O intervalo de confiança entrega uma <em>faixa</em> de valores plausíveis para o parâmetro real da população, em vez de uma resposta de "sim ou não". Ele é mais informativo que o teste em si: mostra ao mesmo tempo o tamanho do efeito e a precisão da estimativa. Um intervalo estreito indica uma estimativa precisa; um intervalo largo, muita incerteza — em geral por amostra pequena.</p>
+      <p>E há um momento em que a estatística precisa entrar <em>antes</em> da coleta de dados: o planejamento do tamanho da amostra. Coletar de menos produz um estudo sem poder para detectar o efeito; coletar de mais desperdiça tempo e recursos. Para dimensionar a amostra de forma adequada, o site oferece a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a> para estudos em geral e a <a href="/tamanho-amostra-ab.html">calculadora de amostra para teste A/B</a>, voltada especificamente a experimentos de conversão.</p>
+      <div class="recommend">
+        <div class="recommend__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Coloque a decisão em prática
+        </div>
+        <p>Depois de identificar o teste certo pelo roteiro deste guia, abra a calculadora correspondente:</p>
+        <ul>
+          <li><a href="/teste-t.html">Calculadora de teste t</a> — compare uma média com um valor de referência ou duas médias entre si.</li>
+          <li><a href="/qui-quadrado.html">Calculadora de qui-quadrado</a> — verifique a associação entre duas variáveis categóricas.</li>
+          <li><a href="/k-amostras.html">Calculadora de ANOVA e k amostras</a> — compare três ou mais grupos, com a opção de Kruskal-Wallis.</li>
+          <li><a href="/intervalo-confianca.html">Calculadora de intervalo de confiança</a> — estime um valor da população com margem de incerteza.</li>
+        </ul>
+        <!-- MONETIZAÇÃO (afiliados): para recomendar cursos/livros, troque os itens acima
+             por links de parceiro (ex.: Hotmart, Amazon) neste formato:
+             <li><a href="SEU_LINK_DE_AFILIADO" rel="sponsored nofollow" target="_blank">Nome do curso/livro</a> — descrição curta.</li>
+             Mantenha a linha de aviso abaixo sempre que houver links pagos. -->
+        <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
+      </div>
+
+      <h2 id="tabela">Tabela-resumo: qual teste usar</h2>
+      <p>A tabela abaixo condensa todo o guia. Encontre a linha que descreve a sua situação, confira o tipo de dado e siga para o teste recomendado — o nome de cada calculadora é um link direto para a ferramenta.</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th>Situação</th><th>Tipo de dado</th><th>Teste recomendado</th><th>Calculadora</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Comparar duas proporções (ex.: conversão A vs. B)</td>
+              <td>Categórico</td>
+              <td>Teste z de duas proporções</td>
+              <td><a href="/teste-proporcao.html">Teste de Proporção</a></td>
+            </tr>
+            <tr>
+              <td>Comparar uma proporção com um valor de referência</td>
+              <td>Categórico</td>
+              <td>Teste de proporção de uma amostra</td>
+              <td><a href="/teste-proporcao.html">Teste de Proporção</a></td>
+            </tr>
+            <tr>
+              <td>Associação entre duas variáveis categóricas</td>
+              <td>Categórico</td>
+              <td>Qui-quadrado de independência</td>
+              <td><a href="/qui-quadrado.html">Qui-quadrado</a></td>
+            </tr>
+            <tr>
+              <td>Comparar uma média com um valor de referência (σ conhecido)</td>
+              <td>Numérico</td>
+              <td>Teste z de uma amostra</td>
+              <td><a href="/teste-z.html">Teste Z</a></td>
+            </tr>
+            <tr>
+              <td>Comparar uma média com um valor de referência (σ desconhecido)</td>
+              <td>Numérico</td>
+              <td>Teste t de uma amostra</td>
+              <td><a href="/teste-t.html">Teste t de Student</a></td>
+            </tr>
+            <tr>
+              <td>Comparar duas médias de grupos independentes</td>
+              <td>Numérico</td>
+              <td>Teste t para amostras independentes</td>
+              <td><a href="/teste-t.html">Teste t de Student</a></td>
+            </tr>
+            <tr>
+              <td>Comparar duas médias pareadas (antes e depois)</td>
+              <td>Numérico</td>
+              <td>Teste t pareado</td>
+              <td><a href="/teste-t.html">Teste t de Student</a></td>
+            </tr>
+            <tr>
+              <td>Comparar dois grupos sem normalidade</td>
+              <td>Numérico ou ordinal</td>
+              <td>Mann-Whitney (independentes) ou Wilcoxon (pareados)</td>
+              <td><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></td>
+            </tr>
+            <tr>
+              <td>Comparar três ou mais grupos (dados normais)</td>
+              <td>Numérico</td>
+              <td>ANOVA de um fator</td>
+              <td><a href="/k-amostras.html">ANOVA e k amostras</a></td>
+            </tr>
+            <tr>
+              <td>Comparar três ou mais grupos sem normalidade</td>
+              <td>Numérico ou ordinal</td>
+              <td>Kruskal-Wallis</td>
+              <td><a href="/k-amostras.html">ANOVA e k amostras</a></td>
+            </tr>
+            <tr>
+              <td>Estimar uma média ou proporção da população</td>
+              <td>Numérico ou categórico</td>
+              <td>Intervalo de confiança</td>
+              <td><a href="/intervalo-confianca.html">Intervalo de Confiança</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="erros">Erros comuns na escolha do teste</h2>
+      <p>Mesmo com o roteiro em mãos, alguns deslizes se repetem. Conhecê-los de antemão protege a sua análise:</p>
+      <ol>
+        <li><strong>Aplicar teste de média a dados categóricos.</strong> O erro de origem. "Comprou ou não comprou" é categórico e pede teste de proporção ou qui-quadrado, nunca teste t. Defina o tipo de variável antes de qualquer outra coisa.</li>
+        <li><strong>Ignorar o pareamento dos dados.</strong> Medidas "antes e depois" na mesma pessoa são pareadas. Tratá-las como independentes desperdiça informação e costuma esconder o efeito. O mesmo vale para pares casados de propósito.</li>
+        <li><strong>Comparar três grupos ou mais com vários testes t.</strong> Cada teste t extra aumenta a chance de um falso positivo. Para três grupos ou mais, use a ANOVA ou o Kruskal-Wallis, que avaliam tudo de uma vez.</li>
+        <li><strong>Insistir no teste paramétrico com pressupostos violados.</strong> Amostra pequena e torta, com valores extremos, não é terreno para o teste t. Quando a normalidade não se sustenta, mude para a versão de postos.</li>
+        <li><strong>Usar teste z quando o desvio padrão é desconhecido.</strong> Se você estimou o desvio padrão a partir da própria amostra, o teste correto é o t, não o z — sobretudo com amostras pequenas.</li>
+        <li><strong>Confundir significância com tamanho do efeito.</strong> Escolher o teste certo entrega um valor-p confiável, mas o valor-p não diz se a diferença é grande. Olhe sempre o tamanho do efeito ou o intervalo de confiança para julgar a relevância prática.</li>
+        <li><strong>Escolher o teste depois de ver os dados.</strong> Decidir o teste só após espiar qual deles "dá significativo" enviesa o resultado. Defina o teste a partir do tipo de dado e do desenho do estudo, de preferência antes da coleta.</li>
+      </ol>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Como sei qual teste estatístico usar?</summary>
+          <div class="faq__answer"><p>Responda a quatro perguntas na ordem: que tipo de dado você tem (categórico ou numérico), o que você quer fazer (estimar ou comparar), quantos grupos está comparando (1, 2 ou 3 ou mais) e se os grupos são independentes ou pareados. As respostas levam diretamente a um teste. Em caso de dúvida sobre os pressupostos, consulte a <a href="#tabela">tabela-resumo</a> deste guia.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre teste paramétrico e não-paramétrico?</summary>
+          <div class="faq__answer"><p>Testes paramétricos, como o <a href="/teste-t.html">teste t</a> e a <a href="/k-amostras.html">ANOVA</a>, supõem que os dados seguem aproximadamente uma distribuição normal e comparam médias. Testes não-paramétricos, como <a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a> e o Kruskal-Wallis, não exigem normalidade e trabalham com a ordem (postos) dos valores. Use a versão não-paramétrica quando a amostra é pequena, há valores extremos ou a distribuição é claramente assimétrica.</p></div>
+        </details>
+        <details>
+          <summary>Quando usar qui-quadrado e quando usar teste de proporção?</summary>
+          <div class="faq__answer"><p>Use o <a href="/teste-proporcao.html">teste de proporção</a> quando quer comparar duas proporções diretamente ou comparar uma proporção com um valor de referência. Use o <a href="/qui-quadrado.html">qui-quadrado</a> quando quer verificar a associação entre duas variáveis categóricas em uma tabela de contingência, especialmente com mais de duas categorias. Em uma tabela 2x2, os dois testes levam à mesma conclusão.</p></div>
+        </details>
+        <details>
+          <summary>Devo usar teste z ou teste t para comparar com um valor de referência?</summary>
+          <div class="faq__answer"><p>Use o <a href="/teste-z.html">teste z</a> quando o desvio padrão da população é conhecido, o que é raro na prática. Use o <a href="/teste-t.html">teste t</a> quando o desvio padrão é estimado a partir da própria amostra, o que é o caso quase sempre. Por isso, na maioria das pesquisas reais o teste t de uma amostra é a escolha correta.</p></div>
+        </details>
+        <details>
+          <summary>O que muda entre grupos independentes e pareados?</summary>
+          <div class="faq__answer"><p>Grupos independentes são formados por pessoas diferentes, sem ligação entre uma medida e outra. Grupos pareados são medidas ligadas, como a mesma pessoa avaliada antes e depois, ou pares casados por características. Dados pareados exigem o teste t pareado ou o Wilcoxon de postos sinalizados; usar o teste para grupos independentes nesse caso desperdiça informação e pode levar à conclusão errada.</p></div>
+        </details>
+        <details>
+          <summary>E se eu escolher o teste errado?</summary>
+          <div class="faq__answer"><p>Escolher o teste errado pode produzir um valor-p incorreto e levar a uma conclusão equivocada: declarar uma diferença que não existe ou ignorar uma diferença real. Os erros mais comuns são aplicar teste de média a dados categóricos, ignorar o pareamento dos dados e insistir em um teste paramétrico quando os pressupostos foram violados. Definir o tipo de dado e o desenho do estudo antes de calcular evita a maioria desses erros.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Compare uma média com uma referência ou duas médias entre si.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/qui-quadrado.html"><h3>Qui-quadrado</h3><p>Verifique a associação entre duas variáveis categóricas.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/k-amostras.html"><h3>ANOVA e k amostras</h3><p>Compare três ou mais grupos de uma só vez.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Já sabe qual teste usar?</h2>
+        <p>Abra a calculadora certa e obtenha o valor-p, o intervalo de confiança e a interpretação — de graça e em português.</p>
+        <a class="btn btn--light btn--lg" href="/#calculadoras">Ver todas as calculadoras</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

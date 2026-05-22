@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de Intervalo de Confiança — Online e Grátis</title>
+<meta name="description" content="Calculadora de intervalo de confiança grátis e em português. Estime a faixa provável de uma média ou de uma proporção com 90%, 95% ou 99% de confiança — margem de erro e interpretação.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/intervalo-confianca.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Intervalo de Confiança">
+<meta property="og:description" content="Estime a faixa provável de uma média ou de uma proporção com 90%, 95% ou 99% de confiança. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/intervalo-confianca.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Intervalo de Confiança",
+  "url": "https://calculadoraestatistica.com.br/intervalo-confianca.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de intervalo de confiança para a média e para a proporção, com 90%, 95% ou 99% de confiança."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Intervalo de Confiança","item":"https://calculadoraestatistica.com.br/intervalo-confianca.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é um intervalo de confiança?","acceptedAnswer":{"@type":"Answer","text":"É uma faixa de valores, calculada a partir de uma amostra, que provavelmente contém o verdadeiro valor de um parâmetro da população — como uma média ou uma proporção. Em vez de um único número, ele mostra a incerteza da estimativa."}},
+    {"@type":"Question","name":"O que significa 95% de confiança?","acceptedAnswer":{"@type":"Answer","text":"Significa que o método usado para construir o intervalo acerta o verdadeiro valor em 95% das amostras possíveis. Não significa que há 95% de probabilidade de o valor real estar dentro deste intervalo específico — ele já contém ou não contém o valor."}},
+    {"@type":"Question","name":"Intervalo de confiança é um teste de hipótese?","acceptedAnswer":{"@type":"Answer","text":"Não. O intervalo de confiança apenas estima a faixa provável de um parâmetro; ele não devolve um veredito de significativo ou não significativo. Os dois conceitos são relacionados, mas o intervalo é uma ferramenta de estimativa, não de decisão."}},
+    {"@type":"Question","name":"Devo usar a distribuição t ou a normal?","acceptedAnswer":{"@type":"Answer","text":"Para a média, use a distribuição t de Student quando o desvio padrão vem da própria amostra (o caso mais comum). Use a normal (z) somente quando o desvio padrão da população é realmente conhecido. Com amostras grandes, as duas praticamente coincidem."}},
+    {"@type":"Question","name":"Como deixar o intervalo de confiança mais estreito?","acceptedAnswer":{"@type":"Answer","text":"Aumente o tamanho da amostra: a margem de erro cai com a raiz quadrada de n. Reduzir o nível de confiança (de 99% para 95%, por exemplo) também estreita o intervalo, mas à custa de uma garantia menor."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Intervalo de Confiança</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Intervalo de Confiança</h1>
+      <p class="lead">Estime a <strong>faixa provável</strong> de uma média ou de uma proporção da população, com 90%, 95% ou 99% de confiança — e veja a margem de erro da sua estimativa.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="ic-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>
+        Calcular o intervalo de confiança
+      </h2>
+      <p class="calculator__hint">Escolha o que você quer estimar, informe os dados da sua amostra e o nível de confiança desejado.</p>
+
+      <fieldset class="field-group">
+        <legend>O que você quer estimar</legend>
+        <div class="segmented" role="radiogroup" aria-label="O que você quer estimar" style="margin-top:.6rem">
+          <label><input type="radio" name="ic-mode" value="mean" checked><span>Média</span></label>
+          <label><input type="radio" name="ic-mode" value="proportion"><span>Proporção</span></label>
+        </div>
+      </fieldset>
+
+      <div data-panel="mean">
+        <fieldset class="field-group">
+          <legend>Sua amostra</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="m-mean">Média da amostra</label>
+              <input class="input" type="text" inputmode="decimal" id="m-mean" placeholder="Ex.: 72" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="m-sd">Desvio padrão</label>
+              <input class="input" type="text" inputmode="decimal" id="m-sd" placeholder="Ex.: 8" autocomplete="off">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="m-n">Tamanho da amostra (n)</label>
+              <input class="input" type="text" inputmode="numeric" id="m-n" placeholder="Ex.: 30" autocomplete="off">
+            </div>
+            <div class="field">
+              <label>Tipo de desvio padrão</label>
+              <div class="segmented" role="radiogroup" aria-label="Tipo de desvio padrão">
+                <label><input type="radio" name="ic-sdtype" value="sample" checked><span>Amostral</span></label>
+                <label><input type="radio" name="ic-sdtype" value="population"><span>Populacional</span></label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div data-panel="proportion" hidden>
+        <fieldset class="field-group">
+          <legend>Sua amostra</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="p-x">Sucessos</label>
+              <input class="input" type="text" inputmode="numeric" id="p-x" placeholder="Ex.: 240" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="p-n">Tamanho da amostra (n)</label>
+              <input class="input" type="text" inputmode="numeric" id="p-n" placeholder="Ex.: 600" autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <fieldset class="field-group">
+        <legend>Configuração</legend>
+        <div class="field-row field-row--single">
+          <div class="field">
+            <label>Nível de confiança</label>
+            <div class="segmented" role="radiogroup" aria-label="Nível de confiança">
+              <label><input type="radio" name="ic-conf" value="0.90"><span>90%</span></label>
+              <label><input type="radio" name="ic-conf" value="0.95" checked><span>95%</span></label>
+              <label><input type="radio" name="ic-conf" value="0.99"><span>99%</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="ic-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular intervalo</button>
+        <a class="btn btn--ghost" href="#" id="ic-example">Preencher com exemplo</a>
+      </div>
+
+      <section class="result" id="ic-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é um intervalo de confiança</a></li>
+          <li><a href="#nivel">O que significa o nível de confiança</a></li>
+          <li><a href="#media">Intervalo de confiança para uma média</a></li>
+          <li><a href="#proporcao">Intervalo de confiança para uma proporção</a></li>
+          <li><a href="#margem">A margem de erro</a></li>
+          <li><a href="#interpretar">A interpretação correta (e a errada)</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="o-que-e">O que é um intervalo de confiança</h2>
+      <p>Quando você mede algo em uma amostra — a altura média de 30 pessoas, a proporção de clientes satisfeitos entre 600 entrevistados — você obtém um número. Mas esse número é só uma <strong>estimativa</strong> do valor verdadeiro da população, e estimativas trazem incerteza: outra amostra daria um resultado um pouco diferente.</p>
+      <p>O <strong>intervalo de confiança</strong> resolve isso. Em vez de entregar um único valor, ele entrega uma <strong>faixa de valores plausíveis</strong> para o parâmetro que você quer conhecer. No lugar de dizer "a média é 72", ele diz "a média provavelmente está entre 69,0 e 75,0". Essa faixa comunica, de forma honesta, o quanto a sua amostra permite afirmar — e o quanto ainda é dúvida.</p>
+      <p>Todo intervalo de confiança tem três ingredientes: a <strong>estimativa pontual</strong> (o valor central, calculado da amostra), a <strong>margem de erro</strong> (o quanto se soma e se subtrai dela) e o <strong>nível de confiança</strong> (90%, 95% ou 99%, que define o rigor). O resultado é sempre da forma <em>estimativa ± margem de erro</em>.</p>
+      <p>Uma observação importante desde já: o intervalo de confiança <strong>não é um teste de hipótese</strong>. Ele não devolve um veredito de "significativo" ou "não significativo" — apenas estima uma faixa. Para um veredito de decisão, veja o <a href="/teste-t.html">teste t</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>. Os dois conceitos conversam, mas têm propósitos distintos.</p>
+
+      <h2 id="nivel">O que significa o nível de confiança</h2>
+      <p>O <strong>nível de confiança</strong> é a parte mais incompreendida da estatística. Ele responde a uma pergunta sobre o <em>método</em>, não sobre um intervalo específico.</p>
+      <p>Imagine repetir o seu estudo milhares de vezes, sempre com uma nova amostra aleatória, e calcular um intervalo de 95% em cada uma. A interpretação correta é: <strong>cerca de 95% desses intervalos conteriam o verdadeiro valor da população</strong>, e cerca de 5% não conteriam. O "95%" é a taxa de acerto do procedimento no longo prazo.</p>
+      <p>Os três níveis usuais representam um equilíbrio entre garantia e precisão:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Confiança</th><th>Significa</th><th>Efeito no intervalo</th></tr></thead>
+          <tbody>
+            <tr><td>90%</td><td>Acerta em 9 de cada 10 amostras.</td><td>Mais estreito, menos garantia.</td></tr>
+            <tr><td>95%</td><td>Acerta em 19 de cada 20 amostras.</td><td>O padrão da maioria das áreas.</td></tr>
+            <tr><td>99%</td><td>Acerta em 99 de cada 100 amostras.</td><td>Mais largo, mais garantia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Existe um trade-off inevitável: quanto maior a confiança exigida, <strong>mais largo</strong> fica o intervalo. Um intervalo de 99% é mais cauteloso, mas também mais vago. Para a maioria dos trabalhos, 95% é o ponto de equilíbrio consagrado.</p>
+
+      <h2 id="media">Intervalo de confiança para uma média — t de Student ou normal</h2>
+      <p>Para estimar a média de uma variável quantitativa (peso, nota, tempo, faturamento), o intervalo parte da média da amostra e soma/subtrai a margem de erro:</p>
+      <div class="formula">IC = x̄ ± (valor crítico) × (erro padrão)
+        <span class="formula__where">x̄ é a média da amostra; o erro padrão é EP = s ÷ √n.</span>
+      </div>
+      <p>O <strong>erro padrão</strong> mede quanto a média da amostra tende a variar de amostra para amostra. Ele encolhe à medida que n cresce — por isso amostras maiores produzem intervalos mais estreitos.</p>
+      <p>A pergunta-chave é qual distribuição usar para o valor crítico:</p>
+      <ul>
+        <li><strong>Distribuição t de Student</strong> — use quando o desvio padrão é <em>estimado a partir da própria amostra</em>. É o caso quase universal na prática. A distribuição t tem caudas um pouco mais largas que a normal, para compensar a incerteza extra de não conhecer o desvio padrão verdadeiro. O valor crítico depende dos <strong>graus de liberdade</strong> (df = n − 1).</li>
+        <li><strong>Distribuição normal (z)</strong> — use somente quando o desvio padrão da <em>população</em> é realmente conhecido, o que é raro fora de exercícios didáticos. Nesta calculadora, é a opção "Populacional".</li>
+      </ul>
+      <p>Na dúvida, escolha "Amostral" (distribuição t): é a opção correta e segura na enorme maioria dos casos. Com amostras grandes (acima de ~30 observações), a t e a normal praticamente coincidem, e a escolha deixa de fazer diferença prática.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="proporcao">Intervalo de confiança para uma proporção — o método de Wilson</h2>
+      <p>Quando o que você mede é uma <strong>proporção</strong> — a fração de pessoas que aprovam algo, a taxa de sucesso de um procedimento —, a estimativa pontual é simplesmente os sucessos divididos pelo total (p̂ = x ÷ n). A questão é como construir a faixa ao redor dela.</p>
+      <p>O método clássico de livro-texto é o <strong>intervalo de Wald</strong>: p̂ ± z × √[p̂(1−p̂)/n]. Ele é simples, mas tem um defeito sério: funciona mal quando a proporção está perto de 0% ou de 100%, ou quando a amostra é pequena. Nesses casos, ele pode até produzir limites impossíveis, abaixo de 0% ou acima de 100%, e sua taxa de acerto real fica bem abaixo do nível anunciado.</p>
+      <p>Por isso esta calculadora usa o <strong>intervalo de Wilson</strong> (também chamado de intervalo score). Ele é um pouco mais elaborado, mas bem mais preciso: mantém a taxa de cobertura próxima do nível nominal mesmo com amostras pequenas ou proporções extremas, e nunca ultrapassa os limites de 0% e 100%.</p>
+      <div class="formula">centro = (p̂ + z²/2n) ÷ (1 + z²/n)
+        <span class="formula__where">O intervalo de Wilson desloca levemente o centro e ajusta a largura — por isso é assimétrico e mais confiável que o Wald.</span>
+      </div>
+      <p>Na prática, você não precisa decorar a fórmula: informe os sucessos e o tamanho da amostra, e a calculadora aplica o método de Wilson automaticamente.</p>
+
+      <h2 id="margem">A margem de erro</h2>
+      <p>A <strong>margem de erro</strong> é a metade da largura do intervalo — o "±" da estimativa. Quando uma pesquisa eleitoral diz "40%, com margem de erro de 2 pontos", ela está descrevendo um intervalo de confiança de [38%; 42%].</p>
+      <p>Três fatores controlam o tamanho da margem de erro:</p>
+      <ul>
+        <li><strong>O tamanho da amostra (n).</strong> É o fator mais poderoso. A margem encolhe com a <em>raiz quadrada</em> de n: para reduzi-la pela metade, é preciso <strong>quadruplicar</strong> a amostra. Dobrar n não dobra a precisão.</li>
+        <li><strong>O nível de confiança.</strong> Exigir 99% em vez de 95% alarga a margem; aceitar 90% a estreita.</li>
+        <li><strong>A variabilidade dos dados.</strong> Quanto maior o desvio padrão (no caso da média), maior a margem. Dados muito dispersos exigem amostras maiores para a mesma precisão.</li>
+      </ul>
+      <p>Se você ainda está planejando a coleta e quer atingir uma margem de erro alvo, calcule o número de observações necessário antes de começar com a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a>.</p>
+
+      <h2 id="interpretar">A interpretação correta — e a errada</h2>
+      <p>Esta é a seção mais importante da página. O intervalo de confiança é cercado de mal-entendidos, e usá-lo bem depende de interpretá-lo com exatidão.</p>
+      <p>Suponha que você calculou um intervalo de <strong>95% para a média igual a [69,0; 75,0]</strong>. A leitura <strong>correta</strong> é:</p>
+      <ul>
+        <li>"O método que usei acerta o verdadeiro valor em 95% das amostras possíveis; com base nesta amostra, a faixa plausível para a média da população vai de 69,0 a 75,0."</li>
+      </ul>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O erro de interpretação mais comum
+        </div>
+        <p>É <strong>incorreto</strong> dizer "há 95% de probabilidade de a média estar entre 69,0 e 75,0". O verdadeiro valor da população é um número fixo: ele já está dentro deste intervalo específico ou já está fora — não há sorteio. A probabilidade de 95% descreve o <em>procedimento</em> de longo prazo, não este intervalo isolado depois de calculado.</p>
+      </div>
+      <p>Outros equívocos frequentes que vale evitar:</p>
+      <ul>
+        <li><strong>"95% dos dados estão dentro do intervalo."</strong> Falso. O intervalo é sobre o <em>parâmetro</em> da população (a média ou a proporção), não sobre os valores individuais da amostra.</li>
+        <li><strong>"Valores fora do intervalo são impossíveis."</strong> Falso. Eles são apenas menos compatíveis com os seus dados; o intervalo marca a faixa plausível, não uma fronteira absoluta.</li>
+        <li><strong>"Um intervalo mais estreito é sempre melhor."</strong> Nem sempre. Um intervalo estreito obtido com confiança baixa pode acertar menos. Precisão e garantia precisam ser lidas juntas.</li>
+      </ul>
+      <p>A maneira mais sólida de comunicar um resultado é descrever a faixa e o nível: "com 95% de confiança, estimamos a média entre 69,0 e 75,0". Simples, preciso e sem armadilhas.</p>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma escola quer estimar a <strong>nota média</strong> dos alunos em uma avaliação. Foi sorteada uma amostra de <strong>30 provas</strong>, com média de <strong>72 pontos</strong> e desvio padrão (amostral) de <strong>8 pontos</strong>. Qual o intervalo de 95% de confiança para a nota média de toda a escola?</p>
+      <ol class="steps">
+        <li><strong>Erro padrão:</strong> EP = 8 ÷ √30 ≈ 1,461.</li>
+        <li><strong>Distribuição:</strong> o desvio padrão veio da amostra, então usamos a t de Student, com df = 30 − 1 = 29.</li>
+        <li><strong>Valor crítico:</strong> para 95% de confiança e 29 graus de liberdade, t ≈ 2,045.</li>
+        <li><strong>Margem de erro:</strong> ME = 2,045 × 1,461 ≈ 2,99.</li>
+        <li><strong>Intervalo:</strong> 72 ± 2,99, ou seja, aproximadamente <strong>[69,0; 75,0]</strong>.</li>
+      </ol>
+      <p>Conclusão: com 95% de confiança, a nota média de toda a escola está, provavelmente, entre <strong>69,0 e 75,0 pontos</strong>. Use o botão <em>"Preencher com exemplo"</em> acima para ver esse cálculo na calculadora.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é um intervalo de confiança?</summary>
+          <div class="faq__answer"><p>É uma faixa de valores, calculada a partir de uma amostra, que provavelmente contém o verdadeiro valor de um parâmetro da população — como uma média ou uma proporção. Em vez de um único número, ele mostra a incerteza da estimativa.</p></div>
+        </details>
+        <details>
+          <summary>O que significa 95% de confiança?</summary>
+          <div class="faq__answer"><p>Significa que o método usado acerta o verdadeiro valor em 95% das amostras possíveis. Não significa que há 95% de probabilidade de o valor real estar dentro deste intervalo específico: ele já contém ou já não contém o valor verdadeiro.</p></div>
+        </details>
+        <details>
+          <summary>Intervalo de confiança é um teste de hipótese?</summary>
+          <div class="faq__answer"><p>Não. O intervalo apenas estima a faixa provável de um parâmetro; ele não devolve um veredito de "significativo" ou "não significativo". Para isso, use um teste de hipótese, como o <a href="/teste-t.html">teste t</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>.</p></div>
+        </details>
+        <details>
+          <summary>Devo usar a distribuição t ou a normal?</summary>
+          <div class="faq__answer"><p>Para a média, use a t de Student quando o desvio padrão vem da própria amostra (o caso mais comum). Use a normal (z) somente quando o desvio padrão da população é realmente conhecido. Com amostras grandes, as duas praticamente coincidem.</p></div>
+        </details>
+        <details>
+          <summary>Como deixar o intervalo de confiança mais estreito?</summary>
+          <div class="faq__answer"><p>Aumente o tamanho da amostra: a margem de erro cai com a raiz quadrada de n. Reduzir o nível de confiança (de 99% para 95%, por exemplo) também estreita o intervalo, mas à custa de uma garantia menor.</p></div>
+        </details>
+        <details>
+          <summary>Por que a calculadora usa o método de Wilson para proporções?</summary>
+          <div class="faq__answer"><p>Porque o método clássico de Wald perde precisão com amostras pequenas ou proporções perto de 0% e 100%, podendo até gerar limites impossíveis. O intervalo de Wilson mantém a cobertura próxima do nível anunciado nesses casos e nunca ultrapassa 0% ou 100%.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Compare médias e teste hipóteses sobre uma média.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra.html"><h3>Tamanho de Amostra</h3><p>Descubra de quantas observações você precisa.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare uma proporção com um valor de referência.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Precisa de estatística para a sua área?</h2>
+        <p>Veja os guias práticos de estatística para enfermagem, psicologia e marketing.</p>
+        <a class="btn btn--light btn--lg" href="/#guias">Ver os guias por área</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('ic-form'), result = $('ic-result'), errBox = $('ic-error');
+  var panels = document.querySelectorAll('[data-panel]');
+
+  function currentMode() { return Fmt.radio('ic-mode'); }
+
+  function syncPanels() {
+    var mode = currentMode();
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].hidden = panels[i].getAttribute('data-panel') !== mode;
+    }
+  }
+  var modeRadios = document.querySelectorAll('input[name="ic-mode"]');
+  for (var m = 0; m < modeRadios.length; m++) {
+    modeRadios[m].addEventListener('change', syncPanels);
+  }
+  syncPanels();
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('is-visible');
+    result.hidden = true;
+  }
+  function clearError() {
+    errBox.textContent = '';
+    errBox.classList.remove('is-visible');
+  }
+
+  $('ic-example').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('input[name="ic-mode"][value="mean"]').checked = true;
+    document.querySelector('input[name="ic-sdtype"][value="sample"]').checked = true;
+    syncPanels();
+    $('m-mean').value = '72'; $('m-sd').value = '8'; $('m-n').value = '30';
+    compute();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    compute();
+  });
+
+  function compute() {
+    clearError();
+    var mode = currentMode();
+    var conf = parseFloat(Fmt.radio('ic-conf'));
+    var opts = { mode: mode, confidence: conf };
+    var vals;
+
+    if (mode === 'mean') {
+      vals = [parseNum($('m-mean').value), parseNum($('m-sd').value), parseNum($('m-n').value)];
+      if (vals.some(function (v) { return isNaN(v); })) {
+        showError('Preencha a média, o desvio padrão e o tamanho da amostra.');
+        return;
+      }
+      opts.mean = vals[0]; opts.sd = vals[1]; opts.n = vals[2];
+      opts.sdKnown = (Fmt.radio('ic-sdtype') === 'population');
+    } else {
+      vals = [parseNum($('p-x').value), parseNum($('p-n').value)];
+      if (vals.some(function (v) { return isNaN(v); })) {
+        showError('Preencha o número de sucessos e o tamanho da amostra.');
+        return;
+      }
+      opts.x = vals[0]; opts.n = vals[1];
+    }
+
+    var r = Stats.confidenceInterval(opts);
+    if (r.error) { showError(r.error); return; }
+    render(r, conf);
+  }
+
+  var ICON_NEUTRAL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>';
+
+  function metric(label, value, note) {
+    return '<div class="metric"><div class="metric__label">' + label + '</div>' +
+      '<div class="metric__value">' + value + '</div>' +
+      (note ? '<div class="metric__note">' + note + '</div>' : '') + '</div>';
+  }
+
+  function render(r, conf) {
+    var confTxt = Fmt.pct(conf, 0);
+    var metrics, interp;
+
+    if (r.mode === 'proportion') {
+      metrics =
+        metric('Estimativa', Fmt.pct(r.estimate, 2), 'proporção da amostra') +
+        metric('Limite inferior', Fmt.pct(r.ciLow, 2)) +
+        metric('Limite superior', Fmt.pct(r.ciHigh, 2)) +
+        metric('Margem de erro', '± ' + Fmt.pct(r.marginError, 2), 'método de Wilson');
+      interp = '<p>Com <strong>' + confTxt + ' de confiança</strong>, a verdadeira proporção da ' +
+        'população está, provavelmente, entre <strong>' + Fmt.pct(r.ciLow, 2) + '</strong> e ' +
+        '<strong>' + Fmt.pct(r.ciHigh, 2) + '</strong>. A estimativa pontual é ' +
+        Fmt.pct(r.estimate, 2) + ', com margem de erro de ± ' + Fmt.pct(r.marginError, 2) + '.</p>' +
+        '<p>Atenção à leitura correta: isso <strong>não</strong> significa que há ' + confTxt +
+        ' de probabilidade de o valor real estar neste intervalo específico — ele já contém ou ' +
+        'já não contém o valor verdadeiro. O nível de confiança descreve o método: em ' + confTxt +
+        ' das amostras possíveis, um intervalo construído assim acerta o valor da população.</p>';
+    } else {
+      var distTxt = r.distribution === 't' ? 't de Student' : 'normal (z)';
+      metrics =
+        metric('Estimativa pontual', Fmt.num(r.estimate, 3), 'média da amostra') +
+        metric('Limite inferior', Fmt.num(r.ciLow, 3)) +
+        metric('Limite superior', Fmt.num(r.ciHigh, 3)) +
+        metric('Margem de erro', '± ' + Fmt.num(r.marginError, 3)) +
+        metric('Erro padrão', Fmt.num(r.se, 3)) +
+        metric('Distribuição usada', distTxt, r.distribution === 't' ? 'df = ' + Fmt.int(r.df) : 'desvio padrão conhecido');
+      interp = '<p>Com <strong>' + confTxt + ' de confiança</strong>, a verdadeira média da ' +
+        'população está, provavelmente, entre <strong>' + Fmt.num(r.ciLow, 3) + '</strong> e ' +
+        '<strong>' + Fmt.num(r.ciHigh, 3) + '</strong>. A estimativa pontual é ' +
+        Fmt.num(r.estimate, 3) + ', com margem de erro de ± ' + Fmt.num(r.marginError, 3) +
+        ', usando a distribuição ' + distTxt + '.</p>' +
+        '<p>Atenção à leitura correta: isso <strong>não</strong> significa que há ' + confTxt +
+        ' de probabilidade de a média real estar neste intervalo específico — ela já está dentro ' +
+        'ou já está fora dele. O nível de confiança descreve o método: em ' + confTxt +
+        ' das amostras possíveis, um intervalo construído assim acerta o valor da população.</p>';
+    }
+
+    result.className = 'result result--neutral';
+    result.innerHTML =
+      '<div class="result__banner">' + ICON_NEUTRAL +
+        '<div><div class="result__headline">Intervalo de confiança</div>' +
+        '<div class="result__sub">A faixa provável da sua estimativa, com ' + confTxt + ' de confiança.</div></div></div>' +
+      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+        '<div class="result__interpretation">' + interp + '</div></div>';
+    result.hidden = false;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+})();
+</script>
+</body>
+</html>

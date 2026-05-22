@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estatística para Psicologia: Guia Prático e Didático</title>
+<meta name="description" content="Guia de estatística para psicologia em português: teste t, tamanho de efeito (d de Cohen), valor-p e poder estatístico aplicados à pesquisa, ao TCC e à clínica.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/guias/estatistica-psicologia.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Estatística para Psicologia: Guia Prático e Didático">
+<meta property="og:description" content="Teste t, tamanho de efeito, valor-p e poder estatístico explicados de forma didática para a pesquisa em psicologia.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/guias/estatistica-psicologia.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Estatística para Psicologia: Guia Prático e Didático",
+  "description": "Guia didático de estatística para psicologia: teste t, tamanho de efeito, valor-p e poder estatístico na pesquisa empírica.",
+  "inLanguage": "pt-BR",
+  "mainEntityOfPage": "https://calculadoraestatistica.com.br/guias/estatistica-psicologia.html",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "author": {"@type": "Organization", "name": "Calculadora Estatística"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculadora Estatística",
+    "logo": {"@type": "ImageObject", "url": "https://calculadoraestatistica.com.br/og-image.png"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Guias","item":"https://calculadoraestatistica.com.br/#guias"},
+    {"@type":"ListItem","position":3,"name":"Estatística para Psicologia","item":"https://calculadoraestatistica.com.br/guias/estatistica-psicologia.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Preciso saber estatística para fazer psicologia?","acceptedAnswer":{"@type":"Answer","text":"Sim. Mesmo na clínica, ler artigos científicos, avaliar a eficácia de uma intervenção e produzir TCC, dissertação ou tese exigem entender valor-p, tamanho de efeito e tamanho de amostra. A estatística é a linguagem da pesquisa empírica em psicologia."}},
+    {"@type":"Question","name":"O que significa p < 0,05 na pesquisa em psicologia?","acceptedAnswer":{"@type":"Answer","text":"Significa que, se não houvesse efeito real, a probabilidade de observar um resultado tão extremo quanto o seu seria menor que 5%. Não é a probabilidade de a hipótese ser verdadeira nem mede o tamanho ou a importância do efeito."}},
+    {"@type":"Question","name":"Qual a diferença entre valor-p e tamanho de efeito?","acceptedAnswer":{"@type":"Answer","text":"O valor-p indica se um efeito provavelmente existe; o tamanho de efeito indica quão grande ele é. Com amostra grande, diferenças minúsculas ficam significativas. Por isso a APA recomenda sempre relatar o tamanho de efeito, como o d de Cohen."}},
+    {"@type":"Question","name":"O que é o d de Cohen?","acceptedAnswer":{"@type":"Answer","text":"É uma medida padronizada de tamanho de efeito para a diferença entre duas médias. Ele expressa a diferença em desvios padrão. Como referência, 0,2 é um efeito pequeno, 0,5 médio e 0,8 grande."}},
+    {"@type":"Question","name":"Por que o poder estatístico de 0,80 é o padrão?","acceptedAnswer":{"@type":"Answer","text":"Poder de 0,80 significa 80% de chance de detectar um efeito que realmente existe. É uma convenção que equilibra o custo de coletar mais participantes com o risco de um falso negativo (erro tipo II) de 20%."}},
+    {"@type":"Question","name":"Qual teste estatístico usar na minha pesquisa?","acceptedAnswer":{"@type":"Answer","text":"Depende do objetivo: teste t para comparar as médias de dois grupos, ANOVA para três ou mais grupos, correlação de Pearson para a relação entre duas variáveis numéricas e qui-quadrado para a associação entre duas variáveis categóricas."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/#guias">Guias</a></li>
+          <li>Estatística para Psicologia</li>
+        </ol>
+      </nav>
+      <h1>Estatística para Psicologia</h1>
+      <p class="lead">Um guia didático sobre <strong>teste t, valor-p, tamanho de efeito e poder estatístico</strong> — as ferramentas que transformam dados de comportamento em conclusões confiáveis na pesquisa em psicologia.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <article class="prose">
+
+      <div class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#por-que">Por que psicologia depende de estatística</a></li>
+          <li><a href="#variaveis">Variáveis e escalas de medida</a></li>
+          <li><a href="#hipotese">O teste de hipótese passo a passo</a></li>
+          <li><a href="#p-significa">O que p &lt; 0,05 realmente significa</a></li>
+          <li><a href="#tamanho-efeito">Tamanho de efeito: além da significância</a></li>
+          <li><a href="#poder">Poder estatístico e tamanho de amostra</a></li>
+          <li><a href="#replicacao">A crise de replicação na psicologia</a></li>
+          <li><a href="#testes">Panorama dos testes mais usados</a></li>
+          <li><a href="#exemplo">Um exemplo prático resolvido</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </div>
+
+      <h2 id="por-que">Por que psicologia depende de estatística</h2>
+      <p>A psicologia é uma ciência empírica: suas afirmações sobre a mente e o comportamento não valem por intuição ou autoridade, mas porque foram testadas com dados. E aí está o desafio. Diferente de medir a altura de uma pessoa, medir <strong>ansiedade</strong>, <strong>memória</strong>, <strong>motivação</strong> ou <strong>bem-estar</strong> envolve muita variação: pessoas diferem entre si, e a mesma pessoa varia de um dia para o outro. A estatística é exatamente a ferramenta que permite enxergar um padrão real no meio dessa variação — separar o <em>sinal</em> (um efeito verdadeiro) do <em>ruído</em> (a flutuação aleatória).</p>
+      <p>Por isso a estatística aparece em praticamente todas as etapas da formação e da prática do psicólogo:</p>
+      <ul>
+        <li><strong>Ler artigos científicos.</strong> Acompanhar a literatura — condição básica da prática baseada em evidências — exige interpretar tabelas, valores-p, intervalos de confiança e tamanhos de efeito.</li>
+        <li><strong>TCC, mestrado e doutorado.</strong> Quase todo trabalho de conclusão e toda dissertação ou tese em psicologia coleta dados e precisa analisá-los corretamente para sustentar suas conclusões.</li>
+        <li><strong>Avaliar intervenções.</strong> Saber se uma terapia, um treino cognitivo ou um programa de prevenção realmente funciona é uma pergunta estatística.</li>
+        <li><strong>Construir e usar testes psicológicos.</strong> A psicometria — a base dos instrumentos de avaliação — é estatística aplicada à mensuração.</li>
+      </ul>
+      <p>A boa notícia: você não precisa virar matemático. Precisa entender <em>o que cada número significa</em> e <em>quando cada teste se aplica</em>. É isso que este guia desenvolve.</p>
+
+      <h2 id="variaveis">Variáveis e escalas de medida</h2>
+      <p>Toda análise começa entendendo <strong>o que</strong> você está medindo. Uma <strong>variável</strong> é qualquer característica que pode assumir valores diferentes entre pessoas ou situações — idade, escore em uma escala de depressão, tipo de tratamento recebido. Em um estudo, distinguimos dois papéis:</p>
+      <ul>
+        <li><strong>Variável independente (VI):</strong> aquela que o pesquisador manipula ou usa para formar grupos — por exemplo, o tipo de intervenção (terapia A vs. terapia B).</li>
+        <li><strong>Variável dependente (VD):</strong> aquela que se mede como resultado, esperando que ela "dependa" da VI — por exemplo, o escore de ansiedade ao final do estudo.</li>
+      </ul>
+      <p>O segundo conceito-chave é a <strong>escala de medida</strong>, porque ela determina quais cálculos fazem sentido. As três escalas mais relevantes na psicologia são:</p>
+      <ul>
+        <li><strong>Nominal:</strong> categorias sem ordem. Sexo, estado civil, grupo experimental. Você só pode contar frequências — não existe "média de estado civil".</li>
+        <li><strong>Ordinal:</strong> categorias com ordem, mas sem distância definida entre elas. Escolaridade (fundamental, médio, superior) ou um ranking de preferências. Sabemos a ordem, não o "tamanho do passo".</li>
+        <li><strong>Intervalar:</strong> valores numéricos com distâncias iguais e significativas. O escore total de um inventário de depressão é tratado, na prática, como intervalar — uma diferença de 5 pontos significa o mesmo em qualquer ponto da escala.</li>
+      </ul>
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Construtos e escalas psicométricas
+        </div>
+        <p>A psicologia mede <strong>construtos</strong> — ideias abstratas como inteligência, autoestima ou estresse — que ninguém observa diretamente. A solução é usar uma <strong>escala psicométrica</strong>: vários itens (perguntas) cuja soma estima o construto. Para confiar nessa soma, o instrumento precisa de boa <em>confiabilidade</em> (mede de forma consistente) e <em>validade</em> (mede de fato o que pretende).</p>
+      </div>
+
+      <h2 id="hipotese">O teste de hipótese passo a passo</h2>
+      <p>O <strong>teste de hipótese</strong> é o procedimento central da estatística inferencial: ele permite generalizar, com cautela, de uma <em>amostra</em> para a <em>população</em>. A lógica é parecida com a de um julgamento — partimos da presunção de "inocência" e só a abandonamos diante de evidência forte. Os passos são:</p>
+      <ol class="steps">
+        <li><strong>Formular as hipóteses.</strong> A <strong>hipótese nula (H₀)</strong> afirma que <em>não há efeito</em> — por exemplo, que a média de ansiedade é igual nos dois grupos. A <strong>hipótese alternativa (H₁)</strong> afirma que <em>há</em> diferença. É H₀ que se coloca à prova.</li>
+        <li><strong>Definir o nível de significância (α).</strong> Antes de ver os dados, escolhe-se o limite de risco aceitável de errar. Na psicologia, o padrão é α = 0,05 (5%).</li>
+        <li><strong>Coletar os dados e calcular a estatística do teste.</strong> A partir da amostra, calcula-se um valor (como a estatística t) que resume o quanto os dados se afastam de H₀.</li>
+        <li><strong>Obter o valor-p.</strong> O <strong>valor-p</strong> é a probabilidade de observar um resultado tão ou mais extremo que o seu, supondo que H₀ seja verdadeira.</li>
+        <li><strong>Decidir.</strong> Se o valor-p &lt; α, <em>rejeita-se</em> H₀ — o resultado é estatisticamente significativo. Caso contrário, <em>não se rejeita</em> H₀.</li>
+      </ol>
+      <p>Na prática da psicologia, o teste mais usado para comparar as médias de dois grupos é o <a href="/teste-t.html">teste t de Student</a>. Imagine um experimento clássico: você quer saber se uma intervenção reduz a ansiedade. Mede o escore de ansiedade do <strong>grupo controle</strong> (sem intervenção) e do <strong>grupo intervenção</strong> e quer descobrir se a diferença entre as duas médias é real. Esse é o cenário típico do teste t — basta inserir as médias, os desvios padrão e os tamanhos dos grupos na <a href="/teste-t.html">calculadora de teste t</a> para obter a estatística t e o valor-p automaticamente.</p>
+
+      <h2 id="p-significa">O que p &lt; 0,05 realmente significa</h2>
+      <p>O valor-p é, ao mesmo tempo, o número mais citado e o mais mal compreendido da pesquisa em psicologia. Vamos ser precisos. Um <strong>valor-p de 0,03</strong> quer dizer: <em>"Se a hipótese nula fosse verdadeira (se não houvesse efeito algum), haveria apenas 3% de chance de eu obter um resultado tão extremo quanto este — ou mais extremo — por puro acaso amostral."</em></p>
+      <p>Como esse cenário seria raro, concluímos que é mais plausível que H₀ esteja errada e que exista, de fato, um efeito. O limite de 0,05 é apenas uma convenção: abaixo dele, chamamos o resultado de <strong>estatisticamente significativo</strong>. Até aqui, tudo bem. O problema são as interpretações equivocadas, repetidas até em trabalhos publicados.</p>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Quatro mitos sobre o valor-p
+        </div>
+        <p><strong>Mito 1 — "p = 0,03 significa 3% de chance de a hipótese estar errada."</strong> Falso. O valor-p é calculado <em>supondo</em> que H₀ é verdadeira; ele não atribui probabilidade às hipóteses.</p>
+        <p><strong>Mito 2 — "p &gt; 0,05 prova que não há efeito."</strong> Falso. Ausência de significância pode significar apenas que faltaram participantes para detectar um efeito real. Não rejeitar H₀ não é o mesmo que aceitá-la.</p>
+        <p><strong>Mito 3 — "p menor significa efeito maior ou mais importante."</strong> Falso. O valor-p depende tanto do tamanho do efeito quanto do tamanho da amostra. Um efeito trivial vira "significativo" com amostra grande o bastante.</p>
+        <p><strong>Mito 4 — "significância estatística é o mesmo que relevância prática."</strong> Falso. Significância responde "o efeito existe?"; relevância responde "o efeito importa?". São perguntas diferentes.</p>
+      </div>
+      <p>A lição é direta: o valor-p é útil, mas insuficiente sozinho. Ele precisa vir acompanhado do <strong>tamanho de efeito</strong> e do <strong>intervalo de confiança</strong> — os temas das próximas seções.</p>
+
+      <h2 id="tamanho-efeito">Tamanho de efeito: além da significância</h2>
+      <p>Se o valor-p diz <em>se</em> há um efeito, o <strong>tamanho de efeito</strong> diz <em>quão grande</em> ele é. Essa distinção é tão importante que a APA (American Psychological Association) exige, em suas normas de publicação, que todo estudo relate o tamanho de efeito, e não apenas o valor-p.</p>
+      <p>Para a diferença entre duas médias — o caso do teste t — a medida mais usada é o <strong>d de Cohen</strong>. A ideia é simples e elegante: em vez de expressar a diferença na unidade original da escala (que muda de instrumento para instrumento), ela é expressa em <strong>desvios padrão</strong>. Assim, um d = 0,5 significa "as médias dos dois grupos estão a meio desvio padrão de distância", seja qual for a escala.</p>
+      <div class="formula">d = (M<sub>1</sub> − M<sub>2</sub>) ÷ DP<sub>combinado</sub>
+        <span class="formula__where">M<sub>1</sub> e M<sub>2</sub> são as médias dos dois grupos; DP<sub>combinado</sub> é o desvio padrão agrupado (pooled) das duas amostras.</span>
+      </div>
+      <p>Para interpretar o valor, Cohen propôs pontos de referência — úteis como guia, desde que não sejam tratados como verdades absolutas, pois o que conta como "grande" varia entre áreas:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>d de Cohen</th><th>Tamanho do efeito</th><th>Interpretação prática</th></tr></thead>
+          <tbody>
+            <tr><td>≈ 0,20</td><td>Pequeno</td><td>Diferença sutil, perceptível só com análise cuidadosa.</td></tr>
+            <tr><td>≈ 0,50</td><td>Médio</td><td>Diferença visível a olho nu para um observador atento.</td></tr>
+            <tr><td>≈ 0,80</td><td>Grande</td><td>Diferença substancial e evidente entre os grupos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Quando o objetivo não é comparar médias, mas medir a <strong>relação entre duas variáveis numéricas</strong> — por exemplo, entre horas de sono e desempenho em um teste de atenção —, o tamanho de efeito é o <strong>coeficiente de correlação r de Pearson</strong>. Ele varia de −1 a +1: como referência aproximada, r em torno de 0,10 indica relação fraca, 0,30 moderada e 0,50 forte. Em ambos os casos, a mensagem é a mesma: relatar o tamanho de efeito transforma um "deu significativo" vago em uma informação que outros pesquisadores podem comparar e acumular.</p>
+
+      <div class="ad-slot" data-ad-slot=""></div>
+
+      <h2 id="poder">Poder estatístico e tamanho de amostra</h2>
+      <p>Todo teste de hipótese pode errar de duas formas. O <strong>erro tipo I</strong> é o falso positivo: rejeitar H₀ quando ela é verdadeira (afirmar um efeito que não existe). Sua probabilidade é justamente o α — em geral 5%. O <strong>erro tipo II</strong> é o falso negativo: <em>não</em> rejeitar H₀ quando ela é falsa (deixar passar um efeito que existe). Sua probabilidade é representada por β.</p>
+      <p>O <strong>poder estatístico</strong> é o complemento do erro tipo II: poder = 1 − β. Em palavras, é a <strong>probabilidade de o seu estudo detectar um efeito, dado que ele realmente existe</strong>. Um poder de 0,80 — o valor adotado como padrão na psicologia — significa 80% de chance de encontrar um efeito real (e, portanto, 20% de risco de não encontrá-lo). O patamar de 0,80 é uma convenção que equilibra o custo de recrutar mais participantes contra o prejuízo de um estudo que termina inconclusivo.</p>
+      <p>O poder depende de três fatores: o nível de significância (α), o tamanho de efeito esperado e — o único totalmente sob seu controle — o <strong>tamanho da amostra</strong>. Quanto maior a amostra, maior o poder. É por isso que o cálculo amostral deve ser feito <strong>antes</strong> de coletar dados:</p>
+      <div class="callout callout--example">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Por que calcular a amostra antes
+        </div>
+        <p>Um estudo <em>subdimensionado</em> tem poder baixo: mesmo que a intervenção funcione, é provável que o resultado saia "não significativo" — desperdiçando o esforço de todos os participantes. Já um estudo grande demais consome recursos sem necessidade. Definir o tamanho de amostra na fase de planejamento, a partir do efeito mínimo de interesse, evita os dois problemas. Use a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a> para estimar de quantos participantes você precisa.</p>
+      </div>
+      <p>Calcular o poder <em>depois</em> de um estudo já concluído (o chamado poder observado) tem pouca utilidade. O lugar certo da análise de poder é o projeto de pesquisa — inclusive porque comitês de ética e bancas examinadoras costumam pedir essa justificativa.</p>
+
+      <div class="recommend">
+        <div class="recommend__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Ferramentas para a sua pesquisa
+        </div>
+        <p>Estas calculadoras cobrem as análises mais frequentes em um TCC ou dissertação de psicologia:</p>
+        <ul>
+          <li><a href="/teste-t.html">Calculadora de teste t de Student</a> — compare as médias de dois grupos (controle e intervenção).</li>
+          <li><a href="/tamanho-amostra.html">Calculadora de tamanho de amostra</a> — planeje quantos participantes recrutar antes de iniciar a coleta.</li>
+          <li><a href="/intervalo-confianca.html">Calculadora de intervalo de confiança</a> — relate a faixa plausível dos seus resultados, como a APA recomenda.</li>
+        </ul>
+        <!-- MONETIZAÇÃO (afiliados): para recomendar cursos/livros, troque os itens acima
+             por links de parceiro (ex.: Hotmart, Amazon) neste formato:
+             <li><a href="SEU_LINK_DE_AFILIADO" rel="sponsored nofollow" target="_blank">Nome do curso/livro</a> — descrição curta.</li>
+             Mantenha a linha de aviso abaixo sempre que houver links pagos. -->
+        <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
+      </div>
+
+      <h2 id="replicacao">A crise de replicação na psicologia</h2>
+      <p>A partir de 2011, a psicologia enfrentou um abalo conhecido como <strong>crise de replicação</strong>: grandes esforços coletivos tentaram repetir estudos clássicos e descobriram que uma parcela expressiva dos resultados <em>não se sustentava</em> quando o experimento era refeito. A causa não foi, em geral, fraude — foram práticas de análise aparentemente inocentes que, somadas, inflam os falsos positivos. Vale conhecê-las para não repeti-las:</p>
+      <ul>
+        <li><strong>p-hacking.</strong> Mexer nos dados ou nas análises até o valor-p cruzar 0,05: testar várias variáveis e relatar só as que "deram certo", excluir participantes de forma conveniente, ou coletar mais dados e parar assim que aparece significância. Cada decisão dessas eleva o risco de um achado por acaso.</li>
+        <li><strong>HARKing</strong> (<em>Hypothesizing After the Results are Known</em>). Olhar os resultados primeiro e, depois, apresentar como se a hipótese tivesse sido formulada antes. Isso transforma uma exploração — legítima — em uma falsa confirmação.</li>
+      </ul>
+      <p>A resposta da comunidade científica foi um conjunto de <strong>boas práticas</strong> que hoje todo pesquisador iniciante deve adotar:</p>
+      <ul>
+        <li><strong>Pré-registro.</strong> Registrar publicamente, antes da coleta, as hipóteses, o tamanho de amostra planejado e o plano de análise. Isso separa de forma clara o que é teste confirmatório do que é exploração.</li>
+        <li><strong>Relatar o tamanho de efeito.</strong> Sempre informar o d de Cohen, o r ou medida equivalente — nunca apenas o valor-p.</li>
+        <li><strong>Relatar intervalos de confiança.</strong> Em vez de um veredito de "sim ou não", o <a href="/intervalo-confianca.html">intervalo de confiança</a> mostra a faixa de valores plausíveis para o efeito, comunicando honestamente a incerteza da estimativa. Você pode calculá-lo na <a href="/intervalo-confianca.html">calculadora de intervalo de confiança</a>.</li>
+        <li><strong>Transparência.</strong> Disponibilizar dados e materiais para que outros possam verificar e replicar.</li>
+      </ul>
+      <p>Mais do que uma má notícia, a crise de replicação tornou a psicologia uma ciência mais rigorosa — e tornou esses cuidados parte do trabalho bem feito.</p>
+
+      <h2 id="testes">Panorama dos testes mais usados</h2>
+      <p>Escolher o teste certo é, na maior parte das vezes, uma questão de responder a duas perguntas: <em>qual é o objetivo (comparar grupos ou medir relação)?</em> e <em>que tipo de variável está em jogo?</em>. A tabela abaixo resume os quatro testes que você mais encontrará na pesquisa em psicologia:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Teste</th><th>Quando usar</th><th>Exemplo em psicologia</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Teste t</strong></td><td>Comparar as médias de <strong>dois</strong> grupos.</td><td>Ansiedade média do grupo controle vs. grupo intervenção.</td></tr>
+            <tr><td><strong>ANOVA</strong></td><td>Comparar as médias de <strong>três ou mais</strong> grupos.</td><td>Bem-estar em três modalidades de terapia diferentes.</td></tr>
+            <tr><td><strong>Correlação de Pearson</strong></td><td>Medir a relação entre <strong>duas variáveis numéricas</strong>.</td><td>Relação entre horas de sono e desempenho em atenção.</td></tr>
+            <tr><td><strong>Qui-quadrado</strong></td><td>Medir a associação entre <strong>duas variáveis categóricas</strong>.</td><td>Relação entre sexo e preferência por um tipo de tratamento.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Vale destacar a relação entre os dois primeiros. O <a href="/teste-t.html">teste t</a> compara exatamente <strong>dois</strong> grupos. Quando o estudo tem <strong>três ou mais</strong> grupos, a tentação é fazer vários testes t aos pares — mas isso multiplica o risco de falso positivo. A solução é a <strong>ANOVA</strong> (Análise de Variância), que compara todas as médias de uma vez com um único teste, controlando esse risco. Já a correlação de Pearson e o qui-quadrado servem a perguntas de <em>associação</em>, não de comparação de médias.</p>
+
+      <h2 id="exemplo">Um exemplo prático resolvido</h2>
+      <p>Vamos juntar tudo em um caso típico de TCC. Uma pesquisadora quer avaliar se um programa de mindfulness de oito semanas reduz a ansiedade. Ela recruta 60 estudantes universitários e os distribui aleatoriamente em dois grupos. Ao final, todos respondem a um inventário de ansiedade (escore de 0 a 60, em que mais é pior). Os resultados:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Grupo</th><th class="num">n</th><th class="num">Média</th><th class="num">Desvio padrão</th></tr></thead>
+          <tbody>
+            <tr><td>Controle (lista de espera)</td><td class="num">30</td><td class="num">32,4</td><td class="num">8,1</td></tr>
+            <tr><td>Intervenção (mindfulness)</td><td class="num">30</td><td class="num">26,7</td><td class="num">7,6</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="steps">
+        <li><strong>Hipóteses.</strong> H₀: a média de ansiedade é igual nos dois grupos. H₁: as médias são diferentes. O nível de significância é fixado em α = 0,05.</li>
+        <li><strong>Teste escolhido.</strong> São duas médias independentes a comparar — o caso do <a href="/teste-t.html">teste t para amostras independentes</a>.</li>
+        <li><strong>Cálculo da estatística t.</strong> Inserindo as médias (32,4 e 26,7), os desvios padrão (8,1 e 7,6) e os tamanhos (30 e 30) na calculadora, obtém-se t ≈ 2,81 com 58 graus de liberdade.</li>
+        <li><strong>Valor-p.</strong> Para esse t, o valor-p bicaudal é ≈ 0,007 — abaixo de 0,05. Rejeita-se H₀: a diferença é estatisticamente significativa.</li>
+        <li><strong>Tamanho de efeito.</strong> O d de Cohen é d = (32,4 − 26,7) ÷ 7,85 ≈ 0,73 — um efeito de magnitude próxima de "grande", ou seja, prático e relevante, não apenas significativo.</li>
+        <li><strong>Conclusão.</strong> Há evidência de que o programa de mindfulness reduziu a ansiedade, e o efeito tem tamanho expressivo. O relato completo informaria também o intervalo de confiança da diferença entre as médias.</li>
+      </ol>
+      <p>Repare como o passo 5 dá sentido ao passo 4: o valor-p confirmou que o efeito existe, mas foi o d de Cohen que mostrou que ele <em>importa</em>. Esse é o padrão de uma análise bem feita em psicologia.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Preciso saber estatística para fazer psicologia?</summary>
+          <div class="faq__answer"><p>Sim. Mesmo na atuação clínica, ler artigos científicos, avaliar se uma intervenção funciona e produzir TCC, dissertação ou tese exigem entender valor-p, tamanho de efeito e tamanho de amostra. A estatística é a linguagem da pesquisa empírica em psicologia — você não precisa dominar a matemática, mas precisa saber interpretar os resultados.</p></div>
+        </details>
+        <details>
+          <summary>O que significa p &lt; 0,05 na pesquisa em psicologia?</summary>
+          <div class="faq__answer"><p>Significa que, se não houvesse efeito real (hipótese nula verdadeira), a probabilidade de obter um resultado tão extremo quanto o seu seria menor que 5%. Não é a probabilidade de a hipótese estar certa ou errada, e não diz nada sobre o tamanho ou a importância do efeito.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre valor-p e tamanho de efeito?</summary>
+          <div class="faq__answer"><p>O valor-p indica <em>se</em> um efeito provavelmente existe; o tamanho de efeito indica <em>quão grande</em> ele é. Com uma amostra grande, diferenças minúsculas ficam significativas. Por isso a APA recomenda sempre relatar o tamanho de efeito, como o d de Cohen, ao lado do valor-p.</p></div>
+        </details>
+        <details>
+          <summary>O que é o d de Cohen e como interpretá-lo?</summary>
+          <div class="faq__answer"><p>É uma medida padronizada de tamanho de efeito para a diferença entre duas médias, expressa em desvios padrão. Como referência, d ≈ 0,2 é um efeito pequeno, d ≈ 0,5 é médio e d ≈ 0,8 é grande. Esses valores são guias, não regras rígidas — o que é "grande" depende da área de pesquisa.</p></div>
+        </details>
+        <details>
+          <summary>Por que o poder estatístico de 0,80 é o padrão?</summary>
+          <div class="faq__answer"><p>Poder de 0,80 significa 80% de chance de detectar um efeito que realmente existe — e, portanto, 20% de risco de um falso negativo. É uma convenção que equilibra o custo de recrutar mais participantes com o prejuízo de um estudo inconclusivo. O cálculo de poder deve ser feito no planejamento, antes da coleta.</p></div>
+        </details>
+        <details>
+          <summary>Como escolher o teste estatístico certo?</summary>
+          <div class="faq__answer"><p>Depende do objetivo e do tipo de variável: use o <a href="/teste-t.html">teste t</a> para comparar as médias de dois grupos, a ANOVA para três ou mais grupos, a correlação de Pearson para a relação entre duas variáveis numéricas e o qui-quadrado para a associação entre duas variáveis categóricas.</p></div>
+        </details>
+      </div>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Compare as médias de dois grupos, como controle e intervenção.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Relate a faixa plausível dos seus resultados, como a APA pede.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra.html"><h3>Tamanho de Amostra</h3><p>Planeje quantos participantes recrutar antes da coleta.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Pronto para analisar a sua pesquisa</h2>
+        <p>Compare as médias do seu grupo controle e do grupo intervenção em segundos, com valor-p e interpretação didática.</p>
+        <a class="btn btn--light btn--lg" href="/teste-t.html">Abrir a calculadora de teste t</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" style="color:#fff">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name" style="color:#fff">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online, gratuitas e em português, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
