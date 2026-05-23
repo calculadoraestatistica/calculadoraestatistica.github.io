@@ -1,10 +1,4 @@
-# Arquivos internos — não publicar
-Instruções.txt
-Instrucoes.txt
-Textos de referência/
-Textos de referencia/
-
-# Sistema
-Thumbs.db
-.DS_Store
-desktop.ini
+node_modules/
+package.json
+package-lock.json
+build_embeddings.js

@@ -214,6 +214,11 @@ sub, sup { font-size: .72em; }
 .hero__actions {
   display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.4rem;
 }
+.hero__ai-link {
+  margin-top: 1rem; font-size: .95rem; color: var(--c-text);
+}
+.hero__ai-link a { color: var(--c-primary-dark); }
+.hero__ai-link strong { color: var(--c-primary-dark); }
 .hero__badges {
   display: flex; flex-wrap: wrap; gap: .5rem 1.1rem; margin-top: 1.5rem;
   color: var(--c-muted); font-size: .94rem; font-weight: 600;

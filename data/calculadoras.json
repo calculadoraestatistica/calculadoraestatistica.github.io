@@ -1,0 +1,239 @@
+[
+  {
+    "id": "teste-ab",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Teste A/B",
+    "url": "/teste-ab.html",
+    "resumo": "Compara duas versões para ver se a diferença na taxa de conversão (cliques, vendas, cura, sucesso) é estatisticamente significativa.",
+    "tags": ["teste a/b", "proporção", "conversão", "cliques", "duas versões", "marketing", "cro", "landing page", "e-mail"],
+    "perguntas_exemplo": [
+      "Comparar a taxa de conversão de duas versões da minha página",
+      "A nova landing converteu mais — essa diferença é real ou foi sorte?",
+      "Comparar a taxa de cliques de dois e-mails",
+      "Comparar duas versões de um anúncio para ver qual converte mais",
+      "Saber se a diferença entre dois grupos no percentual de sucesso é significativa",
+      "Comparar percentual de cura entre dois tratamentos",
+      "Minha versão B teve mais cliques, isso é estatisticamente significativo?",
+      "Comparar duas taxas: tratamento e controle",
+      "Testar se a diferença entre duas proporções é por acaso"
+    ]
+  },
+  {
+    "id": "tamanho-amostra-ab",
+    "tipo": "calculadora",
+    "titulo": "Tamanho de Amostra para Teste A/B",
+    "url": "/tamanho-amostra-ab.html",
+    "resumo": "Calcula quantos visitantes ou pessoas o teste A/B precisa para detectar uma diferença mínima entre duas proporções, com o poder estatístico desejado.",
+    "tags": ["tamanho de amostra", "teste a/b", "poder estatístico", "mde", "minimum detectable effect", "planejamento de experimento"],
+    "perguntas_exemplo": [
+      "Quantos visitantes meu teste A/B precisa para ser confiável?",
+      "Por quantos dias rodar o experimento antes de decidir?",
+      "Qual o tamanho de amostra mínimo para um teste de proporção?",
+      "Quantas conversões eu preciso para detectar uma melhoria de 2%?",
+      "Calcular o n mínimo para um teste A/B com poder de 80%",
+      "Planejar antes de iniciar um teste A/B",
+      "Quanto tempo deixar o experimento rodando",
+      "Quero detectar uma diferença mínima de X% entre minhas versões"
+    ]
+  },
+  {
+    "id": "teste-t",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Teste t de Student",
+    "url": "/teste-t.html",
+    "resumo": "Compara médias: uma amostra contra um valor de referência, duas amostras independentes ou dados pareados (antes e depois no mesmo sujeito).",
+    "tags": ["teste t", "média", "comparar médias", "antes e depois", "pareado", "independentes", "duas amostras", "uma amostra", "student"],
+    "perguntas_exemplo": [
+      "Comparar a média de dois grupos",
+      "Comparar pressão arterial antes e depois do tratamento",
+      "Antes e depois no mesmo paciente — qual teste usar?",
+      "Tenho o peso de pacientes antes e depois de uma dieta, quero ver se mudou",
+      "Tenho amostras de peso de pacientes que fizeram dieta X e dieta Y, qual reduziu mais peso?",
+      "Comparar a média de duas amostras independentes",
+      "Comparar a nota média de duas turmas",
+      "Comparar o tempo de tarefa entre grupo controle e grupo experimental",
+      "Comparar minha média com um valor de referência da literatura",
+      "Diferença de médias entre dois grupos é significativa?",
+      "Comparar salários médios entre dois departamentos",
+      "Pareado: cada participante mediu duas vezes, antes e depois",
+      "Comparar resultado pré e pós-treinamento",
+      "Dados emparelhados de mesma pessoa em dois momentos"
+    ]
+  },
+  {
+    "id": "teste-z",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Teste Z",
+    "url": "/teste-z.html",
+    "resumo": "Testa uma média contra um valor de referência quando o desvio padrão da população é conhecido e a amostra é grande (n ≥ 30).",
+    "tags": ["teste z", "média", "desvio padrão conhecido", "população", "uma média", "valor de referência", "amostra grande"],
+    "perguntas_exemplo": [
+      "Testar uma média quando o desvio padrão da população é conhecido",
+      "Comparar a média da minha amostra com um valor histórico de referência",
+      "Verificar se a média do meu grupo difere de um padrão da população",
+      "Amostra grande e desvio padrão populacional conhecido, qual teste?",
+      "Testar se a média de uma amostra é igual a um valor de referência"
+    ]
+  },
+  {
+    "id": "teste-proporcao",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Teste de Proporção",
+    "url": "/teste-proporcao.html",
+    "resumo": "Compara uma proporção contra um valor de referência ou duas proporções entre si, com estatística z, valor-p e intervalo de confiança.",
+    "tags": ["proporção", "percentual", "taxa", "uma proporção", "duas proporções", "valor de referência", "z para proporção"],
+    "perguntas_exemplo": [
+      "Comparar uma proporção com um valor de referência",
+      "Minha taxa de aprovação está acima do esperado?",
+      "Comparar dois percentuais entre si",
+      "Testar se 30% é diferente da meta de 25%",
+      "Verificar se a taxa de defeitos caiu em relação ao histórico",
+      "Comparar percentual de mulheres entre dois grupos"
+    ]
+  },
+  {
+    "id": "qui-quadrado",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Qui-quadrado",
+    "url": "/qui-quadrado.html",
+    "resumo": "Testa a associação entre duas variáveis categóricas a partir de uma tabela de contingência (chi², valor-p e V de Cramér).",
+    "tags": ["qui-quadrado", "chi quadrado", "χ²", "tabela de contingência", "associação", "variáveis categóricas", "independência", "v de cramér"],
+    "perguntas_exemplo": [
+      "Verificar se duas variáveis categóricas estão associadas",
+      "Preferência por marca varia conforme o sexo?",
+      "Comparar distribuição entre grupos categóricos",
+      "Tabela de contingência — qual teste aplicar?",
+      "Testar associação entre escolaridade e voto",
+      "Idade e tipo de produto comprado estão relacionados?",
+      "Diferença na distribuição de respostas categóricas entre grupos"
+    ]
+  },
+  {
+    "id": "k-amostras",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de ANOVA e k Amostras",
+    "url": "/k-amostras.html",
+    "resumo": "Compara as médias de três ou mais grupos com ANOVA (paramétrica) ou Kruskal-Wallis (não paramétrica).",
+    "tags": ["anova", "kruskal-wallis", "k amostras", "três grupos", "vários grupos", "comparar médias", "múltiplos grupos"],
+    "perguntas_exemplo": [
+      "Comparar a média de três ou mais grupos",
+      "Tenho quatro tratamentos e quero ver qual é melhor",
+      "Comparar três turmas em uma mesma prova",
+      "Quero usar ANOVA, qual calculadora?",
+      "Comparar cinco doses diferentes",
+      "Teste para comparar vários grupos ao mesmo tempo",
+      "Kruskal-Wallis para mais de dois grupos sem normalidade"
+    ]
+  },
+  {
+    "id": "wilcoxon",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Wilcoxon e Mann-Whitney",
+    "url": "/wilcoxon.html",
+    "resumo": "Compara dois grupos sem assumir distribuição normal — Wilcoxon pareado ou Mann-Whitney para duas amostras independentes.",
+    "tags": ["wilcoxon", "mann-whitney", "não paramétrico", "sem normalidade", "comparar medianas", "amostra pequena", "dados ordinais"],
+    "perguntas_exemplo": [
+      "Comparar dois grupos sem assumir distribuição normal",
+      "Amostra pequena, sem normalidade — qual teste?",
+      "Dados ordinais, qual teste usar para comparar dois grupos?",
+      "Mann-Whitney entre dois grupos independentes",
+      "Wilcoxon pareado para antes e depois sem normalidade",
+      "Comparar medianas entre dois grupos",
+      "Teste não paramétrico para duas amostras",
+      "Meus dados não passaram no teste de normalidade, qual alternativa?"
+    ]
+  },
+  {
+    "id": "intervalo-confianca",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Intervalo de Confiança",
+    "url": "/intervalo-confianca.html",
+    "resumo": "Calcula o intervalo de confiança para uma média (com t de Student) ou para uma proporção, com 90%, 95% ou 99% de confiança.",
+    "tags": ["intervalo de confiança", "ic", "margem de erro", "estimativa", "média", "proporção", "95% de confiança"],
+    "perguntas_exemplo": [
+      "Calcular o intervalo de confiança de uma média",
+      "Intervalo de confiança de uma proporção",
+      "Margem de erro de uma estimativa",
+      "Qual o IC 95% da minha média amostral?",
+      "Estimar a faixa provável de uma proporção populacional",
+      "Faixa de variação da média amostral",
+      "Limites superior e inferior para a média"
+    ]
+  },
+  {
+    "id": "tamanho-amostra",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Tamanho de Amostra (Pesquisa)",
+    "url": "/tamanho-amostra.html",
+    "resumo": "Calcula quantas pessoas entrevistar em uma pesquisa de opinião para uma margem de erro desejada, com nível de confiança e correção para população finita.",
+    "tags": ["tamanho de amostra", "pesquisa de opinião", "questionário", "margem de erro", "população finita", "ibope", "survey"],
+    "perguntas_exemplo": [
+      "Quantas pessoas entrevistar na minha pesquisa de opinião?",
+      "Tamanho de amostra para um questionário",
+      "Margem de erro de 3% — quantos respondentes?",
+      "Quantos questionários aplicar para uma pesquisa eleitoral?",
+      "Dimensionar uma survey",
+      "Quantas respostas preciso de uma população de 5000 pessoas?",
+      "Tamanho de amostra de pesquisa com correção para população finita"
+    ]
+  },
+  {
+    "id": "guia-como-escolher",
+    "tipo": "guia",
+    "titulo": "Como escolher o teste estatístico",
+    "url": "/guias/como-escolher-teste-estatistico.html",
+    "resumo": "Guia de decisão para escolher o teste de hipótese certo conforme o tipo de dado, o número de grupos e os pressupostos. Tabela-resumo e exemplos.",
+    "tags": ["qual teste usar", "escolher teste", "fluxo de decisão", "tipo de dado", "pressupostos", "guia"],
+    "perguntas_exemplo": [
+      "Não sei qual teste estatístico usar no meu caso",
+      "Como decidir entre teste t e qui-quadrado?",
+      "Qual o teste certo para o meu tipo de dado?",
+      "Quero uma tabela de decisão para escolher o teste",
+      "Comparar testes paramétricos e não paramétricos"
+    ]
+  },
+  {
+    "id": "guia-enfermagem",
+    "tipo": "guia",
+    "titulo": "Estatística para Enfermagem",
+    "url": "/guias/estatistica-enfermagem.html",
+    "resumo": "Guia de estatística para enfermagem — valor-p, IC, risco relativo, NNT e leitura de artigos científicos para prática baseada em evidências.",
+    "tags": ["enfermagem", "saúde", "evidências", "risco relativo", "nnt", "leitura crítica", "guia"],
+    "perguntas_exemplo": [
+      "Como interpretar valor-p em um artigo de enfermagem?",
+      "O que é NNT, risco relativo?",
+      "Estatística para prática baseada em evidências",
+      "Leitura crítica de artigos científicos em enfermagem"
+    ]
+  },
+  {
+    "id": "guia-psicologia",
+    "tipo": "guia",
+    "titulo": "Estatística para Psicologia",
+    "url": "/guias/estatistica-psicologia.html",
+    "resumo": "Guia de estatística para psicologia — teste t, d de Cohen (tamanho de efeito), poder estatístico e interpretação aplicada a pesquisa e TCC.",
+    "tags": ["psicologia", "tamanho de efeito", "d de cohen", "poder estatístico", "tcc", "pesquisa em psicologia", "guia"],
+    "perguntas_exemplo": [
+      "Estatística para meu TCC de psicologia",
+      "O que é d de Cohen?",
+      "Como interpretar tamanho de efeito em pesquisa de psicologia",
+      "Poder estatístico em estudo experimental",
+      "Pesquisa em psicologia — qual teste?"
+    ]
+  },
+  {
+    "id": "guia-marketing-cro",
+    "tipo": "guia",
+    "titulo": "Estatística para Marketing e CRO",
+    "url": "/guias/estatistica-marketing-cro.html",
+    "resumo": "Guia de estatística para marketing e CRO — teste A/B sem erros, valor-p, poder estatístico, MDE e armadilhas que invalidam experimentos.",
+    "tags": ["marketing", "cro", "otimização de conversão", "teste a/b", "experimentação", "mde", "armadilhas", "guia"],
+    "perguntas_exemplo": [
+      "Como rodar um teste A/B sem erros?",
+      "Armadilhas comuns em experimentos de marketing",
+      "O que é MDE em otimização de conversão?",
+      "Estatística aplicada a marketing digital",
+      "Guia de CRO com base estatística"
+    ]
+  }
+]
