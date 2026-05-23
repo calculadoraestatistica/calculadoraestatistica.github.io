@@ -137,13 +137,6 @@
 
   <div class="container narrow">
 
-    <div class="ai-privacy">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <div>
-        <strong>Tudo roda no seu navegador.</strong> A IA é baixada uma vez (≈30 MB, fica em cache) e a sua pergunta nunca sai do dispositivo. Não enviamos seu texto a nenhum servidor — nem ao Google, nem à OpenAI, nem a nós.
-      </div>
-    </div>
-
     <section class="ai-search">
       <div class="ai-search__head">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><circle cx="11" cy="11" r="3"/></svg>
@@ -176,12 +169,8 @@
     <div class="ad-slot" data-ad-slot=""></div>
 
     <article class="prose">
-      <h2>Como a IA decide</h2>
-      <p>Cada calculadora e guia do site tem um <em>perfil semântico</em> escrito por nós, com um resumo do propósito, palavras-chave e cerca de 8 perguntas-exemplo (ex.: "comparar a média de duas amostras", "antes e depois do mesmo paciente"). Esse perfil é convertido offline em um vetor numérico — o "embedding" — usando o modelo <strong>multilingual-e5-small</strong>. Quando você faz uma pergunta, o mesmo modelo (rodando no seu navegador) transforma o seu texto em um vetor e a página simplesmente procura quais perfis de calculadora ficaram mais próximos no espaço vetorial.</p>
-      <p>Quando uma única calculadora vence com folga, mostramos só ela. Quando o seu caso pode ser atendido por mais de uma — por exemplo, "antes e depois entre dois grupos" pode pedir <a href="/teste-t.html">teste t</a> independente nas diferenças <em>ou</em> teste t pareado dentro de cada grupo — mostramos a principal e até três alternativas próximas.</p>
-
-      <h2>Privacidade técnica</h2>
-      <p>O modelo é baixado uma vez (~30 MB quantizado, via CDN) e fica no cache do navegador. Tudo o que você digita roda localmente: a pergunta vira um vetor de 384 números, é comparada por similaridade-cosseno contra os 14 vetores das calculadoras/guias, e o resultado aparece. Nenhum texto vai para servidor. O site continua estático (GitHub Pages) — sem backend, sem banco de dados, sem chave de API.</p>
+      <h2>Como funciona</h2>
+      <p>Cada calculadora e guia tem um perfil escrito por nós — propósito, palavras-chave e perguntas-exemplo. A sua pergunta é comparada contra esses perfis pela IA, que roda diretamente no seu navegador: o texto não é enviado a nenhum servidor. Quando uma calculadora vence com folga, mostramos só ela; quando o seu caso pode ser atendido por mais de uma — por exemplo, "antes e depois entre dois grupos" pode pedir <a href="/teste-t.html">teste t</a> independente nas diferenças ou pareado dentro de cada grupo — mostramos a principal e até três alternativas próximas.</p>
 
       <p class="u-mt-md"><a href="/#calculadoras">Ver todas as calculadoras</a> · <a href="/guias/como-escolher-teste-estatistico.html">Guia: como escolher o teste</a></p>
     </article>
