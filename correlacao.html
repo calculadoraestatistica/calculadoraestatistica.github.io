@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<title>Calculadora de Correlação de Pearson — r, r², p-valor e gráfico</title>
+<meta name="description" content="Calculadora de correlação de Pearson grátis: cole duas séries de números e obtenha r, r², p-valor, intervalo de confiança e o gráfico de dispersão com a reta de regressão.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/correlacao.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Calculadora de Correlação de Pearson">
+<meta property="og:description" content="Calcule r, r², p-valor e o gráfico de dispersão da correlação. Grátis e em português.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/correlacao.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Correlação de Pearson",
+  "url": "https://calculadoraestatistica.com.br/correlacao.html",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "pt-BR",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "BRL"},
+  "description": "Calculadora de correlação de Pearson com r, r², p-valor, intervalo de confiança, regressão linear e gráfico de dispersão."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Calculadora de Correlação","item":"https://calculadoraestatistica.com.br/correlacao.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é o coeficiente de correlação de Pearson (r)?","acceptedAnswer":{"@type":"Answer","text":"É uma medida que vai de -1 a +1 da força e direção da associação linear entre duas variáveis numéricas. Valores próximos de 0 indicam ausência de relação linear; próximos de +1 ou -1 indicam relação linear forte."}},
+    {"@type":"Question","name":"Correlação significa causa?","acceptedAnswer":{"@type":"Answer","text":"Não. Uma correlação forte e estatisticamente significativa só indica que as duas variáveis variam juntas — pode haver uma terceira variável causando ambas, pode ser coincidência (correlação espúria), ou a relação pode ser invertida."}},
+    {"@type":"Question","name":"O que é o R² (coeficiente de determinação)?","acceptedAnswer":{"@type":"Answer","text":"É r elevado ao quadrado e representa a proporção da variância de uma variável explicada pela outra. Um R² de 0,64 significa que 64% da variação de Y pode ser explicada por uma relação linear com X."}},
+    {"@type":"Question","name":"Como interpretar o valor-p da correlação?","acceptedAnswer":{"@type":"Answer","text":"O valor-p testa a hipótese nula de que a correlação verdadeira na população é zero. Um valor-p baixo (geralmente < 0,05) sugere que a correlação observada dificilmente surgiu por puro acaso, dado o tamanho da amostra."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Calculadora de Correlação</li>
+        </ol>
+      </nav>
+      <h1>Calculadora de Correlação de Pearson</h1>
+      <p class="lead">Cole duas séries de números, obtenha <strong>r</strong>, <strong>r²</strong>, <strong>p-valor</strong>, intervalo de confiança e o <strong>gráfico de dispersão</strong> com a reta de regressão.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <form class="calculator" id="calc-form" novalidate>
+      <h2 class="calculator__title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Dados pareados
+      </h2>
+      <p class="calculator__hint">Cada linha de X corresponde à mesma linha de Y. Pode colar direto do Excel ou do Google Sheets (uma coluna por vez). Vírgula ou ponto como separador decimal.</p>
+
+      <fieldset class="field-group">
+        <legend>Variáveis</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="varX">X (variável 1)</label>
+            <textarea class="input" id="varX" rows="9" placeholder="Ex.:&#10;1&#10;2&#10;3&#10;4&#10;5" autocomplete="off"></textarea>
+          </div>
+          <div class="field">
+            <label for="varY">Y (variável 2)</label>
+            <textarea class="input" id="varY" rows="9" placeholder="Ex.:&#10;2,1&#10;3,9&#10;6,2&#10;7,8&#10;9,5" autocomplete="off"></textarea>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="varXLabel">Rótulo do eixo X (opcional)</label>
+            <input class="input" type="text" id="varXLabel" placeholder="Ex.: Ano" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="varYLabel">Rótulo do eixo Y (opcional)</label>
+            <input class="input" type="text" id="varYLabel" placeholder="Ex.: Vendas (R$)" autocomplete="off">
+          </div>
+        </div>
+        <div class="field">
+          <label for="confidence">Nível de confiança</label>
+          <select class="input" id="confidence">
+            <option value="0.90">90%</option>
+            <option value="0.95" selected>95%</option>
+            <option value="0.99">99%</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <p class="field-error" id="calc-error" role="alert"></p>
+
+      <div class="calculator__actions">
+        <button class="btn btn--primary btn--lg" type="submit">Calcular correlação</button>
+        <button class="btn btn--ghost" type="button" id="calc-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="calc-clear">Limpar</button>
+      </div>
+
+      <section class="result" id="calc-result" hidden aria-live="polite"></section>
+    </form>
+
+    <div class="ad-slot" data-ad-slot=""></div>
+
+    <article class="prose">
+
+      <h2>O que é a correlação de Pearson</h2>
+      <p>A <strong>correlação de Pearson (r)</strong> é uma medida que sintetiza, em um único número entre <strong>−1 e +1</strong>, a força e a direção da relação <em>linear</em> entre duas variáveis numéricas. Quando r é próximo de +1, as duas variáveis sobem juntas; quando é próximo de −1, uma sobe e a outra cai; quando é próximo de 0, não há relação linear aparente.</p>
+
+      <h2>Como interpretar o resultado</h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>|r|</th><th>Força da correlação</th></tr></thead>
+          <tbody>
+            <tr><td>0,00 – 0,10</td><td>Praticamente nula</td></tr>
+            <tr><td>0,10 – 0,30</td><td>Fraca</td></tr>
+            <tr><td>0,30 – 0,50</td><td>Moderada</td></tr>
+            <tr><td>0,50 – 0,70</td><td>Forte</td></tr>
+            <tr><td>0,70 – 0,90</td><td>Muito forte</td></tr>
+            <tr><td>0,90 – 1,00</td><td>Quase perfeita</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>O <strong>R² (coeficiente de determinação)</strong> é r elevado ao quadrado e representa a fração da variação de Y que pode ser <em>explicada por uma reta</em> em função de X. Um R² de 0,81 significa que 81% da variação observada em Y é compatível com uma relação linear com X.</p>
+      <p>O <strong>valor-p</strong> testa a hipótese nula de que a correlação verdadeira na população é zero. Um valor-p baixo (geralmente abaixo de 0,05) sugere que a correlação observada dificilmente surgiu por puro acaso, dado o tamanho da amostra.</p>
+
+      <h2>Como funciona o cálculo</h2>
+      <div class="formula">r = Σ(xᵢ − x̄)(yᵢ − ȳ) ÷ √[Σ(xᵢ − x̄)² · Σ(yᵢ − ȳ)²]</div>
+      <p>A significância é avaliada pelo teste t com <strong>n − 2 graus de liberdade</strong>:</p>
+      <div class="formula">t = r · √(n − 2) ÷ √(1 − r²)</div>
+      <p>O intervalo de confiança para r usa a <strong>transformação z de Fisher</strong> (atanh), que aproxima a distribuição de r de uma normal e produz intervalos válidos para qualquer tamanho de amostra ≥ 4.</p>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Correlação não é causa
+        </div>
+        <p>Uma correlação forte só diz que as duas variáveis variam juntas — não diz por quê. Pode haver uma <strong>terceira variável</strong> causando as duas, a relação pode estar <strong>invertida</strong>, ou pode ser pura <strong>coincidência</strong>. Quanto mais séries temporais você compara, mais fácil é encontrar correlações fortes <em>completamente espúrias</em>.</p>
+      </div>
+
+      <h2>Exemplos práticos</h2>
+      <p>Use esta calculadora para investigar relações entre variáveis numéricas: nota da prova × horas estudadas, preço × área de imóveis, temperatura × consumo de sorvete, peso × altura, marketing × vendas. Antes de tirar conclusões causais, lembre da seção acima.</p>
+
+      <div class="callout callout--tip">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Correlações espúrias para rir
+        </div>
+        <p>O caso clássico: o consumo de queijo per capita nos EUA e o número de pessoas que morreram enroladas em lençóis têm correlação de 0,95 entre 2000 e 2009. Para mais exemplos brasileiros (em construção): <a href="https://datafolia.com.br/" target="_blank" rel="noopener">datafolia.com.br</a>.</p>
+      </div>
+
+      <h2>Limitações</h2>
+      <ul>
+        <li>Mede apenas relação <strong>linear</strong>. Uma relação em U ou exponencial pode aparecer com r ≈ 0 mesmo sendo forte.</li>
+        <li>É sensível a <strong>outliers</strong>: um único valor extremo pode inverter o sinal de r.</li>
+        <li>Assume que pelo menos uma das variáveis tem distribuição aproximadamente normal para que o valor-p seja exato; em amostras grandes (n ≥ 30) o desvio dessa hipótese é desprezível.</li>
+      </ul>
+
+      <h2>Referências</h2>
+      <ol class="ref-list">
+        <li>Cohen J. <cite>Statistical Power Analysis for the Behavioral Sciences</cite>. 2ª ed. Hillsdale: Lawrence Erlbaum; 1988.</li>
+        <li>Fisher RA. On the "probable error" of a coefficient of correlation deduced from a small sample. <cite>Metron</cite>. 1921;1:3–32.</li>
+      </ol>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t</h3><p>Comparar médias de duas amostras.</p></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de confiança</h3><p>Faixa provável de uma média ou proporção.</p></a>
+          <a class="card" href="/qui-quadrado.html"><h3>Qui-quadrado</h3><p>Associação entre variáveis categóricas.</p></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/app.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('calc-form'), result = $('calc-result'), errBox = $('calc-error');
+
+  function showError(msg) { errBox.textContent = msg; errBox.classList.add('is-visible'); result.hidden = true; }
+  function clearError() { errBox.textContent = ''; errBox.classList.remove('is-visible'); }
+
+  function parseSeries(raw) {
+    if (!raw) return [];
+    var lines = String(raw).split(/[\r\n,;\t]+/);
+    var out = [];
+    for (var i = 0; i < lines.length; i++) {
+      var s = lines[i].trim().replace(/\s+/g, '');
+      if (!s) continue;
+      var n = parseNum(s);
+      if (isFinite(n)) out.push(n);
+    }
+    return out;
+  }
+
+  $('calc-example').addEventListener('click', function () {
+    $('varX').value = '12\n14\n16\n18\n20\n22\n24\n26\n28\n30';
+    $('varY').value = '23\n26\n31\n34\n40\n42\n47\n51\n54\n60';
+    $('varXLabel').value = 'Idade (anos)';
+    $('varYLabel').value = 'Altura (cm)';
+    compute();
+  });
+  $('calc-clear').addEventListener('click', function () {
+    $('varX').value = ''; $('varY').value = '';
+    $('varXLabel').value = ''; $('varYLabel').value = '';
+    clearError(); result.hidden = true;
+  });
+  form.addEventListener('submit', function (e) { e.preventDefault(); compute(); });
+
+  function compute() {
+    clearError();
+    var x = parseSeries($('varX').value);
+    var y = parseSeries($('varY').value);
+    var confidence = parseFloat($('confidence').value) || 0.95;
+    if (x.length === 0 || y.length === 0) {
+      showError('Cole as duas séries de números (pelo menos 3 pares).');
+      return;
+    }
+    if (x.length !== y.length) {
+      showError('As duas séries precisam ter o mesmo número de valores. X tem ' + x.length + ', Y tem ' + y.length + '.');
+      return;
+    }
+    var r = Stats.pearsonCorrelation({ x: x, y: y, confidence: confidence });
+    if (r.error) { showError(r.error); return; }
+    render(r, x, y);
+  }
+
+  var ICONS = {
+    ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+    warn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+    neutral: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>'
+  };
+
+  function render(r, x, y) {
+    var cls = r.significant ? (Math.abs(r.r) >= 0.5 ? 'ok' : 'warn') : 'neutral';
+    var headline =
+      'r = ' + Fmt.num(r.r, 4) +
+      ' · Correlação ' + r.forca + (Math.abs(r.r) > 0 ? ' e ' + r.sinal : '');
+    var sub = 'n = ' + r.n + ' · ' +
+      (r.significant ? 'Estatisticamente significativa' : 'Não significativa') +
+      ' (α = ' + Fmt.num(r.alpha, 2) + ')';
+
+    var ic = '';
+    if (r.ciLow !== null && r.ciHigh !== null) {
+      ic = '<tr><td>IC ' + Math.round(r.confidence * 100) + '% para ρ</td>' +
+           '<td>[' + Fmt.num(r.ciLow, 4) + ' ; ' + Fmt.num(r.ciHigh, 4) + ']</td></tr>';
+    }
+
+    var rows =
+      '<tr><td><strong>r</strong> (Pearson)</td><td>' + Fmt.num(r.r, 4) + '</td></tr>' +
+      '<tr><td><strong>R²</strong> (determinação)</td><td>' + Fmt.num(r.r2, 4) + ' (' + Fmt.num(r.r2 * 100, 1) + '%)</td></tr>' +
+      '<tr><td>n (pares)</td><td>' + r.n + '</td></tr>' +
+      '<tr><td>Graus de liberdade</td><td>' + r.df + '</td></tr>' +
+      '<tr><td>Estatística t</td><td>' + Fmt.num(r.t, 3) + '</td></tr>' +
+      '<tr><td>Valor-p (bicaudal)</td><td>' + (r.pValue < 0.0001 ? '< 0,0001' : Fmt.num(r.pValue, 4)) + '</td></tr>' +
+      ic +
+      '<tr><td>Reta de regressão</td><td>y = ' + Fmt.num(r.intercept, 3) + ' + ' + Fmt.num(r.slope, 3) + ' · x</td></tr>';
+
+    var labelX = $('varXLabel').value.trim() || 'X';
+    var labelY = $('varYLabel').value.trim() || 'Y';
+
+    result.className = 'result result--' + cls;
+    result.innerHTML =
+      '<div class="result__banner">' + ICONS[cls] +
+        '<div><div class="result__headline">' + headline + '</div>' +
+        '<div class="result__sub">' + sub + '</div></div></div>' +
+      '<div class="result__body">' +
+        '<canvas id="corr-canvas" width="800" height="500" style="width:100%;height:auto;max-width:100%;display:block;border:1px solid var(--c-line);border-radius:8px;background:#fff"></canvas>' +
+        '<div class="table-wrap" style="margin-top:1rem"><table class="data">' +
+          '<thead><tr><th>Estatística</th><th>Valor</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody></table></div>' +
+        '<div class="result__interpretation" style="margin-top:1rem"><p>' + interpret(r) + '</p></div>' +
+      '</div>';
+    result.hidden = false;
+    drawScatter($('corr-canvas'), x, y, r, labelX, labelY);
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function interpret(r) {
+    var abs = Math.abs(r.r);
+    var sigTxt = r.significant
+      ? '<strong>Esta correlação é estatisticamente significativa</strong> (valor-p ' +
+        (r.pValue < 0.0001 ? '< 0,0001' : '= ' + Fmt.num(r.pValue, 4)) +
+        '): se a correlação na população fosse zero, seria muito improvável observar um r tão extremo quanto este apenas pelo acaso.'
+      : '<strong>Esta correlação não é estatisticamente significativa</strong> ao nível de ' + Fmt.num(r.alpha, 2) +
+        ': com os ' + r.n + ' pares informados, não é possível afirmar que a correlação na população seja diferente de zero.';
+    var r2Txt = 'O R² de <strong>' + Fmt.num(r.r2, 4) + '</strong> indica que aproximadamente <strong>' + Fmt.num(r.r2 * 100, 1) +
+      '%</strong> da variação de Y é compatível com uma relação linear com X.';
+    return sigTxt + ' ' + r2Txt + ' Lembre que correlação não implica causa: investigue terceiras variáveis e mecanismos antes de concluir.';
+  }
+
+  /* --------------------------------------------------------------------
+     Scatter plot — canvas puro
+     -------------------------------------------------------------------- */
+  function drawScatter(canvas, x, y, r, labelX, labelY) {
+    var ctx = canvas.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+    // Suporte a HiDPI
+    var W = canvas.width, H = canvas.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = '100%'; canvas.style.maxWidth = '100%';
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, W, H);
+
+    // Padding interno
+    var pad = { l: 60, r: 18, t: 22, b: 50 };
+    var plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
+
+    // Ranges com 5% de margem
+    var minX = Math.min.apply(null, x), maxX = Math.max.apply(null, x);
+    var minY = Math.min.apply(null, y), maxY = Math.max.apply(null, y);
+    if (minX === maxX) { minX -= 0.5; maxX += 0.5; }
+    if (minY === maxY) { minY -= 0.5; maxY += 0.5; }
+    var marginX = (maxX - minX) * 0.05;
+    var marginY = (maxY - minY) * 0.05;
+    minX -= marginX; maxX += marginX;
+    minY -= marginY; maxY += marginY;
+
+    function px(v) { return pad.l + (v - minX) / (maxX - minX) * plotW; }
+    function py(v) { return pad.t + (1 - (v - minY) / (maxY - minY)) * plotH; }
+
+    // Grade
+    ctx.strokeStyle = '#eef2f7'; ctx.lineWidth = 1;
+    var nT = 5;
+    for (var i = 0; i <= nT; i++) {
+      var gx = pad.l + plotW * (i / nT);
+      var gy = pad.t + plotH * (i / nT);
+      ctx.beginPath(); ctx.moveTo(gx, pad.t); ctx.lineTo(gx, pad.t + plotH); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(pad.l, gy); ctx.lineTo(pad.l + plotW, gy); ctx.stroke();
+    }
+
+    // Eixos
+    ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, pad.t + plotH); ctx.lineTo(pad.l + plotW, pad.t + plotH); ctx.stroke();
+
+    // Tick labels
+    ctx.fillStyle = '#64748b'; ctx.font = '12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    function fmt(v) {
+      if (Math.abs(v) >= 1000) return v.toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+      if (Math.abs(v) >= 10)   return v.toLocaleString('pt-BR', { maximumFractionDigits: 1 });
+      return v.toLocaleString('pt-BR', { maximumFractionDigits: 2 });
+    }
+    for (var i = 0; i <= nT; i++) {
+      var yv = maxY - (maxY - minY) * (i / nT);
+      ctx.fillText(fmt(yv), pad.l - 8, pad.t + plotH * (i / nT));
+    }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (var j = 0; j <= nT; j++) {
+      var xv = minX + (maxX - minX) * (j / nT);
+      ctx.fillText(fmt(xv), pad.l + plotW * (j / nT), pad.t + plotH + 6);
+    }
+
+    // Eixos textos
+    ctx.fillStyle = '#0f172a'; ctx.font = '600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText(labelX, pad.l + plotW / 2, H - 10);
+    ctx.save();
+    ctx.translate(16, pad.t + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText(labelY, 0, 0);
+    ctx.restore();
+
+    // Reta de regressão (estende ao long do eixo X visível)
+    var slope = r.slope, intercept = r.intercept;
+    var x1 = minX, y1 = intercept + slope * x1;
+    var x2 = maxX, y2 = intercept + slope * x2;
+    // Clip à área do plot
+    ctx.save();
+    ctx.beginPath(); ctx.rect(pad.l, pad.t, plotW, plotH); ctx.clip();
+    ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(px(x1), py(y1)); ctx.lineTo(px(x2), py(y2)); ctx.stroke();
+    ctx.restore();
+
+    // Pontos
+    ctx.fillStyle = '#1d4ed8';
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1.5;
+    for (var k = 0; k < x.length; k++) {
+      ctx.beginPath();
+      ctx.arc(px(x[k]), py(y[k]), 5, 0, 2 * Math.PI);
+      ctx.fill(); ctx.stroke();
+    }
+
+    // Rótulo r no canto
+    ctx.fillStyle = '#1e40af'; ctx.font = '700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    ctx.fillText('r = ' + r.r.toFixed(3), pad.l + 8, pad.t + 6);
+  }
+})();
+</script>
+</body>
+</html>

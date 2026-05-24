@@ -144,6 +144,25 @@
     ]
   },
   {
+    "id": "correlacao",
+    "tipo": "calculadora",
+    "titulo": "Calculadora de Correlação de Pearson",
+    "url": "/correlacao.html",
+    "resumo": "Calcula r de Pearson, R², p-valor, intervalo de confiança e reta de regressão entre duas séries numéricas, com gráfico de dispersão.",
+    "tags": ["correlação", "pearson", "r", "r ao quadrado", "regressão linear", "dispersão", "scatter plot", "associação linear", "valor-p"],
+    "perguntas_exemplo": [
+      "Qual a correlação entre duas variáveis numéricas?",
+      "Calcular r de Pearson entre X e Y",
+      "Tenho duas colunas de números, há relação entre elas?",
+      "Quanto da variação de Y é explicada por X?",
+      "Existe relação linear entre minhas duas variáveis?",
+      "Gráfico de dispersão com reta de regressão",
+      "Correlação significativa entre nota e horas de estudo",
+      "R² e p-valor de uma correlação",
+      "Relação entre peso e altura, marketing e vendas, preço e área"
+    ]
+  },
+  {
     "id": "intervalo-confianca",
     "tipo": "calculadora",
     "titulo": "Calculadora de Intervalo de Confiança",

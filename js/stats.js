@@ -621,6 +621,90 @@
   }
 
   /* ----------------------------------------------------------------------
+     9) Correlação de Pearson e regressão linear simples
+     ---------------------------------------------------------------------- */
+
+  // Correlação de Pearson com teste de significância e IC via z de Fisher.
+  // o.x e o.y: arrays de números do mesmo tamanho.
+  function pearsonCorrelation(o) {
+    var x = o.x, y = o.y, confidence = o.confidence || 0.95, tails = o.tails || 2;
+    if (!Array.isArray(x) || !Array.isArray(y)) {
+      return { error: 'Forneça as duas séries como arrays de números.' };
+    }
+    if (x.length !== y.length) {
+      return { error: 'As duas séries precisam ter o mesmo número de observações.' };
+    }
+    var n = x.length;
+    if (n < 3) return { error: 'São necessárias pelo menos 3 observações pareadas.' };
+
+    var sx = 0, sy = 0;
+    for (var i = 0; i < n; i++) { sx += x[i]; sy += y[i]; }
+    var mx = sx / n, my = sy / n;
+    var sxx = 0, syy = 0, sxy = 0;
+    for (var j = 0; j < n; j++) {
+      var dx = x[j] - mx, dy = y[j] - my;
+      sxx += dx * dx; syy += dy * dy; sxy += dx * dy;
+    }
+    if (sxx === 0 || syy === 0) {
+      return { error: 'Uma das séries não tem variação (todos os valores iguais) — correlação indefinida.' };
+    }
+    var r = sxx === 0 || syy === 0 ? NaN : sxy / Math.sqrt(sxx * syy);
+    // Clamp por seguranca numerica
+    if (r > 1) r = 1;
+    if (r < -1) r = -1;
+    var r2 = r * r;
+
+    // Regressão linear simples y = a + b*x
+    var slope = sxy / sxx;
+    var intercept = my - slope * mx;
+
+    // Teste t para H0: rho = 0
+    var df = n - 2;
+    var t, pValue;
+    if (Math.abs(r) >= 1) {
+      t = Infinity * Math.sign(r);
+      pValue = 0;
+    } else {
+      t = r * Math.sqrt(df) / Math.sqrt(1 - r2);
+      var pTwo = tTwoTailedP(t, df);
+      pValue = tails === 1 ? pTwo / 2 : pTwo;
+    }
+    var alpha = 1 - confidence;
+
+    // IC para r via transformacao z de Fisher (precisa de n >= 4)
+    var ciLow = null, ciHigh = null;
+    if (n >= 4 && Math.abs(r) < 1) {
+      var zr = 0.5 * Math.log((1 + r) / (1 - r));
+      var seZ = 1 / Math.sqrt(n - 3);
+      var zc = zCritical(confidence);
+      var zlo = zr - zc * seZ, zhi = zr + zc * seZ;
+      var th = function (z) { var e = Math.exp(2 * z); return (e - 1) / (e + 1); };
+      ciLow = th(zlo); ciHigh = th(zhi);
+    }
+
+    // Classificação descritiva da força da correlação (Cohen, ajustado)
+    var absR = Math.abs(r), forca, sinal = r > 0 ? 'positiva' : (r < 0 ? 'negativa' : 'nula');
+    if (absR < 0.1)      forca = 'praticamente nula';
+    else if (absR < 0.3) forca = 'fraca';
+    else if (absR < 0.5) forca = 'moderada';
+    else if (absR < 0.7) forca = 'forte';
+    else if (absR < 0.9) forca = 'muito forte';
+    else                 forca = 'quase perfeita';
+
+    return {
+      n: n, r: r, r2: r2, df: df, t: t, pValue: pValue,
+      alpha: alpha, confidence: confidence, tails: tails,
+      significant: pValue < alpha,
+      ciLow: ciLow, ciHigh: ciHigh,
+      slope: slope, intercept: intercept,
+      meanX: mx, meanY: my,
+      sdX: Math.sqrt(sxx / (n - 1)), sdY: Math.sqrt(syy / (n - 1)),
+      forca: forca, sinal: sinal,
+      sxx: sxx, syy: syy, sxy: sxy
+    };
+  }
+
+  /* ----------------------------------------------------------------------
      Exportação
      ---------------------------------------------------------------------- */
   var Stats = {
@@ -635,7 +719,8 @@
     confidenceInterval: confidenceInterval, surveySampleSize: surveySampleSize,
     chiSquareTest: chiSquareTest, anovaTest: anovaTest,
     kruskalWallisTest: kruskalWallisTest,
-    mannWhitneyTest: mannWhitneyTest, wilcoxonSignedRankTest: wilcoxonSignedRankTest
+    mannWhitneyTest: mannWhitneyTest, wilcoxonSignedRankTest: wilcoxonSignedRankTest,
+    pearsonCorrelation: pearsonCorrelation
   };
 
   global.Stats = Stats;
