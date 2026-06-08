@@ -1,0 +1,25 @@
+Crie um site simples e profissional com uma calculadora estatística. O usuários deve conseguir acessar diferentes modelos estatísticos para testes e conter uma explicação didática da utilidade do teste (como exemplo, teste AB) com exemplos práticos, resultados destacado, design responsivo para celular e formato de monetização inteligente.
+
+Se eu procuro no google "calculadora estatística teste ab" eu encontro sites em inglês e não em português. Quero fazer algo simples e rápido e publicar utilizando minha conta pessoal do GIT viniciusvianna1608@gmail.com (GitHub Pages). Já tenho uma api para a minha conta pessoal do git e você pode encontra-la em C:\Users\vinyn\Desktop\Vinícius\claude_infos\claude_github
+
+Utilize essas referências de sites:
+
+Especificamente para Teste A/B:
+
+SurveyMonkey (pt.surveymonkey.com) — calculadora de teste A/B em português que calcula significância estatística automaticamente, com explicações sobre testes unicaudais e bicaudais SurveyMonkey
+Conversion Zone (conversionzone.com.br) — calculadora de poder estatístico em Google Sheets, com parâmetros para testes unicaudais e bicaudais, níveis de confiança de 90%/95%/99% Conversion Zone
+Traktor (gotraktor.com/pt) — calcula quanto tempo seu teste A/B precisa rodar e de quantos usuários você precisa Gotraktor
+Resultados Digitais (ferramentas.resultadosdigitais.com.br) — calculadora de tamanho de amostra para teste A/B em português
+
+Calculadoras estatísticas mais gerais (em português):
+
+Omni Calculator (omnicalculator.com/pt) — tem calculadora de Teste T, valor-p, e dezenas de outras estatísticas em português, com explicações da fórmula Omni Calculator
+Calculadora.lol — faz Teste Z, Teste T, Teste de Proporção, escolha de caudas, nível de significância (α), retorna estatística do teste, valor-p e conclusão Calculadora
+LearningAboutElectronics (em português) — calculadora de teste de hipótese estatística com média da hipótese nula, desvio padrão, tamanho da amostra e nível de significância Learning about Electronics
+QuestionPro (questionpro.com/pt-br) — calculadora de tamanho de amostra para pesquisas
+
+Quero acrescentar:
+Não faça só calculadoras — faça calculadora + artigo explicativo longo (1500–3000 palavras) ensinando a estatística por trás.
+Procure exemplos de algumas áreas para colocar: "estatística para enfermagem", "estatística para psicologia", "estatística para marketing/CRO". Vai mais fundo, atrai público mais qualificado.
+
+domínio: http://calculadoraestatistica.com.br/
