@@ -27,6 +27,19 @@
 <link rel="stylesheet" href="/css/style.css">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},{"@type":"ListItem","position":2,"name":"Apoie a Calculadora Estatística","item":"https://calculadoraestatistica.com.br/apoiar.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O dinheiro vai para qual conta?","acceptedAnswer":{"@type":"Answer","text":"O Pix cai diretamente na conta pessoa física do mantenedor do projeto, Vinícius Vianna, vinculada ao e-mail calculadoraestatistica@gmail.com. As contribuições via Buy Me a Coffee passam pela plataforma e são repassadas para a mesma conta. Como o projeto não é uma empresa registrada, não existe conta jurídica separada — todo o valor é usado para custear domínio, hospedagem e horas de desenvolvimento da Calculadora Estatística."}},
+    {"@type":"Question","name":"Vocês emitem recibo?","acceptedAnswer":{"@type":"Answer","text":"Não emitimos nota fiscal nem recibo formal, porque o projeto é mantido por pessoa física e as contribuições são voluntárias, sem contrapartida comercial. Se você precisa de comprovante para prestação de contas pessoal, o próprio extrato do Pix ou o recibo do Buy Me a Coffee servem como registro da transferência. Caso a sua instituição exija um documento específico, escreva para calculadoraestatistica@gmail.com explicando o formato necessário."}},
+    {"@type":"Question","name":"Posso patrocinar uma calculadora específica?","acceptedAnswer":{"@type":"Answer","text":"Pode, e isso ajuda muito a priorizar o roadmap. Se você gostaria de ver uma calculadora nova — regressão logística, teste exato de Fisher, kappa de Cohen, modelo misto — escreva pela página /contato.html dizendo qual ferramenta você precisa e para qual contexto (TCC, artigo, pesquisa clínica, análise de marketing). Patrocínios direcionados não compram propaganda nem alteram a parte estatística: a calculadora segue sendo gratuita, sem login e sem rastreamento."}},
+    {"@type":"Question","name":"E se eu não puder doar?","acceptedAnswer":{"@type":"Answer","text":"Tudo bem — a maior parte de quem usa o site não doa, e isso está dentro do esperado. Você pode ajudar de outras formas: compartilhar o link com colegas de turma, citar a calculadora em trabalhos acadêmicos, reportar bugs ou imprecisões em /contato.html, sugerir novas calculadoras e, se você for pesquisador ou professor de estatística, oferecer revisão técnica de uma página específica. Cada uma dessas ações tem mais impacto do que parece no longo prazo."}},
+    {"@type":"Question","name":"Como vocês escolhem o que melhorar?","acceptedAnswer":{"@type":"Answer","text":"A prioridade segue três sinais, nessa ordem: erros de cálculo ou de interpretação reportados por usuários, calculadoras pedidas por mais de uma pessoa em áreas que ainda não cobrimos bem (saúde, psicologia, marketing, engenharia) e melhorias de acessibilidade que beneficiam todo mundo (leitor de tela, contraste, navegação por teclado). Apoios financeiros ajudam a comprar horas para encarar os itens maiores — como reescrever uma calculadora antiga para suportar dados pareados ou adicionar um intervalo de confiança que faltava."}}
+  ]
+}
+</script>
 <!-- schema-enhanced -->
 </head>
 <body>
@@ -75,29 +88,96 @@
   </div>
 
   <div class="container narrow">
-    <p>Manter o site no ar, criar novas calculadoras e melhorar as que já existem dá trabalho — e a sua contribuição, de qualquer valor, ajuda muito. Você pode apoiar de duas formas:</p>
+    <article class="prose">
 
-    <div class="card-grid card-grid--2" style="margin-top:1.4rem">
+      <h2>Por que pedimos apoio</h2>
+      <p>A <strong>Calculadora Estatística</strong> é mantida por uma única pessoa — Vinícius Vianna, pesquisador na área de modelagem e estatística aplicada — sem fins comerciais e sem investidor por trás. Não há um time pago, não há captação de venture capital e não há um departamento comercial vendendo planos premium. O que existe é um domínio, uma conta de hospedagem e algumas horas livres por semana, organizadas para virar conteúdo que ajude estudantes, profissionais de saúde, pesquisadores e profissionais de marketing a tirar conclusões honestas a partir de dados.</p>
+      <p>Pedir apoio é uma forma de manter esse arranjo sustentável sem precisar transformar o site em uma vitrine de propaganda invasiva, exigir cadastro para usar as calculadoras ou esconder funcionalidades atrás de um paywall. Cada contribuição, mesmo pequena, ajuda a cobrir os custos fixos do projeto e libera horas para escrever novos artigos, revisar fórmulas e corrigir problemas reportados pelos próprios usuários. Por ano, os custos fixos giram em torno de <strong>R$ 100,00</strong> — domínio nacional, certificado e serviços auxiliares — e o restante do trabalho é tempo de desenvolvimento, que é justamente onde a sua ajuda faz mais diferença.</p>
 
-      <div class="card donate-card">
-        <h3>☕ Pague-me um café</h3>
-        <p>Apoie pelo Buy Me a Coffee — rápido e em poucos cliques.</p>
-        <a class="btn btn--primary btn--block" href="https://buymeacoffee.com/calculadoraestatistica" target="_blank" rel="noopener">Apoiar no Buy Me a Coffee</a>
-        <img class="donate-qr" src="/img/bmc_qr.png" alt="QR code do Buy Me a Coffee" width="190" height="190" loading="lazy">
+      <h2>Como o site é mantido</h2>
+      <p>A infraestrutura técnica foi escolhida para ser barata, transparente e resiliente. O conteúdo HTML, CSS e JavaScript fica em um repositório no <strong>GitHub</strong> e é servido pelo <strong>GitHub Pages</strong>, que entrega as páginas estáticas sem custo. À frente disso roda o <strong>Cloudflare</strong>, que cuida do CDN, do certificado HTTPS e de proteção contra abusos. O domínio <em>calculadoraestatistica.com.br</em> é registrado no Registro.br, com renovação anual. Esse conjunto custa em torno de R$ 100,00 por ano em despesas diretas, e tudo o que você vê no ar foi feito dentro dessa estrutura — não há servidor próprio, não há banco de dados, não há contas de nuvem caras.</p>
+      <p>O ritmo de atualização é o de um projeto independente: pequenas correções saem em dias, calculadoras novas levam semanas, artigos longos e revisões de pressupostos estatísticos levam meses. Como todos os cálculos rodam no navegador do próprio usuário — sem enviar dados para servidor —, não há custo de processamento variável e não há risco de vazamento de informação. Essa decisão técnica também tem efeito pedagógico: a página é leve, abre em conexões fracas e funciona offline depois de carregada uma vez, o que é importante para estudantes em universidades públicas e profissionais em campo.</p>
+
+      <h2>No que apoios são usados</h2>
+      <p>Quando alguém contribui, o valor é destinado a um destes objetivos concretos, na ordem em que costumam aparecer:</p>
+      <ul>
+        <li><strong>Manutenção das calculadoras existentes</strong> — revisar fórmulas, testar contra valores tabelados, atualizar quando alguém aponta um caso de borda (amostras minúsculas, valores extremos, configurações unicaudais).</li>
+        <li><strong>Novas calculadoras pedidas pela comunidade</strong> — entre os pedidos mais frequentes estão a <em>regressão logística simples</em>, o <em>teste exato de Fisher</em> para tabelas 2×2 pequenas, a <em>análise de concordância (kappa de Cohen)</em> para enfermagem e psicologia e o <em>teste de Shapiro-Wilk</em> para checar normalidade antes de aplicar o teste t.</li>
+        <li><strong>Revisão estatística por profissionais</strong> — pagar a leitura crítica de páginas específicas por estatísticos com experiência clínica ou metodológica, para que o conteúdo continue confiável conforme o site cresce.</li>
+        <li><strong>Melhorias de acessibilidade</strong> — ajustes para leitores de tela, contraste adequado, navegação por teclado e tradução de termos técnicos para uma linguagem que não exclua iniciantes.</li>
+        <li><strong>Hospedagem, domínio e ferramentas</strong> — renovação anual do domínio, eventuais upgrades de plano em serviços auxiliares e licenças de software de análise estatística usadas para validar resultados.</li>
+      </ul>
+      <p>As calculadoras de tamanho de amostra, por exemplo, seguem as fórmulas clássicas descritas em <em>Cohen (1988), Statistical Power Analysis for the Behavioral Sciences</em>, e os intervalos de confiança para proporções usam o método de Wilson, mais preciso para amostras pequenas do que a aproximação normal tradicional. Manter essa precisão exige tempo de leitura e teste, e é exatamente esse tempo que os apoios ajudam a comprar.</p>
+
+      <h2>Formas de apoiar</h2>
+      <p>Existem dois caminhos para apoiar com dinheiro — Pix e Buy Me a Coffee — e vários caminhos que <strong>não custam nada</strong> e ajudam tanto quanto, às vezes mais.</p>
+
+      <div class="card-grid card-grid--2" style="margin-top:1.4rem">
+
+        <div class="card donate-card">
+          <h3>☕ Pague-me um café</h3>
+          <p>Apoie pelo Buy Me a Coffee — rápido e em poucos cliques.</p>
+          <a class="btn btn--primary btn--block" href="https://buymeacoffee.com/calculadoraestatistica" target="_blank" rel="noopener">Apoiar no Buy Me a Coffee</a>
+          <img class="donate-qr" src="/img/bmc_qr.png" alt="QR code do Buy Me a Coffee" width="190" height="190" loading="lazy">
+        </div>
+
+        <div class="card donate-card">
+          <h3>Contribua via Pix</h3>
+          <p>Use a chave Pix abaixo ou escaneie o QR code no app do seu banco.</p>
+          <p style="margin-top:.6rem">Chave Pix (e-mail):<br><span class="pix-key">calculadoraestatistica@gmail.com</span></p>
+          <code class="pix-code" id="pix-code">00020126540014BR.GOV.BCB.PIX0132calculadoraestatistica@gmail.com5204000053039865802BR5901N6001C62070503***63046E68</code>
+          <button class="btn btn--ghost btn--block js-copy" type="button" data-target="pix-code" data-label="Copiar código Pix" style="margin-top:.6rem">Copiar código Pix</button>
+          <img class="donate-qr" src="/img/qrcode-pix.png" alt="QR code do Pix" width="190" height="190" loading="lazy">
+        </div>
+
       </div>
 
-      <div class="card donate-card">
-        <h3>Contribua via Pix</h3>
-        <p>Use a chave Pix abaixo ou escaneie o QR code no app do seu banco.</p>
-        <p style="margin-top:.6rem">Chave Pix (e-mail):<br><span class="pix-key">calculadoraestatistica@gmail.com</span></p>
-        <code class="pix-code" id="pix-code">00020126540014BR.GOV.BCB.PIX0132calculadoraestatistica@gmail.com5204000053039865802BR5901N6001C62070503***63046E68</code>
-        <button class="btn btn--ghost btn--block js-copy" type="button" data-target="pix-code" data-label="Copiar código Pix" style="margin-top:.6rem">Copiar código Pix</button>
-        <img class="donate-qr" src="/img/qrcode-pix.png" alt="QR code do Pix" width="190" height="190" loading="lazy">
+      <h3 style="margin-top:1.6rem">Formas não monetárias de apoiar</h3>
+      <ul>
+        <li><strong>Compartilhe com colegas</strong> que estão começando a estudar estatística, escrevendo TCC, monografia, dissertação ou tese — boa parte do tráfego do site vem de indicações boca a boca em grupos de WhatsApp e Telegram de turmas universitárias.</li>
+        <li><strong>Cite a calculadora em trabalhos acadêmicos</strong> quando ela for de fato a ferramenta usada para um cálculo descrito no texto. Citar dá crédito ao trabalho de desenvolvimento e ajuda outros pesquisadores a encontrarem o site. Dois exemplos prontos para copiar:
+          <ul>
+            <li><em>ABNT:</em> VIANNA, V. S. <strong>Calculadora Estatística</strong>. Disponível em: https://calculadoraestatistica.com.br. Acesso em: <em>dia mês ano</em>.</li>
+            <li><em>APA:</em> Vianna, V. S. (2026). <strong>Calculadora Estatística</strong> [Software online]. https://calculadoraestatistica.com.br</li>
+          </ul>
+        </li>
+        <li><strong>Reporte bugs e sugestões</strong> pelo formulário em <a href="/contato.html">/contato.html</a>. Erros de cálculo, problemas em celular, textos confusos, links quebrados — tudo é bem-vindo, e quase sempre vira correção em poucos dias.</li>
+        <li><strong>Contribua com conteúdo</strong>. Se você é pesquisador, professor ou estudante avançado de estatística e gostaria de revisar uma página específica (corrigir uma fórmula, melhorar uma explicação, sugerir um exemplo melhor), entre em contato — qualquer ajuda de revisão técnica é creditada na página revisada.</li>
+        <li><strong>Recomende o site institucionalmente</strong> — em planos de aula, em listas de leituras complementares, em manuais de método para alunos de iniciação científica. Essa indicação chega exatamente a quem mais se beneficia das calculadoras.</li>
+      </ul>
+
+      <h2>Transparência</h2>
+      <p>Para que apoio voluntário faça sentido, é importante mostrar para onde o dinheiro vai. Esta seção é um relatório curto, no espírito de um pequeno relatório anual — números aproximados, sem prestação de contas formal, mas honestos sobre como os apoios recebidos foram usados.</p>
+      <p>No último ciclo, as contribuições foram aplicadas, em ordem decrescente de prioridade, em: renovação do domínio <em>calculadoraestatistica.com.br</em>; horas dedicadas a reescrever a calculadora de teste t para suportar o método de Welch como padrão (mais robusto quando as variâncias dos grupos diferem); criação dos guias por área (enfermagem, psicologia, marketing e CRO); ajustes de acessibilidade na navegação por teclado e em rótulos para leitores de tela; e revisão dos textos explicativos das calculadoras mais antigas. Nenhum recurso foi usado para publicidade paga — o crescimento do site veio inteiramente de busca orgânica e de indicações de usuários.</p>
+      <p>Quando o volume de apoios permitir, o próximo passo é contratar uma revisão estatística externa para as páginas de testes não paramétricos e fechar um conjunto coerente de calculadoras de tamanho de amostra cobrindo proporções, médias e diferenças de médias. Esse plano é incremental, sem prazos rígidos, e qualquer mudança grande é registrada na página <a href="/sobre.html">/sobre</a>.</p>
+
+      <h2>Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O dinheiro vai para qual conta?</summary>
+          <div class="faq__answer"><p>O Pix cai diretamente na conta pessoa física do mantenedor do projeto, Vinícius Vianna, vinculada ao e-mail <em>calculadoraestatistica@gmail.com</em>. As contribuições via Buy Me a Coffee passam pela plataforma e são repassadas para a mesma conta. Como o projeto não é uma empresa registrada, não existe conta jurídica separada — todo o valor é usado para custear domínio, hospedagem e horas de desenvolvimento da Calculadora Estatística.</p></div>
+        </details>
+        <details>
+          <summary>Vocês emitem recibo?</summary>
+          <div class="faq__answer"><p>Não emitimos nota fiscal nem recibo formal, porque o projeto é mantido por pessoa física e as contribuições são voluntárias, sem contrapartida comercial. Se você precisa de comprovante para prestação de contas pessoal, o próprio extrato do Pix ou o recibo do Buy Me a Coffee servem como registro da transferência. Caso a sua instituição exija um documento específico, escreva para <a href="mailto:calculadoraestatistica@gmail.com">calculadoraestatistica@gmail.com</a> explicando o formato necessário.</p></div>
+        </details>
+        <details>
+          <summary>Posso patrocinar uma calculadora específica?</summary>
+          <div class="faq__answer"><p>Pode, e isso ajuda muito a priorizar o roadmap. Se você gostaria de ver uma calculadora nova — regressão logística, teste exato de Fisher, kappa de Cohen, modelo misto — escreva pela página <a href="/contato.html">/contato.html</a> dizendo qual ferramenta você precisa e para qual contexto (TCC, artigo, pesquisa clínica, análise de marketing). Patrocínios direcionados não compram propaganda nem alteram a parte estatística: a calculadora segue sendo gratuita, sem login e sem rastreamento.</p></div>
+        </details>
+        <details>
+          <summary>E se eu não puder doar?</summary>
+          <div class="faq__answer"><p>Tudo bem — a maior parte de quem usa o site não doa, e isso está dentro do esperado. Você pode ajudar de outras formas: compartilhar o link com colegas de turma, citar a calculadora em trabalhos acadêmicos, reportar bugs ou imprecisões em <a href="/contato.html">/contato.html</a>, sugerir novas calculadoras e, se você for pesquisador ou professor de estatística, oferecer revisão técnica de uma página específica. Cada uma dessas ações tem mais impacto do que parece no longo prazo.</p></div>
+        </details>
+        <details>
+          <summary>Como vocês escolhem o que melhorar?</summary>
+          <div class="faq__answer"><p>A prioridade segue três sinais, nessa ordem: erros de cálculo ou de interpretação reportados por usuários, calculadoras pedidas por mais de uma pessoa em áreas que ainda não cobrimos bem (saúde, psicologia, marketing, engenharia) e melhorias de acessibilidade que beneficiam todo mundo (leitor de tela, contraste, navegação por teclado). Apoios financeiros ajudam a comprar horas para encarar os itens maiores — como reescrever uma calculadora antiga para suportar dados pareados ou adicionar um intervalo de confiança que faltava.</p></div>
+        </details>
       </div>
 
-    </div>
+      <p style="margin-top:1.6rem">Muito obrigado pelo apoio. Para conhecer melhor o projeto, veja a página <a href="/sobre.html">/sobre</a>; para mandar uma sugestão, dúvida ou correção, use <a href="/contato.html">/contato</a>; e para começar a usar as ferramentas agora, volte para a <a href="/">página inicial</a>.</p>
 
-    <p style="margin-top:1.6rem">Muito obrigado pelo apoio! 🙏 Se preferir ajudar sem gastar nada, compartilhar o site com colegas e amigos também faz toda a diferença.</p>
+    </article>
   </div>
 
 </main>

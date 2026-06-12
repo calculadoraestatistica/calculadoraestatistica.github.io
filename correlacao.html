@@ -56,7 +56,13 @@
     {"@type":"Question","name":"O que é o coeficiente de correlação de Pearson (r)?","acceptedAnswer":{"@type":"Answer","text":"É uma medida que vai de -1 a +1 da força e direção da associação linear entre duas variáveis numéricas. Valores próximos de 0 indicam ausência de relação linear; próximos de +1 ou -1 indicam relação linear forte."}},
     {"@type":"Question","name":"Correlação significa causa?","acceptedAnswer":{"@type":"Answer","text":"Não. Uma correlação forte e estatisticamente significativa só indica que as duas variáveis variam juntas — pode haver uma terceira variável causando ambas, pode ser coincidência (correlação espúria), ou a relação pode ser invertida."}},
     {"@type":"Question","name":"O que é o R² (coeficiente de determinação)?","acceptedAnswer":{"@type":"Answer","text":"É r elevado ao quadrado e representa a proporção da variância de uma variável explicada pela outra. Um R² de 0,64 significa que 64% da variação de Y pode ser explicada por uma relação linear com X."}},
-    {"@type":"Question","name":"Como interpretar o valor-p da correlação?","acceptedAnswer":{"@type":"Answer","text":"O valor-p testa a hipótese nula de que a correlação verdadeira na população é zero. Um valor-p baixo (geralmente < 0,05) sugere que a correlação observada dificilmente surgiu por puro acaso, dado o tamanho da amostra."}}
+    {"@type":"Question","name":"Como interpretar o valor-p da correlação?","acceptedAnswer":{"@type":"Answer","text":"O valor-p testa a hipótese nula de que a correlação verdadeira na população é zero. Um valor-p baixo (geralmente < 0,05) sugere que a correlação observada dificilmente surgiu por puro acaso, dado o tamanho da amostra."}},
+    {"@type":"Question","name":"Qual é a diferença entre r de Pearson e r² (R²)?","acceptedAnswer":{"@type":"Answer","text":"O r mede a força e a direção da relação linear e vai de -1 a +1. O r² é o quadrado desse valor, sempre entre 0 e 1, e representa a proporção da variância de Y explicada por X em uma reta de regressão. Um r de -0,8 e um r de +0,8 produzem o mesmo r² de 0,64, ou seja, 64% de variância compartilhada."}},
+    {"@type":"Question","name":"Posso usar Pearson com dados ordinais?","acceptedAnswer":{"@type":"Answer","text":"Não é recomendado. Pearson exige variáveis numéricas com intervalos comparáveis (escala intervalar ou de razão). Para dados ordinais — postos, notas em escala Likert, classificações — use a correlação de Spearman ou o tau de Kendall, que trabalham com a ordem dos valores."}},
+    {"@type":"Question","name":"Quantas observações eu preciso para calcular Pearson?","acceptedAnswer":{"@type":"Answer","text":"Tecnicamente o cálculo funciona com 3 pares, mas o resultado é instável. Para uma estimativa confiável e um valor-p informativo, considere pelo menos 30 pares. Para detectar correlações pequenas (r ≈ 0,1) com poder estatístico de 80%, é comum precisar de mais de 700 observações."}},
+    {"@type":"Question","name":"Um r de 0,3 é significativo?","acceptedAnswer":{"@type":"Answer","text":"Depende do tamanho da amostra. Com n = 20, um r de 0,3 não chega a ser estatisticamente significativo (p ≈ 0,2). Com n = 100, o mesmo r de 0,3 já fica significativo (p < 0,005). Significância estatística e tamanho do efeito são duas coisas diferentes — sempre olhe os dois."}},
+    {"@type":"Question","name":"Correlação alta implica causalidade?","acceptedAnswer":{"@type":"Answer","text":"Não. Mesmo um r próximo de 1 só diz que as duas variáveis variam juntas. A causa pode estar invertida, pode haver uma terceira variável explicando as duas (confundidor) ou pode ser pura coincidência. Para inferir causa, é preciso desenho experimental — randomização, controle, séries temporais com defasagem — ou estatística causal."}},
+    {"@type":"Question","name":"Como interpretar correlação negativa?","acceptedAnswer":{"@type":"Answer","text":"Uma correlação negativa significa que, quando uma variável aumenta, a outra tende a diminuir — e vice-versa. A força é dada pelo valor absoluto: um r de -0,8 é tão forte quanto um r de +0,8, só que com direção oposta. Exemplos comuns: preço × quantidade demandada, horas de exercício × percentual de gordura."}}
   ]
 }
 </script>
@@ -162,31 +168,134 @@
 
     <article class="prose">
 
-      <h2>O que é a correlação de Pearson</h2>
-      <p>A <strong>correlação de Pearson (r)</strong> é uma medida que sintetiza, em um único número entre <strong>−1 e +1</strong>, a força e a direção da relação <em>linear</em> entre duas variáveis numéricas. Quando r é próximo de +1, as duas variáveis sobem juntas; quando é próximo de −1, uma sobe e a outra cai; quando é próximo de 0, não há relação linear aparente.</p>
+      <nav class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é a correlação de Pearson</a></li>
+          <li><a href="#pearson-spearman-kendall">Quando usar Pearson, Spearman ou Kendall</a></li>
+          <li><a href="#como-funciona">Como o cálculo funciona</a></li>
+          <li><a href="#pressupostos">Pressupostos</a></li>
+          <li><a href="#interpretar">Como interpretar o resultado</a></li>
+          <li><a href="#exemplo">Exemplo resolvido</a></li>
+          <li><a href="#erros-comuns">Erros comuns</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </nav>
 
-      <h2>Como interpretar o resultado</h2>
+      <h2 id="o-que-e">O que é a correlação de Pearson</h2>
+      <p>A <strong>correlação de Pearson (r)</strong> é uma medida que sintetiza, em um único número entre <strong>−1 e +1</strong>, a força e a direção da relação <em>linear</em> entre duas variáveis numéricas. É talvez a estatística descritiva mais conhecida fora do mundo acadêmico — e, justamente por isso, uma das mais mal interpretadas. Entender o que ela mede de verdade muda a forma como você lê tabelas de dashboards, papers e reportagens.</p>
+      <p>A intuição é direta: quando r é próximo de <strong>+1</strong>, as duas variáveis sobem juntas em um padrão quase retilíneo; quando é próximo de <strong>−1</strong>, uma sobe enquanto a outra cai, também em linha; quando é próximo de <strong>0</strong>, não existe relação <em>linear</em> aparente entre elas. O termo "linear" é a parte importante — e a parte mais traída na prática. Pode existir uma relação fortíssima entre X e Y, em forma de U ou exponencial, e mesmo assim o r ficar perto de zero porque a reta de melhor ajuste é horizontal.</p>
+      <p>Em termos práticos, o que o r mede é o quanto os pares (x, y) se alinham ao longo de uma reta inclinada. Ele <strong>não mede</strong>: relações não lineares (parabólicas, sinusoidais, em patamares), relações monotônicas mas curvas (para isso use Spearman), associação entre variáveis categóricas (use <a href="/qui-quadrado.html">qui-quadrado</a>) e, sobretudo, <strong>causalidade</strong>. Que duas séries andem juntas não diz nada sobre o que faz uma mexer a outra — e é exatamente aí que muita análise descarrila.</p>
+
+      <h2 id="pearson-spearman-kendall">Quando usar Pearson, Spearman ou Kendall</h2>
+      <p>Existem três coeficientes de correlação que aparecem na prática, e a escolha depende da natureza dos dados e do tipo de relação que se quer captar. A tabela abaixo resume as diferenças:</p>
       <div class="table-wrap">
         <table class="data">
-          <thead><tr><th>|r|</th><th>Força da correlação</th></tr></thead>
+          <thead>
+            <tr><th>Coeficiente</th><th>O que mede</th><th>Tipo de variável</th><th>Quando usar</th></tr>
+          </thead>
           <tbody>
-            <tr><td>0,00 – 0,10</td><td>Praticamente nula</td></tr>
-            <tr><td>0,10 – 0,30</td><td>Fraca</td></tr>
-            <tr><td>0,30 – 0,50</td><td>Moderada</td></tr>
-            <tr><td>0,50 – 0,70</td><td>Forte</td></tr>
-            <tr><td>0,70 – 0,90</td><td>Muito forte</td></tr>
-            <tr><td>0,90 – 1,00</td><td>Quase perfeita</td></tr>
+            <tr>
+              <td><strong>Pearson (r)</strong></td>
+              <td>Associação linear</td>
+              <td>Intervalar ou de razão</td>
+              <td>Dados numéricos contínuos, sem outliers fortes, relação razoavelmente linear.</td>
+            </tr>
+            <tr>
+              <td><strong>Spearman (ρ)</strong></td>
+              <td>Associação monotônica (pela ordem)</td>
+              <td>Ordinal, intervalar ou de razão</td>
+              <td>Dados ordinais (Likert, postos), distribuição assimétrica ou presença de outliers.</td>
+            </tr>
+            <tr>
+              <td><strong>Kendall (τ)</strong></td>
+              <td>Concordância entre pares (par a par)</td>
+              <td>Ordinal, intervalar ou de razão</td>
+              <td>Amostras pequenas, muitos empates ou quando se quer uma medida mais robusta que Spearman.</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <p>O <strong>R² (coeficiente de determinação)</strong> é r elevado ao quadrado e representa a fração da variação de Y que pode ser <em>explicada por uma reta</em> em função de X. Um R² de 0,81 significa que 81% da variação observada em Y é compatível com uma relação linear com X.</p>
-      <p>O <strong>valor-p</strong> testa a hipótese nula de que a correlação verdadeira na população é zero. Um valor-p baixo (geralmente abaixo de 0,05) sugere que a correlação observada dificilmente surgiu por puro acaso, dado o tamanho da amostra.</p>
+      <p>Na regra de bolso: se as duas variáveis são quantitativas, a relação parece uma "nuvem alongada" e não há valores extremos absurdos, <strong>Pearson</strong> é a escolha natural. Se a relação é monotônica mas curva — por exemplo, quanto mais experiência, mais salário, mas em ritmo decrescente —, ou se os dados são ranks/escalas Likert, prefira <strong>Spearman</strong>. <strong>Kendall</strong> é uma opção mais conservadora e robusta, especialmente útil em amostras pequenas com muitos empates, embora seja menos popular fora da estatística aplicada.</p>
 
-      <h2>Como funciona o cálculo</h2>
-      <div class="formula">r = Σ(xᵢ − x̄)(yᵢ − ȳ) ÷ √[Σ(xᵢ − x̄)² · Σ(yᵢ − ȳ)²]</div>
-      <p>A significância é avaliada pelo teste t com <strong>n − 2 graus de liberdade</strong>:</p>
+      <h2 id="como-funciona">Como o cálculo funciona</h2>
+      <p>O coeficiente de Pearson tem uma fórmula compacta que, lida com calma, revela toda a sua mecânica:</p>
+      <div class="formula">r = Σ(xᵢ − x̄)(yᵢ − ȳ) ÷ √[Σ(xᵢ − x̄)² · Σ(yᵢ − ȳ)²]
+        <span class="formula__where">x̄ e ȳ são as médias de X e Y; o somatório vai de i = 1 até n.</span>
+      </div>
+      <p>O <strong>numerador</strong> é a soma dos produtos dos desvios em relação à média. Quando, para a maioria dos pontos, x está acima da média de X <em>e</em> y também está acima da média de Y (ou ambos abaixo), os produtos são positivos e o numerador cresce — sinal de que as variáveis "andam juntas". Quando um está acima e o outro abaixo, o produto é negativo e o numerador cai. Esse numerador, dividido por n − 1, é a <strong>covariância amostral</strong>: ela já diz a direção da relação, mas tem o defeito de depender das unidades (m, kg, R$).</p>
+      <p>O <strong>denominador</strong> é o produto dos desvios padrão de X e Y (somas dos quadrados, com a raiz). Ele padroniza a covariância, "limpando" as unidades. É essa divisão que garante a propriedade matemática mais elegante do coeficiente: pela <strong>desigualdade de Cauchy-Schwarz</strong>, o numerador nunca pode ser maior, em valor absoluto, do que o denominador. Por isso r fica preso ao intervalo <strong>[−1, +1]</strong>, e o sinal vem direto do numerador.</p>
+      <p>Para testar se r é diferente de zero na população, usamos a estatística t com <strong>n − 2 graus de liberdade</strong>:</p>
       <div class="formula">t = r · √(n − 2) ÷ √(1 − r²)</div>
-      <p>O intervalo de confiança para r usa a <strong>transformação z de Fisher</strong> (atanh), que aproxima a distribuição de r de uma normal e produz intervalos válidos para qualquer tamanho de amostra ≥ 4.</p>
+      <p>Esse t é comparado com a distribuição t de Student para obter o valor-p — exatamente a mesma lógica do <a href="/teste-t.html">teste t</a>. Para o intervalo de confiança, a calculadora aplica a <strong>transformação z de Fisher</strong> (z = atanh(r)), que aproxima a distribuição amostral de r de uma normal, calcula o intervalo nessa escala e depois converte de volta com tanh. É um truque clássico que produz intervalos confiáveis para qualquer n ≥ 4.</p>
+
+      <h2 id="pressupostos">Pressupostos</h2>
+      <p>O coeficiente de Pearson pode ser calculado sobre praticamente qualquer par de variáveis numéricas, mas para que o número resultante e o valor-p sejam válidos como inferência, alguns pressupostos precisam estar minimamente atendidos.</p>
+      <p><strong>Variáveis intervalares ou de razão.</strong> As duas variáveis devem ser quantitativas e ter unidades comparáveis ao longo da escala — a diferença entre 10 e 20 precisa significar o mesmo que entre 80 e 90. Notas, alturas, preços e tempos cumprem isso. Postos, classificações e escalas Likert curtas, não. <em>Como verificar:</em> pergunte se faz sentido dizer "X é o dobro de Y" ou somar duas observações. Se não fizer, considere Spearman.</p>
+      <p><strong>Relação linear.</strong> Pearson mede só a parte linear da associação. Se a relação for em forma de U, em patamares ou claramente curva, r vai subestimar a força real. <em>Como verificar:</em> sempre olhe o <strong>gráfico de dispersão</strong> antes de confiar no r. Se a nuvem de pontos tem um arco visível, transforme uma das variáveis (log, raiz quadrada) ou troque para outro coeficiente.</p>
+      <p><strong>Ausência de outliers extremos.</strong> Por usar quadrados e produtos, Pearson é muito sensível a valores afastados. Um único ponto longe do resto pode inverter o sinal ou inflar artificialmente o r. <em>Como verificar:</em> use boxplots para cada variável e, no gráfico de dispersão, identifique pontos que dominam visualmente o ajuste. Recalcule r sem eles para avaliar o impacto.</p>
+      <p><strong>Normalidade bivariada aproximada (para inferência).</strong> Para que o valor-p e o intervalo de confiança sejam precisos, idealmente os dados deveriam seguir uma distribuição normal bivariada. Em amostras maiores (n ≥ 30) o teorema central do limite resgata o procedimento mesmo com desvios moderados de normalidade. <em>Como verificar:</em> histogramas, gráficos Q-Q e, em caso de dúvida grave, testes como Shapiro-Wilk em cada variável.</p>
+      <p><strong>Independência das observações.</strong> Cada par (xᵢ, yᵢ) deve representar uma observação independente. Dados de séries temporais, medidas repetidas no mesmo sujeito ou amostras com agrupamento (alunos de uma mesma escola) violam isso e inflam o risco de falsos positivos. <em>Como verificar:</em> pergunte como os dados foram coletados — se há repetição, hierarquia ou ordem temporal, será necessário um modelo que reconheça essa estrutura.</p>
+
+      <h2 id="interpretar">Como interpretar o resultado</h2>
+      <p>A calculadora devolve uma série de números — r, r², n, t, valor-p e intervalo de confiança — e cada um conta uma parte da história. Vale entender o papel de cada um.</p>
+      <p><strong>Magnitude do r.</strong> O critério clássico para classificar a força da correlação vem de <strong>Cohen (1988)</strong>, e é o ponto de referência dominante em ciências sociais e da saúde:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>|r|</th><th>Interpretação de Cohen</th><th>Leitura prática</th></tr></thead>
+          <tbody>
+            <tr><td>≈ 0,10</td><td>Pequeno</td><td>Efeito tênue, perceptível só em amostras grandes.</td></tr>
+            <tr><td>≈ 0,30</td><td>Moderado</td><td>Relação claramente visível em um gráfico de dispersão.</td></tr>
+            <tr><td>≈ 0,50</td><td>Forte</td><td>Padrão evidente, com tendência linear nítida.</td></tr>
+            <tr><td>≥ 0,70</td><td>Muito forte</td><td>Pontos quase alinhados; r alto exige conferir outliers e linearidade.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Esses cortes são guias, não regras. Em física experimental, um r de 0,5 pode ser sinal de algo errado. Em pesquisa comportamental, um r de 0,3 já é uma descoberta relevante.</p>
+      <p><strong>R² como variância explicada.</strong> O <strong>coeficiente de determinação</strong> (R² = r²) é talvez a métrica mais útil para comunicar o achado: ele representa a fração da variação de Y que pode ser <em>explicada por uma reta</em> em função de X. Um r = 0,5 produz R² = 0,25 — ou seja, 25% da variação de Y é compatível com uma relação linear com X, e os outros 75% vêm de outras fontes. R² é mais honesto que r para falar de "quanto X explica de Y", porque rebaixa visualmente correlações moderadas que tendem a impressionar mais do que merecem.</p>
+      <p><strong>Valor-p.</strong> O valor-p testa a hipótese nula de que a correlação verdadeira na população é zero. Um valor-p abaixo de 0,05 (limiar convencional) indica que, se a correlação real fosse zero, seria pouco provável observar um r tão extremo quanto este apenas pelo acaso, dada a amostra. Significância estatística <em>não é</em> a mesma coisa que tamanho do efeito: com amostras enormes, correlações minúsculas viram "significativas"; com amostras pequenas, correlações fortes podem não ser. Sempre olhe r, R² e p-valor juntos.</p>
+      <p><strong>Intervalo de confiança para r.</strong> O IC, calculado pela transformação z de Fisher, dá a faixa em que a correlação verdadeira da população provavelmente se encontra. Um IC 95% de [0,12; 0,68] diz que o efeito plausível vai de "pequeno" a "forte" — sinal de que a amostra é insuficiente para precisão. Um IC de [0,42; 0,52] dá uma estimativa apertada e confiável.</p>
+
+      <h2 id="exemplo">Exemplo resolvido</h2>
+      <p>Uma escola de Recife quer saber se há relação entre <strong>horas semanais de estudo</strong> e <strong>nota no simulado do ENEM</strong> (escala de 0 a 1000) entre 8 alunos do terceiro ano. Os dados coletados foram:</p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th>Aluno</th><th>Horas (X)</th><th>Nota (Y)</th><th>x − x̄</th><th>y − ȳ</th><th>(x − x̄)(y − ȳ)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>5</td><td>520</td><td>−7,5</td><td>−87,5</td><td>+656,25</td></tr>
+            <tr><td>B</td><td>8</td><td>560</td><td>−4,5</td><td>−47,5</td><td>+213,75</td></tr>
+            <tr><td>C</td><td>10</td><td>580</td><td>−2,5</td><td>−27,5</td><td>+68,75</td></tr>
+            <tr><td>D</td><td>12</td><td>600</td><td>−0,5</td><td>−7,5</td><td>+3,75</td></tr>
+            <tr><td>E</td><td>14</td><td>620</td><td>+1,5</td><td>+12,5</td><td>+18,75</td></tr>
+            <tr><td>F</td><td>15</td><td>650</td><td>+2,5</td><td>+42,5</td><td>+106,25</td></tr>
+            <tr><td>G</td><td>17</td><td>660</td><td>+4,5</td><td>+52,5</td><td>+236,25</td></tr>
+            <tr><td>H</td><td>19</td><td>670</td><td>+6,5</td><td>+62,5</td><td>+406,25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Médias: <strong>x̄ = 12,5</strong> horas e <strong>ȳ = 607,5</strong> pontos.</p>
+      <ol class="steps">
+        <li>Numerador (soma dos produtos dos desvios): Σ(xᵢ − x̄)(yᵢ − ȳ) = <strong>1.710</strong>.</li>
+        <li>Soma dos quadrados de X: Σ(xᵢ − x̄)² = 56,25 + 20,25 + 6,25 + 0,25 + 2,25 + 6,25 + 20,25 + 42,25 = <strong>154</strong>.</li>
+        <li>Soma dos quadrados de Y: Σ(yᵢ − ȳ)² = 7.656,25 + 2.256,25 + 756,25 + 56,25 + 156,25 + 1.806,25 + 2.756,25 + 3.906,25 = <strong>19.350</strong>.</li>
+        <li>Denominador: √(154 · 19.350) = √2.979.900 ≈ <strong>1.726,2</strong>.</li>
+        <li>r = 1.710 ÷ 1.726,2 ≈ <strong>0,991</strong>.</li>
+        <li>R² ≈ 0,981 — cerca de <strong>98% da variação das notas</strong> é compatível com uma relação linear com horas de estudo, neste grupo.</li>
+        <li>Teste de significância: t = 0,991 · √6 ÷ √(1 − 0,981) ≈ 17,6, com df = 6 → <strong>valor-p &lt; 0,0001</strong>.</li>
+      </ol>
+      <p>A correlação é fortíssima e estatisticamente significativa. Mas atenção: o resultado vale para esta amostra. Antes de concluir que "estudar mais aumenta a nota", lembre que pode haver um confundidor óbvio — alunos mais motivados estudam mais <em>e</em> tiram notas maiores por outras razões (apoio familiar, escola particular, professor de cursinho). A correlação aponta a pista; a explicação causal exige outros desenhos.</p>
+
+      <h2 id="erros-comuns">Erros comuns</h2>
+      <p>Mesmo analistas experientes tropeçam nas mesmas armadilhas ao trabalhar com Pearson. Vale conhecê-las antes de publicar qualquer número.</p>
+      <ul>
+        <li><strong>Confundir correlação com causa.</strong> O erro mais antigo e o mais frequente. Que duas variáveis andem juntas não diz qual causa qual, nem se alguma causa a outra. Pode existir um terceiro fator (confundidor) puxando as duas.</li>
+        <li><strong>Outliers inflando r.</strong> Um único valor extremo no canto certo do gráfico pode levar um r de 0 para 0,8. Sempre olhe o gráfico de dispersão e recalcule r removendo pontos suspeitos para medir o impacto.</li>
+        <li><strong>Restrição de range.</strong> Quando você seleciona apenas uma faixa estreita de X (só alunos com notas altas, só salários acima de R$ 10 mil), o r entre X e Y cai artificialmente, mesmo que a relação populacional seja forte. A solução é coletar dados em toda a amplitude relevante.</li>
+        <li><strong>Paradoxo de Simpson.</strong> Uma correlação positiva no agregado pode virar negativa dentro de cada subgrupo (ou vice-versa). Se há subpopulações relevantes (sexo, estado, escola), calcule a correlação dentro de cada uma antes de reportar a média.</li>
+        <li><strong>Agregar dados de níveis diferentes.</strong> Calcular correlação entre médias municipais e tratar como se fosse correlação entre pessoas é a <em>falácia ecológica</em>. O r entre PIB médio e expectativa de vida por país não diz quase nada sobre indivíduos.</li>
+      </ul>
 
       <div class="callout callout--warning">
         <div class="callout__title">
@@ -196,8 +305,33 @@
         <p>Uma correlação forte só diz que as duas variáveis variam juntas — não diz por quê. Pode haver uma <strong>terceira variável</strong> causando as duas, a relação pode estar <strong>invertida</strong>, ou pode ser pura <strong>coincidência</strong>. Quanto mais séries temporais você compara, mais fácil é encontrar correlações fortes <em>completamente espúrias</em>.</p>
       </div>
 
-      <h2>Exemplos práticos</h2>
-      <p>Use esta calculadora para investigar relações entre variáveis numéricas: nota da prova × horas estudadas, preço × área de imóveis, temperatura × consumo de sorvete, peso × altura, marketing × vendas. Antes de tirar conclusões causais, lembre da seção acima.</p>
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Qual é a diferença entre r de Pearson e r² (R²)?</summary>
+          <div class="faq__answer"><p>O r mede a força e a direção da relação linear e vai de −1 a +1. O r² é o quadrado desse valor, sempre entre 0 e 1, e representa a proporção da variância de Y explicada por X em uma reta de regressão. Um r de −0,8 e um r de +0,8 produzem o mesmo r² de 0,64, ou seja, 64% de variância compartilhada.</p></div>
+        </details>
+        <details>
+          <summary>Posso usar Pearson com dados ordinais?</summary>
+          <div class="faq__answer"><p>Não é recomendado. Pearson exige variáveis numéricas com intervalos comparáveis (escala intervalar ou de razão). Para dados ordinais — postos, notas em escala Likert, classificações —, use a correlação de Spearman ou o tau de Kendall, que trabalham com a ordem dos valores em vez dos valores brutos.</p></div>
+        </details>
+        <details>
+          <summary>Quantas observações eu preciso para calcular Pearson?</summary>
+          <div class="faq__answer"><p>Tecnicamente o cálculo funciona com 3 pares, mas o resultado é instável. Para uma estimativa confiável e um valor-p informativo, considere pelo menos 30 pares. Para detectar correlações pequenas (r ≈ 0,1) com poder estatístico de 80%, é comum precisar de mais de 700 observações — use a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a> para planejar.</p></div>
+        </details>
+        <details>
+          <summary>Um r de 0,3 é significativo?</summary>
+          <div class="faq__answer"><p>Depende do tamanho da amostra. Com n = 20, um r de 0,3 não chega a ser estatisticamente significativo (p ≈ 0,2). Com n = 100, o mesmo r de 0,3 já fica significativo (p &lt; 0,005). Significância estatística e tamanho do efeito são duas coisas diferentes — sempre olhe os dois, junto com o <a href="/intervalo-confianca.html">intervalo de confiança</a>.</p></div>
+        </details>
+        <details>
+          <summary>Correlação alta implica causalidade?</summary>
+          <div class="faq__answer"><p>Não. Mesmo um r próximo de 1 só diz que as duas variáveis variam juntas. A causa pode estar invertida, pode haver uma terceira variável explicando as duas (confundidor) ou pode ser pura coincidência. Para inferir causa, é preciso desenho experimental — randomização, controle, séries temporais com defasagem — ou ferramentas de estatística causal.</p></div>
+        </details>
+        <details>
+          <summary>Como interpretar correlação negativa?</summary>
+          <div class="faq__answer"><p>Uma correlação negativa significa que, quando uma variável aumenta, a outra tende a diminuir — e vice-versa. A força é dada pelo valor absoluto: um r de −0,8 é tão forte quanto um r de +0,8, só que com direção oposta. Exemplos comuns: preço × quantidade demandada, horas de exercício × percentual de gordura corporal.</p></div>
+        </details>
+      </div>
 
       <div class="callout callout--tip">
         <div class="callout__title">
@@ -207,17 +341,12 @@
         <p>O caso clássico: o consumo de queijo per capita nos EUA e o número de pessoas que morreram enroladas em lençóis têm correlação de 0,95 entre 2000 e 2009. Em breve uma versão brasileira no projeto <strong>Data Folia</strong>.</p>
       </div>
 
-      <h2>Limitações</h2>
-      <ul>
-        <li>Mede apenas relação <strong>linear</strong>. Uma relação em U ou exponencial pode aparecer com r ≈ 0 mesmo sendo forte.</li>
-        <li>É sensível a <strong>outliers</strong>: um único valor extremo pode inverter o sinal de r.</li>
-        <li>Assume que pelo menos uma das variáveis tem distribuição aproximadamente normal para que o valor-p seja exato; em amostras grandes (n ≥ 30) o desvio dessa hipótese é desprezível.</li>
-      </ul>
-
       <h2>Referências</h2>
       <ol class="ref-list">
         <li>Cohen J. <cite>Statistical Power Analysis for the Behavioral Sciences</cite>. 2ª ed. Hillsdale: Lawrence Erlbaum; 1988.</li>
+        <li>Field A. <cite>Discovering Statistics Using IBM SPSS Statistics</cite>. 5ª ed. London: SAGE; 2018.</li>
         <li>Fisher RA. On the "probable error" of a coefficient of correlation deduced from a small sample. <cite>Metron</cite>. 1921;1:3–32.</li>
+        <li>Bussab WO, Morettin PA. <cite>Estatística Básica</cite>. 9ª ed. São Paulo: Saraiva; 2017.</li>
       </ol>
 
       <div class="related">

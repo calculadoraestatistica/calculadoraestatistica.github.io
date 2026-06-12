@@ -96,6 +96,19 @@
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},{"@type":"ListItem","position":2,"name":"Pergunte à IA","item":"https://calculadoraestatistica.com.br/busca-ia.html"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"A Busca por IA pode escolher o teste estatístico no meu lugar?","acceptedAnswer":{"@type":"Answer","text":"Não. A Busca por IA é um assistente de orientação: ela lê a sua pergunta, identifica que tipo de dado você descreveu e sugere a calculadora mais provável, com até três alternativas próximas. A escolha final continua sendo sua — só você sabe como os dados foram coletados, se a amostra é pareada, se há valores faltantes e quais pressupostos são razoáveis no seu contexto."}},
+    {"@type":"Question","name":"Minhas perguntas ficam salvas em algum lugar?","acceptedAnswer":{"@type":"Answer","text":"Não. A Busca por IA roda inteiramente no seu navegador: o texto que você digita não é enviado para nenhum servidor nosso nem para terceiros. Ao fechar a aba, a pergunta desaparece. Use essa garantia com tranquilidade se estiver descrevendo dados sensíveis de pacientes, clientes ou pesquisas."}},
+    {"@type":"Question","name":"Posso colar resultados que recebi e pedir uma interpretação?","acceptedAnswer":{"@type":"Answer","text":"A Busca por IA é otimizada para apontar a calculadora certa — não para interpretar valores-p, intervalos de confiança ou tamanhos de efeito do seu estudo. Se você colar um resultado, ela provavelmente vai sugerir a calculadora correspondente para você refazer e ler a interpretação completa lá. Para análises críticas, consulte também um estatístico."}},
+    {"@type":"Question","name":"A Busca por IA funciona em outros idiomas além do português?","acceptedAnswer":{"@type":"Answer","text":"O conteúdo do site é todo em português do Brasil, então as perguntas em PT-BR têm o melhor desempenho. Perguntas em inglês ou espanhol costumam funcionar para os termos técnicos mais comuns (t-test, chi-square, sample size), mas os textos de cada calculadora e a interpretação dos resultados continuam em português."}},
+    {"@type":"Question","name":"A Busca por IA é grátis? Existe algum limite de uso?","acceptedAnswer":{"@type":"Answer","text":"É 100% gratuita, sem cadastro e sem limite por usuário. Como o modelo roda no seu próprio navegador, não há custos de API por pergunta. A única exigência é que o seu navegador tenha suporte a WebAssembly moderno — o que vale para praticamente todos os browsers atualizados em desktop e celular."}}
+  ]
+}
+</script>
 <!-- schema-enhanced -->
 </head>
 <body>
@@ -176,10 +189,104 @@
     <div class="ad-slot" data-ad-slot=""></div>
 
     <article class="prose">
-      <h2>Como funciona</h2>
-      <p>Cada calculadora e guia tem um perfil escrito por nós — propósito, palavras-chave e perguntas-exemplo. A sua pergunta é comparada contra esses perfis pela IA, que roda diretamente no seu navegador: o texto não é enviado a nenhum servidor. Quando uma calculadora vence com folga, mostramos só ela; quando o seu caso pode ser atendido por mais de uma — por exemplo, "antes e depois entre dois grupos" pode pedir <a href="/teste-t.html">teste t</a> independente nas diferenças ou pareado dentro de cada grupo — mostramos a principal e até três alternativas próximas.</p>
 
-      <p class="u-mt-md"><a href="/#calculadoras">Ver todas as calculadoras</a> · <a href="/guias/como-escolher-teste-estatistico.html">Guia: como escolher o teste</a></p>
+      <nav class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#o-que-e">O que é a Busca por IA</a></li>
+          <li><a href="#como-ajuda">Como ela ajuda você</a></li>
+          <li><a href="#por-tras">Como ela funciona por trás</a></li>
+          <li><a href="#nao-faz">O que ela NÃO faz</a></li>
+          <li><a href="#manual">Quando preferir a navegação manual</a></li>
+          <li><a href="#privacidade">Privacidade e dados</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="o-que-e">O que é a Busca por IA</h2>
+      <p>A <strong>Busca por IA</strong> é um assistente de busca pensado para um problema bem específico: você sabe que precisa de um teste estatístico, mas não sabe exatamente qual é o nome certo nem qual das calculadoras do site cobre o seu caso. Em vez de navegar por uma lista de testes e decifrar jargão, você descreve a sua situação em português corrente — "tenho duas turmas e quero comparar as notas", "fiz medições antes e depois", "preciso saber quantas pessoas entrevistar" — e a IA aponta a calculadora mais provável, com algumas alternativas próximas.</p>
+      <p>A intenção é honesta e limitada: a Busca por IA <strong>não é um oráculo estatístico</strong>. Ela não escolhe sozinha o teste correto, não interpreta resultados clínicos e não substitui a revisão de um estatístico em trabalhos sérios. O que ela faz é encurtar a distância entre uma dúvida em linguagem natural e a página certa do site — uma espécie de bibliotecário que entende o vocabulário de quem está chegando agora à estatística e o vocabulário de quem já trabalha com ela todos os dias.</p>
+      <p>É, no fundo, um atalho de descoberta. Se você já sabe que precisa de um <a href="/teste-t.html">teste t</a> pareado, abrir a calculadora direto continua sendo o caminho mais rápido. Mas se a sua pergunta começa com "eu tenho..." em vez de "eu preciso do teste...", a Busca por IA foi feita para você.</p>
+
+      <h2 id="como-ajuda">Como ela ajuda você</h2>
+      <p>Os casos abaixo são reais — vêm das perguntas que mais aparecem no site e do que os professores ouvem em sala de aula. Para cada um, a IA tipicamente sugere a calculadora indicada e mostra as alternativas próximas, para que você confirme se o cenário descrito é mesmo o seu:</p>
+      <ul>
+        <li><strong>"Tenho duas médias e quero saber se a diferença é real."</strong> → A IA sugere o <a href="/teste-t.html">teste t para duas amostras independentes</a> como principal, com o <a href="/teste-z.html">teste z</a> como alternativa caso o desvio padrão da população seja conhecido e o <a href="/wilcoxon.html">Mann-Whitney</a> caso os dados não pareçam normais.</li>
+        <li><strong>"Medi a pressão arterial dos mesmos pacientes antes e depois do remédio."</strong> → Recomenda o <a href="/teste-t.html">teste t pareado</a>, porque as duas medidas vêm dos mesmos indivíduos. Como alternativa, sugere o <a href="/wilcoxon.html">Wilcoxon de postos sinalizados</a> para amostras pequenas e não normais.</li>
+        <li><strong>"Minha amostra tem 12 valores, claramente assimétrica. Posso usar teste t?"</strong> → A IA aponta para a calculadora de <a href="/wilcoxon.html">Wilcoxon/Mann-Whitney</a> como caminho mais seguro e sugere o guia de pressupostos para entender por que o teste t perde poder quando a normalidade falha em amostras pequenas.</li>
+        <li><strong>"Qual o n mínimo para detectar uma diferença de 10% entre duas taxas de conversão?"</strong> → Indica a calculadora de <a href="/tamanho-amostra.html">tamanho de amostra</a> ou a versão específica de <a href="/tamanho-amostra-ab.html">amostra de teste A/B</a>, conforme o vocabulário detectado (taxa, conversão, A/B).</li>
+        <li><strong>"Tenho uma tabela de hábito de leitura por faixa etária e quero ver se há associação."</strong> → Aponta o <a href="/qui-quadrado.html">qui-quadrado de independência</a>, porque ambas as variáveis são categóricas.</li>
+        <li><strong>"Quero saber se duas variáveis numéricas andam juntas — peso e pressão."</strong> → Sugere a <a href="/correlacao.html">correlação de Pearson</a>, com nota sobre quando preferir Spearman se a relação não é linear.</li>
+      </ul>
+      <p>Em todos os casos, a calculadora aberta trará a explicação completa do teste, dos pressupostos, da fórmula e da interpretação — a Busca por IA só faz o roteamento inicial.</p>
+
+      <h2 id="por-tras">Como ela funciona por trás</h2>
+      <p>Sem revelar a parte algorítmica do modelo, o fluxo geral é simples e vale ser transparente: cada calculadora e cada guia do site tem um <strong>perfil escrito por nós</strong> — propósito, palavras-chave técnicas e leigas, perguntas-exemplo típicas e tipo de dado esperado. Quando você envia uma pergunta, dois mecanismos trabalham em paralelo:</p>
+      <ol>
+        <li>Uma busca rápida baseada em correspondência de termos (BM25) devolve uma primeira resposta quase instantânea, para você não esperar olhando o cursor piscar.</li>
+        <li>Em paralelo, um pequeno modelo de linguagem rodando no próprio navegador <em>refina</em> esse ranking: ele entende sinônimos ("antes e depois" = "pareado"), reconhece o tipo de variável (categórica × contínua, pareada × independente) e tenta inferir o desenho do estudo a partir da forma como você descreve.</li>
+      </ol>
+      <p>O resultado é exibido em duas camadas: a <strong>calculadora principal</strong>, mostrada com destaque, e até três <strong>alternativas próximas</strong> que cobrem cenários semelhantes. Essa estrutura é proposital — em estatística, mais de uma escolha costuma ser defensável, e cabe a você revisar os pressupostos para fechar a decisão. Por exemplo, "comparar antes e depois entre dois grupos" pode pedir teste t independente sobre as diferenças, teste t pareado dentro de cada grupo, ou ANOVA de medidas repetidas — a IA mostra as opções e você escolhe o caminho que combina com o seu desenho experimental.</p>
+      <p>Importante: o modelo <strong>não tem memória entre perguntas</strong> e não aprende com o que você digita. Cada consulta é avaliada do zero contra a mesma base de perfis. Isso é uma escolha consciente de privacidade, e também de previsibilidade — você sempre recebe a mesma resposta para a mesma pergunta.</p>
+
+      <h2 id="nao-faz">O que ela NÃO faz</h2>
+      <p>É tão útil saber onde a Busca por IA ajuda quanto saber onde ela <strong>não deve ser usada</strong>. Para evitar surpresas, deixamos os limites explícitos:</p>
+      <ul>
+        <li><strong>Não escolhe o teste sozinha para você.</strong> Ela sugere; quem decide é quem conhece os dados. Sempre revise se a calculadora indicada cobre o seu desenho (independente vs. pareado, paramétrico vs. não paramétrico, uma cauda vs. duas) antes de reportar um resultado.</li>
+        <li><strong>Não interpreta resultados clínicos, jurídicos ou de negócio.</strong> Significância estatística não é o mesmo que relevância clínica, e a Busca por IA não tem contexto para julgar magnitudes de efeito. Para isso, leia a seção de interpretação da calculadora e, em estudos sensíveis, confirme com um estatístico.</li>
+        <li><strong>Não tem acesso aos seus dados.</strong> Você descreve o problema em palavras; nada do que estiver no seu computador, planilha ou banco de dados é enviado. Se a sua pergunta inclui números, eles são tratados como texto livre — o modelo não roda análises sobre eles.</li>
+        <li><strong>Não substitui revisão estatística formal.</strong> Em teses, artigos científicos, relatórios regulatórios ou decisões com impacto financeiro alto, o caminho continua sendo a revisão por um profissional. A Busca por IA acelera as primeiras escolhas; ela não certifica nada.</li>
+        <li><strong>Não detecta dados problemáticos.</strong> Se a sua amostra tem viés de seleção, valores faltantes não aleatórios ou medições mal calibradas, nenhum teste estatístico — nem a sugestão da IA — vai consertar isso. É preciso voltar à coleta.</li>
+      </ul>
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Sempre revise os pressupostos
+        </div>
+        <p>A calculadora que a IA sugerir vai te levar a uma página com a lista de pressupostos do teste (normalidade, independência, escala da variável). Não pule essa parte — é onde 90% dos erros de análise estatística aparecem.</p>
+      </div>
+
+      <h2 id="manual">Quando preferir a navegação manual</h2>
+      <p>Se você já sabe o nome do teste que precisa, abrir a calculadora direto é mais rápido — e às vezes mais didático, porque você lê a página inteira em vez de pular para o cálculo. Os atalhos para os casos mais comuns:</p>
+      <ul>
+        <li><a href="/teste-t.html"><strong>Teste t de Student</strong></a> — comparar médias (uma amostra, duas amostras independentes ou pareado).</li>
+        <li><a href="/teste-z.html"><strong>Teste Z</strong></a> — comparar médias quando o desvio padrão da população é conhecido, ou em amostras muito grandes.</li>
+        <li><a href="/qui-quadrado.html"><strong>Qui-quadrado</strong></a> — testar associação entre duas variáveis categóricas a partir de uma tabela de contingência.</li>
+        <li><a href="/intervalo-confianca.html"><strong>Intervalo de confiança</strong></a> — estimar a faixa provável de uma média ou proporção, sem a lógica de hipótese nula.</li>
+        <li><a href="/tamanho-amostra.html"><strong>Tamanho de amostra</strong></a> — calcular quantos sujeitos coletar para detectar um efeito de tamanho mínimo desejado.</li>
+        <li><a href="/correlacao.html"><strong>Correlação de Pearson</strong></a> — medir a força e a direção da relação linear entre duas variáveis numéricas.</li>
+        <li><a href="/">Página inicial</a> — para ver todas as calculadoras e os guias por área de aplicação (enfermagem, psicologia, marketing).</li>
+      </ul>
+
+      <h2 id="privacidade">Privacidade e dados</h2>
+      <p>Privacidade é parte do desenho da Busca por IA, não uma promessa solta. Em concreto: o texto que você digita <strong>não sai do seu navegador</strong>. Toda a busca rápida e o refinamento por IA acontecem localmente, usando o modelo carregado pelo próprio site. Não há requisição ao nosso servidor com o conteúdo da pergunta, nem envio para APIs de terceiros como OpenAI, Anthropic ou Google.</p>
+      <p>O que coletamos é o mesmo que qualquer site faz para medir audiência: contagem agregada de páginas vistas, via Google Analytics e os serviços de publicidade descritos na <a href="/privacidade.html">política de privacidade</a>. Nenhum deles recebe o conteúdo da sua pergunta. Em outras palavras: você pode descrever dados de pacientes, números financeiros ou pesquisas confidenciais sem que nada dessa descrição saia do seu computador. Ao fechar a aba, o conteúdo da caixa de pergunta é descartado.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>A Busca por IA pode escolher o teste estatístico no meu lugar?</summary>
+          <div class="faq__answer"><p>Não. A Busca por IA é um assistente de orientação: ela lê a sua pergunta, identifica que tipo de dado você descreveu e sugere a calculadora mais provável, com até três alternativas próximas. A escolha final continua sendo sua — só você sabe como os dados foram coletados, se a amostra é pareada, se há valores faltantes e quais pressupostos são razoáveis no seu contexto.</p></div>
+        </details>
+        <details>
+          <summary>Minhas perguntas ficam salvas em algum lugar?</summary>
+          <div class="faq__answer"><p>Não. A Busca por IA roda inteiramente no seu navegador: o texto que você digita não é enviado para nenhum servidor nosso nem para terceiros. Ao fechar a aba, a pergunta desaparece. Use essa garantia com tranquilidade se estiver descrevendo dados sensíveis de pacientes, clientes ou pesquisas.</p></div>
+        </details>
+        <details>
+          <summary>Posso colar resultados que recebi e pedir uma interpretação?</summary>
+          <div class="faq__answer"><p>A Busca por IA é otimizada para apontar a calculadora certa — não para interpretar valores-p, intervalos de confiança ou tamanhos de efeito do seu estudo. Se você colar um resultado, ela provavelmente vai sugerir a calculadora correspondente para você refazer e ler a interpretação completa lá. Para análises críticas, consulte também um estatístico.</p></div>
+        </details>
+        <details>
+          <summary>A Busca por IA funciona em outros idiomas além do português?</summary>
+          <div class="faq__answer"><p>O conteúdo do site é todo em português do Brasil, então as perguntas em PT-BR têm o melhor desempenho. Perguntas em inglês ou espanhol costumam funcionar para os termos técnicos mais comuns (t-test, chi-square, sample size), mas os textos de cada calculadora e a interpretação dos resultados continuam em português.</p></div>
+        </details>
+        <details>
+          <summary>A Busca por IA é grátis? Existe algum limite de uso?</summary>
+          <div class="faq__answer"><p>É 100% gratuita, sem cadastro e sem limite por usuário. Como o modelo roda no seu próprio navegador, não há custos de API por pergunta. A única exigência é que o seu navegador tenha suporte a WebAssembly moderno — o que vale para praticamente todos os browsers atualizados em desktop e celular.</p></div>
+        </details>
+      </div>
+
+      <p class="u-mt-md"><a href="/#calculadoras">Ver todas as calculadoras</a> · <a href="/guias/como-escolher-teste-estatistico.html">Guia: como escolher o teste</a> · <a href="/">Voltar à página inicial</a></p>
     </article>
 
   </div>
