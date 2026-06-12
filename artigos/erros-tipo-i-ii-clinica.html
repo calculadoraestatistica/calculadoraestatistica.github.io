@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7516029395999799">
+<title>Erro tipo I e tipo II na prática clínica | Calculadora Estatística</title>
+<meta name="description" content="Entenda quando rejeitar ou reter a hipótese nula em ensaios clínicos: erro tipo I, erro tipo II, poder estatístico, tamanho amostral e exemplos do Brasil.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/artigos/erros-tipo-i-ii-clinica.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Erro tipo I e tipo II na prática clínica">
+<meta property="og:description" content="Quando rejeitar e quando reter a hipótese nula? Guia prático sobre alfa, beta, poder e tamanho amostral em ensaios clínicos brasileiros.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/artigos/erros-tipo-i-ii-clinica.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Erro tipo I e tipo II na prática clínica: quando rejeitar e quando reter a hipótese nula",
+  "description": "Guia prático sobre os erros tipo I e tipo II em ensaios clínicos, com discussão sobre alfa, beta, poder estatístico, tamanho amostral e comparações múltiplas.",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "inLanguage": "pt-BR",
+  "author": {
+    "@type": "Person",
+    "name": "Vinícius Vianna"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculadora Estatística",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calculadoraestatistica.com.br/favicon-192.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calculadoraestatistica.com.br/artigos/erros-tipo-i-ii-clinica.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Artigos","item":"https://calculadoraestatistica.com.br/artigos/"},
+    {"@type":"ListItem","position":3,"name":"Erros tipo I e II","item":"https://calculadoraestatistica.com.br/artigos/erros-tipo-i-ii-clinica.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"O que é mais grave: erro tipo I ou tipo II?","acceptedAnswer":{"@type":"Answer","text":"Depende do contexto clínico. Em fases iniciais de aprovação de um medicamento, o erro tipo I (aprovar algo que não funciona) costuma ser mais grave, pois expõe pacientes a tratamentos inúteis. Já em ensaios de triagem ou em doenças sem alternativa terapêutica, o erro tipo II (descartar um tratamento útil) pode custar vidas. A escolha de alfa e beta deve refletir essa assimetria."}},
+    {"@type":"Question","name":"Por que ensaios clínicos calculam poder antes de começar?","acceptedAnswer":{"@type":"Answer","text":"Porque um estudo sem poder suficiente quase certamente vai retornar p maior que 0,05, mesmo quando o tratamento funciona. Calcular o tamanho amostral para garantir 80% ou 90% de poder evita gastar recursos e expor pacientes a um experimento que, por construção, nasce incapaz de detectar o efeito procurado. É uma exigência ética e regulatória da ICH E9 e do CONSORT."}},
+    {"@type":"Question","name":"Como Bonferroni corrige o erro tipo I em endpoints múltiplos?","acceptedAnswer":{"@type":"Answer","text":"Bonferroni divide o alfa global pelo número de testes. Se você quer manter o alfa familiar em 5% e tem cinco endpoints primários, cada teste passa a usar 0,05 ÷ 5 = 0,01 como limite. O método é conservador mas garante que a probabilidade de pelo menos um falso positivo no conjunto não ultrapasse 5%. Alternativas como Holm e FDR (Benjamini-Hochberg) preservam mais poder."}},
+    {"@type":"Question","name":"Se p > 0,05, posso concluir que o tratamento não funciona?","acceptedAnswer":{"@type":"Answer","text":"Não. Um p alto significa apenas que os dados são compatíveis com a hipótese nula, não que ela é verdadeira. Ausência de evidência não é evidência de ausência. Para concluir que o tratamento não tem efeito clinicamente relevante, é preciso um estudo de equivalência ou de não inferioridade, com tamanho amostral planejado para essa pergunta específica."}},
+    {"@type":"Question","name":"Qual o poder mínimo aceitável em um ensaio brasileiro?","acceptedAnswer":{"@type":"Answer","text":"A convenção internacional, adotada pela Anvisa e pela ICH E9, é 80%. Em ensaios pivotais de fase III, costuma-se buscar 90%. Valores abaixo de 80% são tolerados apenas em estudos exploratórios ou em condições muito específicas, com justificativa formal no protocolo registrado no ReBEC."}},
+    {"@type":"Question","name":"Como o tamanho amostral afeta o erro tipo II?","acceptedAnswer":{"@type":"Answer","text":"Quanto maior a amostra, menor o erro padrão da estimativa e mais estreitas as distribuições de H0 e H1, o que diminui a sobreposição entre elas e reduz beta. Em termos práticos, dobrar a amostra reduz substancialmente beta para um mesmo tamanho de efeito; quadruplicar pode levar o poder de 50% para mais de 95%."}},
+    {"@type":"Question","name":"Qual a diferença entre alfa e o valor-p?","acceptedAnswer":{"@type":"Answer","text":"Alfa é o limite que você define antes de ver os dados — a probabilidade de erro tipo I que está disposto a tolerar, geralmente 5%. O valor-p é calculado a partir dos dados observados e representa a probabilidade de obter um resultado tão extremo quanto o seu se H0 fosse verdadeira. Você rejeita H0 quando o valor-p é menor que alfa."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/artigos/">Artigos</a></li>
+          <li>Erros tipo I e II</li>
+        </ol>
+      </nav>
+      <h1>Erro tipo I e tipo II na prática clínica: quando rejeitar e quando reter a hipótese nula</h1>
+      <p class="lead">Por trás de cada "p &lt; 0,05" em um ensaio clínico existe uma decisão sob incerteza. Quem entende essa decisão escolhe melhor o tratamento, o tamanho amostral e a forma de relatar o resultado.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <article class="prose">
+      <p class="article__lead">Em estatística aplicada à saúde, os erros tipo I e tipo II são as duas formas opostas de errar diante de um resultado. Confundir os dois — ou ignorar o segundo — é o motivo mais comum de ensaios mal planejados, conclusões precipitadas e tratamentos que entram (ou saem) da prática sem evidência sólida. Este artigo é um guia prático para quem precisa interpretar, planejar ou criticar um estudo clínico.</p>
+      <p class="article__byline">Por Vinícius Vianna · 12 de junho de 2026 · Leitura: ~13 min</p>
+
+      <nav class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#contexto">Por que importa: medicamento que funciona × paciente que sofre</a></li>
+          <li><a href="#hipoteses">Hipótese nula e alternativa no cenário clínico</a></li>
+          <li><a href="#matriz">A matriz 2×2 das decisões</a></li>
+          <li><a href="#erro-i">Erro tipo I (α)</a></li>
+          <li><a href="#erro-ii">Erro tipo II (β)</a></li>
+          <li><a href="#poder">Poder do teste (1−β)</a></li>
+          <li><a href="#tradeoff">O trade-off entre α e β</a></li>
+          <li><a href="#amostra">Como calcular n para 80% de poder</a></li>
+          <li><a href="#alpha-justify">Por que 5% e 80%?</a></li>
+          <li><a href="#multiplas">Comparações múltiplas</a></li>
+          <li><a href="#boas-praticas">Boas práticas em estudos clínicos brasileiros</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="contexto">Por que importa: medicamento que funciona × paciente que sofre</h2>
+      <p>Imagine dois cenários extremos. No primeiro, um laboratório brasileiro conduz um ensaio de fase III com uma vacina contra a COVID-19, similar ao que a Anvisa avaliou em 2020 e 2021. O estudo encontra uma redução de 60% no risco de doença sintomática, com p igual a 0,002. A vacina é aprovada, milhões de pessoas são imunizadas, e o desfecho é histórico. No segundo cenário, uma equipe avalia um <em>nutracêutico</em> popular em uma amostra pequena de 28 pacientes. O resultado vem com p igual a 0,047, "estatisticamente significativo" — e em poucos meses esse achado vira manchete, virou indicação e entrou em consultórios. Anos depois, ensaios maiores não confirmam o efeito.</p>
+      <p>Os dois cenários usam exatamente a mesma régua matemática. A diferença está em <strong>quem cometeu qual erro</strong>: o primeiro estudo provavelmente rejeitou H₀ acertando; o segundo, possivelmente rejeitou H₀ por azar amostral. Essa distinção — entre acertar e errar ao rejeitar a hipótese nula — é o que separa medicina baseada em evidência de boato com tabela. E ela tem um nome técnico: <strong>erro tipo I</strong>.</p>
+      <p>Existe um erro espelho, igualmente importante e bem menos famoso: descartar um tratamento que <em>de fato</em> funciona. Esse é o <strong>erro tipo II</strong>, e ele é responsável silencioso por boa parte das terapias promissoras que nunca chegam à fase final por falta de poder estatístico no ensaio piloto. Os dois andam de mãos dadas, e entender essa dupla é pré-requisito para qualquer leitura honesta de um artigo clínico.</p>
+
+      <h2 id="hipoteses">Hipótese nula (H₀) e hipótese alternativa (H₁): traduzindo para o cenário clínico</h2>
+      <p>Todo teste estatístico parte de duas afirmações antagônicas sobre o mundo. A <strong>hipótese nula</strong>, simbolizada por H₀, é a posição conservadora — "não há efeito", "as médias são iguais", "o tratamento novo não difere do controle". A <strong>hipótese alternativa</strong>, H₁, é o oposto: "existe efeito", "as médias diferem", "o tratamento muda alguma coisa".</p>
+      <p>A lógica do teste de hipóteses é semelhante à de um tribunal: H₀ é o presumido inocente. Para rejeitar, é preciso evidência forte; na ausência dela, mantemos a hipótese nula, sem dizer que ela é verdadeira. Em um ensaio randomizado típico, H₀ poderia ser "a média de pressão arterial diastólica do grupo do anti-hipertensivo novo é igual à do grupo placebo após 12 semanas". H₁ seria "as médias diferem". Após coletar os dados, a <a href="/teste-t.html">calculadora de teste t</a> traduz a diferença observada em uma estatística e em um valor-p, e o p decide se a evidência ultrapassa o limiar combinado.</p>
+      <p>O ponto a guardar: a hipótese nula é a régua. Você nunca prova H₀ — só falha em rejeitá-la. E também nunca prova H₁ — só acumula evidência contra H₀. Toda a discussão de erros vem dessa assimetria.</p>
+
+      <h2 id="matriz">A matriz 2×2 das decisões</h2>
+      <p>Há quatro combinações possíveis entre o que é verdade no mundo (H₀ ou H₁) e a decisão que tomamos com base na amostra (rejeitar ou reter H₀). Duas são acertos; duas, erros.</p>
+
+      <figure class="chart" role="figure" aria-label="Matriz 2x2 com os quatro desfechos de uma decisão estatística">
+        <svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="matriz-title matriz-desc">
+          <title id="matriz-title">Matriz 2x2 das decisões em testes de hipótese</title>
+          <desc id="matriz-desc">Linhas: decisão (rejeitar H0, reter H0). Colunas: verdade (H0 verdadeira, H1 verdadeira). Células: falso positivo, verdadeiro positivo, verdadeiro negativo, falso negativo.</desc>
+          <rect x="0" y="0" width="420" height="280" fill="#ffffff"/>
+          <text x="210" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#0f172a">Verdade no mundo</text>
+          <text x="155" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">H₀ verdadeira</text>
+          <text x="325" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#334155">H₁ verdadeira</text>
+          <g font-family="system-ui, sans-serif" font-size="12" fill="#334155">
+            <text x="20" y="115" transform="rotate(-90 20 115)" text-anchor="middle">Rejeitar H₀</text>
+            <text x="20" y="220" transform="rotate(-90 20 220)" text-anchor="middle">Reter H₀</text>
+          </g>
+          <rect x="80" y="55" width="155" height="105" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.2"/>
+          <text x="157" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#991b1b">Falso positivo</text>
+          <text x="157" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#7f1d1d">Erro tipo I</text>
+          <text x="157" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#7f1d1d">probabilidade = α</text>
+          <rect x="250" y="55" width="155" height="105" fill="#dcfce7" stroke="#86efac" stroke-width="1.2"/>
+          <text x="327" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#166534">Verdadeiro positivo</text>
+          <text x="327" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#14532d">decisão correta</text>
+          <text x="327" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#14532d">poder = 1 − β</text>
+          <rect x="80" y="165" width="155" height="105" fill="#dcfce7" stroke="#86efac" stroke-width="1.2"/>
+          <text x="157" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#166534">Verdadeiro negativo</text>
+          <text x="157" y="225" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#14532d">decisão correta</text>
+          <text x="157" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#14532d">probabilidade = 1 − α</text>
+          <rect x="250" y="165" width="155" height="105" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.2"/>
+          <text x="327" y="205" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#991b1b">Falso negativo</text>
+          <text x="327" y="225" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#7f1d1d">Erro tipo II</text>
+          <text x="327" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#7f1d1d">probabilidade = β</text>
+        </svg>
+        <figcaption>Os quatro desfechos possíveis ao decidir sobre a hipótese nula em um ensaio clínico.</figcaption>
+      </figure>
+
+      <p>Os dois acertos (verde) e os dois erros (vermelho) carregam consequências bem diferentes na clínica. Aprovar uma intervenção que não funciona não é o mesmo que descartar uma que funcionaria. A nossa tarefa, como estatísticos práticos, é dimensionar α e β para que essas consequências fiquem em um nível aceitável.</p>
+
+      <h2 id="erro-i">Erro tipo I (α): "tratamento parece funcionar e não funciona"</h2>
+      <p>O <strong>erro tipo I</strong> ocorre quando rejeitamos H₀ mesmo ela sendo verdadeira. Em linguagem clínica: o ensaio diz que o medicamento é eficaz, e na verdade ele não é. A probabilidade tolerada para esse erro é o <strong>nível de significância α</strong>, fixado antes da coleta. A convenção universal é α = 0,05, ou seja, aceitamos 5% de chance de um falso positivo em cada teste.</p>
+      <p>As consequências do erro tipo I são amplas. Pacientes recebem um tratamento sem benefício, mas com possíveis eventos adversos. O sistema público desembolsa recursos com algo inerte. Pesquisadores e médicos perdem energia replicando o falso achado. A história está cheia de exemplos: o rofecoxib (Vioxx), aprovado em 1999 e retirado em 2004 após sinais de eventos cardiovasculares, e diversos antiarrítmicos da década de 80 que mostraram benefício em ensaios pequenos e mataram mais pacientes do que salvaram em estudos maiores. O ponto comum: o sinal inicial era falso positivo ou inflado.</p>
+      <p>Manter α baixo é uma forma de proteger a sociedade contra falsas descobertas. Mas há um preço, que veremos a seguir.</p>
+
+      <h2 id="erro-ii">Erro tipo II (β): "tratamento funciona e diz que não funciona"</h2>
+      <p>O <strong>erro tipo II</strong> é o espelho do anterior: H₁ é verdadeira (o tratamento funciona), mas falhamos em rejeitar H₀ (o teste não detecta o efeito). A probabilidade desse erro é β, e o impacto clínico costuma ser igualmente grave — só que menos visível.</p>
+      <p>Um ensaio com β alto é um ensaio <em>underpowered</em>. Ele recruta poucos pacientes, mede um desfecho com muita variabilidade ou usa um teste estatístico inadequado, e termina com p maior que 0,05. A leitura ingênua é "o tratamento não funciona". A leitura correta é "não temos evidência neste estudo de que funcione". A frase clássica, atribuída a Carl Sagan e popularizada por Altman e Bland em 1995, resume o ponto: <em>absence of evidence is not evidence of absence</em> — ausência de evidência não é evidência de ausência.</p>
+      <p>Na prática brasileira, o erro tipo II aparece em pesquisas de mestrado e doutorado feitas com amostras de conveniência, com 20 ou 30 pacientes, comparando médias de variáveis fisiológicas. O p quase sempre dá maior que 0,05 — não porque o tratamento não funcione, mas porque o estudo era, desde o início, incapaz de detectar um efeito de tamanho razoável. Quem lê o trabalho sem cuidar dessa nuance descarta hipóteses promissoras e empobrece o conhecimento da área.</p>
+
+      <h2 id="poder">Poder do teste (1−β): a métrica esquecida nos ensaios clínicos brasileiros</h2>
+      <p>O complemento de β tem nome próprio: <strong>poder estatístico</strong>, ou 1 − β. É a probabilidade de detectar o efeito quando ele realmente existe. Um estudo com 80% de poder, por exemplo, encontrará o efeito em 4 de cada 5 réplicas — supondo que o efeito verdadeiro tenha o tamanho que foi assumido no cálculo. O poder cresce com três coisas: tamanho da amostra, magnitude do efeito real e precisão da medida.</p>
+
+      <figure class="chart" role="figure" aria-label="Curva de poder estatístico em função do tamanho do efeito de Cohen">
+        <svg viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="power-title power-desc">
+          <title id="power-title">Curva de poder estatístico</title>
+          <desc id="power-desc">Poder do teste (1-beta) em função do tamanho do efeito de Cohen, de 0 a 1.5. Curva sigmoidal cresce de 5% para próximo de 100%. Linha pontilhada marca o limiar convencional de 80%.</desc>
+          <rect x="0" y="0" width="440" height="280" fill="#ffffff"/>
+          <g stroke="#e2e8f0" stroke-width="1">
+            <line x1="60" y1="60" x2="420" y2="60"/>
+            <line x1="60" y1="105" x2="420" y2="105"/>
+            <line x1="60" y1="150" x2="420" y2="150"/>
+            <line x1="60" y1="195" x2="420" y2="195"/>
+          </g>
+          <line x1="60" y1="240" x2="420" y2="240" stroke="#0f172a" stroke-width="1.4"/>
+          <line x1="60" y1="40" x2="60" y2="240" stroke="#0f172a" stroke-width="1.4"/>
+          <g font-family="system-ui, sans-serif" font-size="11" fill="#475569">
+            <text x="50" y="244" text-anchor="end">0,0</text>
+            <text x="50" y="199" text-anchor="end">0,25</text>
+            <text x="50" y="154" text-anchor="end">0,50</text>
+            <text x="50" y="109" text-anchor="end">0,75</text>
+            <text x="50" y="64" text-anchor="end">1,00</text>
+            <text x="60" y="258" text-anchor="middle">0,0</text>
+            <text x="120" y="258" text-anchor="middle">0,3</text>
+            <text x="180" y="258" text-anchor="middle">0,5</text>
+            <text x="240" y="258" text-anchor="middle">0,8</text>
+            <text x="300" y="258" text-anchor="middle">1,0</text>
+            <text x="360" y="258" text-anchor="middle">1,2</text>
+            <text x="420" y="258" text-anchor="middle">1,5</text>
+          </g>
+          <text x="240" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Tamanho do efeito (d de Cohen)</text>
+          <text x="18" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a" transform="rotate(-90 18 140)">Poder (1 − β)</text>
+          <line x1="60" y1="96" x2="420" y2="96" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="420" y="90" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" fill="#475569">limiar 80%</text>
+          <path d="M 60 231 C 100 229, 130 222, 160 205 C 190 188, 210 165, 230 138 C 250 112, 270 90, 295 75 C 320 64, 360 56, 420 50" stroke="#2563eb" stroke-width="2.4" fill="none"/>
+          <circle cx="248" cy="96" r="4.5" fill="#2563eb"/>
+          <text x="260" y="92" font-family="system-ui, sans-serif" font-size="11" fill="#1d4ed8">d ≈ 0,85 → 80% de poder (n por grupo ≈ 24)</text>
+        </svg>
+        <figcaption>Quanto maior o efeito real, mais fácil detectá-lo. Para efeito moderado (d = 0,5), recomenda-se n bem maior para alcançar 80% de poder.</figcaption>
+      </figure>
+
+      <p>O limiar de 80% não é mágico — é convenção desde o trabalho seminal de Jacob Cohen em 1988. Significa aceitar que, em 20% das vezes, um estudo com aquele tamanho não encontrará o efeito esperado. Para ensaios pivotais regulatórios, a Anvisa e o ICH E9 recomendam buscar 90%. Para estudos exploratórios, 70% pode ser tolerável. O problema é que muitos artigos brasileiros simplesmente <strong>não relatam o poder</strong>. O CONSORT 2010, padrão internacional para relatar ensaios randomizados, exige descrição do cálculo amostral no item 7a — e o item costuma vir em branco ou maquilado.</p>
+
+      <h2 id="tradeoff">O trade-off entre α e β: por que diminuir um aumenta o outro (a menos que…)</h2>
+      <p>Para um tamanho amostral fixo, α e β competem. Se você reduz α de 0,05 para 0,01 para ficar mais rigoroso contra falsos positivos, exige uma evidência maior para rejeitar H₀, e com isso deixa de detectar efeitos reais menores: β sobe. Se afrouxa α para 0,10, capta efeitos menores com mais frequência (β cai), mas aumenta os falsos positivos. Só há uma maneira de melhorar os dois simultaneamente: aumentar n.</p>
+
+      <figure class="chart" role="figure" aria-label="Distribuições sob H0 e H1 com regiões de erro tipo I e tipo II destacadas">
+        <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dist-title dist-desc">
+          <title id="dist-title">Distribuições H0 e H1 com regiões alfa e beta</title>
+          <desc id="dist-desc">Duas curvas normais sobrepostas. Curva da esquerda representa H0 centrada em 0; curva da direita representa H1 centrada em 3. Linha vertical no valor crítico separa as regiões. Área à direita do valor crítico sob H0 é alfa (falso positivo); área à esquerda do valor crítico sob H1 é beta (falso negativo).</desc>
+          <rect x="0" y="0" width="520" height="320" fill="#ffffff"/>
+          <line x1="40" y1="260" x2="500" y2="260" stroke="#0f172a" stroke-width="1.4"/>
+          <g font-family="system-ui, sans-serif" font-size="11" fill="#475569">
+            <text x="160" y="278" text-anchor="middle">μ₀ (H₀)</text>
+            <text x="360" y="278" text-anchor="middle">μ₁ (H₁)</text>
+          </g>
+          <defs>
+            <clipPath id="alphaClip">
+              <rect x="297" y="40" width="120" height="220"/>
+            </clipPath>
+            <clipPath id="betaClip">
+              <rect x="200" y="40" width="97" height="220"/>
+            </clipPath>
+          </defs>
+          <path d="M 40 260 Q 100 258 130 240 Q 150 220 160 130 Q 170 220 190 240 Q 220 258 280 260 L 280 260 Z" fill="#dbeafe" opacity="0.55"/>
+          <path d="M 40 260 Q 100 258 130 240 Q 150 220 160 130 Q 170 220 190 240 Q 220 258 280 260" stroke="#2563eb" stroke-width="2.2" fill="none"/>
+          <path d="M 240 260 Q 300 258 330 240 Q 350 220 360 130 Q 370 220 390 240 Q 420 258 480 260 L 480 260 Z" fill="#fce7f3" opacity="0.55"/>
+          <path d="M 240 260 Q 300 258 330 240 Q 350 220 360 130 Q 370 220 390 240 Q 420 258 480 260" stroke="#be185d" stroke-width="2.2" fill="none"/>
+          <g clip-path="url(#alphaClip)">
+            <path d="M 40 260 Q 100 258 130 240 Q 150 220 160 130 Q 170 220 190 240 Q 220 258 280 260 L 280 260 Z" fill="#dc2626" opacity="0.55"/>
+          </g>
+          <g clip-path="url(#betaClip)">
+            <path d="M 240 260 Q 300 258 330 240 Q 350 220 360 130 Q 370 220 390 240 Q 420 258 480 260 L 480 260 Z" fill="#f59e0b" opacity="0.55"/>
+          </g>
+          <line x1="297" y1="60" x2="297" y2="260" stroke="#0f172a" stroke-width="1.4" stroke-dasharray="5,4"/>
+          <text x="297" y="52" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#0f172a">valor crítico</text>
+          <g font-family="system-ui, sans-serif" font-size="11">
+            <rect x="40" y="20" width="14" height="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+            <text x="60" y="29" fill="#0f172a">H₀ verdadeira</text>
+            <rect x="160" y="20" width="14" height="10" fill="#fce7f3" stroke="#be185d" stroke-width="1"/>
+            <text x="180" y="29" fill="#0f172a">H₁ verdadeira</text>
+            <rect x="290" y="20" width="14" height="10" fill="#dc2626" opacity="0.55"/>
+            <text x="310" y="29" fill="#7f1d1d">α (erro tipo I)</text>
+            <rect x="390" y="20" width="14" height="10" fill="#f59e0b" opacity="0.55"/>
+            <text x="410" y="29" fill="#7c2d12">β (erro tipo II)</text>
+          </g>
+          <text x="260" y="304" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">estatística do teste →</text>
+        </svg>
+        <figcaption>Mover o valor crítico para a direita reduz α mas aumenta β. Aumentar n afasta as curvas e diminui os dois ao mesmo tempo.</figcaption>
+      </figure>
+
+      <p>Geometricamente, é fácil ver: as duas curvas representam as distribuições da estatística do teste sob H₀ (azul) e sob H₁ (rosa). O ponto vertical é o valor crítico — a partir dele, rejeitamos H₀. A área vermelha sob a curva azul à direita é α; a área amarela sob a curva rosa à esquerda é β. Deslocar o valor crítico para a direita encolhe α e infla β. Deslocar para a esquerda faz o contrário. <strong>Aumentar n</strong> estreita ambas as curvas, afastando-as no eixo, e é a única forma de reduzir α e β simultaneamente.</p>
+
+      <h2 id="amostra">Como calcular n para garantir 80% de poder</h2>
+      <p>O cálculo amostral começa pela pergunta clínica: que diferença vale a pena detectar? Em um ensaio comparando pressão arterial entre dois grupos, talvez você precise capturar uma redução de 5 mmHg na média da pressão sistólica. Suponha que o desvio padrão esperado em cada grupo seja 15 mmHg. O tamanho do efeito padronizado de Cohen é d = 5 ÷ 15 ≈ 0,33 — um efeito pequeno-moderado.</p>
+      <p>Para detectar esse efeito com 80% de poder, α = 0,05 (bicaudal) e teste t de duas amostras independentes, a fórmula clássica devolve aproximadamente 144 pacientes por grupo — total de 288. Reduzir esse cálculo para 80 pacientes totais, como aparece em muitos protocolos de iniciação científica, leva o poder real para algo em torno de 35%, ou seja, mais probabilidade de erro tipo II do que de acerto. A nossa <a href="/tamanho-amostra.html">calculadora de tamanho amostral</a> resolve essa conta em segundos, e a <a href="/teste-t.html">calculadora de teste t</a> permite simular o que aconteceria com o p caso o efeito real fosse menor que o esperado.</p>
+      <p>Vale lembrar: o tamanho de efeito assumido no cálculo precisa ser plausível, não otimista. Inflar d no cálculo para reduzir n é uma forma comum de auto-engano. Use estimativas de meta-análises ou estudos piloto, e sempre faça análises de sensibilidade — "e se o efeito real for metade do estimado, qual o meu poder?" Para desfechos binários (cura sim/não, evento sim/não), use a <a href="/teste-proporcao.html">calculadora de proporção</a> ou o <a href="/qui-quadrado.html">teste qui-quadrado</a>; para experimentos comparando taxas de conversão em interfaces digitais, a matemática é a mesma do <a href="/teste-ab.html">teste A/B</a> usado em marketing.</p>
+
+      <h2 id="alpha-justify">Por que 5% e 80%? E quando ajustar (Bonferroni, sequencial, equivalência)</h2>
+      <p>O valor 5% para α vem de uma sugestão informal de Ronald Fisher em 1925, repetida tantas vezes que virou padrão. Não há nada de sagrado nele. Em pesquisa básica exploratória, alguns campos usam α = 0,10. Em física de partículas, exige-se 5 sigma — algo como 0,0000003. Em ensaios clínicos pivotais, 0,05 segue como padrão regulatório, mas as agências consideram requisitos adicionais: replicação, plausibilidade biológica, magnitude clínica do efeito.</p>
+      <p>O 80% para poder também é convencional, vindo de Cohen. A escolha entre 80% e 90% reflete o quanto o desfecho é crítico e o quanto é caro errar por tipo II. Ensaios <strong>sequenciais</strong>, em que análises interinas decidem se o estudo continua ou para por eficácia/futilidade, usam ajustes específicos para preservar α global (correções de O'Brien-Fleming, Pocock).</p>
+      <p>Há um caso especial: ensaios de <strong>equivalência</strong> ou <strong>não inferioridade</strong>. Neles, a pergunta clínica é "o tratamento novo é tão bom quanto o padrão dentro de uma margem aceitável". A hipótese nula muda — passa a ser "o novo é pior por mais que a margem" — e a interpretação de erros tipo I e II se inverte em relação ao ensaio de superioridade. É comum ver protocolos mal escritos que misturam os dois quadros.</p>
+
+      <h2 id="multiplas">Comparações múltiplas: o erro tipo I acumulado</h2>
+      <p>Se você roda um único teste com α = 0,05, sua chance de falso positivo é 5%. Se roda 20 testes independentes sobre os mesmos dados — coisa comum em ensaios com múltiplos endpoints, subgrupos e tempos —, a chance de pelo menos um falso positivo é 1 − (0,95)²⁰ ≈ 64%. Em outras palavras: rodando bastante teste, a probabilidade de "achar alguma coisa" só por acaso vira a regra, não a exceção. Esse fenômeno é a <strong>inflação do erro tipo I familiar</strong>.</p>
+      <p>As correções clássicas tentam controlar isso. A <strong>correção de Bonferroni</strong> divide α pelo número de testes: para manter 5% global em 20 endpoints, cada teste passa a usar 0,0025. É simples e conservador — diminui muito o poder. O <strong>método de Holm</strong> ordena os p-valores e aplica Bonferroni de forma escalonada, ganhando algum poder. O controle do <strong>FDR (False Discovery Rate)</strong> de Benjamini-Hochberg, padrão em estudos genômicos e em ômicas, controla a fração esperada de falsos positivos entre as descobertas, não a probabilidade de ocorrer pelo menos um — abordagem mais permissiva e útil quando muitos efeitos verdadeiros são esperados.</p>
+      <p>O CONSORT exige declarar endpoints primários e secundários no protocolo. Um RCT decente fixa <em>um</em> endpoint primário (ou uma família pequena com correção pré-especificada) e relata o resto como exploratório, sem fazer correção formal mas também sem usar como base para decisões regulatórias. Ensaios que mudam o endpoint primário após ver os dados — prática conhecida como <em>HARKing</em> ou <em>outcome switching</em> — destroem a integridade do controle de α.</p>
+
+      <h2 id="boas-praticas">Boas práticas em estudos clínicos brasileiros</h2>
+      <p>Quem planeja ou avalia ensaios clínicos no Brasil tem três referências obrigatórias: o <strong>CONSORT 2010</strong> (Schulz, Altman e Moher), checklist de 25 itens para o relato de ensaios randomizados; a <strong>ICH E9</strong>, diretriz internacional para princípios estatísticos em estudos clínicos, adotada pela Anvisa; e a <strong>RDC nº 9/2015</strong> da Anvisa, que regulamenta a execução de ensaios clínicos no país. Como prática mínima, recomendamos:</p>
+      <ul>
+        <li><strong>Pré-especificar o protocolo</strong>: registre o estudo no <a href="https://ensaiosclinicos.gov.br" rel="noopener">ReBEC</a> ou em registro internacional (ClinicalTrials.gov) antes de iniciar o recrutamento. Inclua endpoint primário, secundários, plano de análise e cálculo amostral.</li>
+        <li><strong>Calcular tamanho amostral honestamente</strong>: use estimativas plausíveis de efeito, justifique escolhas e relate o cálculo no artigo final. Ferramentas como a nossa <a href="/tamanho-amostra.html">calculadora de tamanho amostral</a> ajudam a explorar cenários.</li>
+        <li><strong>Cegamento (blinding)</strong>: triplo cego — paciente, avaliador e estatístico — é o padrão-ouro para reduzir vieses que inflam falsos positivos.</li>
+        <li><strong>Análise por intenção de tratar</strong>: incluir todos os randomizados, mesmo os que abandonaram, preserva o equilíbrio dos grupos e dá uma estimativa conservadora do efeito.</li>
+        <li><strong>Relatar IC além do p</strong>: o intervalo de confiança transmite a magnitude e a precisão do efeito. Use a nossa <a href="/teste-t.html">calculadora de teste t</a> para gerar ambos.</li>
+        <li><strong>Avaliação de risco de viés</strong>: para ensaios randomizados, aplique a ferramenta <strong>RoB 2.0</strong> de Sterne e colegas; ela cobre processos de randomização, desvios de protocolo, dados ausentes, medição do desfecho e seleção do resultado relatado.</li>
+      </ul>
+      <p>Quem se acostuma a esse ciclo — protocolo registrado, cálculo amostral honesto, análise pré-especificada, relato CONSORT — produz pesquisa em que rejeitar ou reter H₀ significa algo. E isso é a base para que o sistema de saúde tome decisões sobre incorporar ou rejeitar tecnologias com algum grau de confiança.</p>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Lembrete prático
+        </div>
+        <p>Antes de rodar um teste, pergunte-se: qual o tamanho de efeito que faria diferença clínica? Qual o n necessário para 80% de poder? Esses dois números, decididos antes da coleta, são mais importantes que o p ao final. Sem eles, o p é só um número sem contexto.</p>
+      </div>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>O que é mais grave: erro tipo I ou tipo II?</summary>
+          <div class="faq__answer"><p>Depende do contexto clínico. Em fases iniciais de aprovação de um medicamento, o erro tipo I — aprovar algo que não funciona — costuma ser mais grave, pois expõe pacientes a tratamentos inúteis e com possíveis efeitos adversos. Já em ensaios de triagem ou em doenças sem alternativa terapêutica, o erro tipo II — descartar um tratamento útil — pode custar vidas. A escolha de α e β deve refletir essa assimetria.</p></div>
+        </details>
+        <details>
+          <summary>Por que ensaios clínicos calculam poder antes de começar?</summary>
+          <div class="faq__answer"><p>Porque um estudo sem poder suficiente quase certamente vai retornar p &gt; 0,05, mesmo quando o tratamento funciona. Calcular o tamanho amostral para garantir 80% ou 90% de poder evita gastar recursos e expor pacientes a um experimento que, por construção, nasce incapaz de detectar o efeito procurado. É uma exigência ética e regulatória da ICH E9 e do CONSORT.</p></div>
+        </details>
+        <details>
+          <summary>Como Bonferroni corrige o erro tipo I em endpoints múltiplos?</summary>
+          <div class="faq__answer"><p>Bonferroni divide o α global pelo número de testes. Se você quer manter o α familiar em 5% e tem cinco endpoints primários, cada teste passa a usar 0,05 ÷ 5 = 0,01 como limite. O método é conservador mas garante que a probabilidade de pelo menos um falso positivo no conjunto não ultrapasse 5%. Alternativas como Holm e FDR (Benjamini-Hochberg) preservam mais poder, especialmente quando muitos efeitos verdadeiros são esperados.</p></div>
+        </details>
+        <details>
+          <summary>Se p &gt; 0,05, posso concluir que o tratamento não funciona?</summary>
+          <div class="faq__answer"><p>Não. Um p alto significa apenas que os dados são compatíveis com a hipótese nula, não que ela é verdadeira. Ausência de evidência não é evidência de ausência. Para concluir que o tratamento não tem efeito clinicamente relevante, é preciso um estudo de equivalência ou de não inferioridade, com tamanho amostral planejado para essa pergunta específica.</p></div>
+        </details>
+        <details>
+          <summary>Qual o poder mínimo aceitável em um ensaio brasileiro?</summary>
+          <div class="faq__answer"><p>A convenção internacional, adotada pela Anvisa e pela ICH E9, é 80%. Em ensaios pivotais de fase III, costuma-se buscar 90%. Valores abaixo de 80% são tolerados apenas em estudos exploratórios ou em condições muito específicas, com justificativa formal no protocolo registrado no ReBEC.</p></div>
+        </details>
+        <details>
+          <summary>Como o tamanho amostral afeta o erro tipo II?</summary>
+          <div class="faq__answer"><p>Quanto maior a amostra, menor o erro padrão da estimativa e mais estreitas as distribuições de H₀ e H₁, o que diminui a sobreposição entre elas e reduz β. Em termos práticos, dobrar a amostra reduz substancialmente β para um mesmo tamanho de efeito; quadruplicar pode levar o poder de 50% para mais de 95%. Use a nossa <a href="/tamanho-amostra.html">calculadora de tamanho amostral</a> para simular.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre α e o valor-p?</summary>
+          <div class="faq__answer"><p>α é o limite que você define antes de ver os dados — a probabilidade de erro tipo I que está disposto a tolerar, geralmente 5%. O valor-p é calculado a partir dos dados observados e representa a probabilidade de obter um resultado tão extremo quanto o seu se H₀ fosse verdadeira. Você rejeita H₀ quando o valor-p é menor que α.</p></div>
+        </details>
+      </div>
+
+      <h2 id="referencias">Referências</h2>
+      <ul>
+        <li>Schulz KF, Altman DG, Moher D, for the CONSORT Group. <em>CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials</em>. BMJ. 2010;340:c332.</li>
+        <li>Cohen J. <em>Statistical Power Analysis for the Behavioral Sciences</em>. 2ª ed. Hillsdale: Lawrence Erlbaum; 1988.</li>
+        <li>International Conference on Harmonisation. <em>ICH Harmonised Tripartite Guideline E9: Statistical Principles for Clinical Trials</em>. 1998.</li>
+        <li>Anvisa. <em>RDC nº 9, de 20 de fevereiro de 2015</em>: dispõe sobre o regulamento para a realização de ensaios clínicos com medicamentos no Brasil. Brasília: Anvisa; 2015.</li>
+        <li>Sterne JAC, Savović J, Page MJ, Elbers RG, Blencowe NS, Boutron I, et al. <em>RoB 2: a revised tool for assessing risk of bias in randomised trials</em>. BMJ. 2019;366:l4898.</li>
+        <li>Altman DG, Bland JM. <em>Absence of evidence is not evidence of absence</em>. BMJ. 1995;311(7003):485.</li>
+        <li>Bussab WO, Morettin PA. <em>Estatística Básica</em>. 9ª ed. São Paulo: Saraiva; 2017.</li>
+      </ul>
+
+      <div class="related">
+        <h2>Calculadoras citadas neste artigo</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-t.html"><h3>Teste t de Student</h3><p>Compare médias entre grupos clínicos — ideal para RCTs com desfechos contínuos.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra.html"><h3>Tamanho de Amostra</h3><p>Calcule n para garantir 80% ou 90% de poder estatístico.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Para desfechos binários — cura, evento, mortalidade.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Precisa decidir se o efeito é real?</h2>
+        <p>Use as calculadoras e veja o p, o IC e o poder do seu estudo em segundos.</p>
+        <a class="btn btn--light btn--lg" href="/#calculadoras">Ver todas as calculadoras</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

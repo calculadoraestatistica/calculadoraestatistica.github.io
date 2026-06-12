@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7516029395999799">
+<title>Correlação não implica causalidade: 7 armadilhas com dados brasileiros | Calculadora Estatística</title>
+<meta name="description" content="Correlação não é causa: 7 armadilhas comuns em dados brasileiros (confundidores, causalidade reversa, paradoxo de Simpson) com exemplos práticos e gráficos.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/artigos/correlacao-causalidade.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Correlação não implica causalidade: 7 armadilhas com dados brasileiros">
+<meta property="og:description" content="Sete armadilhas frequentes ao interpretar correlações em pesquisa brasileira, com exemplos práticos, gráficos e um checklist para evitar conclusões erradas.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/artigos/correlacao-causalidade.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Correlação não implica causalidade: 7 armadilhas com dados brasileiros",
+  "description": "Sete armadilhas frequentes ao interpretar correlações em pesquisa brasileira, com exemplos práticos, gráficos e um checklist para evitar conclusões erradas.",
+  "inLanguage": "pt-BR",
+  "url": "https://calculadoraestatistica.com.br/artigos/correlacao-causalidade.html",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "author": {"@type": "Person", "name": "Vinícius Vianna"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculadora Estatística",
+    "logo": {"@type": "ImageObject", "url": "https://calculadoraestatistica.com.br/favicon-512.png"}
+  },
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://calculadoraestatistica.com.br/artigos/correlacao-causalidade.html"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Artigos","item":"https://calculadoraestatistica.com.br/#artigos"},
+    {"@type":"ListItem","position":3,"name":"Correlação não implica causalidade","item":"https://calculadoraestatistica.com.br/artigos/correlacao-causalidade.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Se r é estatisticamente significativo, posso concluir causalidade?","acceptedAnswer":{"@type":"Answer","text":"Não. Um r significativo apenas indica que a associação observada provavelmente não é fruto do acaso da amostragem. Ele nada diz sobre direção causal, sobre confundidores ou sobre o desenho do estudo. Em estudos observacionais, causalidade depende de um argumento que envolve teoria, desenho e técnicas de identificação, não só do valor-p."}},
+    {"@type":"Question","name":"Como saber se há confundidor?","acceptedAnswer":{"@type":"Answer","text":"Procure variáveis que influenciam tanto a suposta causa quanto o suposto efeito e que não estão no caminho causal entre as duas. Liste candidatos a partir da teoria da área, desenhe um diagrama causal (DAG) e tente medir essas variáveis. Se uma variável plausível como temperatura, renda ou idade pode gerar a correlação por conta própria, ela precisa ser controlada antes de qualquer afirmação causal."}},
+    {"@type":"Question","name":"Posso 'controlar' o confundidor com regressão?","acceptedAnswer":{"@type":"Answer","text":"Em parte. Incluir um confundidor como covariável em uma regressão remove a parcela linear da associação que ele explica, mas só funciona se a variável foi bem medida, se a relação é razoavelmente linear e se não há confundidores adicionais não observados. Variáveis intermediárias ou colisores podem, ao contrário, introduzir vieses se forem incluídas sem critério."}},
+    {"@type":"Question","name":"Qual valor de r já é considerado 'forte' em ciências sociais?","acceptedAnswer":{"@type":"Answer","text":"Em ciências sociais, valores de r entre 0,10 e 0,30 já são comuns e relevantes; entre 0,30 e 0,50 são fortes; acima de 0,50 são raros fora de medidas muito relacionadas. Em ciências físicas ou de engenharia, o padrão é mais alto, com r acima de 0,80 considerado típico para leis bem estabelecidas."}},
+    {"@type":"Question","name":"Como o paradoxo de Simpson aparece em dados de saúde pública?","acceptedAnswer":{"@type":"Answer","text":"Aparece quando uma associação observada na população total se inverte ou desaparece dentro de subgrupos relevantes, como faixa etária, sexo ou estado. Tratamentos que parecem piores no agregado podem ser melhores em todos os subgrupos quando há diferença sistemática na composição dos pacientes. Por isso a estratificação por variáveis clínicas importantes é uma etapa obrigatória da análise."}},
+    {"@type":"Question","name":"O que diferencia um experimento de um estudo observacional?","acceptedAnswer":{"@type":"Answer","text":"Em um experimento o pesquisador atribui o tratamento, em geral por sorteio, o que equilibra confundidores observados e não observados. Em um estudo observacional o tratamento já aconteceu por escolha dos sujeitos ou por circunstância, e a comparação entre grupos pode refletir essas diferenças prévias. Por isso experimentos são o padrão-ouro para inferência causal, e estudos observacionais exigem técnicas adicionais para se aproximar dessa qualidade."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/artigos/">Artigos</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/#artigos">Artigos</a></li>
+          <li>Correlação ≠ causalidade</li>
+        </ol>
+      </nav>
+      <h1>Correlação não implica causalidade: 7 armadilhas com dados brasileiros</h1>
+      <p class="lead">Por que duas variáveis podem caminhar juntas sem que uma cause a outra — e como evitar conclusões apressadas em pesquisas com dados nacionais.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+
+    <article class="prose">
+
+      <p class="article__lead">A frase "correlação não implica causalidade" virou meme, e mesmo assim continua aparecendo em manchete, em projeto de pesquisa e em decisão de política pública. Este artigo mostra <strong>sete armadilhas concretas</strong>, com exemplos em dados brasileiros, e um checklist para você usar antes de afirmar que um <em>r</em> alto "explica" alguma coisa.</p>
+      <p class="article__byline">Por Vinícius Vianna · 12 de junho de 2026 · Leitura: ~12 min</p>
+
+      <nav class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#motivacao">Por que esta frase é repetida tanto</a></li>
+          <li><a href="#o-que-significa">O que correlação realmente é</a></li>
+          <li><a href="#armadilhas">As 7 armadilhas em pesquisa brasileira</a></li>
+          <li><a href="#como-evitar">Como evitar: checklist prático</a></li>
+          <li><a href="#quando-causalidade">Quando podemos inferir causalidade</a></li>
+          <li><a href="#caso-brasil">Estudo de caso: PIB e bolsas escolares</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="motivacao">Por que esta frase é repetida tanto (e por que continua importante)</h2>
+      <p>Imagine a seguinte manchete, que poderia tranquilamente sair em um portal brasileiro: <em>"Cidades com mais sorveterias têm mais afogamentos na praia, aponta estudo"</em>. O número é verdadeiro — basta cruzar dados municipais do litoral catarinense ou do Rio Grande do Norte para encontrar uma correlação positiva considerável entre o número de sorveterias por habitante e o número de resgates em praia no verão. A correlação é real. A conclusão de que "sorveteria causa afogamento" é absurda. Há uma terceira variável tão óbvia que mal precisa ser explicada: a temperatura. Quando faz calor, mais gente come sorvete <em>e</em> mais gente entra no mar. As duas séries sobem juntas porque dependem de uma causa comum.</p>
+      <p>O exemplo do sorvete é o pão e manteiga das aulas de estatística porque ele expõe, com clareza didática, algo que aparece o tempo inteiro em estudos econômicos, epidemiológicos, educacionais e de marketing no Brasil — só que ali a terceira variável não está tão visível. O detalhe que dá vida a este artigo é que <strong>os mesmos erros se repetem em pesquisas sérias</strong>, com dados do IBGE, do Datasus, do Inep e de surveys de empresas, porque a tentação de transformar uma associação em explicação é grande, sobretudo quando o resultado "bate" com nossa intuição.</p>
+
+      <h2 id="o-que-significa">O que correlação realmente é (e o que não é)</h2>
+      <p>A <strong>correlação de Pearson</strong> mede a força e a direção da associação <em>linear</em> entre duas variáveis numéricas. O coeficiente <em>r</em> varia entre −1 e +1: zero indica ausência de relação linear, valores positivos indicam que as duas variáveis tendem a crescer juntas, e valores negativos indicam que uma sobe quando a outra desce. Em ciências sociais brasileiras é comum encontrar <em>r</em> entre 0,15 e 0,40 para associações "interessantes"; em estudos físicos, biológicos ou de engenharia, valores acima de 0,80 são esperados. Se você precisa calcular <em>r</em> com seus próprios dados, a <a href="/correlacao.html">Calculadora de Correlação de Pearson</a> do site faz a conta no navegador, sem enviar nada para servidor algum.</p>
+      <p>O que <em>r</em> <strong>não</strong> faz: ele não indica causalidade, não captura relações não lineares (uma parábola perfeita pode ter <em>r</em> próximo de zero), não distingue entre uma associação causada por uma terceira variável e uma associação direta, e não diz qual variável vem antes na cadeia causal. É uma estatística descritiva poderosa, mas só descritiva. Tirar conclusões causais a partir dela exige outras informações — teoria, desenho do estudo, técnicas de identificação — que não estão dentro do número.</p>
+
+      <h2 id="armadilhas">As 7 armadilhas que aparecem em pesquisa brasileira</h2>
+      <p>Apresento a seguir sete erros frequentes na interpretação de correlações, todos exemplificados com situações que aparecem ou poderiam facilmente aparecer em estudos brasileiros. Em cada armadilha, indico o tipo de teste ou ferramenta apropriado e onde encontrá-lo no site.</p>
+
+      <h3 id="ar1">1. Confundidor: a terceira variável escondida</h3>
+      <p>É o caso clássico do sorvete e do afogamento, mas vai muito além. A correlação positiva entre número de hospitais por município e taxa de mortalidade hospitalar não significa que hospital mate gente — significa que cidades com hospitais grandes recebem casos mais graves, transferidos de cidades vizinhas. A correlação entre consumo de café e infarto desaparece quando você controla por tabagismo, porque quem fuma também bebe mais café. <strong>Em quase toda pesquisa observacional há pelo menos um confundidor plausível</strong>, e o exercício mental obrigatório é listar todos os candidatos antes de olhar os dados. Se a correlação observada é compatível com a influência de uma terceira variável que afeta as duas, você não tem causalidade.</p>
+
+      <h3 id="ar2">2. Causalidade reversa: quem causa quem?</h3>
+      <p>Renda e escolaridade são positivamente correlacionadas em quase todo conjunto de microdados do Brasil — PNAD Contínua, Censo, Caged. A interpretação típica é que estudar mais leva a ganhar mais. Mas a relação também vai no sentido inverso: famílias mais ricas conseguem manter os filhos estudando por mais tempo, pagar curso preparatório, financiar mestrado. Pior, a relação verdadeira é provavelmente <em>bidirecional</em>: cada variável alimenta a outra ao longo da vida.</p>
+      <p>Outro exemplo: a correlação entre participação política e trabalho formal. Pessoas com emprego formal podem ter mais tempo, recursos e segurança para participar; mas, simetricamente, quem participa pode ter mais acesso a redes que abrem vagas formais. Sem dados longitudinais — medidas repetidas no tempo, como em estudos de painel — é virtualmente impossível separar as duas direções.</p>
+
+      <h3 id="ar3">3. Restrição de range: o "telescópio invertido"</h3>
+      <p>Suponha que você queira estudar a correlação entre nota do Enem e renda familiar usando apenas estudantes que entraram na USP em determinado ano. Você vai encontrar uma correlação muito mais fraca do que a que existe na população geral de candidatos. Não porque a relação real é fraca, e sim porque você está olhando para uma fatia muito estreita do espectro: quem entra na USP tem nota relativamente alta e, em média, renda também acima da média nacional. Você cortou a variabilidade da renda <em>e</em> da nota, e o coeficiente de correlação naturalmente despenca.</p>
+      <p>Esse fenômeno, chamado <em>restrição de range</em>, é a razão pela qual estudos com amostras muito homogêneas costumam encontrar <em>r</em> baixo e concluir, erradamente, que "não há relação". Antes de interpretar um <em>r</em>, pergunte: a amostra cobre toda a faixa de interesse das duas variáveis? Se não, o <em>r</em> que você está vendo é uma estimativa enviesada. Para calcular o intervalo de confiança do <em>r</em> e ter uma ideia da incerteza, a <a href="/intervalo-confianca.html">Calculadora de Intervalo de Confiança</a> via transformação de Fisher z é o caminho.</p>
+
+      <h3 id="ar4">4. Outliers que inflam (ou desinflam) o r</h3>
+      <p>Um único ponto fora da nuvem pode mudar dramaticamente o coeficiente. Veja o gráfico abaixo: à esquerda, uma nuvem aproximadamente sem padrão, com <em>r</em> ≈ 0,15; à direita, exatamente os mesmos dados acrescidos de <strong>um único outlier</strong> no canto superior direito, e o <em>r</em> salta para 0,72. A reta de regressão muda completamente de inclinação. Sem investigar esse ponto — verificar se é erro de digitação, observação legítima rara ou caso especial — qualquer interpretação é frágil.</p>
+
+      <figure class="chart">
+        <svg viewBox="0 0 520 320" role="img" aria-label="Dois gráficos de dispersão lado a lado: o da esquerda mostra dados sem padrão claro com r aproximadamente 0,15; o da direita mostra os mesmos dados com um outlier no canto superior direito, com r de 0,72.">
+          <rect x="0" y="0" width="520" height="320" fill="#ffffff"/>
+          <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Sem outlier — r = 0,15</text>
+          <text x="390" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Com outlier — r = 0,72</text>
+          <g>
+            <line x1="40" y1="280" x2="220" y2="280" stroke="#9ca3af" stroke-width="1"/>
+            <line x1="40" y1="50"  x2="40"  y2="280" stroke="#9ca3af" stroke-width="1"/>
+            <text x="130" y="305" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">Variável X</text>
+            <text x="20"  y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280" transform="rotate(-90 20 170)">Variável Y</text>
+            <circle cx="60"  cy="220" r="3.5" fill="#2563eb"/>
+            <circle cx="75"  cy="195" r="3.5" fill="#2563eb"/>
+            <circle cx="92"  cy="245" r="3.5" fill="#2563eb"/>
+            <circle cx="108" cy="180" r="3.5" fill="#2563eb"/>
+            <circle cx="120" cy="225" r="3.5" fill="#2563eb"/>
+            <circle cx="135" cy="200" r="3.5" fill="#2563eb"/>
+            <circle cx="148" cy="165" r="3.5" fill="#2563eb"/>
+            <circle cx="160" cy="235" r="3.5" fill="#2563eb"/>
+            <circle cx="172" cy="175" r="3.5" fill="#2563eb"/>
+            <circle cx="185" cy="210" r="3.5" fill="#2563eb"/>
+            <circle cx="198" cy="190" r="3.5" fill="#2563eb"/>
+            <circle cx="210" cy="220" r="3.5" fill="#2563eb"/>
+            <line x1="50" y1="215" x2="215" y2="195" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+          </g>
+          <g transform="translate(260 0)">
+            <line x1="40" y1="280" x2="220" y2="280" stroke="#9ca3af" stroke-width="1"/>
+            <line x1="40" y1="50"  x2="40"  y2="280" stroke="#9ca3af" stroke-width="1"/>
+            <text x="130" y="305" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">Variável X</text>
+            <circle cx="60"  cy="220" r="3.5" fill="#2563eb"/>
+            <circle cx="75"  cy="195" r="3.5" fill="#2563eb"/>
+            <circle cx="92"  cy="245" r="3.5" fill="#2563eb"/>
+            <circle cx="108" cy="180" r="3.5" fill="#2563eb"/>
+            <circle cx="120" cy="225" r="3.5" fill="#2563eb"/>
+            <circle cx="135" cy="200" r="3.5" fill="#2563eb"/>
+            <circle cx="148" cy="165" r="3.5" fill="#2563eb"/>
+            <circle cx="160" cy="235" r="3.5" fill="#2563eb"/>
+            <circle cx="172" cy="175" r="3.5" fill="#2563eb"/>
+            <circle cx="185" cy="210" r="3.5" fill="#2563eb"/>
+            <circle cx="198" cy="190" r="3.5" fill="#2563eb"/>
+            <circle cx="210" cy="220" r="3.5" fill="#2563eb"/>
+            <circle cx="210" cy="70" r="5.5" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+            <text x="195" y="62" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" fill="#7f1d1d">outlier</text>
+            <line x1="50" y1="240" x2="215" y2="120" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+          </g>
+        </svg>
+        <figcaption>Um único ponto extremo muda a inclinação da reta e infla o <em>r</em>. Em dados reais, esse ponto pode ser um erro, uma observação legítima rara — ou uma cidade que não deveria estar na amostra.</figcaption>
+      </figure>
+
+      <p>A recomendação prática: sempre olhe o diagrama de dispersão antes de divulgar um coeficiente. Reportar o <em>r</em> sem mostrar a nuvem é estatística cega.</p>
+
+      <h3 id="ar5">5. Paradoxo de Simpson: o sinal que muda quando você agrega</h3>
+      <p>O caso clássico veio da Universidade de Berkeley em 1973: agregada, a taxa de admissão de homens parecia maior que a de mulheres, sugerindo discriminação. Quando os dados foram quebrados por departamento, na maioria deles a taxa de admissão de mulheres era <em>igual ou maior</em>. A explicação: mulheres se candidatavam, em maior proporção, a departamentos mais competitivos.</p>
+      <p>O mesmo padrão aparece em vestibulares brasileiros. Olhando uma universidade como UFRGS ou UFRJ no agregado, pode surgir uma diferença de aprovação por gênero que parece refletir desigualdade. Mas se você estratifica por curso, a diferença muitas vezes some ou inverte, porque a distribuição de candidatos por curso é diferente entre homens e mulheres. Mesmo fenômeno em saúde pública: a taxa de mortalidade por COVID-19 em estados do Nordeste, agregada, é menor que a de estados do Sul; estratificada por faixa etária, a comparação muda, porque a estrutura demográfica é diferente.</p>
+      <p>Para variáveis categóricas em tabelas de contingência, o teste apropriado é o <a href="/qui-quadrado.html">qui-quadrado</a>, sempre acompanhado de uma análise estratificada por variáveis relevantes. Nunca confie em um teste global sem antes verificar se o sinal se mantém em subgrupos.</p>
+
+      <h3 id="ar6">6. Cherry-picking de variáveis: a "pesca" de correlações</h3>
+      <p>Se você calcular o coeficiente de correlação entre uma variável de interesse e cem outras variáveis, em média cinco delas vão ter <em>p</em> &lt; 0,05 só por acaso. Esse é o problema das <strong>comparações múltiplas</strong>, e ele é central em pesquisas que partem de bases grandes — como dados administrativos do Datasus ou microdados da PNAD — sem hipótese prévia clara. O pesquisador olha vinte associações, encontra três "significativas", e relata só essas. As outras dezessete viram nota de rodapé.</p>
+      <p>Existem ajustes formais para isso: a <strong>correção de Bonferroni</strong> divide o nível de significância pelo número de testes (rigorosa, mas conservadora), e o <strong>controle do FDR</strong> (False Discovery Rate, Benjamini–Hochberg) é menos rígido e mais usado em estudos exploratórios. Para evitar a armadilha de partida, registre a hipótese antes de olhar os dados — em estudos clínicos isso virou padrão; em ciências sociais ainda é raro, mas o caminho aponta para lá. Se a sua intenção é comparar médias entre dois grupos previamente definidos, o <a href="/teste-t.html">teste t de Student</a> é mais transparente do que pescar correlações até alguma "ficar significativa".</p>
+
+      <h3 id="ar7">7. Correlação espúria: variáveis sem nenhuma relação real</h3>
+      <p>Duas séries temporais que crescem juntas — ainda que por motivos completamente diferentes — vão exibir correlação altíssima. Importação de queijo francês, número de prêmios literários brasileiros, consumo de internet móvel, expectativa de vida, número de doutores titulados no Brasil: praticamente qualquer coisa que sobe ao longo dos anos correlaciona com qualquer outra coisa que sobe ao longo dos anos. O <em>r</em> não está mentindo — ele está apenas captando uma tendência comum no tempo, sem nenhuma relação substantiva entre as variáveis.</p>
+
+      <figure class="chart">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Gráfico de linhas mostrando duas séries temporais ascendentes entre 2010 e 2024, uma em azul e outra em laranja, com correlação 0,93 que não representa relação causal.">
+          <rect x="0" y="0" width="520" height="240" fill="#ffffff"/>
+          <text x="260" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Duas séries ascendentes, sem nada em comum</text>
+          <line x1="50" y1="200" x2="490" y2="200" stroke="#9ca3af" stroke-width="1"/>
+          <line x1="50" y1="40"  x2="50"  y2="200" stroke="#9ca3af" stroke-width="1"/>
+          <text x="50"  y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">2010</text>
+          <text x="170" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">2014</text>
+          <text x="290" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">2018</text>
+          <text x="410" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">2022</text>
+          <text x="488" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">2024</text>
+          <polyline points="50,180 80,172 110,160 140,150 170,140 200,128 230,120 260,108 290,98 320,88 350,80 380,72 410,64 440,56 470,50" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+          <polyline points="50,190 80,178 110,170 140,158 170,148 200,140 230,128 260,118 290,110 320,100 350,90 380,82 410,72 440,62 470,54" fill="none" stroke="#f97316" stroke-width="2.5"/>
+          <rect x="320" y="135" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+          <text x="400" y="155" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#92400e">r = 0,93</text>
+          <text x="400" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9.5" fill="#92400e">— significa NADA causalmente —</text>
+          <g font-family="system-ui, sans-serif" font-size="10" fill="#374151">
+            <rect x="60" y="42" width="14" height="3" fill="#2563eb"/>
+            <text x="80" y="46">Importação de queijo francês (€/kg)</text>
+            <rect x="60" y="58" width="14" height="3" fill="#f97316"/>
+            <text x="80" y="62">Prêmios literários brasileiros (qtde.)</text>
+          </g>
+        </svg>
+        <figcaption>Qualquer par de séries crescentes no mesmo período exibe <em>r</em> alto. A correlação é puramente espúria — vem só da tendência comum no tempo, não de relação real entre as variáveis.</figcaption>
+      </figure>
+
+      <p>O remédio técnico é trabalhar com séries <em>diferenciadas</em> (variações ano a ano) ou testar cointegração — não com os níveis brutos. O remédio conceitual é mais simples: pergunte se faz sentido teórico que uma variável afete a outra. Se a resposta é "absolutamente nenhum", desconfie do <em>r</em>, por mais bonito que ele seja.</p>
+
+      <h2 id="como-evitar">Como evitar: do que perguntar antes de acreditar em um r</h2>
+      <p>Antes de aceitar uma correlação como evidência de causa, passe pela lista abaixo. Ela não substitui um curso de inferência causal, mas filtra a maior parte dos erros corriqueiros:</p>
+      <ol class="steps">
+        <li><strong>Há uma terceira variável plausível?</strong> Liste pelo menos três candidatas a confundidor com base no que se conhece da área. Se alguma é difícil de descartar, suspenda o juízo causal.</li>
+        <li><strong>A direção causal faz sentido?</strong> Pergunte qual variável vem antes no tempo e quais argumentos teóricos sustentam essa ordem. Se as duas se influenciam mutuamente, declare isso abertamente.</li>
+        <li><strong>O range é representativo?</strong> A amostra cobre uma faixa relevante de cada variável? Se ela foi pré-selecionada — por aprovação em exame, por adesão a um programa, por critério clínico — o <em>r</em> pode estar artificialmente baixo.</li>
+        <li><strong>O sinal se mantém em subgrupos?</strong> Quebre os dados por sexo, idade, região, classe social, faixa de renda. Se a direção muda em algum subgrupo grande, você está vendo agregação.</li>
+        <li><strong>Tem teoria por trás (DAG)?</strong> Diagramas causais ajudam a explicitar quais variáveis precisam ser controladas e quais não devem. Ajustar pela variável errada — um colisor ou um mediador — introduz viés em vez de removê-lo.</li>
+        <li><strong>O tamanho de amostra suporta a conclusão?</strong> Em estudos observacionais, planeje desde o início quantas observações precisa para detectar o efeito esperado. A <a href="/tamanho-amostra.html">Calculadora de Tamanho de Amostra</a> ajuda nesse passo.</li>
+      </ol>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          O valor-p não te salva
+        </div>
+        <p>Um <em>r</em> estatisticamente significativo apenas indica que a associação observada provavelmente não é fruto do acaso amostral. Ele não responde nenhuma das perguntas acima sobre desenho, direção e confundimento. Significância é condição necessária — não suficiente — para conclusão causal.</p>
+      </div>
+
+      <h2 id="quando-causalidade">Quando podemos inferir causalidade?</h2>
+      <p>O padrão-ouro continua sendo o <strong>experimento controlado randomizado</strong>. Quando o pesquisador atribui o tratamento por sorteio, todos os confundidores observados e não observados se equilibram, em expectativa, entre os grupos. É por isso que ensaios clínicos randomizados dominam a medicina baseada em evidência, e por que testes A/B dominam o desenvolvimento de produto. Se você está nesse cenário, a <a href="/teste-t.html">Calculadora de teste t</a> e a <a href="/correlacao.html">Calculadora de Correlação</a> ajudam na análise da diferença entre grupos.</p>
+      <p>Quando experimento não é possível — em economia, epidemiologia, educação, sociologia — há técnicas de identificação que se aproximam dele em condições específicas:</p>
+      <ul>
+        <li><strong>Quasi-experimentos</strong> aproveitam variação "natural" do tratamento, como uma reforma educacional que afetou um estado mas não outro. Diferenças-em-diferenças e regressão descontínua são ferramentas centrais aqui.</li>
+        <li><strong>Variáveis instrumentais</strong> usam uma terceira variável correlacionada com o tratamento, mas que afeta o desfecho só por meio dele. Encontrar um instrumento válido é difícil e exige defesa cuidadosa.</li>
+        <li><strong>Modelos estruturais com DAGs explícitos</strong> formalizam quais ajustes são apropriados a partir da teoria causal assumida — o programa que Judea Pearl chama de "a revolução causal".</li>
+      </ul>
+      <p>Em pesquisa observacional clássica, os <strong>9 critérios de Bradford Hill</strong> (1965) seguem sendo uma referência prática para argumentar causalidade na ausência de experimento: força da associação, consistência entre estudos, especificidade, temporalidade, gradiente biológico (dose–resposta), plausibilidade, coerência com o que se sabe, evidência experimental quando existe, e analogia com casos parecidos. Nenhum dos critérios isolado prova causa; em conjunto, eles formam uma argumentação razoável.</p>
+
+      <h2 id="caso-brasil">Estudo de caso: a "correlação" entre PIB e bolsas escolares</h2>
+      <p>Vamos para um exemplo fictício, mas com a cara dos estudos brasileiros reais. Suponha que um pesquisador junte dados de painel das 27 unidades federativas (UFs) entre 2005 e 2023, e calcule a correlação entre o crescimento real do PIB estadual e a cobertura de programas de bolsa escolar (Bolsa Família, depois Auxílio Brasil) na população de idade escolar. Ele encontra <em>r</em> = 0,42 — positivo, considerável, estatisticamente significativo. Conclusão tentadora: "bolsas escolares estimulam o crescimento econômico das UFs".</p>
+      <p>Mas a lista de problemas é longa. Primeiro, há <strong>causalidade reversa</strong>: UFs em crescimento têm mais arrecadação e maior capacidade administrativa de operar programas sociais, então o crescimento pode causar a cobertura, não o contrário. Segundo, há <strong>confundidores</strong> regionais — UFs do Sul cresceram mais e também aderiram mais cedo aos programas, mas por motivos institucionais que pouco têm a ver com o programa em si. Terceiro, há <strong>tendência temporal comum</strong>: tanto PIB quanto cobertura cresceram nos anos 2000, e qualquer série que cresça nesse período exibe correlação alta com elas (lembre da armadilha 7). Quarto, há <strong>seleção de UFs</strong>: o pesquisador pode estar olhando apenas UFs com dados completos, e UFs com pior administração ficaram de fora.</p>
+      <p>Para sair desse atoleiro, a literatura usa diferenças-em-diferenças entre UFs que adotaram o programa antes e depois, controles por tendências regionais específicas, e idealmente uma fonte exógena de variação na cobertura — por exemplo, uma regra de elegibilidade descontínua. O <em>r</em> de 0,42 pode até estar correto como descrição, mas como base causal ele é praticamente inútil sem desenho complementar.</p>
+      <p>Em estudos com proporções e taxas de adesão a programas sociais, a <a href="/intervalo-confianca.html">Calculadora de Intervalo de Confiança</a> é útil para reportar a incerteza dos números; para testes formais de hipótese sobre as taxas, veja o <a href="/qui-quadrado.html">qui-quadrado</a> e a <a href="/teste-t.html">comparação de médias</a> entre grupos de UFs.</p>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Se <em>r</em> é estatisticamente significativo, posso concluir causalidade?</summary>
+          <div class="faq__answer"><p>Não. Um <em>r</em> significativo apenas indica que a associação observada provavelmente não é fruto do acaso da amostragem. Ele nada diz sobre direção causal, sobre confundidores ou sobre o desenho do estudo. Em estudos observacionais, causalidade depende de um argumento que envolve teoria, desenho e técnicas de identificação, não só do valor-p.</p></div>
+        </details>
+        <details>
+          <summary>Como saber se há confundidor?</summary>
+          <div class="faq__answer"><p>Procure variáveis que influenciam tanto a suposta causa quanto o suposto efeito e que não estão no caminho causal entre as duas. Liste candidatos a partir da teoria da área, desenhe um diagrama causal (DAG) e tente medir essas variáveis. Se uma variável plausível como temperatura, renda ou idade pode gerar a correlação por conta própria, ela precisa ser controlada antes de qualquer afirmação causal.</p></div>
+        </details>
+        <details>
+          <summary>Posso "controlar" o confundidor com regressão?</summary>
+          <div class="faq__answer"><p>Em parte. Incluir um confundidor como covariável em uma regressão remove a parcela linear da associação que ele explica, mas só funciona se a variável foi bem medida, se a relação é razoavelmente linear e se não há confundidores adicionais não observados. Variáveis intermediárias ou colisores podem, ao contrário, introduzir vieses se forem incluídas sem critério.</p></div>
+        </details>
+        <details>
+          <summary>Qual valor de <em>r</em> já é considerado "forte" em ciências sociais?</summary>
+          <div class="faq__answer"><p>Em ciências sociais, valores de <em>r</em> entre 0,10 e 0,30 já são comuns e relevantes; entre 0,30 e 0,50 são fortes; acima de 0,50 são raros fora de medidas muito relacionadas. Em ciências físicas ou de engenharia, o padrão é mais alto, com <em>r</em> acima de 0,80 considerado típico para leis bem estabelecidas.</p></div>
+        </details>
+        <details>
+          <summary>Como o paradoxo de Simpson aparece em dados de saúde pública?</summary>
+          <div class="faq__answer"><p>Aparece quando uma associação observada na população total se inverte ou desaparece dentro de subgrupos relevantes, como faixa etária, sexo ou estado. Tratamentos que parecem piores no agregado podem ser melhores em todos os subgrupos quando há diferença sistemática na composição dos pacientes. Por isso a estratificação por variáveis clínicas importantes é uma etapa obrigatória da análise.</p></div>
+        </details>
+        <details>
+          <summary>O que diferencia um experimento de um estudo observacional?</summary>
+          <div class="faq__answer"><p>Em um experimento o pesquisador atribui o tratamento, em geral por sorteio, o que equilibra confundidores observados e não observados. Em um estudo observacional o tratamento já aconteceu por escolha dos sujeitos ou por circunstância, e a comparação entre grupos pode refletir essas diferenças prévias. Por isso experimentos são o padrão-ouro para inferência causal, e estudos observacionais exigem técnicas adicionais para se aproximar dessa qualidade.</p></div>
+        </details>
+      </div>
+
+      <h2 id="referencias">Referências</h2>
+      <ul>
+        <li>Pearl, J., &amp; Mackenzie, D. (2018). <em>The Book of Why: The New Science of Cause and Effect</em>. Basic Books.</li>
+        <li>Hill, A. B. (1965). The environment and disease: association or causation? <em>Proceedings of the Royal Society of Medicine</em>, 58(5), 295–300.</li>
+        <li>Imbens, G. W., &amp; Rubin, D. B. (2015). <em>Causal Inference for Statistics, Social, and Biomedical Sciences</em>. Cambridge University Press.</li>
+        <li>Angrist, J. D., &amp; Pischke, J.-S. (2009). <em>Mostly Harmless Econometrics: An Empiricist's Companion</em>. Princeton University Press.</li>
+        <li>Bussab, W. O., &amp; Morettin, P. A. <em>Estatística Básica</em>. Saraiva.</li>
+        <li>Cunningham, S. (2020). <em>Causal Inference: The Mixtape</em>. Yale University Press.</li>
+      </ul>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/correlacao.html"><h3>Correlação de Pearson</h3><p>Calcule <em>r</em> e seu valor-p — direto no navegador.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Inclui IC de <em>r</em> via transformação de Fisher z.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra.html"><h3>Tamanho de Amostra</h3><p>Planeje o <em>n</em> antes de coletar os dados.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Precisa calcular uma correlação agora?</h2>
+        <p>Use a calculadora de Pearson — gratuita, em português, e tudo roda no seu navegador.</p>
+        <a class="btn btn--light btn--lg" href="/correlacao.html">Abrir a Calculadora de Correlação</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

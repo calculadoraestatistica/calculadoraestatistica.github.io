@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7516029395999799">
+<title>Teste A/B em marketing digital: como ler resultados sem se enganar | Calculadora Estatística</title>
+<meta name="description" content="Guia completo de teste A/B em marketing digital: como definir hipótese, escolher métrica, calcular amostra, evitar peeking e interpretar resultado sem cair em armadilha.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/artigos/teste-ab-marketing.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Teste A/B em marketing digital: como ler resultados sem se enganar">
+<meta property="og:description" content="Como rodar e interpretar um teste A/B de marketing digital sem se enganar: hipótese, métrica, amostra, peeking, IC e as 8 armadilhas mais comuns.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/artigos/teste-ab-marketing.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Teste A/B em marketing digital: como ler resultados sem se enganar",
+  "description": "Guia completo de teste A/B em marketing digital: como definir hipótese, escolher métrica, calcular amostra, evitar peeking e interpretar resultado sem cair em armadilha.",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "author": {"@type": "Person", "name": "Vinícius Vianna"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculadora Estatística",
+    "logo": {"@type": "ImageObject", "url": "https://calculadoraestatistica.com.br/favicon-512.png"}
+  },
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://calculadoraestatistica.com.br/artigos/teste-ab-marketing.html"},
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Artigos","item":"https://calculadoraestatistica.com.br/artigos/"},
+    {"@type":"ListItem","position":3,"name":"Teste A/B em marketing","item":"https://calculadoraestatistica.com.br/artigos/teste-ab-marketing.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quanto tempo um teste A/B precisa rodar?","acceptedAnswer":{"@type":"Answer","text":"No mínimo um ciclo semanal completo (7 ou 14 dias), para cobrir variação entre dias da semana, e até atingir o tamanho amostral planejado para detectar o efeito mínimo desejado. Parar antes infla a taxa de falso positivo."}},
+    {"@type":"Question","name":"Posso decidir cedo se a variante já está 'ganhando muito'?","acceptedAnswer":{"@type":"Answer","text":"Não, sem correção. Olhar o resultado várias vezes e parar quando 'der significativo' (peeking) eleva o erro tipo I de 5% para 20% ou mais. Se quiser parar cedo, use métodos sequenciais como o teste sequencial de Wald ou correção de gastos alfa."}},
+    {"@type":"Question","name":"Como saber se meu teste tem poder suficiente?","acceptedAnswer":{"@type":"Answer","text":"Calcule o tamanho amostral antes de começar, definindo baseline, MDE (efeito mínimo detectável), alfa e poder (geralmente 80%). Use a calculadora de tamanho de amostra para teste A/B para essa conta."}},
+    {"@type":"Question","name":"O que é Sample Ratio Mismatch?","acceptedAnswer":{"@type":"Answer","text":"É quando a divisão real entre controle e variante não bate com a planejada (por exemplo, esperava 50/50 e veio 53/47). Indica problema de instrumentação ou contaminação — o teste deve ser invalidado até descobrir a causa."}},
+    {"@type":"Question","name":"Posso testar 3 variantes ao mesmo tempo (A/B/C)?","acceptedAnswer":{"@type":"Answer","text":"Pode, mas precisa corrigir para múltiplas comparações (Bonferroni, Holm) ou usar um teste qui-quadrado para a tabela inteira antes de comparar duas a duas. Cada comparação extra aumenta o risco de falso positivo."}},
+    {"@type":"Question","name":"Conversão melhorou 5%, mas LTV piorou — o que faço?","acceptedAnswer":{"@type":"Answer","text":"Esse é o caso clássico de métrica primária errada. Conversão imediata é fácil de mover; LTV é o que paga a conta. Se a variante traz mais clientes piores, ela perde. Defina LTV ou margem como métrica de decisão, mesmo que demande mais amostra."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="container narrow">
+
+    <article class="prose">
+
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/artigos/">Artigos</a></li>
+          <li>Teste A/B em marketing</li>
+        </ol>
+      </nav>
+
+      <h1>Teste A/B em marketing digital: como ler resultados sem se enganar</h1>
+      <p class="article__lead"><strong>Teste A/B</strong> virou rotina em times de growth, CRO, mídia paga e produto. Roda-se quase tudo: cor de botão, headline de landing, copy de anúncio, preço, oferta. O problema é que, na prática, boa parte desses testes é lida errado — para mais ou para menos — e leva o time a decisões que não se sustentam quando a variante vai para 100% do tráfego. Este guia mostra como rodar e ler um teste A/B com a cabeça certa, sem virar estatístico.</p>
+      <p class="article__byline">Por Vinícius Vianna · 12 de junho de 2026 · Leitura: ~12 min</p>
+
+      <nav class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#contexto">O que é um teste A/B (e por que tantos times rodam errado)</a></li>
+          <li><a href="#hipoteses">Definindo a hipótese: o que você está testando, mesmo?</a></li>
+          <li><a href="#metrica">Escolha da métrica: conversão, CTR, ARPU, receita?</a></li>
+          <li><a href="#amostra">Antes de começar: tamanho amostral e duração mínima</a></li>
+          <li><a href="#exemplo">Exemplo aplicado: landing page com 12.000 visitas por braço</a></li>
+          <li><a href="#significancia">P-valor, intervalo de confiança e o erro de "espiar"</a></li>
+          <li><a href="#pratico">Significância prática × significância estatística</a></li>
+          <li><a href="#armadilhas">As 8 armadilhas mais comuns em testes A/B brasileiros</a></li>
+          <li><a href="#quando-parar">Quando parar e como reportar o resultado</a></li>
+          <li><a href="#ferramentas">Ferramentas brasileiras e internacionais</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="contexto">O que é um teste A/B (e por que tantos times rodam errado)</h2>
+      <p>Um <strong>teste A/B</strong> é um experimento controlado: você divide aleatoriamente o tráfego (ou os usuários) entre uma versão A — o controle, o que está no ar hoje — e uma versão B — a variante, com a mudança que você quer avaliar. No fim, compara uma métrica de interesse entre os dois braços e responde a uma pergunta simples: <em>a diferença observada é grande o bastante para ser real, ou caberia dentro do ruído de quem cai em A e quem cai em B por acaso?</em></p>
+      <p>No marketing digital brasileiro, isso aparece em todo canto: e-commerce testando layout de PDP, fintech mudando fluxo de onboarding, time de mídia rodando criativos no Meta e no Google Ads, growth experimentando push notification, CRO ajustando microcopy de checkout. A facilidade de implementar dá uma falsa sensação de que o resultado é igualmente fácil de ler — e não é. Plataformas mostram um número grande e verde dizendo "B venceu com 96% de confiança" enquanto, por baixo do capô, o teste foi parado cedo, a amostra é pequena, o efeito é minúsculo, ou a métrica é só a primeira etapa do funil.</p>
+      <p>Antes de rodar qualquer coisa, vale fixar o que um teste A/B realmente entrega: uma estimativa do <strong>efeito médio</strong> de uma mudança sobre uma métrica, com uma <strong>margem de incerteza</strong> em torno desse efeito. Não é uma verdade absoluta, não é uma garantia de que a mesma diferença vai aparecer no mês que vem, e não dispensa pensar em mecanismo (<em>por que</em> a variante venceria?). A nossa <a href="/teste-ab.html">calculadora de teste A/B</a> trabalha exatamente nessa lógica: dá lift, valor-p e intervalo de confiança da diferença, deixando a decisão de negócio para você.</p>
+
+      <h2 id="hipoteses">Definindo a hipótese: o que você está testando, mesmo?</h2>
+      <p>Uma hipótese boa força o time a tomar três decisões antes de tocar no código:</p>
+      <ul>
+        <li><strong>Versão A (controle)</strong>: a página, o anúncio ou o fluxo que está no ar hoje.</li>
+        <li><strong>Versão B (variante)</strong>: a mudança específica que você quer avaliar — não três mudanças juntas, porque você não vai conseguir saber qual delas moveu a agulha.</li>
+        <li><strong>Métrica primária e direção esperada</strong>: o número que decide o teste, e se você espera que ele suba ou desça.</li>
+      </ul>
+      <p>Uma hipótese mal escrita parece assim: "vamos testar uma nova landing page para ver se converte mais". Reescrita como hipótese testável: "trocar o headline atual ('Abra sua conta') por um centrado em benefício ('Sua conta digital em 3 minutos') vai aumentar a taxa de conversão da landing de 4,0% para pelo menos 4,5% — porque benefício explícito reduz fricção cognitiva no primeiro segundo da página." Agora dá para discutir mecanismo, dá para calcular amostra e dá para reportar resultado sem ambiguidade.</p>
+      <p>Vale também separar <strong>métrica primária</strong> (a que decide) de <strong>métricas secundárias</strong> (as que você acompanha para entender o que aconteceu) e <strong>métricas de guardrail</strong> (as que <em>não podem</em> piorar — bounce, tempo médio de resposta do site, reclamações no SAC, taxa de cancelamento). É comum a variante "ganhar" na primária e quebrar uma de guardrail. Sem essa separação prévia, o time tende a fabricar narrativa em cima do resultado.</p>
+
+      <h2 id="metrica">Escolha da métrica: conversão, CTR, ARPU, receita?</h2>
+      <p>A métrica que você escolhe muda o teste estatístico, muda o tamanho amostral e muda a interpretação. Em marketing digital, as métricas caem basicamente em dois grupos.</p>
+      <p><strong>Métricas binárias (proporções):</strong> conversão (converteu / não converteu), CTR (clicou / não clicou), taxa de open de e-mail, taxa de checkout. Aqui o teste natural é um <a href="/teste-proporcao.html">teste de proporção</a> entre os dois braços, e a nossa <a href="/teste-ab.html">calculadora de teste A/B</a> resolve direto. A vantagem prática é que proporções são fáceis de comunicar ("subiu de 4,0% para 4,8%") e não dependem de outliers gigantes.</p>
+      <p><strong>Métricas contínuas (médias):</strong> ticket médio, ARPU, receita por visita, tempo de sessão, número de itens por carrinho. Aqui o teste apropriado é um <a href="/teste-t.html">teste t de Student</a> (ou, mais robusto, um teste t de Welch). Médias têm um problema adicional: são puxadas por <strong>outliers</strong>. Uma única compra de R$ 15.000 num e-commerce pode mudar o ARPU médio de um braço inteiro. Em muitos casos vale rodar a comparação na <em>mediana</em>, em uma <em>versão winsorizada</em> da métrica, ou na receita por usuário com cap (por exemplo, truncando compras acima do percentil 99).</p>
+      <p>Receita total é métrica perigosa porque mistura duas coisas: <em>quem comprou</em> (proporção) e <em>quanto cada um gastou</em> (média condicional). Os dois podem se mover em direções opostas. Para análise mais limpa, separe o funil: conversão × ticket médio dado que converteu × receita por visita. Cada peça vira um teste menor, com leitura própria, e a soma faz mais sentido do que um número agregado.</p>
+
+      <h2 id="amostra">Antes de começar: tamanho amostral e duração mínima</h2>
+      <p>Esta é a parte que mais se pula — e a que mais explica resultados que "deram" e não se confirmaram depois. O tamanho amostral não é opcional; ele é a única defesa contra rodar um teste que nunca teria poder de detectar o efeito que você está procurando.</p>
+      <p>Para calcular o tamanho amostral de um teste A/B com métrica binária, você precisa de quatro números:</p>
+      <ul>
+        <li><strong>Baseline</strong>: a taxa atual do controle (ex.: 4,0% de conversão).</li>
+        <li><strong>MDE — efeito mínimo detectável</strong>: o menor efeito que faria diferença na prática (ex.: 0,5 ponto percentual absoluto, ou seja, levar a variante para 4,5%).</li>
+        <li><strong>Alfa</strong>: tolerância a falso positivo. Padrão: 5% (0,05) bicaudal.</li>
+        <li><strong>Poder estatístico</strong>: chance de detectar o efeito se ele existir. Padrão: 80% (0,80).</li>
+      </ul>
+      <p>Com esses quatro números, a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a> devolve quantos usuários você precisa <em>por braço</em>. Para o exemplo acima (baseline 4,0%, MDE 0,5 pp absoluto, alfa 5%, poder 80%), o resultado fica em torno de <strong>12 mil visitas por braço</strong> — 24 mil no total. Se você roda com 2 mil por braço e "dá significativo", desconfie: provavelmente é falso positivo ou efeito muito maior do que o MDE planejado.</p>
+      <p>Sobre duração: independentemente do n, rode por pelo menos <strong>um ciclo semanal completo</strong> (7 ou 14 dias). Comportamento de consumidor varia entre segunda e sábado, entre dia útil e fim de semana, entre dia de pagamento e véspera de boleto. Um teste de 36 horas que pegou só terça e quarta tem amostra enviesada no tempo — mesmo que o n total esteja bom.</p>
+      <p>Em campanhas pagas no Meta ou Google Ads, há uma camada extra: o leilão e o algoritmo de entrega favorecem o anúncio que está performando melhor naquele momento. Se você divide a verba 50/50 mas o sistema entrega mais para um deles, sua amostra fica desbalanceada e a conclusão estatística trava. Aí o caminho é experimento controlado por audiência (split-testing nativo) em vez de só duplicar criativo.</p>
+
+      <h2 id="exemplo">Exemplo aplicado: landing page com 12.000 visitas por braço</h2>
+      <p>Uma fintech brasileira testa duas versões da landing de captação de conta. <strong>A (controle)</strong>: headline atual, com taxa histórica de 4,0% de conversão. <strong>B (variante)</strong>: headline reescrito em benefício. O time calculou o tamanho amostral para MDE 0,5 pp, alfa 5%, poder 80% e chegou a 12 mil visitas por braço. Rodou por 10 dias e parou no n planejado.</p>
+      <p>Resultados observados:</p>
+      <ul>
+        <li>Braço A: 480 conversões em 12.000 visitas → 4,00%</li>
+        <li>Braço B: 576 conversões em 12.000 visitas → 4,80%</li>
+      </ul>
+      <p>O lift absoluto é de 0,80 ponto percentual; o lift relativo é de 20%. Um <a href="/teste-proporcao.html">teste de proporção</a> entre os dois braços devolve <strong>valor-p ≈ 0,003</strong> e <strong>intervalo de confiança de 95% para a diferença</strong> entre cerca de <strong>0,27 pp e 1,33 pp</strong>. Em outras palavras: a melhor estimativa pontual é +0,80 pp, mas o efeito real plausivelmente vai de +0,27 a +1,33 pp. Não passa por zero — diferença estatisticamente significativa.</p>
+
+      <figure>
+        <svg viewBox="0 0 480 300" role="img" aria-label="Comparação entre controle (4,0%) e variante (4,8%) com intervalos de confiança de 95%" style="width:100%;max-width:480px;height:auto;display:block;margin:0 auto;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px">
+          <text x="240" y="22" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1e293b">Conversão por braço — IC 95%</text>
+          <line x1="60" y1="250" x2="450" y2="250" stroke="#94a3b8" stroke-width="1"/>
+          <line x1="60" y1="60" x2="60" y2="250" stroke="#94a3b8" stroke-width="1"/>
+          <text x="55" y="254" text-anchor="end" font-family="system-ui,sans-serif" font-size="11" fill="#475569">0%</text>
+          <text x="55" y="206" text-anchor="end" font-family="system-ui,sans-serif" font-size="11" fill="#475569">2%</text>
+          <text x="55" y="158" text-anchor="end" font-family="system-ui,sans-serif" font-size="11" fill="#475569">4%</text>
+          <text x="55" y="110" text-anchor="end" font-family="system-ui,sans-serif" font-size="11" fill="#475569">6%</text>
+          <line x1="60" y1="158" x2="450" y2="158" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="60" y1="110" x2="450" y2="110" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="60" y1="206" x2="450" y2="206" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <rect x="130" y="154" width="80" height="96" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="170" y="148" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#1e293b">4,0%</text>
+          <line x1="170" y1="138" x2="170" y2="170" stroke="#1e3a8a" stroke-width="2"/>
+          <line x1="162" y1="138" x2="178" y2="138" stroke="#1e3a8a" stroke-width="2"/>
+          <line x1="162" y1="170" x2="178" y2="170" stroke="#1e3a8a" stroke-width="2"/>
+          <text x="170" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#475569">A — controle</text>
+          <text x="170" y="285" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">n = 12.000</text>
+          <rect x="280" y="135" width="80" height="115" fill="#2563eb" stroke="#1e40af" stroke-width="1.5"/>
+          <text x="320" y="129" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#1e293b">4,8%</text>
+          <line x1="320" y1="120" x2="320" y2="152" stroke="#1e3a8a" stroke-width="2"/>
+          <line x1="312" y1="120" x2="328" y2="120" stroke="#1e3a8a" stroke-width="2"/>
+          <line x1="312" y1="152" x2="328" y2="152" stroke="#1e3a8a" stroke-width="2"/>
+          <text x="320" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#475569">B — variante</text>
+          <text x="320" y="285" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">n = 12.000</text>
+          <text x="245" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#16a34a">Lift +0,80 pp (+20%) · p = 0,003</text>
+        </svg>
+        <figcaption style="text-align:center;font-size:0.9em;color:#64748b;margin-top:0.5em">Comparação com IC 95%: o intervalo da diferença não toca zero, então o ganho é estatisticamente significativo.</figcaption>
+      </figure>
+
+      <p>Lendo o resultado: o time pode reportar que a variante venceu com lift de +0,80 pp (IC 95% entre +0,27 e +1,33 pp), p = 0,003. A faixa do IC é importante porque diz que o efeito real <em>provavelmente</em> está entre 0,27 e 1,33 pp. Se a sua tese só faz sentido econômico com pelo menos +0,5 pp, a parte inferior do IC (0,27) já te conta que existe risco real de o efeito ser menor que o necessário, mesmo com p-valor baixinho.</p>
+
+      <h2 id="significancia">P-valor, intervalo de confiança e o erro de "espiar"</h2>
+      <p>O <strong>valor-p</strong> é a probabilidade de observar uma diferença pelo menos tão grande quanto a sua, supondo que <em>não exista efeito real</em>. Se p &lt; 0,05, você normalmente rejeita a hipótese nula de "não há diferença". O p-valor não é a probabilidade de a variante ser melhor, nem a probabilidade de o resultado se replicar — é só a probabilidade de o acaso ter produzido aquele dado se A = B.</p>
+      <p>O <strong>intervalo de confiança</strong> dá informação que o p-valor sozinho não dá: a <em>magnitude</em> plausível do efeito. Um IC de 95% para a diferença que vá de +0,1 pp a +1,5 pp diz que o efeito provavelmente é positivo, mas pode ser pequeno demais para valer o investimento. Um IC que toque ou cruze o zero (ex.: -0,2 pp a +0,9 pp) é o equivalente prático de "não significativo". Use a nossa <a href="/intervalo-confianca.html">calculadora de intervalo de confiança</a> para inspecionar a faixa quando a plataforma só lhe dá um número.</p>
+      <p>O erro mais comum em times de marketing é <strong>peeking</strong>: olhar o teste em andamento todos os dias e parar assim que ele "dá significativo". Isso parece eficiente; estatisticamente é destrutivo. Se você olha 10 vezes e para na primeira vez em que p &lt; 0,05, sua chance real de falso positivo deixa de ser 5% e sobe para algo em torno de 20% ou mais (Kohavi, Tang e Xu, 2020). O problema é que p-valores oscilam ao longo do tempo, e qualquer série suficientemente longa de "espiadas" vai cruzar o limiar em algum momento, por puro acaso.</p>
+      <p>Saídas razoáveis: (1) decidir o n antes e olhar só ao final; (2) usar métodos sequenciais legítimos (testes sequenciais, alpha spending, mSPRT), que ajustam o limiar conforme o tempo passa; ou (3) usar correções tipo Bonferroni para o número de espiadas que você fará. O importante é assumir o custo da espiada na hora de tomar decisão — o intuitivo "ué, já está claro" é exatamente o que infla o falso positivo.</p>
+
+      <h2 id="pratico">Significância prática × significância estatística</h2>
+      <p>Com amostra grande o suficiente, quase qualquer diferença vira estatisticamente significativa. Um lift de +0,1 pp na taxa de conversão pode ter p &lt; 0,01 se você rodar com 500 mil usuários por braço — e ainda assim não valer a pena. Vale a pena perguntar:</p>
+      <ul>
+        <li><strong>O lift cobre o custo de implementar?</strong> Se a variante exige refazer o checkout, integrar um novo gateway ou retreinar o time de SAC, o efeito precisa ser grande para o ROI fechar.</li>
+        <li><strong>O lift se mantém no longo prazo?</strong> Curiosidade de UI nova move métrica curta — taxa de clique no banner sobe no primeiro mês e cai depois. Sempre que possível, planeje uma janela de holdout para medir efeito persistente.</li>
+        <li><strong>O lift é robusto entre segmentos?</strong> Um ganho médio de +0,5 pp pode esconder +2 pp em mobile e -1 pp em desktop, com mobile sendo a maioria. Decisões só na média podem queimar o segmento minoritário.</li>
+      </ul>
+      <p>Em outras palavras: o teste estatístico diz "esse efeito provavelmente existe"; cabe a você decidir se o tamanho do efeito justifica a mudança. Significância prática é decisão de negócio, não de fórmula.</p>
+
+      <h2 id="armadilhas">As 8 armadilhas mais comuns em testes A/B brasileiros</h2>
+      <ol>
+        <li><strong>Peeking.</strong> Parar o teste no primeiro dia em que dá significativo. Resultado: falso positivo inflado, decisão que não se sustenta em produção.</li>
+        <li><strong>Sample Ratio Mismatch (SRM).</strong> Você esperava 50/50 mas a divisão veio 53/47. Isso quase sempre indica bug de tagueamento, cache, redirect ou contaminação entre dispositivos. Antes de ler o resultado, rode um qui-quadrado de aderência (1 grau de liberdade) entre o split esperado e o observado. Se p &lt; 0,01, o teste está quebrado.</li>
+        <li><strong>Teste em poucas horas sem cobertura de dias da semana.</strong> Comportamento de quem entra no site às 14h de quarta é diferente do de domingo à noite. Janela curta enviesa amostra no tempo.</li>
+        <li><strong>Inverter grupo e controle no meio.</strong> Trocar a definição de A e B porque "a outra variante está performando melhor" durante o teste. Isso transforma o experimento em coleção de sub-experimentos misturados — impossível de analisar com integridade.</li>
+        <li><strong>Mídia paga rodando em só um braço.</strong> A campanha promocional foi exposta a quem caiu em B mas não a quem caiu em A. Confusão de variáveis: a vitória da variante não é do criativo, é da campanha.</li>
+        <li><strong>Múltiplas métricas sem correção.</strong> Você olha conversão, CTR, ticket médio, tempo na página, bounce, e celebra a que "deu". Testar 20 métricas independentes a 5% gera, em média, uma métrica significativa só por acaso. Defina a primária <em>antes</em> de rodar e use Bonferroni ou similar nas secundárias. Para múltiplas variantes simultâneas (A/B/C), use o <a href="/qui-quadrado.html">teste qui-quadrado</a> antes de comparar duas a duas.</li>
+        <li><strong>Medir só conversão imediata e não retenção.</strong> Variante B converte 20% mais, mas três meses depois 40% desses clientes cancelam. Lift sumiu — e o ganho operacional foi negativo. Sempre que possível, acompanhe retenção/LTV depois do teste fechar.</li>
+        <li><strong>Ignorar segmentação relevante.</strong> Mobile × desktop, novo × recorrente, iOS × Android, navegador × app. Diferenças nesses cortes mudam a leitura. Faça pelo menos uma checagem segmentada antes de generalizar o resultado para 100% do tráfego.</li>
+      </ol>
+
+      <h2 id="quando-parar">Quando parar e como reportar o resultado</h2>
+      <p>Critério padrão: pare quando atingir o tamanho amostral planejado e tiver rodado por pelo menos um ciclo semanal completo. Se o teste estiver "claramente perdendo" com prejuízo grande de métrica de guardrail (por exemplo, bounce explodiu, tempo de carregamento triplicou), pode parar antes — esse tipo de parada por dano é defensável.</p>
+      <p>O relatório que sustenta uma decisão tem cinco peças:</p>
+      <ol>
+        <li><strong>Hipótese, métrica primária e direção esperada</strong> — escritas antes do teste começar.</li>
+        <li><strong>Amostra planejada e amostra observada</strong> por braço, com data de início e fim.</li>
+        <li><strong>Estimativa pontual (lift absoluto e relativo) + intervalo de confiança</strong> da diferença. O IC é o ponto-chave: ele expressa a incerteza honestamente.</li>
+        <li><strong>P-valor e nível de significância adotado</strong>. Não escreva só "deu sig"; mostre o número.</li>
+        <li><strong>Métricas de guardrail</strong> — o que <em>não</em> piorou, e o que mereceu vigilância.</li>
+      </ol>
+      <p>Um time que reporta nessa estrutura acumula aprendizado entre testes. Um time que reporta só "venceu/não venceu" repete os mesmos erros e abandona a memória do que já experimentou.</p>
+
+      <h2 id="ferramentas">Ferramentas brasileiras e internacionais</h2>
+      <p>O ecossistema de teste A/B tem opções de todos os tamanhos:</p>
+      <ul>
+        <li><strong>Optimizely</strong> — plataforma enterprise, forte em SaaS e e-commerce grande.</li>
+        <li><strong>VWO</strong> — boa interface, popular em times de CRO de médio porte.</li>
+        <li><strong>GrowthBook</strong> — open source, instalável on-premise, com integração nativa a data warehouse (BigQuery, Snowflake, Redshift). Boa para times de produto que querem análise estatística transparente.</li>
+        <li><strong>Convertize</strong> — mais voltada a landing pages e conversão imediata.</li>
+        <li><strong>Google Optimize</strong> — descontinuada em 2023; sucessores naturais são plataformas próprias ou GA4 com integrações.</li>
+        <li><strong>Meta e Google Ads — split testing nativo</strong> — útil para variantes de criativo, mas com as ressalvas de leilão mencionadas acima.</li>
+      </ul>
+      <p>Independentemente da ferramenta, você pode usar as nossas calculadoras como cross-check independente: o <a href="/teste-ab.html">teste A/B</a> aceita a contagem de conversões e visitas direto e devolve lift, IC e p-valor; a <a href="/tamanho-amostra-ab.html">calculadora de amostra</a> dimensiona o teste antes de começar; e o <a href="/teste-proporcao.html">teste de proporção</a> é útil para checar análises post-hoc fora do dashboard da plataforma.</p>
+
+      <figure>
+        <svg viewBox="0 0 480 280" role="img" aria-label="Curva mostrando que o efeito mínimo detectável (MDE) cai conforme o n por braço aumenta" style="width:100%;max-width:480px;height:auto;display:block;margin:0 auto;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px">
+          <text x="240" y="22" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1e293b">MDE detectável × n por braço (poder 80%, alfa 5%)</text>
+          <line x1="60" y1="230" x2="450" y2="230" stroke="#94a3b8" stroke-width="1"/>
+          <line x1="60" y1="50" x2="60" y2="230" stroke="#94a3b8" stroke-width="1"/>
+          <text x="60" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#475569">1k</text>
+          <text x="159" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#475569">3k</text>
+          <text x="240" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#475569">10k</text>
+          <text x="320" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#475569">30k</text>
+          <text x="420" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#475569">100k</text>
+          <text x="240" y="265" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#475569">n por braço (escala log)</text>
+          <text x="55" y="234" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#475569">0</text>
+          <text x="55" y="194" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#475569">0,8</text>
+          <text x="55" y="154" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#475569">1,6</text>
+          <text x="55" y="114" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#475569">2,4</text>
+          <text x="55" y="74" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#475569">3,2</text>
+          <text x="20" y="140" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#475569" transform="rotate(-90 20 140)">MDE (pp)</text>
+          <line x1="60" y1="194" x2="450" y2="194" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="60" y1="154" x2="450" y2="154" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="60" y1="114" x2="450" y2="114" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="60" y1="74" x2="450" y2="74" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+          <path d="M 60 60 Q 130 110 200 158 T 350 205 L 450 220" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+          <circle cx="240" cy="180" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+          <text x="250" y="172" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#1e3a8a">10k → ~1,0 pp</text>
+          <circle cx="420" cy="215" r="5" fill="#2563eb" stroke="#fff" stroke-width="2"/>
+          <text x="415" y="208" text-anchor="end" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#1e3a8a">100k → ~0,3 pp</text>
+        </svg>
+        <figcaption style="text-align:center;font-size:0.9em;color:#64748b;margin-top:0.5em">Quanto maior o n por braço, menor o efeito que o teste consegue detectar. Times com pouco tráfego mensal precisam testar mudanças maiores ou aceitar MDE maior.</figcaption>
+      </figure>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Quanto tempo um teste A/B precisa rodar?</summary>
+          <div class="faq__answer"><p>No mínimo um ciclo semanal completo (7 ou 14 dias), para cobrir variação entre dias da semana, e até atingir o tamanho amostral planejado para detectar o efeito mínimo desejado. Parar antes infla a taxa de falso positivo.</p></div>
+        </details>
+        <details>
+          <summary>Posso decidir cedo se a variante já está "ganhando muito"?</summary>
+          <div class="faq__answer"><p>Não, sem correção. Olhar o resultado várias vezes e parar quando "der significativo" (peeking) eleva o erro tipo I de 5% para 20% ou mais. Se quiser parar cedo, use métodos sequenciais como o teste sequencial de Wald, mSPRT ou correção de gastos alfa.</p></div>
+        </details>
+        <details>
+          <summary>Como saber se meu teste tem poder suficiente?</summary>
+          <div class="faq__answer"><p>Calcule o tamanho amostral <em>antes</em> de começar, definindo baseline, MDE, alfa e poder (geralmente 80%). Use a <a href="/tamanho-amostra-ab.html">calculadora de tamanho de amostra para teste A/B</a> para essa conta.</p></div>
+        </details>
+        <details>
+          <summary>O que é Sample Ratio Mismatch?</summary>
+          <div class="faq__answer"><p>É quando a divisão real entre controle e variante não bate com a planejada (esperava 50/50 e veio 53/47, por exemplo). Indica problema de instrumentação, cache, redirect ou contaminação — o teste deve ser invalidado até descobrir a causa. Rode um qui-quadrado de aderência entre o esperado e o observado para confirmar.</p></div>
+        </details>
+        <details>
+          <summary>Posso testar 3 variantes ao mesmo tempo (A/B/C)?</summary>
+          <div class="faq__answer"><p>Pode, mas precisa corrigir para múltiplas comparações (Bonferroni, Holm) ou usar um <a href="/qui-quadrado.html">teste qui-quadrado</a> para a tabela inteira antes de comparar duas a duas. Cada comparação extra aumenta o risco de falso positivo.</p></div>
+        </details>
+        <details>
+          <summary>Conversão melhorou 5%, mas LTV piorou — o que faço?</summary>
+          <div class="faq__answer"><p>Esse é o caso clássico de métrica primária errada. Conversão imediata é fácil de mover; LTV é o que paga a conta. Se a variante traz mais clientes piores, ela perde. Defina LTV ou margem como métrica de decisão, mesmo que demande mais amostra e tempo de observação.</p></div>
+        </details>
+      </div>
+
+      <h2 id="referencias">Referências</h2>
+      <ul>
+        <li>Kohavi, R., Tang, D., &amp; Xu, Y. (2020). <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>. Cambridge University Press.</li>
+        <li>Kohavi, R., &amp; Longbotham, R. (2015). Online Controlled Experiments and A/B Testing. In <em>Encyclopedia of Machine Learning and Data Mining</em>. Springer.</li>
+        <li>Colson, E. (2016). What Stitch Fix Algorithms Do. <em>Stitch Fix Algorithms Blog</em>.</li>
+        <li>Microsoft Experimentation Platform (ExP). Notas técnicas sobre testes sequenciais, sample ratio mismatch e métricas de guardrail.</li>
+        <li>Cohen, J. (1988). <em>Statistical Power Analysis for the Behavioral Sciences</em> (2ª ed.). Lawrence Erlbaum.</li>
+      </ul>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/teste-ab.html"><h3>Teste A/B</h3><p>Calcule lift, IC e valor-p para o seu experimento.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/tamanho-amostra-ab.html"><h3>Amostra de Teste A/B</h3><p>Quantos usuários por braço para detectar o efeito desejado.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Estime a faixa plausível do efeito.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Pronto para rodar o seu teste com a cabeça certa?</h2>
+        <p>Use a calculadora de teste A/B para validar o seu resultado fora do dashboard da plataforma.</p>
+        <a class="btn btn--light btn--lg" href="/teste-ab.html">Abrir a calculadora de teste A/B</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

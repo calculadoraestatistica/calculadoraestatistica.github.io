@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-7516029395999799">
+<title>Tamanho amostral em pesquisa eleitoral: por que a margem de erro é de 2 pontos? | Calculadora Estatística</title>
+<meta name="description" content="Por que uma pesquisa eleitoral com ~2.500 entrevistas tem margem de erro de 2 pontos? Veja a fórmula, o exemplo numérico e como ler institutos com método.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/artigos/tamanho-amostra-eleitoral.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Tamanho amostral em pesquisa eleitoral: por que a margem de erro é de 2 pontos?">
+<meta property="og:description" content="A fórmula clássica de proporções, o papel do design effect, o problema dos indecisos e como ler uma pesquisa com método.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/artigos/tamanho-amostra-eleitoral.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tamanho amostral em pesquisa eleitoral: por que a margem de erro é de 2 pontos?",
+  "description": "A fórmula clássica de tamanho amostral para proporções, o papel do design effect, o problema dos indecisos e como ler uma pesquisa eleitoral com método.",
+  "author": {"@type": "Person", "name": "Vinícius Vianna"},
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "inLanguage": "pt-BR",
+  "image": "https://calculadoraestatistica.com.br/og-image.png",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://calculadoraestatistica.com.br/artigos/tamanho-amostra-eleitoral.html"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Calculadora Estatística",
+    "logo": {"@type": "ImageObject", "url": "https://calculadoraestatistica.com.br/favicon-512.png"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Artigos","item":"https://calculadoraestatistica.com.br/artigos/"},
+    {"@type":"ListItem","position":3,"name":"Tamanho amostral em pesquisa eleitoral","item":"https://calculadoraestatistica.com.br/artigos/tamanho-amostra-eleitoral.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Por que a margem de erro é simétrica?","acceptedAnswer":{"@type":"Answer","text":"Porque a fórmula clássica usa uma aproximação normal centrada na proporção observada. O intervalo é construído como p ± E, com o mesmo E para cima e para baixo. Em proporções muito próximas de 0 ou 1, a simetria deixa de valer e métodos como o intervalo de Wilson são mais precisos."}},
+    {"@type":"Question","name":"Qual a diferença entre erro amostral e erro não-amostral?","acceptedAnswer":{"@type":"Answer","text":"O erro amostral é a incerteza aleatória de se entrevistar uma amostra em vez da população inteira — é o que a margem de erro captura. O erro não-amostral vem de problemas de pesquisa: recusa de resposta, viés de cobertura, redação enviesada de perguntas e mudança de opinião entre a coleta e o dia da eleição. Esse erro não aparece na margem."}},
+    {"@type":"Question","name":"Posso usar a mesma amostra para vários candidatos?","acceptedAnswer":{"@type":"Answer","text":"Sim. Os institutos coletam uma amostra única e estimam a proporção de cada candidato a partir dela. A margem de erro divulgada é a maior margem possível (com p próximo de 50%) e vale para cada proporção individualmente. Para comparar dois candidatos, é preciso considerar a covariância entre as duas estimativas."}},
+    {"@type":"Question","name":"Pesquisas online (boca de urna) seguem a mesma fórmula?","acceptedAnswer":{"@type":"Answer","text":"A fórmula é a mesma, mas a amostragem é diferente. Pesquisas online com painel auto-recrutado e bocas de urna por conveniência têm risco maior de viés de seleção. Nesses casos o erro não-amostral pesa mais que o erro amostral, e a margem teórica subestima a incerteza real."}},
+    {"@type":"Question","name":"Como instituto sério escolhe quantas entrevistas fazer?","acceptedAnswer":{"@type":"Answer","text":"O instituto define a margem de erro alvo (em geral 2 pontos percentuais), o nível de confiança (95%), assume o pior caso p = 0,5, aplica a fórmula e multiplica pelo design effect estimado para a amostragem estratificada. Daí saem os ~2.000 a 2.500 entrevistas nacionais típicas."}},
+    {"@type":"Question","name":"Se a diferença é menor que a margem, sempre dá empate técnico?","acceptedAnswer":{"@type":"Answer","text":"Quase sempre, mas com nuance. Quando a diferença entre dois candidatos é menor que a soma das duas margens de erro individuais, costuma-se declarar empate técnico. O cálculo mais rigoroso usa um teste de proporção que considera a correlação entre as duas estimativas — e pode dar significância em diferenças um pouco menores."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/artigos/">Artigos</a></li>
+          <li>Tamanho amostra eleitoral</li>
+        </ol>
+      </nav>
+      <h1>Tamanho amostral em pesquisa eleitoral: por que a margem de erro é de 2 pontos?</h1>
+      <p class="lead">Por que praticamente toda pesquisa eleitoral nacional ouve por volta de 2.000 a 2.500 pessoas e divulga uma margem de erro de 2 pontos percentuais? A resposta está em uma fórmula simples — e em algumas armadilhas que ela não cobre.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+    <article class="prose">
+
+      <p class="article__byline">Por <strong>Vinícius Vianna</strong> · 12 de junho de 2026 · Leitura: ~12 min</p>
+
+      <nav class="toc" aria-label="Conteúdo do artigo">
+        <strong>Neste artigo</strong>
+        <ol>
+          <li><a href="#contexto">Por que pesquisas eleitorais erram</a></li>
+          <li><a href="#formula">A fórmula clássica de tamanho amostral</a></li>
+          <li><a href="#exemplo-2018">Exemplo: 2.500 entrevistas e margem de 2 pp</a></li>
+          <li><a href="#abrangencia">Por que 95% de confiança?</a></li>
+          <li><a href="#design-effect">Pesquisa estratificada e o "design effect"</a></li>
+          <li><a href="#indecisos">Indecisos e erro não-amostral</a></li>
+          <li><a href="#rejeicao">Quando p está próximo de 50% × 5%</a></li>
+          <li><a href="#vinheta">Pesquisas brasileiras famosas que erraram</a></li>
+          <li><a href="#boas-praticas">Boas práticas ao ler uma pesquisa</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#referencias">Referências</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="contexto">Por que pesquisas eleitorais erram (e por que isso é esperado)</h2>
+      <p>Toda eleição importante chega acompanhada da mesma desconfiança: "as pesquisas erraram de novo". A frase costuma vir junto de listas de previsões frustradas, comparações entre institutos e teorias sobre vieses ideológicos. Boa parte dessa indignação se dissolve quando entendemos uma coisa simples: <strong>a pesquisa eleitoral nunca prometeu acertar o resultado</strong>. Ela prometeu uma estimativa com uma margem de erro declarada, dentro de um nível de confiança, sob um conjunto explícito de pressupostos. Se a estimativa cair dentro da margem prometida, a pesquisa cumpriu seu papel — mesmo que o vencedor não seja o que aparecia na liderança.</p>
+      <p>Para entender por que isso é assim, é útil olhar para o número que mais aparece nos rodapés: <strong>"margem de erro de 2 pontos percentuais, 95% de confiança"</strong>. Esses dois pontos não saíram do nada. Eles são consequência direta de quantas entrevistas o instituto decidiu fazer, do tipo de amostragem que ele desenhou e da matemática das proporções. Entender essa engrenagem ajuda a separar o que é falha real do método do que é, na prática, comportamento normal de uma estimativa estatística.</p>
+      <p>O ponto de partida é reconhecer que estamos lidando com <strong>uma proporção em uma população enorme</strong>. Em vez de perguntar a cada eleitor (o que seria uma eleição, não uma pesquisa), o instituto extrai uma amostra. A pergunta técnica é: <em>quantas pessoas preciso ouvir para que a proporção observada esteja, com alta probabilidade, próxima da proporção verdadeira?</em> A resposta começa com uma fórmula clássica, e termina com vários ajustes que poucos rodapés explicam.</p>
+
+      <h2 id="formula">A fórmula clássica de tamanho amostral para proporções</h2>
+      <p>O cálculo do tamanho de amostra para estimar uma proporção é um dos resultados mais conhecidos da estatística. Ele aparece em Cochran (1977) e em todo manual brasileiro sério — Bussab e Morettin (2017), Magalhães (2015), entre outros. A fórmula é:</p>
+      <div class="formula">n = z² · p · (1 − p) ÷ E²
+        <span class="formula__where">onde z é o valor crítico da normal padrão para o nível de confiança escolhido, p é a proporção verdadeira (desconhecida) e E é a margem de erro absoluta desejada.</span>
+      </div>
+      <p>A intuição é direta. Quando você entrevista <em>n</em> pessoas e calcula a proporção que respondeu "voto no candidato A", essa proporção observada é uma estimativa que oscila ao redor da proporção verdadeira na população. A teoria mostra que, para amostras razoáveis, essa oscilação tem aproximadamente uma distribuição normal de desvio padrão √(p·(1−p)/n). O termo <strong>p·(1−p)/n</strong> é a variância da estimativa — quanto mais entrevistas, menor a variância, e portanto mais perto a estimativa tende a ficar do valor verdadeiro.</p>
+      <p>A margem de erro <em>E</em> é o "raio" do intervalo de confiança simétrico que queremos. Com nível de confiança de 95%, o multiplicador <em>z</em> vale aproximadamente 1,96 — o ponto onde a normal padrão acumula 97,5% à esquerda. Isolando <em>n</em> na expressão <em>E = z · √(p·(1−p)/n)</em>, chegamos exatamente à fórmula acima.</p>
+      <p>Há um detalhe estratégico: a fórmula depende de <em>p</em>, que é o que estamos tentando estimar. Como o produto <strong>p·(1−p)</strong> tem máximo em <em>p = 0,5</em>, valendo 0,25 nesse ponto, os institutos costumam adotar <em>p = 0,5</em> como pior caso. Assim, garantem que a margem prometida valerá para qualquer proporção observada, inclusive a próxima de 50%. Se você quiser planejar sua própria pesquisa com flexibilidade para ajustar esses parâmetros, a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a> faz todo o cálculo automaticamente.</p>
+
+      <h2 id="exemplo-2018">Exemplo: 2.500 entrevistas e margem de 2 pp</h2>
+      <p>Vamos rodar a conta com os parâmetros típicos de uma pesquisa nacional. Suponha que o instituto quer:</p>
+      <ul>
+        <li>margem de erro absoluta <strong>E = 0,02</strong> (dois pontos percentuais);</li>
+        <li>nível de confiança de <strong>95%</strong>, portanto <strong>z ≈ 1,96</strong>;</li>
+        <li>e adota o pior caso <strong>p = 0,5</strong>, com p·(1−p) = 0,25.</li>
+      </ul>
+      <p>Aplicando a fórmula:</p>
+      <div class="formula">n = (1,96)² · 0,25 ÷ (0,02)² = 3,8416 · 0,25 ÷ 0,0004 ≈ <strong>2.401</strong></div>
+      <p>O número canônico de <strong>~2.400 entrevistas</strong> nasce daí. Na prática, os institutos arredondam para cima — 2.500, 2.520, 2.640 — para acomodar quotas regionais e pequenas perdas amostrais. Quando a margem desejada cai para 1 ponto percentual, o <em>n</em> quadruplica para perto de 9.600 entrevistas. Quando sobe para 3 pontos, cai para cerca de 1.067. Essa não-linearidade — duas vezes menos erro custa quatro vezes mais entrevistas — explica por que 2 pontos virou o ponto de equilíbrio prático entre custo e precisão. A curva abaixo mostra essa relação para p = 0,5 e z = 1,96:</p>
+
+      <figure class="article__figure">
+        <svg viewBox="0 0 520 320" role="img" aria-labelledby="chart1-title chart1-desc" class="article__chart">
+          <title id="chart1-title">Margem de erro em função do tamanho da amostra</title>
+          <desc id="chart1-desc">Curva descendente mostrando como a margem de erro cai conforme n cresce, com o ponto n=2500 destacado em aproximadamente 2 pontos percentuais.</desc>
+          <rect x="0" y="0" width="520" height="320" fill="#ffffff"/>
+          <g stroke="#e5e7eb" stroke-width="1">
+            <line x1="60" y1="40" x2="60" y2="270"/>
+            <line x1="60" y1="270" x2="495" y2="270"/>
+            <line x1="60" y1="220" x2="495" y2="220" stroke-dasharray="3 4"/>
+            <line x1="60" y1="170" x2="495" y2="170" stroke-dasharray="3 4"/>
+            <line x1="60" y1="120" x2="495" y2="120" stroke-dasharray="3 4"/>
+            <line x1="60" y1="70"  x2="495" y2="70"  stroke-dasharray="3 4"/>
+          </g>
+          <g font-family="system-ui, sans-serif" font-size="11" fill="#475569">
+            <text x="55" y="274" text-anchor="end">0%</text>
+            <text x="55" y="224" text-anchor="end">2%</text>
+            <text x="55" y="174" text-anchor="end">4%</text>
+            <text x="55" y="124" text-anchor="end">6%</text>
+            <text x="55" y="74"  text-anchor="end">8%</text>
+            <text x="60"  y="288" text-anchor="middle">100</text>
+            <text x="157" y="288" text-anchor="middle">300</text>
+            <text x="240" y="288" text-anchor="middle">1.000</text>
+            <text x="337" y="288" text-anchor="middle">3.000</text>
+            <text x="420" y="288" text-anchor="middle">10.000</text>
+          </g>
+          <g font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">
+            <text x="280" y="308" text-anchor="middle" font-weight="600">Tamanho da amostra (n, escala log)</text>
+            <text x="18" y="155" text-anchor="middle" font-weight="600" transform="rotate(-90 18 155)">Margem de erro (%)</text>
+          </g>
+          <path d="M 60 -25 L 100 40 L 130 78 L 160 105 L 190 126 L 220 144 L 250 159 L 280 172 L 310 184 L 340 194 L 370 204 L 400 212 L 430 220 L 460 227 L 495 234"
+                fill="none" stroke="#0f766e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <g>
+            <line x1="320" y1="220" x2="320" y2="270" stroke="#0f766e" stroke-width="1.2" stroke-dasharray="4 4"/>
+            <circle cx="320" cy="220" r="4.5" fill="#0f766e"/>
+            <text x="328" y="214" font-family="system-ui, sans-serif" font-size="12" fill="#0f766e" font-weight="600">n ≈ 2.500 → E ≈ 2,0 pp</text>
+            <text x="320" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#0f766e">2.500</text>
+          </g>
+          <g font-family="system-ui, sans-serif" font-size="11" fill="#475569">
+            <rect x="370" y="48" width="14" height="3" fill="#0f766e"/>
+            <text x="390" y="52">E = 1,96 · √(0,25 / n)</text>
+          </g>
+        </svg>
+        <figcaption>Margem de erro com 95% de confiança e p = 0,5, em função do número de entrevistas (escala logarítmica). O ponto destacado mostra o tamanho amostral típico de pesquisas nacionais.</figcaption>
+      </figure>
+
+      <p>O gráfico deixa visível o "joelho" da curva: até cerca de 1.000 entrevistas, cada novo lote derruba bastante a margem; a partir de 3.000, o ganho fica modesto. Esse é o argumento econômico clássico para parar perto das 2.500: dobrar para 5.000 entrevistas reduziria a margem de 2 para apenas cerca de 1,4 ponto — pouca melhora para o dobro de custo de campo.</p>
+
+      <h2 id="abrangencia">Por que 95% de confiança? E quando usar 99%?</h2>
+      <p>O nível de confiança não é uma propriedade física do mundo — é uma escolha. Dizer "95% de confiança" significa que, se repetíssemos o procedimento de amostragem muitas vezes, em 95% das vezes o intervalo construído conteria a proporção verdadeira. O multiplicador 1,96 está atrelado a esse 95%; para 99% de confiança, ele pula para cerca de 2,576, e para 90% cai para 1,645.</p>
+      <p>Por que 95% virou padrão? É uma convenção histórica, datada do início do século XX e popularizada por Fisher como um ponto razoável entre dois custos: ser permissivo demais (e tirar conclusões frágeis) ou ser severo demais (e nunca chegar a conclusão alguma). Em pesquisa eleitoral, 95% se ajusta bem ao prazo apertado, ao custo de campo e ao público leitor que precisa entender o intervalo no jornal da noite.</p>
+      <p>O 99% costuma aparecer quando o custo de errar é alto demais para se contentar com um em vinte. Em estudos clínicos confirmatórios, em decisões judiciais quantitativas, em controle de qualidade para itens críticos, faz sentido pagar mais entrevistas para reduzir a chance de uma janela "azarada". Em troca, o intervalo de confiança fica maior — uma compensação direta entre certeza e precisão, que pode ser visualizada na <a href="/intervalo-confianca.html">calculadora de intervalo de confiança</a>.</p>
+
+      <h2 id="design-effect">Pesquisa estratificada e o "design effect"</h2>
+      <p>A fórmula clássica assume <strong>amostragem aleatória simples</strong>: cada eleitor da população tem a mesma probabilidade de ser sorteado, e os sorteios são independentes. Na prática, isso não existe em pesquisa eleitoral nacional. Os institutos brasileiros usam, há décadas, <strong>amostragem estratificada por quotas</strong>: dividem o Brasil em regiões, em portes de município, em estratos demográficos (sexo, faixa etária, escolaridade, classe), e definem quantas entrevistas em cada estrato proporcionalmente à população. A coleta é feita por entrevistadores que cumprem essas quotas — em pontos de fluxo, em residências sorteadas, por telefone ou por amostragem mista.</p>
+      <p>Estratificar bem <em>reduz</em> a variância de estimativas como o voto regional, porque garante que nenhum estrato fique sub-representado por sorte. Mas a forma como as quotas são preenchidas, e o uso de conglomerados (sortear domicílios em vez de pessoas), <em>aumenta</em> a variância em relação à amostragem aleatória simples. O efeito líquido depende do desenho. Para capturar isso, a literatura usa o <strong>design effect</strong> (DE):</p>
+      <div class="formula">DE = variância no desenho real ÷ variância na amostragem aleatória simples
+        <span class="formula__where">Valores típicos de pesquisa eleitoral nacional ficam entre 1,3 e 1,8.</span>
+      </div>
+      <p>Um DE de 1,5 significa que o desenho efetivamente "vale" 1/1,5 ≈ 67% de uma amostra aleatória simples do mesmo tamanho. O instituto sério já incorpora esse fator: se a fórmula pede 2.400 entrevistas para 2 pp de margem em aleatória simples, com DE = 1,5 ele entrevista 3.600 para chegar na mesma margem efetiva, ou aceita uma margem efetiva maior se mantiver 2.400. Por isso o tamanho amostral nominal nem sempre conversa diretamente com a margem declarada — depende de como o erro padrão foi calculado.</p>
+      <p>Quando você lê uma pesquisa que entrevistou "2.000 pessoas" e declara margem de "2 pontos", uma das três coisas é verdade: o desenho está bem próximo do aleatório simples; o instituto usou um DE pequeno na conta; ou a margem foi declarada como se fosse aleatório simples, e o erro real é um pouco maior. O rodapé técnico não costuma resolver essa ambiguidade — vale procurar a ficha técnica completa para entender.</p>
+
+      <h2 id="indecisos">O problema dos indecisos e o erro não-amostral</h2>
+      <p>A fórmula só conhece um tipo de erro: o <strong>erro amostral</strong>, fruto de ter ouvido <em>n</em> pessoas em vez da população inteira. Esse erro é simétrico, decai com √n e é exatamente o que a margem captura. Acontece que, em pesquisa eleitoral real, esse é frequentemente o <em>menor</em> dos erros.</p>
+      <p>O <strong>erro não-amostral</strong> tem várias origens. A primeira é o <strong>indeciso</strong>: o eleitor que diz "ainda não sei" ou "voto em branco" pode acabar votando em qualquer candidato — e nem todos os institutos tratam essa massa da mesma forma. Excluir indecisos da base aumenta artificialmente a proporção dos candidatos declarados; manter os indecisos como categoria separada exige decidir como distribuí-los na projeção do resultado. Pesquisas perto da eleição costumam mostrar indecisos caindo rapidamente, e esse "fechamento" pode mover proporções em mais pontos do que a margem amostral.</p>
+      <p>A segunda é a <strong>não-resposta</strong>: se quem se recusa a responder tende a ter opinião sistematicamente diferente de quem responde, a estimativa fica viesada — e esse viés <em>não</em> aparece na margem. A terceira é o <strong>viés de declaração</strong>: o eleitor que esconde a intenção de voto por receio social. A quarta é a <strong>mudança de opinião</strong> entre a coleta e o dia do voto. A quinta é a <strong>cobertura amostral</strong>: pesquisas por telefone fixo subestimam o eleitor jovem; pesquisas online sub-representam quem tem pouco acesso digital; pesquisas em ponto de fluxo capturam quem circula nas ruas comerciais.</p>
+      <p>Nenhum desses erros está na fórmula. Eles precisam ser controlados pelo desenho da pesquisa, pelos pesos pós-coleta e pelo treinamento dos entrevistadores. Quando a pesquisa "erra mais do que a margem", quase sempre o culpado é um desses, não a matemática da margem.</p>
+
+      <h2 id="rejeicao">Quando p está próximo de 50% × próximo de 5%</h2>
+      <p>O termo <em>p·(1−p)</em> na fórmula é a chave de uma propriedade importante. Ele é uma parábola voltada para baixo, com máximo em <em>p = 0,5</em> e zeros nas pontas. A figura abaixo mostra essa curva:</p>
+
+      <figure class="article__figure">
+        <svg viewBox="0 0 420 260" role="img" aria-labelledby="chart2-title chart2-desc" class="article__chart">
+          <title id="chart2-title">Variância da proporção: parábola p(1-p)</title>
+          <desc id="chart2-desc">Parábola simétrica com máximo em p igual a 0,5 e valor 0,25, decrescendo até zero nas extremidades 0 e 1.</desc>
+          <rect x="0" y="0" width="420" height="260" fill="#ffffff"/>
+          <g stroke="#e5e7eb" stroke-width="1">
+            <line x1="55" y1="30" x2="55" y2="220"/>
+            <line x1="55" y1="220" x2="395" y2="220"/>
+            <line x1="55" y1="170" x2="395" y2="170" stroke-dasharray="3 4"/>
+            <line x1="55" y1="120" x2="395" y2="120" stroke-dasharray="3 4"/>
+            <line x1="55" y1="70"  x2="395" y2="70"  stroke-dasharray="3 4"/>
+          </g>
+          <g font-family="system-ui, sans-serif" font-size="11" fill="#475569">
+            <text x="50" y="224" text-anchor="end">0,00</text>
+            <text x="50" y="174" text-anchor="end">0,10</text>
+            <text x="50" y="124" text-anchor="end">0,20</text>
+            <text x="50" y="74"  text-anchor="end">0,25</text>
+            <text x="55"  y="236" text-anchor="middle">0,0</text>
+            <text x="140" y="236" text-anchor="middle">0,25</text>
+            <text x="225" y="236" text-anchor="middle">0,5</text>
+            <text x="310" y="236" text-anchor="middle">0,75</text>
+            <text x="395" y="236" text-anchor="middle">1,0</text>
+          </g>
+          <g font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">
+            <text x="225" y="252" text-anchor="middle" font-weight="600">Proporção verdadeira p</text>
+            <text x="18" y="125" text-anchor="middle" font-weight="600" transform="rotate(-90 18 125)">p · (1 − p)</text>
+          </g>
+          <path d="M 55 220 Q 225 -120 395 220" fill="none" stroke="#0f766e" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="225" cy="70" r="5" fill="#0f766e"/>
+          <line x1="225" y1="70" x2="225" y2="220" stroke="#0f766e" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <text x="232" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#0f766e" font-weight="600">Máximo: p = 0,5, p(1−p) = 0,25</text>
+        </svg>
+        <figcaption>A função p · (1 − p) atinge o máximo em p = 0,5, valendo 0,25. Por isso esse valor é usado como pior caso no planejamento amostral.</figcaption>
+      </figure>
+
+      <p>A consequência é prática: a margem de erro do candidato em <strong>50%</strong> é a maior possível para aquele <em>n</em>; a margem do candidato em <strong>5%</strong> (ou <strong>95%</strong>) é bem menor. Se a fórmula entregou 2 pontos com <em>p = 0,5</em>, ela entregaria cerca de 1,7 ponto para <em>p = 0,3</em>, 1,3 ponto para <em>p = 0,1</em> e apenas 0,9 ponto para <em>p = 0,05</em>. A margem declarada na pesquisa é o pior caso — ela vale como teto para qualquer candidato.</p>
+      <p>Isso também muda a interpretação do "empate técnico". Dois candidatos perto de 50%, com diferença observada menor que 2 pontos, estão tecnicamente empatados. Mas um candidato em 35% e outro em 30%, com a mesma diferença de 5 pontos, têm margens individuais menores — a diferença pode já ser significativa. O teste apropriado para comparar duas proporções é o <a href="/teste-proporcao.html">teste de proporção</a>, que considera os dois erros padrão e dá um valor-p adequado. Quando a comparação é em formato A/B clássico (com uma decisão binária por trás), o <a href="/tamanho-amostra-ab.html">tamanho amostral para teste A/B</a> ajuda a planejar o experimento.</p>
+
+      <h2 id="vinheta">Vinheta histórica: pesquisas brasileiras famosas que erraram</h2>
+      <p>O Brasil tem episódios marcantes de "surpresa eleitoral" em que as pesquisas previam um cenário e a urna entregou outro. Vale revisitar três, focando na metodologia.</p>
+      <p><strong>1989, Collor × Lula no 1º turno.</strong> Naquela eleição, em meio à campanha mais longa e fragmentada da redemocratização, várias pesquisas ao longo do ano captaram quedas e subidas bruscas da intenção de voto. Parte do erro veio do fato de o eleitorado ter se decidido tarde — a fatia de indecisos era grande até semanas antes da votação. Outra parte veio da volatilidade de candidatos que cresciam ou afundavam em janelas curtas, dentro das quais qualquer pesquisa fica desatualizada. Foi um caso clássico de <em>erro de momento</em>: as pesquisas refletiam, em geral, o que estava acontecendo na data de campo; a tendência mudou rápido demais.</p>
+      <p><strong>2018, 2º turno presidencial.</strong> Algumas pesquisas finais subestimaram a magnitude da vantagem do candidato vencedor, mesmo apontando-o como favorito. As discussões posteriores apontaram para uma combinação de fatores: viés de cobertura (telefone × presencial), pesos demográficos defasados em relação ao perfil real de quem foi votar, e o efeito do voto "envergonhado" — eleitores menos propensos a declarar a intenção real em pesquisa presencial. Nada disso é falha da margem; é o erro não-amostral falando mais alto.</p>
+      <p><strong>2022, eleições estaduais.</strong> Em vários estados, governadores se elegeram em 1º turno em cenários que as últimas pesquisas mostravam como apertados ou favoráveis ao adversário. Em alguns casos, a fatia regional da amostra era pequena demais — uma pesquisa nacional com 2.500 entrevistas tem talvez 200 a 300 entrevistados em um estado intermediário, e a margem amostral nesse recorte é de 6 a 7 pontos, não 2. Confundir a margem nacional com a margem estadual é um dos vieses de leitura mais comuns.</p>
+      <p>Nos três casos, a lição é semelhante: a pesquisa cumpre o que a fórmula promete quando a metodologia é boa e quando o leitor entende exatamente o que está sendo estimado. Quando o resultado destoa, a investigação produtiva começa nos dados de campo, nos pesos e na composição da amostra, não em conspirações.</p>
+
+      <h2 id="boas-praticas">Boas práticas ao ler ou encomendar pesquisa eleitoral</h2>
+      <p>Uma pesquisa eleitoral merece atenção quando traz, com clareza, o seu próprio manual. Algumas perguntas valem para qualquer leitor:</p>
+      <ul>
+        <li><strong>Quem encomendou?</strong> Pesquisa contratada por partido tem incentivos diferentes de pesquisa de mídia. Conhecer o financiador não invalida a pesquisa, mas ajuda a calibrar a leitura.</li>
+        <li><strong>Qual o instituto e a sua trajetória?</strong> Históricos de erro, padrões metodológicos e registro junto ao TSE são informações públicas. Institutos com tradição costumam publicar fichas técnicas detalhadas.</li>
+        <li><strong>Quando foi a data de campo?</strong> Uma pesquisa de 20 dias atrás, em uma corrida volátil, pode estar tão desatualizada que a margem amostral é irrelevante diante da mudança de cenário.</li>
+        <li><strong>Qual o desenho amostral?</strong> Estratificação por região e demografia, amostra por quotas, telefônica, presencial, online ou mista. Cada desenho tem trade-offs específicos.</li>
+        <li><strong>Qual o tamanho da amostra <em>e</em> o nível de confiança declarado?</strong> Sem o nível de confiança, a margem perde sentido.</li>
+        <li><strong>Como foram tratados os indecisos?</strong> Excluídos, mantidos como categoria, ou redistribuídos por algum critério.</li>
+        <li><strong>Há cruzamentos divulgados?</strong> Recorte por sexo, idade, escolaridade e região ajuda a entender de onde vêm as estimativas — e tem margens de erro maiores que a margem global.</li>
+      </ul>
+      <p>Para quem encomenda pesquisa — seja institucional, acadêmica ou comercial — vale registrar três disciplinas. Primeiro, definir <em>antes</em> da coleta qual é a margem alvo e o nível de confiança aceitável, e dimensionar o <em>n</em> a partir disso usando a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a>. Segundo, escolher um desenho amostral compatível com o objetivo: para estimativas regionais precisas, planejar o <em>n</em> dentro de cada estrato, não confiar no rateio proporcional. Terceiro, separar orçamento para reduzir erro não-amostral: pré-teste do questionário, treinamento de entrevistadores, controle de qualidade pós-campo e métodos de imputação ou redistribuição de indecisos pensados antes do trabalho começar.</p>
+      <p>A ABEP (Associação Brasileira de Empresas de Pesquisa) publica protocolos e códigos que padronizam vários desses passos, e o TSE exige registro prévio para qualquer pesquisa de intenção de voto divulgada — com obrigação de declarar amostra, metodologia, financiador e período de campo. Conhecer esses documentos vacina contra leituras ingênuas. Quando você quer apenas estimar a faixa provável de uma proporção sem entrar na engenharia eleitoral completa, a <a href="/intervalo-confianca.html">calculadora de intervalo de confiança</a> resolve o problema imediato.</p>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Resumo prático
+        </div>
+        <p>Pesquisas nacionais entrevistam ~2.500 pessoas porque a fórmula clássica entrega margem de 2 pontos com 95% de confiança no pior caso (p = 0,5). Ajustes de design effect, indecisos e erro não-amostral movem o número real para cima — quase nunca para baixo. Trate a margem como o piso técnico, não como o teto da incerteza.</p>
+      </div>
+
+      <h2 id="faq">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Por que a margem de erro é simétrica?</summary>
+          <div class="faq__answer"><p>Porque a fórmula clássica usa uma aproximação normal centrada na proporção observada. O intervalo é construído como p ± E, com o mesmo E para cima e para baixo. Em proporções muito próximas de 0 ou 1, a simetria deixa de valer e métodos como o intervalo de Wilson são mais precisos — e é justamente o método que a nossa <a href="/intervalo-confianca.html">calculadora de intervalo de confiança</a> usa por padrão para proporções.</p></div>
+        </details>
+        <details>
+          <summary>Qual a diferença entre erro amostral e erro não-amostral?</summary>
+          <div class="faq__answer"><p>O erro amostral é a incerteza aleatória de se entrevistar uma amostra em vez da população inteira — é o que a margem de erro captura. O erro não-amostral vem de problemas de pesquisa: recusa de resposta, viés de cobertura, redação enviesada de perguntas e mudança de opinião entre a coleta e o dia da eleição. Esse erro <strong>não</strong> aparece na margem e, em pesquisa eleitoral real, costuma ser maior que o erro amostral.</p></div>
+        </details>
+        <details>
+          <summary>Posso usar a mesma amostra para vários candidatos?</summary>
+          <div class="faq__answer"><p>Sim. Os institutos coletam uma amostra única e estimam a proporção de cada candidato a partir dela. A margem de erro divulgada é a maior margem possível (com p próximo de 50%) e vale para cada proporção individualmente. Para comparar dois candidatos, é preciso considerar a covariância entre as duas estimativas — o que o <a href="/teste-proporcao.html">teste de proporção</a> faz automaticamente.</p></div>
+        </details>
+        <details>
+          <summary>Pesquisas online (boca de urna) seguem a mesma fórmula?</summary>
+          <div class="faq__answer"><p>A fórmula é a mesma, mas a amostragem é diferente. Pesquisas online com painel auto-recrutado e bocas de urna por conveniência têm risco maior de viés de seleção. Nesses casos o erro não-amostral pesa mais que o erro amostral, e a margem teórica subestima a incerteza real. Vale tratar essas pesquisas como indicativas, não como estimativas pontuais com a precisão da margem declarada.</p></div>
+        </details>
+        <details>
+          <summary>Como instituto sério escolhe quantas entrevistas fazer?</summary>
+          <div class="faq__answer"><p>O instituto define a margem de erro alvo (em geral 2 pontos percentuais), o nível de confiança (95%), assume o pior caso p = 0,5, aplica a fórmula <em>n = z²·p(1−p)/E²</em> e multiplica pelo design effect estimado para a amostragem estratificada. Daí saem os ~2.000 a 2.500 entrevistas nacionais típicas. Para planejar a sua própria, a <a href="/tamanho-amostra.html">calculadora de tamanho de amostra</a> faz o cálculo completo.</p></div>
+        </details>
+        <details>
+          <summary>Se a diferença é menor que a margem, sempre dá empate técnico?</summary>
+          <div class="faq__answer"><p>Quase sempre, mas com nuance. Quando a diferença entre dois candidatos é menor que a soma das duas margens de erro individuais, costuma-se declarar empate técnico. O cálculo mais rigoroso usa um <a href="/teste-proporcao.html">teste de proporção</a> que considera a correlação entre as duas estimativas — e pode dar significância em diferenças um pouco menores, especialmente quando os dois candidatos estão longe de 50%.</p></div>
+        </details>
+      </div>
+
+      <h2 id="referencias">Referências</h2>
+      <ul>
+        <li>ABEP — Associação Brasileira de Empresas de Pesquisa. <em>Pesquisa eleitoral: práticas e protocolos</em>. Códigos e padrões metodológicos para pesquisa de intenção de voto.</li>
+        <li>Bussab, W. O.; Morettin, P. A. <em>Estatística Básica</em>. 9ª ed. São Paulo: Saraiva, 2017.</li>
+        <li>Cochran, W. G. <em>Sampling Techniques</em>. 3rd ed. New York: Wiley, 1977.</li>
+        <li>Cox, D. R.; Donnelly, C. A. <em>Principles of Applied Statistics</em>. Cambridge University Press, 2011.</li>
+        <li>Magalhães, M. N. <em>Noções de Probabilidade e Estatística</em>. 7ª ed. São Paulo: EDUSP, 2015.</li>
+      </ul>
+
+      <div class="related">
+        <h2>Calculadoras relacionadas</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/tamanho-amostra.html"><h3>Tamanho de Amostra</h3><p>Planeje quantas entrevistas você precisa para a margem desejada.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/intervalo-confianca.html"><h3>Intervalo de Confiança</h3><p>Calcule a faixa provável de uma proporção observada.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/teste-proporcao.html"><h3>Teste de Proporção</h3><p>Compare a proporção entre dois grupos com um teste formal.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Calcule o tamanho da sua amostra agora</h2>
+        <p>Defina a margem de erro, o nível de confiança e a proporção esperada — em segundos.</p>
+        <a class="btn btn--light btn--lg" href="/tamanho-amostra.html">Abrir a calculadora de amostra</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
