@@ -171,6 +171,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular teste Z</button>
         <button class="btn btn--ghost" type="button" id="z-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="z-clear">Limpar</button>
       </div>
 
       <section class="result" id="z-result" hidden aria-live="polite"></section>
@@ -400,6 +401,12 @@
     $('z-mean').value = '104'; $('z-sigma').value = '15';
     $('z-n').value = '60'; $('z-mu0').value = '100';
     compute();
+  });
+
+  $('z-clear').addEventListener('click', function () {
+    form.reset();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

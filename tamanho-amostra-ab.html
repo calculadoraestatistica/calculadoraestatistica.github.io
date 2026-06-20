@@ -191,6 +191,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular amostra</button>
         <button class="btn btn--ghost" type="button" id="ss-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="ss-clear">Limpar</button>
       </div>
 
       <section class="result" id="ss-result" hidden aria-live="polite"></section>
@@ -415,6 +416,13 @@
     document.querySelector('input[name="ss-mde-type"][value="rel"]').checked = true;
     syncMdeType();
     compute();
+  });
+
+  $('ss-clear').addEventListener('click', function () {
+    form.reset();
+    syncMdeType();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

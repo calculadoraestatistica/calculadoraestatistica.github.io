@@ -193,6 +193,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular teste de proporção</button>
         <button class="btn btn--ghost" type="button" id="prop-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="prop-clear">Limpar</button>
       </div>
 
       <section class="result" id="prop-result" hidden aria-live="polite"></section>
@@ -455,6 +456,13 @@
     $('one-x').value = '540'; $('one-n').value = '1000';
     $('one-p0').value = '50';
     compute();
+  });
+
+  $('prop-clear').addEventListener('click', function () {
+    form.reset();
+    syncPanels();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

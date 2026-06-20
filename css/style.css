@@ -1045,13 +1045,16 @@ textarea.input {
 }
 .metric__value {
   font-family: var(--font-mono);
-  font-size: 1.6rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
   font-weight: 500;
   color: var(--c-ink);
   font-variant-numeric: tabular-nums slashed-zero;
   font-feature-settings: 'tnum', 'zero', 'ss01';
   line-height: 1.15;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow-x: auto;
+  min-width: 0;
 }
 .metric__value.is-pos { color: var(--c-success-strong); }
 .metric__value.is-neg { color: var(--c-danger); }
@@ -1129,6 +1132,14 @@ textarea.input {
   transition: text-decoration-color var(--t-fast);
 }
 .prose a:hover { text-decoration-color: var(--c-primary); }
+/* Botões dentro de .prose preservam a cor e o estilo padrão de .btn */
+.prose a.btn { text-decoration: none; }
+.prose a.btn--primary,
+.prose a.btn--accent { color: #fff; }
+.prose a.btn--primary:hover,
+.prose a.btn--accent:hover { color: #fff; }
+.prose a.btn--ghost,
+.prose a.btn--light { color: var(--c-primary-darker); }
 .prose em { font-style: italic; color: var(--c-ink); }
 
 /* ============================================================

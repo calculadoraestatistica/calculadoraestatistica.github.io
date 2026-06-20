@@ -171,6 +171,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular significância</button>
         <button class="btn btn--ghost" type="button" id="ab-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="ab-clear">Limpar</button>
       </div>
 
       <section class="result" id="ab-result" hidden aria-live="polite"></section>
@@ -469,6 +470,12 @@
     $('visA').value = '16450'; $('convA').value = '1840';
     $('visB').value = '16320'; $('convB').value = '2010';
     compute();
+  });
+
+  $('ab-clear').addEventListener('click', function () {
+    form.reset();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

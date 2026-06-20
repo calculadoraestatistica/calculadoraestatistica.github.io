@@ -163,6 +163,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular tamanho de amostra</button>
         <button class="btn btn--ghost" type="button" id="ta-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="ta-clear">Limpar</button>
       </div>
 
       <section class="result" id="ta-result" hidden aria-live="polite"></section>
@@ -423,6 +424,12 @@
     $('ta-pop').value = '';
     document.querySelector('input[name="ta-conf"][value="0.95"]').checked = true;
     compute();
+  });
+
+  $('ta-clear').addEventListener('click', function () {
+    form.reset();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

@@ -189,6 +189,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular intervalo</button>
         <button class="btn btn--ghost" type="button" id="ic-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="ic-clear">Limpar</button>
       </div>
 
       <section class="result" id="ic-result" hidden aria-live="polite"></section>
@@ -453,6 +454,13 @@
     syncPanels();
     $('m-mean').value = '72'; $('m-sd').value = '8'; $('m-n').value = '30';
     compute();
+  });
+
+  $('ic-clear').addEventListener('click', function () {
+    form.reset();
+    syncPanels();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

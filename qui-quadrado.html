@@ -148,6 +148,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular qui-quadrado</button>
         <button class="btn btn--ghost" type="button" id="qq-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="qq-clear">Limpar</button>
       </div>
 
       <section class="result" id="qq-result" hidden aria-live="polite"></section>
@@ -443,6 +444,13 @@
       cells: { '0_0': '45', '0_1': '15', '1_0': '30', '1_1': '30' }
     });
     compute();
+  });
+
+  $('qq-clear').addEventListener('click', function () {
+    R = 2; C = 2;
+    buildTable({ rowLab: [], colLab: [], cells: {} });
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {

@@ -186,6 +186,7 @@
       <div class="calculator__actions">
         <button class="btn btn--primary btn--lg" type="submit">Calcular</button>
         <button class="btn btn--ghost" type="button" id="wx-example">Preencher com exemplo</button>
+        <button class="btn btn--ghost" type="button" id="wx-clear">Limpar</button>
       </div>
 
       <section class="result" id="wx-result" hidden aria-live="polite"></section>
@@ -455,6 +456,13 @@
     $('wx-g1').value = '12, 15, 14, 18, 11, 16';
     $('wx-g2').value = '20, 22, 19, 25, 21, 23';
     compute();
+  });
+
+  $('wx-clear').addEventListener('click', function () {
+    form.reset();
+    syncPanels();
+    clearError();
+    result.hidden = true;
   });
 
   form.addEventListener('submit', function (e) {
