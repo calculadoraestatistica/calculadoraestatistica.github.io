@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodologia — como as calculadoras funcionam | Calculadora Estatística</title>
+<meta name="description" content="Como as calculadoras da Calculadora Estatística funcionam: as fórmulas por trás, os métodos numéricos, como foram validadas e quais são as limitações.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/metodologia.html">
+<link rel="alternate" hreflang="pt-BR" href="https://calculadoraestatistica.com.br/metodologia.html">
+<link rel="alternate" hreflang="da-DK" href="https://statistikberegner.dk/metodologi.html">
+<link rel="alternate" hreflang="x-default" href="https://calculadoraestatistica.com.br/metodologia.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Metodologia — como as calculadoras funcionam">
+<meta property="og:description" content="As fórmulas por trás das calculadoras, os métodos numéricos, a validação contra R e planilhas, e as limitações das ferramentas.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/metodologia.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/cookie-consent.js" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},{"@type":"ListItem","position":2,"name":"Metodologia","item":"https://calculadoraestatistica.com.br/metodologia.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/artigos/">Artigos</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Metodologia</li>
+        </ol>
+      </nav>
+      <h1>Metodologia</h1>
+      <p class="lead">Como as calculadoras deste site funcionam: as fórmulas por trás, como foram validadas e o que elas podem — e não podem — fazer.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+    <article class="prose">
+
+      <h2>Como as calculadoras funcionam</h2>
+      <p>Todas as calculadoras deste site são escritas em <strong>JavaScript puro, que roda diretamente no seu navegador</strong>. Quando você clica em "Calcular", todo o cálculo acontece localmente, no seu próprio dispositivo: nenhum dado é enviado a servidor, nada fica armazenado e os seus números nunca saem do navegador. Isso vale para todas as calculadoras, sem exceção.</p>
+      <p>Não usamos bibliotecas estatísticas de "caixa-preta". Cada fórmula foi implementada do zero a partir dos livros-texto clássicos de inferência estatística. Isso significa que sabemos exatamente o que é calculado em cada etapa — e podemos documentar tudo.</p>
+
+      <h2>Quais testes cobrimos</h2>
+      <p>O site cobre os testes mais usados da inferência estatística básica:</p>
+      <ul>
+        <li><strong>teste z e teste t</strong> para médias — uma amostra, duas amostras independentes (incluindo a variante de Welch para variâncias desiguais) e medidas pareadas;</li>
+        <li><strong>teste de proporção e teste A/B</strong> para taxas e conversões;</li>
+        <li><strong>qui-quadrado</strong> de independência e de aderência (goodness-of-fit);</li>
+        <li><strong>ANOVA de um fator e Kruskal-Wallis</strong> para três ou mais grupos;</li>
+        <li><strong>Wilcoxon signed-rank e Mann-Whitney U</strong> como alternativas não paramétricas;</li>
+        <li><strong>correlação de Pearson</strong> com teste de significância;</li>
+        <li><strong>intervalos de confiança</strong> para médias e proporções, incluindo o intervalo de Wilson;</li>
+        <li><strong>tamanho de amostra</strong> para pesquisas e testes A/B.</li>
+      </ul>
+
+      <h2>As fórmulas e os métodos numéricos</h2>
+      <p>As calculadoras usam as fórmulas clássicas dos livros de estatística. P-valores e valores críticos são calculados com métodos numéricos bem documentados:</p>
+      <ul>
+        <li>a função de distribuição da <strong>normal</strong> e sua inversa, com aproximações racionais de alta precisão;</li>
+        <li>a <strong>distribuição t de Student</strong> e as distribuições <strong>F e qui-quadrado</strong>, calculadas pelas funções beta e gama incompletas regularizadas;</li>
+        <li>o <strong>intervalo de Wilson</strong> para proporções, mais preciso que o intervalo de Wald tradicional, especialmente com amostras pequenas e proporções extremas;</li>
+        <li><strong>tamanhos de efeito</strong> — d, h e w de Cohen, além do coeficiente de correlação r — seguindo as convenções de Cohen (1988).</li>
+      </ul>
+      <p>A apresentação das fórmulas segue livros-texto clássicos: Montgomery &amp; Runger para inferência geral, Agresti para dados categóricos e proporções, e Cohen (1988) para tamanhos de efeito e cálculos de poder. A lista completa e comentada está na página <a href="/fontes.html">Fontes</a>.</p>
+
+      <h2>Como validamos os resultados</h2>
+      <p>Cada calculadora foi conferida contra referências independentes antes de ir ao ar:</p>
+      <ul>
+        <li>os <strong>valores críticos tabelados</strong> das distribuições z, t, qui-quadrado e F, como aparecem nas tabelas dos livros-texto;</li>
+        <li>a saída do <strong>R</strong> (funções como <code>t.test</code>, <code>prop.test</code>, <code>chisq.test</code>, <code>wilcox.test</code> e <code>cor.test</code>) para os mesmos conjuntos de dados;</li>
+        <li><strong>funções de planilha</strong> como DIST.T e INV.NORM, usadas para conferência cruzada dos cálculos de distribuição.</li>
+      </ul>
+      <p>O site também mantém uma suíte de testes automatizados que roda as funções numéricas contra valores de referência conhecidos, de modo que uma mudança no código não consiga alterar resultados sem ser notada. Ainda assim, se você encontrar uma divergência, escreva para nós — a <a href="/politica-editorial.html">política editorial</a> explica como tratamos correções.</p>
+
+      <h2>Limitações</h2>
+      <p>Ser honesto sobre o que as ferramentas não fazem também é parte da metodologia:</p>
+      <ul>
+        <li>As calculadoras <strong>não substituem softwares estatísticos completos</strong> como R, SPSS, Stata ou SAS. Análises complexas — regressão, modelos mistos, medidas repetidas, análise de sobrevivência, desenhos amostrais complexos — exigem programas estatísticos de verdade.</li>
+        <li>As fórmulas assumem, por padrão, <strong>amostras aleatórias simples</strong>. Amostragem por conglomerados, estratificação e ponderação alteram a incerteza e não são tratadas aqui.</li>
+        <li>As calculadoras não verificam as suas <strong>suposições</strong> (normalidade, independência, homogeneidade de variâncias) — essa responsabilidade é sua, e cada página de calculadora descreve as suposições do teste.</li>
+        <li>Os resultados são arredondados para exibição; com valores de entrada extremos, pequenas diferenças numéricas em relação a outros programas podem aparecer nas últimas casas decimais.</li>
+      </ul>
+
+      <h2>Como interpretar os resultados</h2>
+      <p>Um p-valor não é um gabarito. Ele informa quão improváveis os seus dados seriam <em>se</em> a hipótese nula fosse verdadeira — nada mais, nada menos. Recomendamos sempre ler três coisas em conjunto: o <strong>p-valor</strong>, o <strong>intervalo de confiança</strong> e o <strong>tamanho do efeito</strong>. Uma diferença estatisticamente significativa pode ser irrelevante na prática, e uma diferença não significativa pode refletir uma amostra pequena demais, e não a ausência de efeito.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio —, tanto a escolha do teste quanto a interpretação do resultado devem ser confirmadas com um profissional de estatística.</p>
+
+      <p><em>Última revisão: 1º de agosto de 2026.</em></p>
+
+      <div class="related">
+        <h2>Leia também</h2>
+        <div class="card-grid card-grid--3">
+          <a class="card" href="/fontes.html"><h3>Fontes</h3><p>Os livros-texto e artigos em que as fórmulas se baseiam.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/politica-editorial.html"><h3>Política editorial</h3><p>Quem mantém o site e como o conteúdo é revisado.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/sobre.html"><h3>Sobre</h3><p>A missão do site: estatística gratuita com explicação didática.</p><span class="card__cta">Abrir →</span></a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/metodologia.html">Metodologia</a></li>
+          <li><a href="/fontes.html">Fontes</a></li>
+          <li><a href="/politica-editorial.html">Política editorial</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
