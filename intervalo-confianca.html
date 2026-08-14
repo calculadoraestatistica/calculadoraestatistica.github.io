@@ -356,7 +356,7 @@
   </section>
 
   <div class="container narrow">
-    <p style="font-size:.85rem;color:#64748b;border-top:1px solid #e2e8f0;padding-top:.9rem;margin:2rem 0 0;">Última revisão: 1º de agosto de 2026 · Conheça nossa <a href="/metodologia.html">metodologia</a> e as <a href="/fontes.html">fontes</a>.</p>
+    <p class="editorial-note">Última revisão: 1º de agosto de 2026 · Conheça nossa <a href="/metodologia.html">metodologia</a> e as <a href="/fontes.html">fontes</a>.</p>
   </div>
 
 </main>
@@ -554,12 +554,19 @@
         ' das amostras possíveis, um intervalo construído assim acerta o valor da população.</p>';
     }
 
+    var isProp = r.mode === 'proportion';
+    var hero = '<div class="result__hero"><span class="result__hero-value">[' +
+      (isProp ? Fmt.pct(r.ciLow, 2) + '; ' + Fmt.pct(r.ciHigh, 2)
+              : Fmt.num(r.ciLow, 2) + '; ' + Fmt.num(r.ciHigh, 2)) + ']</span>' +
+      '<span class="result__hero-pvalue">IC ' + confTxt + ' · ± ' +
+      (isProp ? Fmt.pct(r.marginError, 2) : Fmt.num(r.marginError, 2)) + '</span></div>';
+
     result.className = 'result result--neutral';
     result.innerHTML =
       '<div class="result__banner">' + ICON_NEUTRAL +
         '<div><div class="result__headline">Intervalo de confiança</div>' +
         '<div class="result__sub">A faixa provável da sua estimativa, com ' + confTxt + ' de confiança.</div></div></div>' +
-      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+      '<div class="result__body">' + hero + '<div class="metric-grid">' + metrics + '</div>' +
         '<div class="result__interpretation">' + interp + '</div></div>';
     result.hidden = false;
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

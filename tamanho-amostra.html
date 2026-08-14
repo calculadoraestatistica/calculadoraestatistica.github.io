@@ -341,7 +341,7 @@
   </section>
 
   <div class="container narrow">
-    <p style="font-size:.85rem;color:#64748b;border-top:1px solid #e2e8f0;padding-top:.9rem;margin:2rem 0 0;">Última revisão: 1º de agosto de 2026 · Conheça nossa <a href="/metodologia.html">metodologia</a> e as <a href="/fontes.html">fontes</a>.</p>
+    <p class="editorial-note">Última revisão: 1º de agosto de 2026 · Conheça nossa <a href="/metodologia.html">metodologia</a> e as <a href="/fontes.html">fontes</a>.</p>
   </div>
 
 </main>
@@ -530,12 +530,17 @@
     interp += '<p>Lembre-se de que esse total é de respostas <strong>válidas</strong>. ' +
       'Considere a taxa de resposta esperada e convide pessoas suficientes para alcançá-lo.</p>';
 
+    var hero = '<div class="result__hero"><span class="result__hero-value">n = ' +
+      Fmt.int(r.n) + '</span>' +
+      '<span class="result__hero-pvalue">respostas válidas · ± ' + Fmt.pct(margin, 1) +
+      ' · ' + Fmt.pct(conf, 0) + '</span></div>';
+
     result.className = 'result result--neutral';
     result.innerHTML =
       '<div class="result__banner">' + ICON +
         '<div><div class="result__headline">Tamanho de amostra recomendado</div>' +
         '<div class="result__sub">Este é o número de respostas que a sua pesquisa precisa coletar.</div></div></div>' +
-      '<div class="result__body"><div class="metric-grid">' + metrics + '</div>' +
+      '<div class="result__body">' + hero + '<div class="metric-grid">' + metrics + '</div>' +
         '<div class="result__interpretation">' + interp + '</div></div>';
     result.hidden = false;
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
