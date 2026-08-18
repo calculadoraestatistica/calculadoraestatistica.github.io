@@ -510,18 +510,18 @@
     var ic = '';
     if (r.ciLow !== null && r.ciHigh !== null) {
       ic = '<tr><td>IC ' + Math.round(r.confidence * 100) + '% para ρ</td>' +
-           '<td>[' + Fmt.num(r.ciLow, 4) + ' ; ' + Fmt.num(r.ciHigh, 4) + ']</td></tr>';
+           '<td class="num">[' + Fmt.num(r.ciLow, 4) + ' ; ' + Fmt.num(r.ciHigh, 4) + ']</td></tr>';
     }
 
     var rows =
-      '<tr><td><strong>r</strong> (Pearson)</td><td>' + Fmt.num(r.r, 4) + '</td></tr>' +
-      '<tr><td><strong>R²</strong> (determinação)</td><td>' + Fmt.num(r.r2, 4) + ' (' + Fmt.num(r.r2 * 100, 1) + '%)</td></tr>' +
-      '<tr><td>n (pares)</td><td>' + r.n + '</td></tr>' +
-      '<tr><td>Graus de liberdade</td><td>' + r.df + '</td></tr>' +
-      '<tr><td>Estatística t</td><td>' + Fmt.num(r.t, 3) + '</td></tr>' +
-      '<tr><td>Valor-p (bicaudal)</td><td>' + (r.pValue < 0.0001 ? '< 0,0001' : Fmt.num(r.pValue, 4)) + '</td></tr>' +
+      '<tr><td><strong>r</strong> (Pearson)</td><td class="num">' + Fmt.num(r.r, 4) + '</td></tr>' +
+      '<tr><td><strong>R²</strong> (determinação)</td><td class="num">' + Fmt.num(r.r2, 4) + ' (' + Fmt.num(r.r2 * 100, 1) + '%)</td></tr>' +
+      '<tr><td>n (pares)</td><td class="num">' + r.n + '</td></tr>' +
+      '<tr><td>Graus de liberdade</td><td class="num">' + r.df + '</td></tr>' +
+      '<tr><td>Estatística t</td><td class="num">' + Fmt.num(r.t, 3) + '</td></tr>' +
+      '<tr><td>Valor-p (bicaudal)</td><td class="num">' + (r.pValue < 0.0001 ? '< 0,0001' : Fmt.num(r.pValue, 4)) + '</td></tr>' +
       ic +
-      '<tr><td>Reta de regressão</td><td>y = ' + Fmt.num(r.intercept, 3) + ' + ' + Fmt.num(r.slope, 3) + ' · x</td></tr>';
+      '<tr><td>Reta de regressão</td><td class="num">y = ' + Fmt.num(r.intercept, 3) + ' + ' + Fmt.num(r.slope, 3) + ' · x</td></tr>';
 
     var labelX = $('varXLabel').value.trim() || 'X';
     var labelY = $('varYLabel').value.trim() || 'Y';
@@ -538,9 +538,9 @@
         '<div><div class="result__headline">' + headline + '</div>' +
         '<div class="result__sub">' + sub + '</div></div></div>' +
       '<div class="result__body">' + hero +
-        '<canvas id="corr-canvas" width="800" height="500" style="width:100%;height:auto;max-width:100%;display:block;border:1px solid var(--c-line);border-radius:8px;background:#fff"></canvas>' +
+        '<canvas id="corr-canvas" width="800" height="500" style="width:100%;height:auto;max-width:100%;display:block;border:1px solid var(--c-line);border-radius:2px;background:#fff"></canvas>' +
         '<div class="table-wrap" style="margin-top:1rem"><table class="data">' +
-          '<thead><tr><th>Estatística</th><th>Valor</th></tr></thead>' +
+          '<thead><tr><th>Estatística</th><th class="num">Valor</th></tr></thead>' +
           '<tbody>' + rows + '</tbody></table></div>' +
         '<div class="result__interpretation" style="margin-top:1rem"><p>' + interpret(r) + '</p></div>' +
       '</div>';
