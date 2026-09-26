@@ -104,7 +104,7 @@
         </ol>
       </nav>
       <h1>Calculadora de Tamanho de Amostra para Teste A/B</h1>
-      <p class="lead">Descubra <strong>quantos visitantes</strong> o seu teste precisa e <strong>por quantos dias</strong> ele deve rodar — antes de coletar o primeiro dado.</p>
+      <p class="lead">Descubra <strong>quantos visitantes</strong> o seu teste precisa e <strong>por quantos dias</strong> ele deve rodar: antes de coletar o primeiro dado.</p>
     </div>
   </div>
 
@@ -218,16 +218,16 @@
       </nav>
 
       <h2 id="por-que">Por que calcular a amostra antes do teste</h2>
-      <p>O erro mais comum em testes A/B não está na conta final — está em começar sem um plano. Quem inicia um teste sem definir o tamanho de amostra cai sempre em uma de duas armadilhas. Ou olha o painel todo dia e <strong>para no primeiro momento em que aparece "significativo"</strong>, o que infla enormemente a chance de um falso positivo. Ou deixa rodando para sempre, gastando tráfego em um teste que nunca conclui.</p>
-      <p>Calcular o tamanho de amostra antes resolve os dois problemas. Você fixa uma meta — "preciso de 12.000 visitantes por variante" — e só toma a decisão quando atinge esse número. O resultado passa a ser confiável porque o critério de parada foi definido <em>antes</em> de ver qualquer dado.</p>
+      <p>O erro mais comum em testes A/B não está na conta final: está em começar sem um plano. Quem inicia um teste sem definir o tamanho de amostra cai sempre em uma de duas armadilhas. Ou olha o painel todo dia e <strong>para no primeiro momento em que aparece "significativo"</strong>, o que infla enormemente a chance de um falso positivo. Ou deixa rodando para sempre, gastando tráfego em um teste que nunca conclui.</p>
+      <p>Calcular o tamanho de amostra antes resolve os dois problemas. Você fixa uma meta — "preciso de 12.000 visitantes por variante", e só toma a decisão quando atinge esse número. O resultado passa a ser confiável porque o critério de parada foi definido <em>antes</em> de ver qualquer dado.</p>
 
       <h2 id="como">Como a calculadora funciona</h2>
       <p>O tamanho de amostra de um teste A/B depende de quatro ingredientes. Mexa em qualquer um deles e o número muda:</p>
       <ul>
-        <li><strong>Taxa de conversão atual</strong> — o ponto de partida. Taxas muito baixas exigem amostras maiores.</li>
-        <li><strong>Efeito mínimo detectável (MDE)</strong> — a menor melhoria que você quer ser capaz de enxergar. Quanto menor, maior a amostra.</li>
-        <li><strong>Nível de confiança</strong> — controla o risco de falso positivo. 95% é o padrão.</li>
-        <li><strong>Poder estatístico</strong> — controla o risco de falso negativo. 80% é o padrão.</li>
+        <li><strong>Taxa de conversão atual</strong>: o ponto de partida. Taxas muito baixas exigem amostras maiores.</li>
+        <li><strong>Efeito mínimo detectável (MDE)</strong>: a menor melhoria que você quer ser capaz de enxergar. Quanto menor, maior a amostra.</li>
+        <li><strong>Nível de confiança</strong>: controla o risco de falso positivo. 95% é o padrão.</li>
+        <li><strong>Poder estatístico</strong>: controla o risco de falso negativo. 80% é o padrão.</li>
       </ul>
       <p>A calculadora combina esses valores na fórmula clássica de comparação de duas proporções (baseada na aproximação normal), considerando os dois grupos de tamanho igual:</p>
       <div class="formula">n por variante = [ z<sub>α</sub>·√(2·p̄·q̄) + z<sub>β</sub>·√(p₁·q₁ + p₂·q₂) ]² ÷ (p₂ − p₁)²
@@ -236,7 +236,7 @@
 
       <h2 id="poder">O que é poder estatístico</h2>
       <p>Se o nível de confiança protege contra "ver" um efeito que não existe, o <strong>poder estatístico</strong> protege contra o oposto: <em>não ver</em> um efeito que existe. O poder é a probabilidade de o teste detectar uma melhoria verdadeira.</p>
-      <p>O padrão de mercado é <strong>80%</strong>. Isso significa que, se a sua variante realmente é melhor na magnitude que você definiu, o teste vai detectar isso em 80% das vezes — e vai falhar (falso negativo) em 20%. Subir para 90% de poder dá mais segurança, mas exige uma amostra bem maior. Para a maioria dos times, 80% é o equilíbrio adequado.</p>
+      <p>O padrão de mercado é <strong>80%</strong>. Isso significa que, se a sua variante realmente é melhor na magnitude que você definiu, o teste vai detectar isso em 80% das vezes, e vai falhar (falso negativo) em 20%. Subir para 90% de poder dá mais segurança, mas exige uma amostra bem maior. Para a maioria dos times, 80% é o equilíbrio adequado.</p>
       <div class="callout callout--tip">
         <div class="callout__title">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
@@ -246,16 +246,16 @@
       </div>
 
       <h2 id="efeito-minimo">Como escolher o efeito mínimo detectável</h2>
-      <p>O MDE é a decisão mais estratégica — e a que mais confunde. Ele responde: "qual é a menor melhoria que ainda vale a pena para o meu negócio?"</p>
+      <p>O MDE é a decisão mais estratégica, e a que mais confunde. Ele responde: "qual é a menor melhoria que ainda vale a pena para o meu negócio?"</p>
       <p>Você pode informá-lo de duas formas:</p>
       <ul>
         <li><strong>Relativo:</strong> um aumento percentual sobre a taxa atual. Um MDE relativo de 10% sobre uma conversão de 5% mira em 5,5%.</li>
         <li><strong>Absoluto:</strong> um aumento em pontos percentuais. Um MDE absoluto de 1 ponto sobre 5% mira em 6%.</li>
       </ul>
-      <p>A tentação é escolher um MDE pequeno para "não perder nada". O problema é que detectar melhorias minúsculas custa caro: reduzir o MDE pela metade <strong>quadruplica</strong> a amostra necessária. Seja realista — mire na menor melhoria que justificaria, de fato, implementar a mudança.</p>
+      <p>A tentação é escolher um MDE pequeno para "não perder nada". O problema é que detectar melhorias minúsculas custa caro: reduzir o MDE pela metade <strong>quadruplica</strong> a amostra necessária. Seja realista: mire na menor melhoria que justificaria, de fato, implementar a mudança.</p>
 
       <h2 id="duracao">Quanto tempo deixar o teste rodando</h2>
-      <p>O tamanho de amostra responde "quantas pessoas". A duração responde "por quantos dias" — basta dividir a amostra total pelo tráfego diário. Mas há uma regra extra: <strong>todo teste deve rodar por pelo menos uma a duas semanas inteiras</strong>, mesmo que a amostra seja atingida antes.</p>
+      <p>O tamanho de amostra responde "quantas pessoas". A duração responde "por quantos dias": basta dividir a amostra total pelo tráfego diário. Mas há uma regra extra: <strong>todo teste deve rodar por pelo menos uma a duas semanas inteiras</strong>, mesmo que a amostra seja atingida antes.</p>
       <p>O motivo é que o comportamento muda ao longo da semana. Quem visita um site na segunda-feira de manhã não é o mesmo público da sexta à noite. Encerrar um teste depois de três dias corridos pode capturar só um "tipo" de visitante e distorcer o resultado. Sempre feche o teste no fim de semanas completas.</p>
 
       <div class="ad-slot" data-ad-slot=""></div>
@@ -266,7 +266,7 @@
         <li>Taxa atual p₁ = 0,05; taxa-alvo p₂ = 0,05 × 1,10 = 0,055.</li>
         <li>Com z<sub>α</sub> ≈ 1,96 (95%, bicaudal) e z<sub>β</sub> ≈ 0,84 (80% de poder), a fórmula resulta em cerca de <strong>31.234 visitantes por variante</strong>.</li>
         <li>Amostra total ≈ 62.468 visitantes (somando A e B).</li>
-        <li>Com 800 visitantes por dia, o teste deve rodar ≈ 79 dias — cerca de 11 semanas.</li>
+        <li>Com 800 visitantes por dia, o teste deve rodar ≈ 79 dias: cerca de 11 semanas.</li>
       </ol>
       <p>Esse número costuma surpreender, e é exatamente por isso que vale calculá-lo antes: melhorias pequenas em taxas baixas exigem muito tráfego. Use o botão <em>"Preencher com exemplo"</em> para ver o cálculo na calculadora.</p>
 
@@ -274,7 +274,7 @@
       <div class="faq">
         <details>
           <summary>Por que preciso calcular a amostra antes do teste?</summary>
-          <div class="faq__answer"><p>Porque sem um alvo definido você não sabe quando parar. Fixar a amostra antes evita o "peeking" — parar no primeiro resultado favorável — que transforma um teste de 5% de falso positivo em algo muito menos confiável.</p></div>
+          <div class="faq__answer"><p>Porque sem um alvo definido você não sabe quando parar. Fixar a amostra antes evita o "peeking", parar no primeiro resultado favorável, que transforma um teste de 5% de falso positivo em algo muito menos confiável.</p></div>
         </details>
         <details>
           <summary>O que acontece se a taxa de conversão for muito baixa?</summary>
@@ -282,7 +282,7 @@
         </details>
         <details>
           <summary>Devo usar MDE relativo ou absoluto?</summary>
-          <div class="faq__answer"><p>O relativo é mais intuitivo para a maioria dos times ("quero crescer 10%"). O absoluto é útil quando você raciocina em pontos percentuais. A calculadora aceita os dois — escolha o que for mais natural para você.</p></div>
+          <div class="faq__answer"><p>O relativo é mais intuitivo para a maioria dos times ("quero crescer 10%"). O absoluto é útil quando você raciocina em pontos percentuais. A calculadora aceita os dois: escolha o que for mais natural para você.</p></div>
         </details>
         <details>
           <summary>Posso parar antes de atingir a amostra calculada?</summary>
@@ -375,7 +375,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>

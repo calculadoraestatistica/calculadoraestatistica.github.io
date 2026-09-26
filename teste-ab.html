@@ -105,7 +105,7 @@
         </ol>
       </nav>
       <h1>Calculadora de Teste A/B</h1>
-      <p class="lead">Compare duas versões e descubra, em segundos, se a diferença entre elas é <strong>estatisticamente significativa</strong> — ou se pode ser só acaso.</p>
+      <p class="lead">Compare duas versões e descubra, em segundos, se a diferença entre elas é <strong>estatisticamente significativa</strong>, ou se pode ser só acaso.</p>
     </div>
   </div>
 
@@ -200,9 +200,9 @@
       </nav>
 
       <h2 id="o-que-e">O que é um teste A/B</h2>
-      <p>Um <strong>teste A/B</strong> é um experimento controlado que compara duas versões de algo para descobrir qual delas tem o melhor desempenho. A versão A é o <em>controle</em> — normalmente o que já existe. A versão B é a <em>variação</em> — a mudança que você quer testar. Você divide o público aleatoriamente entre as duas e mede uma métrica de interesse, quase sempre a <strong>taxa de conversão</strong>.</p>
+      <p>Um <strong>teste A/B</strong> é um experimento controlado que compara duas versões de algo para descobrir qual delas tem o melhor desempenho. A versão A é o <em>controle</em>, normalmente o que já existe. A versão B é a <em>variação</em>: a mudança que você quer testar. Você divide o público aleatoriamente entre as duas e mede uma métrica de interesse, quase sempre a <strong>taxa de conversão</strong>.</p>
       <p>O exemplo clássico vem do marketing digital: duas versões de uma página de vendas, dois assuntos de e-mail, dois botões de cores diferentes. Mas a mesma lógica vale para qualquer área. Um hospital pode comparar dois protocolos de orientação ao paciente; um aplicativo pode comparar dois fluxos de cadastro; uma escola pode comparar dois métodos de ensino. Sempre que existem dois grupos e uma taxa de sucesso, há um teste A/B possível.</p>
-      <p>O problema é que, ao olhar dois números — digamos, 11% de conversão contra 12% —, é impossível saber a olho nu se a diferença é real ou se foi sorte. Se você jogar duas moedas honestas 100 vezes cada, uma quase sempre dará mais "cara" que a outra; isso não significa que ela seja "melhor". O teste A/B usa estatística exatamente para distinguir <strong>sinal</strong> (uma diferença verdadeira) de <strong>ruído</strong> (variação aleatória).</p>
+      <p>O problema é que, ao olhar dois números (digamos, 11% de conversão contra 12%) , é impossível saber a olho nu se a diferença é real ou se foi sorte. Se você jogar duas moedas honestas 100 vezes cada, uma quase sempre dará mais "cara" que a outra; isso não significa que ela seja "melhor". O teste A/B usa estatística exatamente para distinguir <strong>sinal</strong> (uma diferença verdadeira) de <strong>ruído</strong> (variação aleatória).</p>
 
       <h2 id="significancia">O que é significância estatística</h2>
       <p>A <strong>significância estatística</strong> é o critério que separa uma diferença confiável de uma diferença que pode ter aparecido por acaso. Para chegar a ela, todo teste de hipótese parte de uma suposição pessimista chamada <strong>hipótese nula</strong>: a de que <em>não existe diferença alguma</em> entre A e B, e qualquer distância observada é puro ruído amostral.</p>
@@ -212,7 +212,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           O que o valor-p mede
         </div>
-        <p>"Se A e B fossem realmente iguais, qual seria a probabilidade de eu observar uma diferença tão grande quanto a que medi — ou ainda maior — só por acaso?"</p>
+        <p>"Se A e B fossem realmente iguais, qual seria a probabilidade de eu observar uma diferença tão grande quanto a que medi, ou ainda maior, só por acaso?"</p>
       </div>
       <p>Um valor-p pequeno significa que o seu resultado seria muito raro num mundo onde A e B são iguais. Logo, é mais plausível que eles <em>não</em> sejam iguais. Você compara o valor-p com um limite definido <strong>antes</strong> do teste, o <strong>nível de significância</strong> (representado pela letra grega α, alfa). O padrão é α = 5% (0,05):</p>
       <ul>
@@ -224,7 +224,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Cuidado com a interpretação
         </div>
-        <p>O valor-p <strong>não</strong> é a probabilidade de a sua variante ser melhor, e "não significativo" <strong>não</strong> prova que A e B são iguais — só indica que faltam dados. Significância estatística também não é o mesmo que importância prática: com uma amostra gigantesca, até uma diferença minúscula e irrelevante pode dar "significativa".</p>
+        <p>O valor-p <strong>não</strong> é a probabilidade de a sua variante ser melhor, e "não significativo" <strong>não</strong> prova que A e B são iguais, só indica que faltam dados. Significância estatística também não é o mesmo que importância prática: com uma amostra gigantesca, até uma diferença minúscula e irrelevante pode dar "significativa".</p>
       </div>
 
       <h2 id="como-funciona">Como a calculadora faz a conta</h2>
@@ -233,14 +233,14 @@
       <div class="formula">p<sub>A</sub> = conversões<sub>A</sub> ÷ visitantes<sub>A</sub>  &nbsp;e&nbsp;  p<sub>B</sub> = conversões<sub>B</sub> ÷ visitantes<sub>B</sub></div>
       <p><strong>2. Proporção combinada.</strong> Sob a hipótese nula, A e B vêm da mesma população. Por isso juntamos tudo numa única taxa, a proporção combinada (<em>pooled</em>):</p>
       <div class="formula">p̄ = (conversões<sub>A</sub> + conversões<sub>B</sub>) ÷ (visitantes<sub>A</sub> + visitantes<sub>B</sub>)</div>
-      <p><strong>3. Erro padrão e estatística z.</strong> O erro padrão mede quanta variação aleatória é esperada na diferença entre as duas taxas. A estatística z divide a diferença observada por esse erro padrão — ou seja, mede a diferença em "número de erros padrão":</p>
+      <p><strong>3. Erro padrão e estatística z.</strong> O erro padrão mede quanta variação aleatória é esperada na diferença entre as duas taxas.A estatística z divide a diferença observada por esse erro padrão, ou seja, mede a diferença em "número de erros padrão":</p>
       <div class="formula">EP = √[ p̄ · (1 − p̄) · (1/n<sub>A</sub> + 1/n<sub>B</sub>) ]<br>
         z = (p<sub>B</sub> − p<sub>A</sub>) ÷ EP
         <span class="formula__where">n<sub>A</sub> e n<sub>B</sub> são os números de visitantes de cada variante.</span>
       </div>
       <p><strong>4. Valor-p.</strong> Quanto maior o |z|, mais longe você está do cenário "sem diferença". A calculadora converte o z em valor-p usando a distribuição normal padrão (Φ é a sua função de distribuição acumulada):</p>
       <div class="formula">valor-p (bicaudal) = 2 · [ 1 − Φ(|z|) ]</div>
-      <p>Além do veredito, a calculadora devolve o <strong>intervalo de confiança da diferença</strong> — a faixa de valores plausíveis para o ganho real de conversão. Esse intervalo é mais informativo que o "sim ou não" da significância, porque mostra o <em>tamanho</em> provável do efeito.</p>
+      <p>Além do veredito, a calculadora devolve o <strong>intervalo de confiança da diferença</strong>: a faixa de valores plausíveis para o ganho real de conversão. Esse intervalo é mais informativo que o "sim ou não" da significância, porque mostra o <em>tamanho</em> provável do efeito.</p>
 
       <div class="recommend">
         <div class="recommend__title">
@@ -249,8 +249,8 @@
         </div>
         <p>O teste A/B é a porta de entrada da estatística aplicada. Para dominar o assunto na sua área:</p>
         <ul>
-          <li><a href="/guias/estatistica-marketing-cro.html">Guia de estatística para Marketing e CRO</a> — poder estatístico, MDE e as armadilhas dos experimentos.</li>
-          <li><a href="/tamanho-amostra-ab.html">Calculadora de tamanho de amostra</a> — planeje o teste antes de coletar um único dado.</li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Guia de estatística para Marketing e CRO</a>: poder estatístico, MDE e as armadilhas dos experimentos.</li>
+          <li><a href="/tamanho-amostra-ab.html">Calculadora de tamanho de amostra</a>: planeje o teste antes de coletar um único dado.</li>
         </ul>
         <p class="disclosure">Os links acima levam a conteúdos do próprio site. Caso passem a incluir indicações de parceiros, esta seção sinalizará a parceria.</p>
       </div>
@@ -258,12 +258,12 @@
       <h2 id="interpretar">Como interpretar o resultado da calculadora</h2>
       <p>Depois de calcular, você verá um cartão colorido com a conclusão e seis indicadores. Veja o que cada um diz:</p>
       <ul>
-        <li><strong>Taxa de conversão A e B</strong> — o desempenho bruto de cada versão, em porcentagem.</li>
-        <li><strong>Diferença relativa (uplift)</strong> — quanto a variante B cresceu (ou caiu) em relação a A. Um uplift de +10% significa que B converte 10% melhor que A em termos relativos.</li>
-        <li><strong>Valor-p</strong> — a probabilidade de ver essa diferença por acaso. Quanto menor, mais forte a evidência.</li>
-        <li><strong>Estatística z</strong> — a diferença medida em erros padrão. Em um teste bicaudal a 95%, |z| acima de 1,96 já indica significância.</li>
-        <li><strong>Confiança no resultado</strong> — é simplesmente 1 − valor-p. Um valor-p de 0,02 vira "98% de confiança". Atenção: isso <em>não</em> é a probabilidade de B vencer; é apenas o complemento do valor-p.</li>
-        <li><strong>Intervalo de confiança da diferença</strong> — a faixa provável do ganho real. Se o intervalo cruza o zero, a vantagem ainda é incerta.</li>
+        <li><strong>Taxa de conversão A e B</strong>: o desempenho bruto de cada versão, em porcentagem.</li>
+        <li><strong>Diferença relativa (uplift)</strong>: quanto a variante B cresceu (ou caiu) em relação a A. Um uplift de +10% significa que B converte 10% melhor que A em termos relativos.</li>
+        <li><strong>Valor-p</strong>: a probabilidade de ver essa diferença por acaso. Quanto menor, mais forte a evidência.</li>
+        <li><strong>Estatística z</strong>: a diferença medida em erros padrão. Em um teste bicaudal a 95%, |z| acima de 1,96 já indica significância.</li>
+        <li><strong>Confiança no resultado</strong>: é simplesmente 1 − valor-p. Um valor-p de 0,02 vira "98% de confiança". Atenção: isso <em>não</em> é a probabilidade de B vencer; é apenas o complemento do valor-p.</li>
+        <li><strong>Intervalo de confiança da diferença</strong>: a faixa provável do ganho real. Se o intervalo cruza o zero, a vantagem ainda é incerta.</li>
       </ul>
       <div class="callout callout--tip">
         <div class="callout__title">
@@ -276,8 +276,8 @@
       <h2 id="caudas">Bicaudal, unicaudal e nível de confiança</h2>
       <p>Dois ajustes mudam o rigor do teste. O primeiro é o <strong>tipo de teste</strong>:</p>
       <ul>
-        <li><strong>Bicaudal</strong> — testa se B é <em>diferente</em> de A, para mais ou para menos. É a opção mais segura e recomendada na maioria dos casos, porque um teste A/B pode piorar a conversão.</li>
-        <li><strong>Unicaudal</strong> — testa apenas se B é <em>melhor</em> que A. Detecta diferenças com mais facilidade, mas só é válido se você definiu essa direção <strong>antes</strong> de coletar os dados e aceita ignorar a possibilidade de piora.</li>
+        <li><strong>Bicaudal</strong>: testa se B é <em>diferente</em> de A, para mais ou para menos. É a opção mais segura e recomendada na maioria dos casos, porque um teste A/B pode piorar a conversão.</li>
+        <li><strong>Unicaudal</strong>: testa apenas se B é <em>melhor</em> que A. Detecta diferenças com mais facilidade, mas só é válido se você definiu essa direção <strong>antes</strong> de coletar os dados e aceita ignorar a possibilidade de piora.</li>
       </ul>
       <p>O segundo ajuste é o <strong>nível de confiança</strong>, o complemento do nível de significância:</p>
       <div class="table-wrap">
@@ -290,7 +290,7 @@
           </tbody>
         </table>
       </div>
-      <p>Quanto maior a confiança exigida, mais difícil é alcançar significância — e maior a amostra necessária. Aumentar a confiança reduz o risco de <strong>falso positivo</strong> (erro tipo I: declarar vencedor quem não é), mas aumenta o risco de <strong>falso negativo</strong> (erro tipo II: não detectar uma melhoria que existe).</p>
+      <p>Quanto maior a confiança exigida, mais difícil é alcançar significância, e maior a amostra necessária. Aumentar a confiança reduz o risco de <strong>falso positivo</strong> (erro tipo I: declarar vencedor quem não é), mas aumenta o risco de <strong>falso negativo</strong> (erro tipo II: não detectar uma melhoria que existe).</p>
 
       <h2 id="exemplo">Exemplo resolvido passo a passo</h2>
       <p>Uma loja virtual testou uma nova página de produto. Veja os números coletados em duas semanas:</p>
@@ -308,42 +308,42 @@
         <li><strong>Proporção combinada:</strong> p̄ = (1840 + 2010) ÷ (16450 + 16320) = 3850 ÷ 32770 = 0,1175.</li>
         <li><strong>Erro padrão:</strong> EP = √[0,1175 · 0,8825 · (1/16450 + 1/16320)] ≈ 0,00356.</li>
         <li><strong>Estatística z:</strong> z = (0,1232 − 0,1119) ÷ 0,00356 ≈ 3,18.</li>
-        <li><strong>Valor-p:</strong> para z = 3,18, o valor-p bicaudal é ≈ 0,0015 — bem abaixo de 0,05.</li>
+        <li><strong>Valor-p:</strong> para z = 3,18, o valor-p bicaudal é ≈ 0,0015: bem abaixo de 0,05.</li>
       </ol>
       <p>Conclusão: a diferença é <strong>estatisticamente significativa</strong> a 95% de confiança. A variante B converte cerca de 10% melhor (uplift relativo) e o resultado dificilmente é fruto do acaso. Use o botão <em>"Preencher com exemplo"</em> acima para ver esse cálculo na calculadora.</p>
 
       <div class="ad-slot" data-ad-slot=""></div>
 
       <h2 id="erros">7 erros que invalidam um teste A/B</h2>
-      <p>Mais perigoso que não fazer um teste é fazer um teste mal feito — ele dá uma falsa sensação de certeza. Evite estas armadilhas:</p>
+      <p>Mais perigoso que não fazer um teste é fazer um teste mal feito. Ele dá uma falsa sensação de certeza.Evite estas armadilhas:</p>
       <ol>
         <li><strong>Parar o teste no primeiro momento favorável (peeking).</strong> Ficar olhando o resultado e encerrar assim que aparece "significativo" infla o falso positivo de 5% para 20%, 30% ou mais. Defina o tamanho de amostra antes e só decida ao atingi-lo.</li>
         <li><strong>Não calcular o tamanho de amostra.</strong> Sem saber de quantos visitantes você precisa, o teste vira loteria. Use a <a href="/tamanho-amostra-ab.html">calculadora de amostra</a> antes de começar.</li>
-        <li><strong>Rodar por tempo curto demais.</strong> Um teste precisa cobrir ciclos completos — incluindo fins de semana e dias de pagamento. O ideal é durar pelo menos uma a duas semanas inteiras.</li>
+        <li><strong>Rodar por tempo curto demais.</strong> Um teste precisa cobrir ciclos completos: incluindo fins de semana e dias de pagamento. O ideal é durar pelo menos uma a duas semanas inteiras.</li>
         <li><strong>Testar várias variações sem ajuste.</strong> Quanto mais versões você compara ao mesmo tempo, maior a chance de uma "vencer" por sorte. Com muitas variantes, é preciso corrigir o nível de significância.</li>
         <li><strong>Mudar o teste no meio do caminho.</strong> Alterar a página, o tráfego ou o público durante o experimento contamina os dados. Congele tudo até o fim.</li>
         <li><strong>Confundir significância com relevância.</strong> Um uplift de 0,1% pode ser "significativo" com amostra enorme e ainda assim não pagar o custo da mudança. Olhe sempre o tamanho do efeito.</li>
-        <li><strong>Ignorar a segmentação.</strong> Uma variante pode vencer no celular e perder no computador. Uma média geral pode esconder isso — quando fizer sentido, analise os segmentos.</li>
+        <li><strong>Ignorar a segmentação.</strong> Uma variante pode vencer no celular e perder no computador. Uma média geral pode esconder isso, quando fizer sentido, analise os segmentos.</li>
       </ol>
 
       <h2 id="areas">Teste A/B além do marketing</h2>
-      <p>Embora tenha virado sinônimo de otimização de conversão (CRO), o teste A/B é, na essência, uma <strong>comparação de duas proporções</strong> — e isso aparece em todo lugar:</p>
+      <p>Embora tenha virado sinônimo de otimização de conversão (CRO), o teste A/B é, na essência, uma <strong>comparação de duas proporções</strong>, e isso aparece em todo lugar:</p>
       <ul>
         <li><strong>Saúde e enfermagem:</strong> comparar a taxa de adesão a um tratamento entre dois grupos, ou a taxa de complicação entre dois protocolos. Veja o <a href="/guias/estatistica-enfermagem.html">guia de estatística para enfermagem</a>.</li>
         <li><strong>Psicologia e pesquisa:</strong> comparar a proporção de participantes que apresentam determinado comportamento em duas condições experimentais. Veja o <a href="/guias/estatistica-psicologia.html">guia de estatística para psicologia</a>.</li>
         <li><strong>Produto e tecnologia:</strong> comparar a taxa de retenção, de ativação ou de erro entre duas versões de um aplicativo.</li>
       </ul>
-      <p>Quando o que você compara não são taxas, mas <strong>médias</strong> — tempo, nota, pressão arterial, faturamento por cliente —, o teste certo passa a ser o <a href="/teste-t.html">teste t de Student</a>. E se você quer comparar uma única proporção com um valor de referência, use o <a href="/teste-proporcao.html">teste de proporção</a>.</p>
+      <p>Quando o que você compara não são taxas, mas <strong>médias</strong> (tempo, nota, pressão arterial, faturamento por cliente) , o teste certo passa a ser o <a href="/teste-t.html">teste t de Student</a>. E se você quer comparar uma única proporção com um valor de referência, use o <a href="/teste-proporcao.html">teste de proporção</a>.</p>
 
       <h2 id="faq">Perguntas frequentes</h2>
       <div class="faq">
         <details>
           <summary>O que é um teste A/B?</summary>
-          <div class="faq__answer"><p>É um experimento que divide o público aleatoriamente entre duas versões — A (controle) e B (variação) — e mede qual gera mais conversões. A estatística entra para garantir que a diferença observada seja real, e não acaso.</p></div>
+          <div class="faq__answer"><p>É um experimento que divide o público aleatoriamente entre duas versões, A (controle) e B (variação), e mede qual gera mais conversões. A estatística entra para garantir que a diferença observada seja real, e não acaso.</p></div>
         </details>
         <details>
           <summary>O que significa "estatisticamente significativo"?</summary>
-          <div class="faq__answer"><p>Significa que o valor-p ficou abaixo do nível de significância escolhido (em geral 5%). É improvável que a diferença entre as variantes tenha surgido por puro acaso — há evidência de um efeito real.</p></div>
+          <div class="faq__answer"><p>Significa que o valor-p ficou abaixo do nível de significância escolhido (em geral 5%). É improvável que a diferença entre as variantes tenha surgido por puro acaso: há evidência de um efeito real.</p></div>
         </details>
         <details>
           <summary>Qual nível de confiança devo usar?</summary>
@@ -359,7 +359,7 @@
         </details>
         <details>
           <summary>O resultado deu não significativo. E agora?</summary>
-          <div class="faq__answer"><p>Não significativo não prova que as versões são iguais — em geral significa que faltam dados. Verifique se você atingiu o tamanho de amostra planejado. Se sim, a mudança provavelmente teve efeito pequeno demais para valer a pena.</p></div>
+          <div class="faq__answer"><p>Não significativo não prova que as versões são iguais, em geral significa que faltam dados. Verifique se você atingiu o tamanho de amostra planejado. Se sim, a mudança provavelmente teve efeito pequeno demais para valer a pena.</p></div>
         </details>
       </div>
 
@@ -448,7 +448,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>
@@ -550,7 +550,7 @@
         '<strong>estatisticamente significativa</strong>: o valor-p (' + Fmt.p(r.pValue) +
         ') é menor que o nível de significância (' + Fmt.pct(r.alpha, 0) + '). ' +
         'É improvável que essa diferença tenha surgido por acaso' +
-        (winner ? ' — a variante <strong>' + winner + '</strong> venceu' : '') + '.</p>' +
+        (winner ? ': a variante <strong>' + winner + '</strong> venceu' : '') + '.</p>' +
         '<p>O intervalo de confiança de ' + confTxt + ' indica que a diferença real de conversão ' +
         '(B − A) está, provavelmente, entre <strong>' + Fmt.pct(r.ciLow, 2) + '</strong> e <strong>' +
         Fmt.pct(r.ciHigh, 2) + '</strong> em pontos percentuais.</p>';

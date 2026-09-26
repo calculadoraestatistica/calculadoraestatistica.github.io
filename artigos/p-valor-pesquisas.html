@@ -113,7 +113,7 @@
         </ol>
       </nav>
       <h1>Como interpretar o p-valor em pesquisas brasileiras</h1>
-      <p class="lead">Um guia direto sobre o número mais citado — e mais mal interpretado — da estatística aplicada, com exemplos de pesquisas brasileiras e os erros que aparecem em quase todo TCC, dissertação ou matéria de jornal.</p>
+      <p class="lead">Um guia direto sobre o número mais citado, e mais mal interpretado, da estatística aplicada, com exemplos de pesquisas brasileiras e os erros que aparecem em quase todo TCC, dissertação ou matéria de jornal.</p>
     </div>
   </div>
 
@@ -139,43 +139,43 @@
       </nav>
 
       <h2 id="o-que-e">O que é o p-valor (e por que ele é tão mal interpretado)</h2>
-      <p>Se você abriu qualquer artigo científico brasileiro nos últimos vinte anos — uma dissertação de saúde pública, um <em>paper</em> da ANPOCS, um relatório do IBGE ou uma análise da SBPC — viu o p-valor aparecer em quase toda tabela de resultados. Ele é tão onipresente que virou um selo de qualidade automático: se p &lt; 0,05, o resultado "deu certo"; se p &gt; 0,05, "não deu". E é aí que mora o problema. O p-valor não responde à pergunta que a maioria dos pesquisadores acha que ele responde.</p>
-      <p>A gente costuma ouvir frases como "o p-valor mostra que existe 4% de chance de o resultado ser fruto do acaso" ou "se p &lt; 0,05, a hipótese nula é falsa". Nenhuma das duas está correta. E não é frescura terminológica — interpretar o p-valor errado leva a decisões erradas: medicamentos que não funcionam parecem funcionar, políticas públicas perdem o foco e teses defendem conclusões que os dados não suportam. A Associação Americana de Estatística (ASA) publicou um pronunciamento histórico em 2016 justamente porque o uso indevido do p-valor estava distorcendo a literatura científica mundial — e o Brasil não é exceção.</p>
+      <p>Se você abriu qualquer artigo científico brasileiro nos últimos vinte anos (uma dissertação de saúde pública, um <em>paper</em> da ANPOCS, um relatório do IBGE ou uma análise da SBPC) viu o p-valor aparecer em quase toda tabela de resultados. Ele é tão onipresente que virou um selo de qualidade automático: se p &lt; 0,05, o resultado "deu certo"; se p &gt; 0,05, "não deu". E é aí que mora o problema. O p-valor não responde à pergunta que a maioria dos pesquisadores acha que ele responde.</p>
+      <p>A gente costuma ouvir frases como "o p-valor mostra que existe 4% de chance de o resultado ser fruto do acaso" ou "se p &lt; 0,05, a hipótese nula é falsa". Nenhuma das duas está correta. E não é frescura terminológica: interpretar o p-valor errado leva a decisões erradas: medicamentos que não funcionam parecem funcionar, políticas públicas perdem o foco e teses defendem conclusões que os dados não suportam. A Associação Americana de Estatística (ASA) publicou um pronunciamento histórico em 2016 justamente porque o uso indevido do p-valor estava distorcendo a literatura científica mundial, e o Brasil não é exceção.</p>
       <p>Antes de entrar nos erros, vale pegar a definição com calma. Porque entender o que o p-valor <em>é</em> resolve, sozinho, metade da confusão.</p>
 
       <h2 id="definicao-formal">A definição formal: a probabilidade SOB H₀</h2>
-      <p>O p-valor é uma <strong>probabilidade condicional</strong>. Ele responde à pergunta: <em>"se a hipótese nula (H₀) for verdadeira, qual a probabilidade de eu observar dados tão extremos quanto os que observei — ou ainda mais extremos?"</em></p>
+      <p>O p-valor é uma <strong>probabilidade condicional</strong>. Ele responde à pergunta: <em>"se a hipótese nula (H₀) for verdadeira, qual a probabilidade de eu observar dados tão extremos quanto os que observei, ou ainda mais extremos?"</em></p>
       <div class="formula">p = Pr(dados tão extremos ou mais | H₀ verdadeira)
         <span class="formula__where">A barra "|" lê-se "dado que". O p-valor pressupõe H₀ como ponto de partida.</span>
       </div>
-      <p>Repare em três detalhes que mudam tudo. Primeiro: o p-valor parte da suposição de que H₀ é verdadeira. Ele não nos diz nada direto sobre a probabilidade de H₀ — apenas sobre a probabilidade dos dados. Segundo: o que conta como "tão extremo ou mais" depende do teste — pode ser uma diferença de médias num <a href="/teste-t.html">teste t de Student</a>, uma diferença de proporções num <a href="/teste-proporcao.html">teste de proporção</a>, ou uma estatística qui-quadrado num <a href="/qui-quadrado.html">teste qui-quadrado</a>. Terceiro: a definição não diz nada sobre causa, efeito ou importância prática. É puramente uma medida de compatibilidade entre os dados e H₀.</p>
-      <p>Uma analogia ajuda. Imagine um juiz que parte do princípio de que o réu é inocente (essa é a H₀). O p-valor seria algo como: "se ele for inocente, quão estranhas seriam as provas que vi?" Um p baixo é equivalente a dizer "as provas seriam muito estranhas sob a hipótese da inocência" — o que torna a inocência menos plausível, mas não diz qual a probabilidade de ele ser culpado. Para isso você precisaria saber, antes, qual a chance <em>a priori</em> de culpa. Esse é exatamente o salto que o p-valor não dá — e que muita gente dá por cima dele sem perceber.</p>
+      <p>Repare em três detalhes que mudam tudo. Primeiro: o p-valor parte da suposição de que H₀ é verdadeira. Ele não nos diz nada direto sobre a probabilidade de H₀, apenas sobre a probabilidade dos dados. Segundo: o que conta como "tão extremo ou mais" depende do teste: pode ser uma diferença de médias num <a href="/teste-t.html">teste t de Student</a>, uma diferença de proporções num <a href="/teste-proporcao.html">teste de proporção</a>, ou uma estatística qui-quadrado num <a href="/qui-quadrado.html">teste qui-quadrado</a>. Terceiro: a definição não diz nada sobre causa, efeito ou importância prática. É puramente uma medida de compatibilidade entre os dados e H₀.</p>
+      <p>Uma analogia ajuda. Imagine um juiz que parte do princípio de que o réu é inocente (essa é a H₀). O p-valor seria algo como: "se ele for inocente, quão estranhas seriam as provas que vi?" Um p baixo é equivalente a dizer "as provas seriam muito estranhas sob a hipótese da inocência": o que torna a inocência menos plausível, mas não diz qual a probabilidade de ele ser culpado. Para isso você precisaria saber, antes, qual a chance <em>a priori</em> de culpa. Esse é exatamente o salto que o p-valor não dá, e que muita gente dá por cima dele sem perceber.</p>
 
       <h2 id="erros-comuns">Os 5 erros mais comuns de interpretação no Brasil</h2>
       <p>Olhando teses, dissertações e matérias de jornal, dá para listar cinco erros que reaparecem com uma frequência impressionante. Vale conferir se algum deles está no seu próprio texto.</p>
 
       <h3>1. "O p-valor é a probabilidade de a hipótese nula ser verdadeira"</h3>
-      <p>Este é o erro mais comum e o mais grave. O p-valor é Pr(dados | H₀), não Pr(H₀ | dados). Não dá para inverter uma probabilidade condicional sem saber a probabilidade a priori — é o mesmo equívoco de quem confunde "probabilidade de ter doença dado o teste positivo" com "probabilidade de o teste dar positivo dado que tem doença". Em pesquisas brasileiras de epidemiologia, é fácil ver autores escreverem "há 96% de probabilidade de que o tratamento funcione (p = 0,04)" — uma frase que, formalmente, é incorreta. O p-valor não autoriza nenhuma afirmação direta sobre a probabilidade da hipótese.</p>
+      <p>Este é o erro mais comum e o mais grave. O p-valor é Pr(dados | H₀), não Pr(H₀ | dados). Não dá para inverter uma probabilidade condicional sem saber a probabilidade a priori: é o mesmo equívoco de quem confunde "probabilidade de ter doença dado o teste positivo" com "probabilidade de o teste dar positivo dado que tem doença". Em pesquisas brasileiras de epidemiologia, é fácil ver autores escreverem "há 96% de probabilidade de que o tratamento funcione (p = 0,04)": uma frase que, formalmente, é incorreta. O p-valor não autoriza nenhuma afirmação direta sobre a probabilidade da hipótese.</p>
 
       <h3>2. "p &gt; 0,05 significa que não há diferença"</h3>
-      <p>Não. Um p alto significa que os dados não fornecem evidência <em>suficiente</em> para rejeitar H₀ — não que H₀ seja verdadeira. Em pesquisas eleitorais brasileiras isso aparece com frequência: o Datafolha divulga que dois candidatos estão "empatados tecnicamente" porque a diferença entre eles não é estatisticamente significativa. Mas "empate técnico" não quer dizer que a diferença real é zero — quer dizer que, com aquela amostra, não dá para descartar o zero. Pode ser que um esteja realmente à frente; só que para confirmar precisaríamos de mais amostra. A ausência de evidência não é evidência de ausência.</p>
+      <p>Não. Um p alto significa que os dados não fornecem evidência <em>suficiente</em> para rejeitar H₀, não que H₀ seja verdadeira. Em pesquisas eleitorais brasileiras isso aparece com frequência: o Datafolha divulga que dois candidatos estão "empatados tecnicamente" porque a diferença entre eles não é estatisticamente significativa. Mas "empate técnico" não quer dizer que a diferença real é zero: quer dizer que, com aquela amostra, não dá para descartar o zero. Pode ser que um esteja realmente à frente; só que para confirmar precisaríamos de mais amostra. A ausência de evidência não é evidência de ausência.</p>
 
       <h3>3. "Quanto menor o p-valor, maior o efeito"</h3>
-      <p>Esse erro aparece muito em estudos clínicos brasileiros publicados em revistas da SBPC. Um p = 0,001 não significa que o efeito é dez vezes maior que um p = 0,01. O p-valor mistura tamanho do efeito <em>e</em> tamanho amostral — um efeito minúsculo, com uma amostra de cem mil pessoas, pode gerar um p ridiculamente pequeno sem nenhuma relevância prática. É por isso que ensaios com cohorts gigantes do IBGE conseguem detectar efeitos que, na prática clínica, ninguém perceberia.</p>
+      <p>Esse erro aparece muito em estudos clínicos brasileiros publicados em revistas da SBPC. Um p = 0,001 não significa que o efeito é dez vezes maior que um p = 0,01. O p-valor mistura tamanho do efeito <em>e</em> tamanho amostral: um efeito minúsculo, com uma amostra de cem mil pessoas, pode gerar um p ridiculamente pequeno sem nenhuma relevância prática. É por isso que ensaios com cohorts gigantes do IBGE conseguem detectar efeitos que, na prática clínica, ninguém perceberia.</p>
 
       <h3>4. "Se p &lt; 0,05, o resultado é importante"</h3>
-      <p>Significância estatística e significância prática são coisas diferentes. Uma diferença de 0,3 ponto de IMC entre dois grupos pode ser estatisticamente significativa numa amostra de quinze mil pacientes — mas clinicamente irrelevante. Em pesquisas educacionais do INEP, isso é especialmente comum: com bases tão grandes, quase tudo "dá significativo". O bom pesquisador olha o p, sim, mas pergunta em seguida: <em>quão grande foi o efeito?</em></p>
+      <p>Significância estatística e significância prática são coisas diferentes. Uma diferença de 0,3 ponto de IMC entre dois grupos pode ser estatisticamente significativa numa amostra de quinze mil pacientes, mas clinicamente irrelevante. Em pesquisas educacionais do INEP, isso é especialmente comum: com bases tão grandes, quase tudo "dá significativo". O bom pesquisador olha o p, sim, mas pergunta em seguida: <em>quão grande foi o efeito?</em></p>
 
       <h3>5. "Posso testar várias hipóteses e ficar com as que deram p &lt; 0,05"</h3>
-      <p>Esse é o famoso <em>p-hacking</em>. Quando você roda vinte testes independentes e mantém só os significativos, está praticamente garantindo um falso positivo — porque, em vinte testes sob H₀ verdadeira, espera-se em média um com p &lt; 0,05 só por acaso. Em pesquisas brasileiras de epidemiologia ambiental, com muitas variáveis e poucas correções para múltiplos testes, isso vira regra. Ferramentas como correção de Bonferroni, Holm ou FDR existem justamente para isso, e ignorá-las infla a literatura com resultados que não se replicam.</p>
+      <p>Esse é o famoso <em>p-hacking</em>. Quando você roda vinte testes independentes e mantém só os significativos, está praticamente garantindo um falso positivo, porque, em vinte testes sob H₀ verdadeira, espera-se em média um com p &lt; 0,05 só por acaso. Em pesquisas brasileiras de epidemiologia ambiental, com muitas variáveis e poucas correções para múltiplos testes, isso vira regra. Ferramentas como correção de Bonferroni, Holm ou FDR existem justamente para isso, e ignorá-las infla a literatura com resultados que não se replicam.</p>
 
       <h2 id="exemplo">Exemplo aplicado: uma pesquisa de intenção de voto</h2>
       <p>Vamos a um caso concreto, do tipo que aparece quase toda semana em ano eleitoral. Suponha que um instituto entrevista <strong>1.200 eleitores brasileiros</strong> e encontra <strong>52% de intenção de voto</strong> para o candidato A e <strong>48% para o B</strong>. A pergunta é: o candidato A está realmente à frente, ou essa diferença de 4 pontos pode ser apenas variação amostral?</p>
-      <p>A hipótese nula H₀ diz que a verdadeira proporção entre A e B é 50/50 — ou seja, que não há diferença real e os 4 pontos vieram do acaso da amostragem. Para testar isso, podemos usar um <a href="/teste-z.html">teste Z</a> para diferença de proporções (ou um <a href="/teste-proporcao.html">teste de proporção</a> equivalente). Sob H₀, o erro padrão da diferença é cerca de 0,0204, então a estatística t (aproximadamente Z, pelo tamanho da amostra) fica:</p>
+      <p>A hipótese nula H₀ diz que a verdadeira proporção entre A e B é 50/50, ou seja, que não há diferença real e os 4 pontos vieram do acaso da amostragem. Para testar isso, podemos usar um <a href="/teste-z.html">teste Z</a> para diferença de proporções (ou um <a href="/teste-proporcao.html">teste de proporção</a> equivalente).Sob H₀, o erro padrão da diferença é cerca de 0,0204, então a estatística t (aproximadamente Z, pelo tamanho da amostra) fica:</p>
       <div class="formula">t = (0,52 − 0,48) ÷ 0,0204 ≈ 1,96
         <span class="formula__where">Aproximadamente o valor crítico de 5% bilateral.</span>
       </div>
-      <p>O p-valor bilateral correspondente é <strong>p ≈ 0,050</strong> — bem na borda do nosso critério usual. O gráfico abaixo mostra exatamente o que esse p representa: a probabilidade, sob a curva da distribuição t, de observar uma estatística tão extrema quanto a nossa se H₀ for verdadeira.</p>
+      <p>O p-valor bilateral correspondente é <strong>p ≈ 0,050</strong>: bem na borda do nosso critério usual. O gráfico abaixo mostra exatamente o que esse p representa: a probabilidade, sob a curva da distribuição t, de observar uma estatística tão extrema quanto a nossa se H₀ for verdadeira.</p>
 
       <figure>
         <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svg1-title svg1-desc" style="max-width:100%;height:auto;display:block;margin:1rem auto;background:var(--c-paper-alt);border-radius:2px">
@@ -209,10 +209,10 @@
         <figcaption style="text-align:center;font-size:0.9em;color:#64748b;margin-top:0.25rem">Distribuição t com a região de rejeição bilateral a 5% sombreada. O t observado de 1,96 cai bem na fronteira.</figcaption>
       </figure>
 
-      <p>Esse exemplo ilustra um dilema clássico: o p está tão na fronteira que é difícil tomar decisão clara. Se o instituto tivesse entrevistado 1.500 eleitores em vez de 1.200, o mesmo padrão de respostas geraria p &lt; 0,01. Se tivesse entrevistado só 800, o mesmo padrão daria p &gt; 0,10 — e o resultado seria descartado. Por isso a discussão sobre "empate técnico" no Brasil é tão delicada: ela depende muito mais do n da pesquisa do que do tamanho real da diferença entre os candidatos.</p>
+      <p>Esse exemplo ilustra um dilema clássico: o p está tão na fronteira que é difícil tomar decisão clara. Se o instituto tivesse entrevistado 1.500 eleitores em vez de 1.200, o mesmo padrão de respostas geraria p &lt; 0,01. Se tivesse entrevistado só 800, o mesmo padrão daria p &gt; 0,10, e o resultado seria descartado. Por isso a discussão sobre "empate técnico" no Brasil é tão delicada: ela depende muito mais do n da pesquisa do que do tamanho real da diferença entre os candidatos.</p>
 
       <h2 id="p-valor-vs-significancia">P-valor não é tamanho do efeito</h2>
-      <p>Volto ao ponto porque ele merece um capítulo só: <strong>p-valor pequeno não significa efeito grande</strong>. O p-valor depende de três coisas — o tamanho do efeito, a variabilidade dos dados e o tamanho da amostra. Aumente o n e o mesmo efeito gera um p cada vez menor; em tese, qualquer efeito não nulo eventualmente vira "estatisticamente significativo" se você coletar amostra grande o bastante.</p>
+      <p>Volto ao ponto porque ele merece um capítulo só: <strong>p-valor pequeno não significa efeito grande</strong>. O p-valor depende de três coisas: o tamanho do efeito, a variabilidade dos dados e o tamanho da amostra. Aumente o n e o mesmo efeito gera um p cada vez menor; em tese, qualquer efeito não nulo eventualmente vira "estatisticamente significativo" se você coletar amostra grande o bastante.</p>
 
       <figure>
         <svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svg2-title svg2-desc" style="max-width:100%;height:auto;display:block;margin:1rem auto;background:var(--c-paper-alt);border-radius:2px">
@@ -243,31 +243,31 @@
       <p>O que reportar então? <strong>O tamanho do efeito.</strong> Em comparações de médias, isso é o <em>d de Cohen</em> ou similar. Em proporções, o risco relativo ou a razão de chances. Em regressões, os coeficientes padronizados. Esses números dizem <em>quão grande</em> é a diferença, independentemente da amostra. E é justamente isso que falta na maior parte das pesquisas brasileiras que se contentam em reportar "p &lt; 0,05" e seguir adiante.</p>
 
       <h2 id="alpha">A diferença entre p-valor e nível de significância (α)</h2>
-      <p>O α é uma decisão sua, tomada <em>antes</em> de coletar os dados: qual taxa de falsos positivos você aceita correr? Por convenção, na maioria das áreas é 5% (α = 0,05). Em estudos críticos — ensaios clínicos de fase III, decisões regulatórias — costuma cair para 1% (α = 0,01) ou 0,1%.</p>
-      <p>Já o p-valor é resultado dos dados, calculado depois do experimento. A regra de decisão clássica é simples: se p &lt; α, rejeito H₀. Mas confundir os dois leva a interpretações canhotas — frases como "encontrei um p-valor de 5%" quando o que se quis dizer foi "usei α = 5% como critério" são comuns em monografias. Vale ainda lembrar que o α é uma escolha; não há uma propriedade matemática que torne 0,05 mais correto que 0,037 ou 0,062. O 0,05 virou padrão por inércia, e a comunidade de estatística vem repetidamente debatendo se devíamos mudá-lo — alguns autores defendem 0,005 como novo limiar para "descobertas" em áreas com alto risco de irreproducibilidade.</p>
+      <p>O α é uma decisão sua, tomada <em>antes</em> de coletar os dados: qual taxa de falsos positivos você aceita correr? Por convenção, na maioria das áreas é 5% (α = 0,05). Em estudos críticos (ensaios clínicos de fase III, decisões regulatórias) costuma cair para 1% (α = 0,01) ou 0,1%.</p>
+      <p>Já o p-valor é resultado dos dados, calculado depois do experimento. A regra de decisão clássica é simples: se p &lt; α, rejeito H₀. Mas confundir os dois leva a interpretações canhotas: frases como "encontrei um p-valor de 5%" quando o que se quis dizer foi "usei α = 5% como critério" são comuns em monografias. Vale ainda lembrar que o α é uma escolha; não há uma propriedade matemática que torne 0,05 mais correto que 0,037 ou 0,062. O 0,05 virou padrão por inércia, e a comunidade de estatística vem repetidamente debatendo se devíamos mudá-lo: alguns autores defendem 0,005 como novo limiar para "descobertas" em áreas com alto risco de irreproducibilidade.</p>
 
       <h2 id="abnt">Como reportar p-valor seguindo ABNT/SBPC</h2>
       <p>As normas da ABNT não detalham casas decimais de p-valor, mas convenções da SBPC e das revistas brasileiras consolidaram algumas práticas que vale seguir:</p>
       <ul>
         <li><strong>Use vírgula decimal</strong> (p = 0,034), não ponto, em textos em português.</li>
-        <li><strong>Três casas decimais</strong> são o padrão para p entre 0,001 e 0,999. Para valores menores, escreva <em>p &lt; 0,001</em>, não <em>p = 0,000</em>. Um p-valor literalmente igual a zero não existe — ele é sempre estritamente positivo.</li>
+        <li><strong>Três casas decimais</strong> são o padrão para p entre 0,001 e 0,999. Para valores menores, escreva <em>p &lt; 0,001</em>, não <em>p = 0,000</em>. Um p-valor literalmente igual a zero não existe. Ele é sempre estritamente positivo.</li>
         <li><strong>Não use estrelinhas isoladamente</strong> (*** etc.) em tabelas sem reportar também o valor numérico. Estrelas ajudam a leitura, mas ocultam diferenças entre 0,049 e 0,001.</li>
         <li><strong>Diga se o teste é uni ou bilateral</strong> e qual foi o α adotado. "Adotou-se α = 0,05, com testes bilaterais" resolve, e evita que o leitor fique adivinhando.</li>
-        <li><strong>Reporte sempre o teste usado</strong> — t de Student, qui-quadrado, Mann-Whitney —, os graus de liberdade quando aplicáveis e o tamanho amostral.</li>
+        <li><strong>Reporte sempre o teste usado</strong> (t de Student, qui-quadrado, Mann-Whitney) , os graus de liberdade quando aplicáveis e o tamanho amostral.</li>
         <li><strong>Acompanhe o p de uma medida de efeito</strong>, como d de Cohen, risco relativo ou diferença média com <a href="/intervalo-confianca.html">intervalo de confiança</a>.</li>
       </ul>
       <p>Um exemplo de redação adequada, no espírito SBPC: <em>"A média do grupo intervenção (M = 12,4; DP = 3,1) foi significativamente maior que a do grupo controle (M = 10,8; DP = 2,9); t(58) = 2,08; p = 0,042; d de Cohen = 0,53 (IC 95%: 0,02 a 1,03)."</em></p>
 
       <h2 id="alem-do-p">Para além do p-valor: intervalo de confiança + tamanho do efeito</h2>
-      <p>A discussão moderna na estatística aplicada — refletida no posicionamento da ASA e em editoriais de revistas como <em>The American Statistician</em> e <em>Nature Methods</em> — é unânime em um ponto: o p-valor sozinho diz pouco. O caminho é triplicar a informação reportada: tamanho do efeito (quão grande), <a href="/intervalo-confianca.html">intervalo de confiança</a> (quão preciso) e p-valor (quão compatível com H₀).</p>
-      <p>O intervalo de confiança costuma ser mais informativo que o p porque mostra a faixa de valores plausíveis para o parâmetro. Um IC 95% para diferença de médias entre [0,1; 5,0] indica resultado significativo, mas com enorme incerteza — talvez o efeito seja minúsculo, talvez relevante. Já um IC [2,4; 2,7] mostra efeito pequeno mas precisamente estimado. O p-valor não diferencia esses dois cenários; o IC sim.</p>
-      <p>Vale também o esforço inverso: <strong>planejar o n antes de coletar os dados</strong>. Uma <a href="/tamanho-amostra.html">calculadora de tamanho amostral</a> permite estimar quantos sujeitos são necessários para detectar um efeito de interesse com poder estatístico adequado (geralmente 80%). Pesquisas brasileiras subdimensionadas — comuns em mestrados com prazo apertado — terminam reportando p &gt; 0,05 e concluindo, erroneamente, que "não há diferença", quando na verdade a amostra era pequena demais para detectar a diferença que existe.</p>
+      <p>A discussão moderna na estatística aplicada, refletida no posicionamento da ASA e em editoriais de revistas como <em>The American Statistician</em> e <em>Nature Methods</em>, é unânime em um ponto: o p-valor sozinho diz pouco. O caminho é triplicar a informação reportada: tamanho do efeito (quão grande), <a href="/intervalo-confianca.html">intervalo de confiança</a> (quão preciso) e p-valor (quão compatível com H₀).</p>
+      <p>O intervalo de confiança costuma ser mais informativo que o p porque mostra a faixa de valores plausíveis para o parâmetro. Um IC 95% para diferença de médias entre [0,1; 5,0] indica resultado significativo, mas com enorme incerteza: talvez o efeito seja minúsculo, talvez relevante. Já um IC [2,4; 2,7] mostra efeito pequeno mas precisamente estimado. O p-valor não diferencia esses dois cenários; o IC sim.</p>
+      <p>Vale também o esforço inverso: <strong>planejar o n antes de coletar os dados</strong>. Uma <a href="/tamanho-amostra.html">calculadora de tamanho amostral</a> permite estimar quantos sujeitos são necessários para detectar um efeito de interesse com poder estatístico adequado (geralmente 80%). Pesquisas brasileiras subdimensionadas, comuns em mestrados com prazo apertado, terminam reportando p &gt; 0,05 e concluindo, erroneamente, que "não há diferença", quando na verdade a amostra era pequena demais para detectar a diferença que existe.</p>
 
       <h2 id="faq">Perguntas frequentes</h2>
       <div class="faq">
         <details>
           <summary>Posso dizer que H₀ é verdadeira porque p &gt; 0,05?</summary>
-          <div class="faq__answer"><p>Não. Um p-valor alto significa apenas que os dados não dão evidência suficiente para rejeitar H₀, não que H₀ seja verdadeira. A ausência de evidência não é evidência de ausência — pode ser que o efeito exista, mas a amostra tenha sido pequena demais para detectá-lo.</p></div>
+          <div class="faq__answer"><p>Não. Um p-valor alto significa apenas que os dados não dão evidência suficiente para rejeitar H₀, não que H₀ seja verdadeira. A ausência de evidência não é evidência de ausência: pode ser que o efeito exista, mas a amostra tenha sido pequena demais para detectá-lo.</p></div>
         </details>
         <details>
           <summary>Qual a diferença entre p-valor unilateral e bilateral?</summary>
@@ -283,11 +283,11 @@
         </details>
         <details>
           <summary>P-valor é a mesma coisa para todos os testes?</summary>
-          <div class="faq__answer"><p>Conceitualmente, sim: é sempre a probabilidade de observar dados tão extremos quanto os seus sob a hipótese nula. Mas o cálculo muda conforme o teste — teste t usa a distribuição t, qui-quadrado usa a distribuição qui-quadrado, e assim por diante. A interpretação, porém, é a mesma.</p></div>
+          <div class="faq__answer"><p>Conceitualmente, sim: é sempre a probabilidade de observar dados tão extremos quanto os seus sob a hipótese nula. Mas o cálculo muda conforme o teste: teste t usa a distribuição t, qui-quadrado usa a distribuição qui-quadrado, e assim por diante. A interpretação, porém, é a mesma.</p></div>
         </details>
         <details>
           <summary>Como o tamanho amostral afeta o p-valor?</summary>
-          <div class="faq__answer"><p>Quanto maior a amostra, menor o erro padrão e mais sensível o teste — efeitos pequenos passam a gerar p-valores baixos. Em amostras muito grandes, diferenças triviais ficam estatisticamente significativas. Por isso é fundamental reportar o tamanho do efeito e o intervalo de confiança junto com o p-valor.</p></div>
+          <div class="faq__answer"><p>Quanto maior a amostra, menor o erro padrão e mais sensível o teste: efeitos pequenos passam a gerar p-valores baixos. Em amostras muito grandes, diferenças triviais ficam estatisticamente significativas. Por isso é fundamental reportar o tamanho do efeito e o intervalo de confiança junto com o p-valor.</p></div>
         </details>
       </div>
 
@@ -378,7 +378,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>

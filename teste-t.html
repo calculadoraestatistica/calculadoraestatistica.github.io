@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/media-loop.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,7 +108,7 @@
         </ol>
       </nav>
       <h1>Calculadora de Teste t de Student</h1>
-      <p class="lead">Compare <strong>médias</strong> e descubra se a diferença é estatisticamente significativa — para uma amostra, duas amostras independentes ou dados pareados.</p>
+      <p class="lead">Compare <strong>médias</strong> e descubra se a diferença é estatisticamente significativa, para uma amostra, duas amostras independentes ou dados pareados.</p>
     </div>
   </div>
 
@@ -241,16 +242,16 @@
       </nav>
 
       <h2 id="o-que-e">O que é o teste t de Student</h2>
-      <p>O <strong>teste t de Student</strong> é o procedimento estatístico mais usado para comparar <strong>médias</strong>. Ele responde a uma pergunta direta: a diferença entre duas médias — ou entre uma média e um valor de referência — é grande o bastante para ser considerada real, ou pode ser apenas variação aleatória da amostra?</p>
-      <p>O nome vem de William Sealy Gosset, que publicou o método em 1908 sob o pseudônimo "Student", enquanto trabalhava na cervejaria Guinness. O problema dele era prático: tirar conclusões a partir de <em>amostras pequenas</em>, sem conhecer o desvio padrão verdadeiro da população. É exatamente para isso que o teste t serve — e é por isso que ele é tão comum em pesquisa de saúde, psicologia, educação e qualidade.</p>
-      <p>A diferença em relação ao <a href="/teste-z.html">teste z</a> está aí: o teste z exige que você conheça o desvio padrão da população; o teste t trabalha com o desvio padrão <em>estimado</em> a partir da própria amostra. Para compensar essa incerteza extra, ele usa a <strong>distribuição t</strong>, parecida com a curva normal, mas com caudas um pouco mais largas — mais conservadora.</p>
+      <p>O <strong>teste t de Student</strong> é o procedimento estatístico mais usado para comparar <strong>médias</strong>. Ele responde a uma pergunta direta: a diferença entre duas médias, ou entre uma média e um valor de referência, é grande o bastante para ser considerada real, ou pode ser apenas variação aleatória da amostra?</p>
+      <p>O nome vem de William Sealy Gosset, que publicou o método em 1908 sob o pseudônimo "Student", enquanto trabalhava na cervejaria Guinness. O problema dele era prático: tirar conclusões a partir de <em>amostras pequenas</em>, sem conhecer o desvio padrão verdadeiro da população. É exatamente para isso que o teste t serve, e é por isso que ele é tão comum em pesquisa de saúde, psicologia, educação e qualidade.</p>
+      <p>A diferença em relação ao <a href="/teste-z.html">teste z</a> está aí: o teste z exige que você conheça o desvio padrão da população; o teste t trabalha com o desvio padrão <em>estimado</em> a partir da própria amostra. Para compensar essa incerteza extra, ele usa a <strong>distribuição t</strong>, parecida com a curva normal, mas com caudas um pouco mais largas: mais conservadora.</p>
 
       <h2 id="tipos">Os três tipos de teste t</h2>
       <p>Escolher o tipo certo é o passo mais importante. Esta calculadora oferece os três:</p>
       <h3>1. Teste t para uma amostra</h3>
       <p>Compara a média de um único grupo com um <strong>valor de referência conhecido</strong> (μ₀). Exemplo: o peso médio dos pacotes que saem de uma linha de produção é mesmo 500 g? A nota média de uma turma difere da média histórica da escola?</p>
       <h3>2. Teste t para duas amostras independentes</h3>
-      <p>Compara as médias de <strong>dois grupos diferentes e independentes</strong>. Exemplo: o tempo de recuperação difere entre quem recebeu o tratamento A e quem recebeu o B? Esta calculadora usa o <strong>teste de Welch</strong>, que não exige que os dois grupos tenham a mesma variância — a recomendação moderna como padrão.</p>
+      <p>Compara as médias de <strong>dois grupos diferentes e independentes</strong>. Exemplo: o tempo de recuperação difere entre quem recebeu o tratamento A e quem recebeu o B? Esta calculadora usa o <strong>teste de Welch</strong>, que não exige que os dois grupos tenham a mesma variância: a recomendação moderna como padrão.</p>
       <h3>3. Teste t pareado</h3>
       <p>Compara <strong>duas medidas feitas nos mesmos indivíduos</strong>, normalmente antes e depois de uma intervenção. Como cada pessoa é seu próprio controle, ele analisa a média das diferenças individuais. Exemplo: a pressão arterial dos mesmos pacientes caiu após oito semanas de medicação?</p>
       <div class="callout callout--warning">
@@ -258,18 +259,26 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Pareado ou independente?
         </div>
-        <p>Se os mesmos sujeitos foram medidos duas vezes, o teste é <strong>pareado</strong> — usá-lo como independente desperdiça informação e poder estatístico. Se são dois grupos distintos de pessoas, é <strong>independente</strong>.</p>
+        <p>Se os mesmos sujeitos foram medidos duas vezes, o teste é <strong>pareado</strong>: usá-lo como independente desperdiça informação e poder estatístico. Se são dois grupos distintos de pessoas, é <strong>independente</strong>.</p>
       </div>
 
       <h2 id="como">Como o cálculo funciona</h2>
-      <p>Apesar dos três tipos, a ideia é sempre a mesma: dividir a diferença observada pelo <strong>erro padrão</strong> — uma medida de quanta variação aleatória é esperada. O resultado é a <strong>estatística t</strong>:</p>
+      <p>Apesar dos três tipos, a ideia é sempre a mesma: dividir a diferença observada pelo <strong>erro padrão</strong>: uma medida de quanta variação aleatória é esperada.O resultado é a <strong>estatística t</strong>:</p>
       <div class="formula">t = (diferença observada) ÷ (erro padrão)
         <span class="formula__where">Quanto maior o |t|, mais distante você está da hipótese de "nenhuma diferença".</span>
       </div>
       <p>Para o teste de uma amostra, por exemplo, a diferença observada é (média − μ₀) e o erro padrão é o desvio padrão dividido pela raiz de n:</p>
       <div class="formula">t = (x̄ − μ₀) ÷ (s ÷ √n)</div>
-      <p>Em seguida, a calculadora precisa dos <strong>graus de liberdade</strong> (df) — em uma amostra, df = n − 1. Eles definem o formato exato da distribuição t. Por fim, o <strong>valor-p</strong> traduz o t e os df em probabilidade, usando a função de distribuição da t (calculada aqui pela função beta incompleta, de alta precisão).</p>
+      <p>Em seguida, a calculadora precisa dos <strong>graus de liberdade</strong> (df), em uma amostra, df = n − 1. Eles definem o formato exato da distribuição t. Por fim, o <strong>valor-p</strong> traduz o t e os df em probabilidade, usando a função de distribuição da t (calculada aqui pela função beta incompleta, de alta precisão).</p>
 
+      
+      <figure class="media-figure">
+        <video data-loop width="960" height="540" muted loop playsinline
+               preload="none" poster="/img/poster-teorema-central-limite-pt.jpg">
+          <source src="/video/teorema-central-limite-pt.mp4" type="video/mp4">
+        </video>
+        <figcaption>A população da esquerda é torta e continua torta. O que vira sino é a distribuição das <em>médias</em> de amostras de 12 — e é por isso que o teste t funciona mesmo quando os dados originais não são normais, desde que a amostra não seja pequena demais.</figcaption>
+      </figure>
       <h2 id="pressupostos">Pressupostos do teste t</h2>
       <p>O teste t é robusto, mas tem condições para funcionar bem:</p>
       <ul>
@@ -278,17 +287,17 @@
         <li><strong>Normalidade aproximada:</strong> os dados (ou as diferenças, no caso pareado) seguem aproximadamente uma distribuição normal. Com amostras maiores que ~30, pequenos desvios deixam de ser problema.</li>
         <li><strong>Independência:</strong> no teste de duas amostras, os dois grupos não se influenciam.</li>
       </ul>
-      <p>Quando esses pressupostos falham de forma grave — dados muito assimétricos ou amostras minúsculas —, testes não paramétricos (como Mann-Whitney ou Wilcoxon) são alternativas.</p>
+      <p>Quando esses pressupostos falham de forma grave, dados muito assimétricos ou amostras minúsculas, testes não paramétricos (como Mann-Whitney ou Wilcoxon) são alternativas.</p>
 
       <h2 id="interpretar">Como interpretar o resultado</h2>
       <p>A calculadora devolve seis indicadores:</p>
       <ul>
-        <li><strong>Estatística t</strong> — a diferença em número de erros padrão.</li>
-        <li><strong>Graus de liberdade</strong> — definem a distribuição usada para o valor-p.</li>
-        <li><strong>Valor-p</strong> — a probabilidade de observar uma diferença tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), o resultado é significativo.</li>
-        <li><strong>Erro padrão</strong> — a variação aleatória esperada na estimativa.</li>
-        <li><strong>Estimativa pontual</strong> — a média (uma amostra) ou a diferença das médias (duas amostras e pareado).</li>
-        <li><strong>Intervalo de confiança</strong> — a faixa provável do valor real. Se um intervalo para a diferença incluir o zero, a diferença não é significativa.</li>
+        <li><strong>Estatística t</strong>: a diferença em número de erros padrão.</li>
+        <li><strong>Graus de liberdade</strong>: definem a distribuição usada para o valor-p.</li>
+        <li><strong>Valor-p</strong>: a probabilidade de observar uma diferença tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), o resultado é significativo.</li>
+        <li><strong>Erro padrão</strong>: a variação aleatória esperada na estimativa.</li>
+        <li><strong>Estimativa pontual</strong>: a média (uma amostra) ou a diferença das médias (duas amostras e pareado).</li>
+        <li><strong>Intervalo de confiança</strong>: a faixa provável do valor real. Se um intervalo para a diferença incluir o zero, a diferença não é significativa.</li>
       </ul>
 
       <h2 id="exemplo">Exemplo resolvido</h2>
@@ -305,7 +314,7 @@
       <div class="faq">
         <details>
           <summary>Quando devo usar o teste t?</summary>
-          <div class="faq__answer"><p>Sempre que quiser comparar médias e o desvio padrão da população for desconhecido — o que é quase sempre o caso na prática. Para comparar proporções ou taxas, use o <a href="/teste-ab.html">teste A/B</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>.</p></div>
+          <div class="faq__answer"><p>Sempre que quiser comparar médias e o desvio padrão da população for desconhecido: o que é quase sempre o caso na prática. Para comparar proporções ou taxas, use o <a href="/teste-ab.html">teste A/B</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>.</p></div>
         </details>
         <details>
           <summary>Qual a diferença entre teste t e teste z?</summary>
@@ -317,7 +326,7 @@
         </details>
         <details>
           <summary>Posso usar o teste t com amostras pequenas?</summary>
-          <div class="faq__answer"><p>Pode — ele foi criado justamente para isso. Mas, com amostras muito pequenas, a suposição de normalidade fica mais importante e o teste perde poder para detectar diferenças reais.</p></div>
+          <div class="faq__answer"><p>Pode. Ele foi criado justamente para isso. Mas, com amostras muito pequenas, a suposição de normalidade fica mais importante e o teste perde poder para detectar diferenças reais.</p></div>
         </details>
       </div>
 
@@ -406,7 +415,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>

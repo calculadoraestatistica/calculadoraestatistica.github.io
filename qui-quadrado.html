@@ -108,7 +108,7 @@
         </ol>
       </nav>
       <h1>Calculadora de Qui-Quadrado</h1>
-      <p class="lead">Descubra se <strong>duas variáveis categóricas estão associadas</strong> — o teste de independência a partir de uma tabela de contingência, com valor-p e tamanho do efeito.</p>
+      <p class="lead">Descubra se <strong>duas variáveis categóricas estão associadas</strong>: o teste de independência a partir de uma tabela de contingência, com valor-p e tamanho do efeito.</p>
     </div>
   </div>
 
@@ -178,21 +178,21 @@
 
       <h2 id="o-que-e">O que é o teste qui-quadrado</h2>
       <p>O <strong>teste qui-quadrado de independência</strong> (χ²) responde a uma pergunta muito comum em pesquisa: <strong>duas variáveis categóricas estão associadas ou são independentes?</strong> Em outras palavras, conhecer o valor de uma variável muda a probabilidade da outra?</p>
-      <p>Pense em situações como: o sexo da pessoa influencia a preferência por um produto? A região do país está associada à intenção de voto? O tipo de tratamento está relacionado ao desfecho clínico? Em todos esses casos, você não tem números para medir — tem <strong>categorias</strong> para contar. O teste qui-quadrado é a ferramenta certa para esse tipo de dado.</p>
+      <p>Pense em situações como: o sexo da pessoa influencia a preferência por um produto? A região do país está associada à intenção de voto? O tipo de tratamento está relacionado ao desfecho clínico? Em todos esses casos, você não tem números para medir: tem <strong>categorias</strong> para contar. O teste qui-quadrado é a ferramenta certa para esse tipo de dado.</p>
       <p>A lógica é elegante. Se as duas variáveis fossem completamente independentes, seria possível prever quantos casos cairiam em cada combinação de categorias só a partir dos totais. O teste compara essas <strong>frequências esperadas</strong> com as <strong>frequências realmente observadas</strong>. Se a diferença entre o observado e o esperado for grande demais para ser acaso, conclui-se que existe associação.</p>
 
       <h2 id="quando">Quando usar</h2>
       <p>O qui-quadrado de independência é indicado quando:</p>
       <ul>
-        <li><strong>As duas variáveis são categóricas</strong> — sexo, região, faixa etária, marca preferida, desfecho (curou / não curou). Não servem variáveis numéricas contínuas.</li>
-        <li><strong>Você tem contagens, não médias</strong> — o dado é "quantas pessoas em cada combinação", não "qual a média de cada grupo". Para comparar médias, use o <a href="/teste-t.html">teste t</a> ou a <a href="/k-amostras.html">ANOVA</a>.</li>
-        <li><strong>As observações são independentes</strong> — cada caso entra em uma única célula da tabela, e um caso não influencia outro.</li>
+        <li><strong>As duas variáveis são categóricas</strong>: sexo, região, faixa etária, marca preferida, desfecho (curou / não curou). Não servem variáveis numéricas contínuas.</li>
+        <li><strong>Você tem contagens, não médias</strong>: o dado é "quantas pessoas em cada combinação", não "qual a média de cada grupo". Para comparar médias, use o <a href="/teste-t.html">teste t</a> ou a <a href="/k-amostras.html">ANOVA</a>.</li>
+        <li><strong>As observações são independentes</strong>: cada caso entra em uma única célula da tabela, e um caso não influencia outro.</li>
       </ul>
-      <p>Se você quer comparar apenas <em>duas proporções</em> (por exemplo, a taxa de sucesso de dois grupos), o <a href="/teste-proporcao.html">teste de proporção</a> e o qui-quadrado levam à mesma conclusão — em uma tabela 2×2, o χ² é matematicamente equivalente ao teste z de duas proporções.</p>
+      <p>Se você quer comparar apenas <em>duas proporções</em> (por exemplo, a taxa de sucesso de dois grupos), o <a href="/teste-proporcao.html">teste de proporção</a> e o qui-quadrado levam à mesma conclusão, em uma tabela 2×2, o χ² é matematicamente equivalente ao teste z de duas proporções.</p>
 
       <h2 id="tabela">A tabela de contingência</h2>
       <p>O ponto de partida do teste é a <strong>tabela de contingência</strong> (ou tabela de dupla entrada). Ela cruza as categorias das duas variáveis: cada linha é uma categoria da primeira variável, cada coluna é uma categoria da segunda, e cada célula contém a <strong>contagem</strong> de casos naquela combinação.</p>
-      <p>A calculadora acima monta essa tabela para você. Comece com o tamanho 2×2 e use os botões para acrescentar linhas e colunas conforme as suas categorias. Some sempre <em>contagens</em> — número de pessoas, de respostas, de casos —, nunca porcentagens ou médias.</p>
+      <p>A calculadora acima monta essa tabela para você. Comece com o tamanho 2×2 e use os botões para acrescentar linhas e colunas conforme as suas categorias. Some sempre <em>contagens</em> (número de pessoas, de respostas, de casos) , nunca porcentagens ou médias.</p>
 
       <h2 id="como">Como o cálculo funciona</h2>
       <p>O teste tem quatro passos. O primeiro é calcular, para cada célula, a <strong>frequência esperada</strong> sob a hipótese de independência. Ela depende apenas dos totais da linha e da coluna:</p>
@@ -203,7 +203,7 @@
       </div>
       <p>O terceiro passo são os <strong>graus de liberdade</strong>, que dependem só do formato da tabela:</p>
       <div class="formula">df = (nº de linhas − 1) × (nº de colunas − 1)</div>
-      <p>Por fim, a calculadora converte o χ² e os graus de liberdade em <strong>valor-p</strong> usando a distribuição qui-quadrado. Um valor-p pequeno significa que um descompasso tão grande seria raríssimo se as variáveis fossem independentes — logo, há associação.</p>
+      <p>Por fim, a calculadora converte o χ² e os graus de liberdade em <strong>valor-p</strong> usando a distribuição qui-quadrado. Um valor-p pequeno significa que um descompasso tão grande seria raríssimo se as variáveis fossem independentes: logo, há associação.</p>
 
       <div class="ad-slot" data-ad-slot=""></div>
 
@@ -221,19 +221,19 @@
       <h2 id="interpretar">Como interpretar o resultado</h2>
       <p>A calculadora devolve um cartão com a conclusão e seis indicadores:</p>
       <ul>
-        <li><strong>Qui-quadrado (χ²)</strong> — o tamanho total do descompasso entre observado e esperado. Sozinho, diz pouco; precisa ser comparado com a distribuição.</li>
-        <li><strong>Graus de liberdade</strong> — definem qual distribuição qui-quadrado usar para obter o valor-p.</li>
-        <li><strong>Valor-p</strong> — a probabilidade de ver um descompasso tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), há associação significativa.</li>
-        <li><strong>V de Cramér</strong> — o tamanho do efeito. Vai de 0 a 1 e mede a <em>força</em> da associação: em torno de 0,1 é fraca, 0,3 é moderada e 0,5 ou mais é forte.</li>
-        <li><strong>Total de casos</strong> — a soma de todas as células da tabela.</li>
-        <li><strong>Menor frequência esperada</strong> — para checar o pressuposto: se for menor que 5, interprete com cautela.</li>
+        <li><strong>Qui-quadrado (χ²)</strong>: o tamanho total do descompasso entre observado e esperado. Sozinho, diz pouco; precisa ser comparado com a distribuição.</li>
+        <li><strong>Graus de liberdade</strong>: definem qual distribuição qui-quadrado usar para obter o valor-p.</li>
+        <li><strong>Valor-p</strong>: a probabilidade de ver um descompasso tão grande por acaso. Se for menor que o nível de significância (em geral 0,05), há associação significativa.</li>
+        <li><strong>V de Cramér</strong>: o tamanho do efeito. Vai de 0 a 1 e mede a <em>força</em> da associação: em torno de 0,1 é fraca, 0,3 é moderada e 0,5 ou mais é forte.</li>
+        <li><strong>Total de casos</strong>: a soma de todas as células da tabela.</li>
+        <li><strong>Menor frequência esperada</strong>, para checar o pressuposto: se for menor que 5, interprete com cautela.</li>
       </ul>
       <div class="callout callout--tip">
         <div class="callout__title">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.5 1 1.3 1 2.3h6c0-1 .5-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
           Significância e força são coisas diferentes
         </div>
-        <p>Um valor-p pequeno confirma que <em>existe</em> associação, mas não diz se ela é <em>forte</em>. Com amostras muito grandes, associações triviais ficam "significativas". Por isso, olhe sempre o V de Cramér: ele responde à pergunta que de fato importa — qual o tamanho da associação?</p>
+        <p>Um valor-p pequeno confirma que <em>existe</em> associação, mas não diz se ela é <em>forte</em>. Com amostras muito grandes, associações triviais ficam "significativas". Por isso, olhe sempre o V de Cramér: ele responde à pergunta que de fato importa: qual o tamanho da associação?</p>
       </div>
 
       <h2 id="exemplo">Exemplo resolvido</h2>
@@ -264,7 +264,7 @@
         </details>
         <details>
           <summary>Quando devo usar o qui-quadrado?</summary>
-          <div class="faq__answer"><p>Quando você tem duas variáveis categóricas e quer saber se elas estão relacionadas — como sexo e preferência, tratamento e desfecho, escolaridade e opinião. Para comparar médias, use o <a href="/teste-t.html">teste t</a> ou a <a href="/k-amostras.html">ANOVA</a>.</p></div>
+          <div class="faq__answer"><p>Quando você tem duas variáveis categóricas e quer saber se elas estão relacionadas, como sexo e preferência, tratamento e desfecho, escolaridade e opinião. Para comparar médias, use o <a href="/teste-t.html">teste t</a> ou a <a href="/k-amostras.html">ANOVA</a>.</p></div>
         </details>
         <details>
           <summary>O que são graus de liberdade no qui-quadrado?</summary>
@@ -280,7 +280,7 @@
         </details>
         <details>
           <summary>Qual a diferença entre qui-quadrado e teste de proporção?</summary>
-          <div class="faq__answer"><p>Em uma tabela 2×2, são equivalentes — chegam ao mesmo valor-p. O qui-quadrado é mais geral: funciona com tabelas de qualquer tamanho, comparando muitas categorias de uma vez.</p></div>
+          <div class="faq__answer"><p>Em uma tabela 2×2, são equivalentes: chegam ao mesmo valor-p. O qui-quadrado é mais geral: funciona com tabelas de qualquer tamanho, comparando muitas categorias de uma vez.</p></div>
         </details>
       </div>
 
@@ -369,7 +369,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>
@@ -541,7 +541,7 @@
     if (lowExpected) {
       interp += '<p><strong>Atenção:</strong> a menor frequência esperada (' +
         Fmt.num(r.minExpected, 2) + ') ficou abaixo de 5. A aproximação do qui-quadrado ' +
-        'pode ser imprecisa — considere o teste exato de Fisher, sobretudo em tabelas 2×2.</p>';
+        'pode ser imprecisa: considere o teste exato de Fisher, sobretudo em tabelas 2×2.</p>';
     }
 
     var pTxt = Fmt.p(r.pValue);

@@ -97,6 +97,11 @@
       </div>
     </div>
   </section>
+  <div class="container media-hero">
+    <img src="/img/hero-stat.jpg" width="1200" height="675" alt="Distribuição normal sobre uma nuvem de observações"
+         loading="lazy" decoding="async">
+  </div>
+
 
   <section class="section" id="calculadoras">
     <div class="container">
@@ -159,7 +164,7 @@
         <a class="card" href="/wilcoxon.html">
           <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="10" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/><polyline points="4 8 7 5 10 8"/><line x1="7" y1="5" x2="7" y2="19"/></svg></span>
           <h3>Calculadora de Wilcoxon e Mann-Whitney</h3>
-          <p>Compare dois grupos sem supor distribuição normal — os testes não-paramétricos.</p>
+          <p>Compare dois grupos sem supor distribuição normal: os testes não-paramétricos.</p>
           <span class="card__cta">Comparar sem normalidade →</span>
         </a>
 
@@ -195,7 +200,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Estatística aplicada à sua área</h2>
-        <p>Guias completos para aplicar a estatística na prática — e escolher o teste certo.</p>
+        <p>Guias completos para aplicar a estatística na prática, e escolher o teste certo.</p>
       </div>
       <div class="card-grid card-grid--3">
 
@@ -252,9 +257,9 @@
   <section class="section section--soft">
     <div class="container narrow prose">
       <h2>O que é um teste estatístico (e por que ele importa)</h2>
-      <p>Toda vez que você compara dois grupos — duas versões de uma página, dois tratamentos, duas turmas — aparece a mesma dúvida: <strong>a diferença que eu vejo é real ou é só sorte?</strong> Um teste estatístico existe justamente para responder a isso de forma objetiva, em vez de confiar no "achismo".</p>
-      <p>A lógica é sempre parecida. Você parte de uma <strong>hipótese nula</strong> — a suposição conservadora de que não há diferença nenhuma. Depois calcula uma estatística de teste (um valor z ou t) que mede o quão distante os seus dados estão desse cenário "sem diferença". Por fim, o <strong>valor-p</strong> traduz essa distância em probabilidade: ele diz qual seria a chance de observar um resultado tão extremo quanto o seu <em>se a hipótese nula fosse verdadeira</em>.</p>
-      <p>Quando o valor-p é menor que um limite escolhido antes do teste (em geral 5%, o famoso nível de significância), dizemos que o resultado é <strong>estatisticamente significativo</strong>: é improvável que ele tenha surgido por puro acaso. Quando o valor-p é maior, não há evidência suficiente — o que não é o mesmo que "provar que não há diferença".</p>
+      <p>Toda vez que você compara dois grupos (duas versões de uma página, dois tratamentos, duas turmas) aparece a mesma dúvida: <strong>a diferença que eu vejo é real ou é só sorte?</strong> Um teste estatístico existe justamente para responder a isso de forma objetiva, em vez de confiar no "achismo".</p>
+      <p>A lógica é sempre parecida. Você parte de uma <strong>hipótese nula</strong>: a suposição conservadora de que não há diferença nenhuma. Depois calcula uma estatística de teste (um valor z ou t) que mede o quão distante os seus dados estão desse cenário "sem diferença". Por fim, o <strong>valor-p</strong> traduz essa distância em probabilidade: ele diz qual seria a chance de observar um resultado tão extremo quanto o seu <em>se a hipótese nula fosse verdadeira</em>.</p>
+      <p>Quando o valor-p é menor que um limite escolhido antes do teste (em geral 5%, o famoso nível de significância), dizemos que o resultado é <strong>estatisticamente significativo</strong>: é improvável que ele tenha surgido por puro acaso. Quando o valor-p é maior, não há evidência suficiente: o que não é o mesmo que "provar que não há diferença".</p>
       <p>É aqui que muita gente erra. Significância estatística não é sinônimo de importância prática, e um teste com amostra pequena pode não detectar uma diferença que existe de verdade. Por isso cada calculadora deste site mostra, além do veredito, o <a href="/intervalo-confianca.html">intervalo de confiança</a> e ajuda a planejar o <a href="/tamanho-amostra-ab.html">tamanho de amostra</a> antes de coletar os dados.</p>
       <p>Se você está começando, comece pela <a href="/teste-ab.html">calculadora de teste A/B</a>: ela é a mais intuitiva e o artigo explica, do zero, todos os conceitos que aparecem nas outras ferramentas.</p>
     </div>
@@ -272,7 +277,7 @@
         </details>
         <details>
           <summary>Os cálculos são confiáveis?</summary>
-          <div class="faq__answer"><p>Sim. Usamos as mesmas fórmulas dos livros de estatística — distribuição normal, distribuição t de Student e função beta incompleta — implementadas com algoritmos numéricos de alta precisão e verificadas contra valores de referência conhecidos.</p></div>
+          <div class="faq__answer"><p>Sim. Usamos as mesmas fórmulas dos livros de estatística (distribuição normal, distribuição t de Student e função beta incompleta) implementadas com algoritmos numéricos de alta precisão e verificadas contra valores de referência conhecidos.</p></div>
         </details>
         <details>
           <summary>Preciso entender de estatística para usar?</summary>
@@ -280,7 +285,7 @@
         </details>
         <details>
           <summary>Qual teste estatístico eu devo usar?</summary>
-          <div class="faq__answer"><p>Dois caminhos: para chegar logo na resposta, use a <a href="/busca-ia.html"><strong>Pergunte à IA</strong></a> e descreva o problema em linguagem natural ("comparar peso antes e depois entre dois grupos", "minha conversão subiu 1%, é significativo?") — ela aponta a calculadora certa, com alternativas quando mais de uma serve. Para entender a lógica por trás da escolha (tipo de dado, número de grupos, pressupostos), leia o <a href="/guias/como-escolher-teste-estatistico.html"><strong>guia completo de decisão</strong></a>. Como referência rápida: para <em>taxas</em> ou <em>percentuais</em>, <a href="/teste-ab.html">teste A/B</a> ou <a href="/teste-proporcao.html">teste de proporção</a>; para <em>médias</em>, <a href="/teste-t.html">teste t</a>.</p></div>
+          <div class="faq__answer"><p>Dois caminhos: para chegar logo na resposta, use a <a href="/busca-ia.html"><strong>Pergunte à IA</strong></a> e descreva o problema em linguagem natural ("comparar peso antes e depois entre dois grupos", "minha conversão subiu 1%, é significativo?"). Ela aponta a calculadora certa, com alternativas quando mais de uma serve. Para entender a lógica por trás da escolha (tipo de dado, número de grupos, pressupostos), leia o <a href="/guias/como-escolher-teste-estatistico.html"><strong>guia completo de decisão</strong></a>. Como referência rápida: para <em>taxas</em> ou <em>percentuais</em>, <a href="/teste-ab.html">teste A/B</a> ou <a href="/teste-proporcao.html">teste de proporção</a>; para <em>médias</em>, <a href="/teste-t.html">teste t</a>.</p></div>
         </details>
         <details>
           <summary>Meus dados ficam salvos em algum lugar?</summary>
@@ -294,7 +299,7 @@
     <div class="container">
       <div class="cta-band">
         <h2>Tem uma dúvida para resolver agora?</h2>
-        <p>Comece pela calculadora de teste A/B — é grátis e leva menos de um minuto.</p>
+        <p>Comece pela calculadora de teste A/B: é grátis e leva menos de um minuto.</p>
         <a class="btn btn--light btn--lg" href="/teste-ab.html">Abrir a Calculadora de Teste A/B</a>
       </div>
     </div>
@@ -359,7 +364,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>

@@ -71,7 +71,7 @@
         </ol>
       </nav>
       <h1>Metodologia</h1>
-      <p class="lead">Como as calculadoras deste site funcionam: as fórmulas por trás, como foram validadas e o que elas podem — e não podem — fazer.</p>
+      <p class="lead">Como as calculadoras deste site funcionam: as fórmulas por trás, como foram validadas e o que elas podem, e não podem, fazer.</p>
     </div>
   </div>
 
@@ -80,12 +80,12 @@
 
       <h2>Como as calculadoras funcionam</h2>
       <p>Todas as calculadoras deste site são escritas em <strong>JavaScript puro, que roda diretamente no seu navegador</strong>. Quando você clica em "Calcular", todo o cálculo acontece localmente, no seu próprio dispositivo: nenhum dado é enviado a servidor, nada fica armazenado e os seus números nunca saem do navegador. Isso vale para todas as calculadoras, sem exceção.</p>
-      <p>Não usamos bibliotecas estatísticas de "caixa-preta". Cada fórmula foi implementada do zero a partir dos livros-texto clássicos de inferência estatística. Isso significa que sabemos exatamente o que é calculado em cada etapa — e podemos documentar tudo.</p>
+      <p>Não usamos bibliotecas estatísticas de "caixa-preta". Cada fórmula foi implementada do zero a partir dos livros-texto clássicos de inferência estatística. Isso significa que sabemos exatamente o que é calculado em cada etapa, e podemos documentar tudo.</p>
 
       <h2>Quais testes cobrimos</h2>
       <p>O site cobre os testes mais usados da inferência estatística básica:</p>
       <ul>
-        <li><strong>teste z e teste t</strong> para médias — uma amostra, duas amostras independentes (incluindo a variante de Welch para variâncias desiguais) e medidas pareadas;</li>
+        <li><strong>teste z e teste t</strong> para médias: uma amostra, duas amostras independentes (incluindo a variante de Welch para variâncias desiguais) e medidas pareadas;</li>
         <li><strong>teste de proporção e teste A/B</strong> para taxas e conversões;</li>
         <li><strong>qui-quadrado</strong> de independência e de aderência (goodness-of-fit);</li>
         <li><strong>ANOVA de um fator e Kruskal-Wallis</strong> para três ou mais grupos;</li>
@@ -101,7 +101,7 @@
         <li>a função de distribuição da <strong>normal</strong> e sua inversa, com aproximações racionais de alta precisão;</li>
         <li>a <strong>distribuição t de Student</strong> e as distribuições <strong>F e qui-quadrado</strong>, calculadas pelas funções beta e gama incompletas regularizadas;</li>
         <li>o <strong>intervalo de Wilson</strong> para proporções, mais preciso que o intervalo de Wald tradicional, especialmente com amostras pequenas e proporções extremas;</li>
-        <li><strong>tamanhos de efeito</strong> — d, h e w de Cohen, além do coeficiente de correlação r — seguindo as convenções de Cohen (1988).</li>
+        <li><strong>tamanhos de efeito</strong> (d, h e w de Cohen, além do coeficiente de correlação r) seguindo as convenções de Cohen (1988).</li>
       </ul>
       <p>A apresentação das fórmulas segue livros-texto clássicos: Montgomery &amp; Runger para inferência geral, Agresti para dados categóricos e proporções, e Cohen (1988) para tamanhos de efeito e cálculos de poder. A lista completa e comentada está na página <a href="/fontes.html">Fontes</a>.</p>
 
@@ -112,20 +112,20 @@
         <li>a saída do <strong>R</strong> (funções como <code>t.test</code>, <code>prop.test</code>, <code>chisq.test</code>, <code>wilcox.test</code> e <code>cor.test</code>) para os mesmos conjuntos de dados;</li>
         <li><strong>funções de planilha</strong> como DIST.T e INV.NORM, usadas para conferência cruzada dos cálculos de distribuição.</li>
       </ul>
-      <p>O site também mantém uma suíte de testes automatizados que roda as funções numéricas contra valores de referência conhecidos, de modo que uma mudança no código não consiga alterar resultados sem ser notada. Ainda assim, se você encontrar uma divergência, escreva para nós — a <a href="/politica-editorial.html">política editorial</a> explica como tratamos correções.</p>
+      <p>O site também mantém uma suíte de testes automatizados que roda as funções numéricas contra valores de referência conhecidos, de modo que uma mudança no código não consiga alterar resultados sem ser notada. Ainda assim, se você encontrar uma divergência, escreva para nós: a <a href="/politica-editorial.html">política editorial</a> explica como tratamos correções.</p>
 
       <h2>Limitações</h2>
       <p>Ser honesto sobre o que as ferramentas não fazem também é parte da metodologia:</p>
       <ul>
-        <li>As calculadoras <strong>não substituem softwares estatísticos completos</strong> como R, SPSS, Stata ou SAS. Análises complexas — regressão, modelos mistos, medidas repetidas, análise de sobrevivência, desenhos amostrais complexos — exigem programas estatísticos de verdade.</li>
+        <li>As calculadoras <strong>não substituem softwares estatísticos completos</strong> como R, SPSS, Stata ou SAS. Análises complexas (regressão, modelos mistos, medidas repetidas, análise de sobrevivência, desenhos amostrais complexos) exigem programas estatísticos de verdade.</li>
         <li>As fórmulas assumem, por padrão, <strong>amostras aleatórias simples</strong>. Amostragem por conglomerados, estratificação e ponderação alteram a incerteza e não são tratadas aqui.</li>
-        <li>As calculadoras não verificam as suas <strong>suposições</strong> (normalidade, independência, homogeneidade de variâncias) — essa responsabilidade é sua, e cada página de calculadora descreve as suposições do teste.</li>
+        <li>As calculadoras não verificam as suas <strong>suposições</strong> (normalidade, independência, homogeneidade de variâncias). Essa responsabilidade é sua, e cada página de calculadora descreve as suposições do teste.</li>
         <li>Os resultados são arredondados para exibição; com valores de entrada extremos, pequenas diferenças numéricas em relação a outros programas podem aparecer nas últimas casas decimais.</li>
       </ul>
 
       <h2>Como interpretar os resultados</h2>
-      <p>Um p-valor não é um gabarito. Ele informa quão improváveis os seus dados seriam <em>se</em> a hipótese nula fosse verdadeira — nada mais, nada menos. Recomendamos sempre ler três coisas em conjunto: o <strong>p-valor</strong>, o <strong>intervalo de confiança</strong> e o <strong>tamanho do efeito</strong>. Uma diferença estatisticamente significativa pode ser irrelevante na prática, e uma diferença não significativa pode refletir uma amostra pequena demais, e não a ausência de efeito.</p>
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio —, tanto a escolha do teste quanto a interpretação do resultado devem ser confirmadas com um profissional de estatística.</p>
+      <p>Um p-valor não é um gabarito. Ele informa quão improváveis os seus dados seriam <em>se</em> a hipótese nula fosse verdadeira: nada mais, nada menos. Recomendamos sempre ler três coisas em conjunto: o <strong>p-valor</strong>, o <strong>intervalo de confiança</strong> e o <strong>tamanho do efeito</strong>. Uma diferença estatisticamente significativa pode ser irrelevante na prática, e uma diferença não significativa pode refletir uma amostra pequena demais, e não a ausência de efeito.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) , tanto a escolha do teste quanto a interpretação do resultado devem ser confirmadas com um profissional de estatística.</p>
 
       <p><em>Última revisão: 1º de agosto de 2026.</em></p>
 
@@ -200,7 +200,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>

@@ -108,7 +108,7 @@
         </ol>
       </nav>
       <h1>Calculadora de Intervalo de Confiança</h1>
-      <p class="lead">Estime a <strong>faixa provável</strong> de uma média ou de uma proporção da população, com 90%, 95% ou 99% de confiança — e veja a margem de erro da sua estimativa.</p>
+      <p class="lead">Estime a <strong>faixa provável</strong> de uma média ou de uma proporção da população, com 90%, 95% ou 99% de confiança, e veja a margem de erro da sua estimativa.</p>
     </div>
   </div>
 
@@ -218,10 +218,10 @@
       </nav>
 
       <h2 id="o-que-e">O que é um intervalo de confiança</h2>
-      <p>Quando você mede algo em uma amostra — a altura média de 30 pessoas, a proporção de clientes satisfeitos entre 600 entrevistados — você obtém um número. Mas esse número é só uma <strong>estimativa</strong> do valor verdadeiro da população, e estimativas trazem incerteza: outra amostra daria um resultado um pouco diferente.</p>
-      <p>O <strong>intervalo de confiança</strong> resolve isso. Em vez de entregar um único valor, ele entrega uma <strong>faixa de valores plausíveis</strong> para o parâmetro que você quer conhecer. No lugar de dizer "a média é 72", ele diz "a média provavelmente está entre 69,0 e 75,0". Essa faixa comunica, de forma honesta, o quanto a sua amostra permite afirmar — e o quanto ainda é dúvida.</p>
+      <p>Quando você mede algo em uma amostra (a altura média de 30 pessoas, a proporção de clientes satisfeitos entre 600 entrevistados) você obtém um número. Mas esse número é só uma <strong>estimativa</strong> do valor verdadeiro da população, e estimativas trazem incerteza: outra amostra daria um resultado um pouco diferente.</p>
+      <p>O <strong>intervalo de confiança</strong> resolve isso. Em vez de entregar um único valor, ele entrega uma <strong>faixa de valores plausíveis</strong> para o parâmetro que você quer conhecer. No lugar de dizer "a média é 72", ele diz "a média provavelmente está entre 69,0 e 75,0". Essa faixa comunica, de forma honesta, o quanto a sua amostra permite afirmar, e o quanto ainda é dúvida.</p>
       <p>Todo intervalo de confiança tem três ingredientes: a <strong>estimativa pontual</strong> (o valor central, calculado da amostra), a <strong>margem de erro</strong> (o quanto se soma e se subtrai dela) e o <strong>nível de confiança</strong> (90%, 95% ou 99%, que define o rigor). O resultado é sempre da forma <em>estimativa ± margem de erro</em>.</p>
-      <p>Uma observação importante desde já: o intervalo de confiança <strong>não é um teste de hipótese</strong>. Ele não devolve um veredito de "significativo" ou "não significativo" — apenas estima uma faixa. Para um veredito de decisão, veja o <a href="/teste-t.html">teste t</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>. Os dois conceitos conversam, mas têm propósitos distintos.</p>
+      <p>Uma observação importante desde já: o intervalo de confiança <strong>não é um teste de hipótese</strong>. Ele não devolve um veredito de "significativo" ou "não significativo", apenas estima uma faixa. Para um veredito de decisão, veja o <a href="/teste-t.html">teste t</a> ou o <a href="/teste-proporcao.html">teste de proporção</a>. Os dois conceitos conversam, mas têm propósitos distintos.</p>
 
       <h2 id="nivel">O que significa o nível de confiança</h2>
       <p>O <strong>nível de confiança</strong> é a parte mais incompreendida da estatística. Ele responde a uma pergunta sobre o <em>método</em>, não sobre um intervalo específico.</p>
@@ -244,18 +244,18 @@
       <div class="formula">IC = x̄ ± (valor crítico) × (erro padrão)
         <span class="formula__where">x̄ é a média da amostra; o erro padrão é EP = s ÷ √n.</span>
       </div>
-      <p>O <strong>erro padrão</strong> mede quanto a média da amostra tende a variar de amostra para amostra. Ele encolhe à medida que n cresce — por isso amostras maiores produzem intervalos mais estreitos.</p>
+      <p>O <strong>erro padrão</strong> mede quanto a média da amostra tende a variar de amostra para amostra. Ele encolhe à medida que n cresce, por isso amostras maiores produzem intervalos mais estreitos.</p>
       <p>A pergunta-chave é qual distribuição usar para o valor crítico:</p>
       <ul>
-        <li><strong>Distribuição t de Student</strong> — use quando o desvio padrão é <em>estimado a partir da própria amostra</em>. É o caso quase universal na prática. A distribuição t tem caudas um pouco mais largas que a normal, para compensar a incerteza extra de não conhecer o desvio padrão verdadeiro. O valor crítico depende dos <strong>graus de liberdade</strong> (df = n − 1).</li>
-        <li><strong>Distribuição normal (z)</strong> — use somente quando o desvio padrão da <em>população</em> é realmente conhecido, o que é raro fora de exercícios didáticos. Nesta calculadora, é a opção "Populacional".</li>
+        <li><strong>Distribuição t de Student</strong>: use quando o desvio padrão é <em>estimado a partir da própria amostra</em>. É o caso quase universal na prática. A distribuição t tem caudas um pouco mais largas que a normal, para compensar a incerteza extra de não conhecer o desvio padrão verdadeiro. O valor crítico depende dos <strong>graus de liberdade</strong> (df = n − 1).</li>
+        <li><strong>Distribuição normal (z)</strong>: use somente quando o desvio padrão da <em>população</em> é realmente conhecido, o que é raro fora de exercícios didáticos. Nesta calculadora, é a opção "Populacional".</li>
       </ul>
       <p>Na dúvida, escolha "Amostral" (distribuição t): é a opção correta e segura na enorme maioria dos casos. Com amostras grandes (acima de ~30 observações), a t e a normal praticamente coincidem, e a escolha deixa de fazer diferença prática.</p>
 
       <div class="ad-slot" data-ad-slot=""></div>
 
       <h2 id="proporcao">Intervalo de confiança para uma proporção — o método de Wilson</h2>
-      <p>Quando o que você mede é uma <strong>proporção</strong> — a fração de pessoas que aprovam algo, a taxa de sucesso de um procedimento —, a estimativa pontual é simplesmente os sucessos divididos pelo total (p̂ = x ÷ n). A questão é como construir a faixa ao redor dela.</p>
+      <p>Quando o que você mede é uma <strong>proporção</strong> (a fração de pessoas que aprovam algo, a taxa de sucesso de um procedimento) , a estimativa pontual é simplesmente os sucessos divididos pelo total (p̂ = x ÷ n). A questão é como construir a faixa ao redor dela.</p>
       <p>O método clássico de livro-texto é o <strong>intervalo de Wald</strong>: p̂ ± z × √[p̂(1−p̂)/n]. Ele é simples, mas tem um defeito sério: funciona mal quando a proporção está perto de 0% ou de 100%, ou quando a amostra é pequena. Nesses casos, ele pode até produzir limites impossíveis, abaixo de 0% ou acima de 100%, e sua taxa de acerto real fica bem abaixo do nível anunciado.</p>
       <p>Por isso esta calculadora usa o <strong>intervalo de Wilson</strong> (também chamado de intervalo score). Ele é um pouco mais elaborado, mas bem mais preciso: mantém a taxa de cobertura próxima do nível nominal mesmo com amostras pequenas ou proporções extremas, e nunca ultrapassa os limites de 0% e 100%.</p>
       <div class="formula">centro = (p̂ + z²/2n) ÷ (1 + z²/n)
@@ -264,7 +264,7 @@
       <p>Na prática, você não precisa decorar a fórmula: informe os sucessos e o tamanho da amostra, e a calculadora aplica o método de Wilson automaticamente.</p>
 
       <h2 id="margem">A margem de erro</h2>
-      <p>A <strong>margem de erro</strong> é a metade da largura do intervalo — o "±" da estimativa. Quando uma pesquisa eleitoral diz "40%, com margem de erro de 2 pontos", ela está descrevendo um intervalo de confiança de [38%; 42%].</p>
+      <p>A <strong>margem de erro</strong> é a metade da largura do intervalo: o "±" da estimativa. Quando uma pesquisa eleitoral diz "40%, com margem de erro de 2 pontos", ela está descrevendo um intervalo de confiança de [38%; 42%].</p>
       <p>Três fatores controlam o tamanho da margem de erro:</p>
       <ul>
         <li><strong>O tamanho da amostra (n).</strong> É o fator mais poderoso. A margem encolhe com a <em>raiz quadrada</em> de n: para reduzi-la pela metade, é preciso <strong>quadruplicar</strong> a amostra. Dobrar n não dobra a precisão.</li>
@@ -284,7 +284,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           O erro de interpretação mais comum
         </div>
-        <p>É <strong>incorreto</strong> dizer "há 95% de probabilidade de a média estar entre 69,0 e 75,0". O verdadeiro valor da população é um número fixo: ele já está dentro deste intervalo específico ou já está fora — não há sorteio. A probabilidade de 95% descreve o <em>procedimento</em> de longo prazo, não este intervalo isolado depois de calculado.</p>
+        <p>É <strong>incorreto</strong> dizer "há 95% de probabilidade de a média estar entre 69,0 e 75,0". O verdadeiro valor da população é um número fixo: ele já está dentro deste intervalo específico ou já está fora, não há sorteio. A probabilidade de 95% descreve o <em>procedimento</em> de longo prazo, não este intervalo isolado depois de calculado.</p>
       </div>
       <p>Outros equívocos frequentes que vale evitar:</p>
       <ul>
@@ -309,7 +309,7 @@
       <div class="faq">
         <details>
           <summary>O que é um intervalo de confiança?</summary>
-          <div class="faq__answer"><p>É uma faixa de valores, calculada a partir de uma amostra, que provavelmente contém o verdadeiro valor de um parâmetro da população — como uma média ou uma proporção. Em vez de um único número, ele mostra a incerteza da estimativa.</p></div>
+          <div class="faq__answer"><p>É uma faixa de valores, calculada a partir de uma amostra, que provavelmente contém o verdadeiro valor de um parâmetro da população, como uma média ou uma proporção. Em vez de um único número, ele mostra a incerteza da estimativa.</p></div>
         </details>
         <details>
           <summary>O que significa 95% de confiança?</summary>
@@ -418,7 +418,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas — clínicas, acadêmicas ou de negócio — confirme os resultados com um profissional de estatística.</p>
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
       <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
     </div>
   </div>
@@ -531,7 +531,7 @@
         '<strong>' + Fmt.pct(r.ciHigh, 2) + '</strong>. A estimativa pontual é ' +
         Fmt.pct(r.estimate, 2) + ', com margem de erro de ± ' + Fmt.pct(r.marginError, 2) + '.</p>' +
         '<p>Atenção à leitura correta: isso <strong>não</strong> significa que há ' + confTxt +
-        ' de probabilidade de o valor real estar neste intervalo específico — ele já contém ou ' +
+        ' de probabilidade de o valor real estar neste intervalo específico. Ele já contém ou ' +
         'já não contém o valor verdadeiro. O nível de confiança descreve o método: em ' + confTxt +
         ' das amostras possíveis, um intervalo construído assim acerta o valor da população.</p>';
     } else {
@@ -549,7 +549,7 @@
         Fmt.num(r.estimate, 3) + ', com margem de erro de ± ' + Fmt.num(r.marginError, 3) +
         ', usando a distribuição ' + distTxt + '.</p>' +
         '<p>Atenção à leitura correta: isso <strong>não</strong> significa que há ' + confTxt +
-        ' de probabilidade de a média real estar neste intervalo específico — ela já está dentro ' +
+        ' de probabilidade de a média real estar neste intervalo específico. Ela já está dentro ' +
         'ou já está fora dele. O nível de confiança descreve o método: em ' + confTxt +
         ' das amostras possíveis, um intervalo construído assim acerta o valor da população.</p>';
     }
