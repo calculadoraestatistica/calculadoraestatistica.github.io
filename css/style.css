@@ -2316,3 +2316,62 @@ input,select,textarea{transition:border-color 140ms var(--ease-out),box-shadow 1
 .amz__l span{font-weight:400;opacity:.75;font-size:.88rem;}
 .amz__d{margin:.9rem 0 0;font-size:.78rem;opacity:.6;border-top:1px solid rgba(0,0,0,.1);padding-top:.6rem;}
 @media (max-width:640px){.amz{padding:.9rem 1rem;}.amz__l a{font-size:.92rem;}}
+
+/* ── Página de validação numérica ────────────────────────────────────────
+   Tabela de conferência: número do site, número da referência e a diferença.
+   Os valores precisam de fonte tabular, senão as colunas não alinham e a
+   comparação, que é o ponto da página, fica difícil de ler. */
+.val__selo {
+  background: var(--c-success-bg);
+  border-left: 3px solid var(--c-success);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: .95rem;
+}
+table.val td { font-variant-numeric: tabular-nums; }
+table.val th[scope="row"] {
+  vertical-align: top;
+  border-right: 1px solid var(--c-line);
+  min-width: 15ch;
+}
+.val__in {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: .82rem;
+  color: var(--c-muted);
+  margin-top: 2px;
+}
+.val__dif { font-family: var(--font-mono); font-size: .86rem; color: var(--c-muted); white-space: nowrap; }
+.val__nota { font-size: .92rem; color: var(--c-muted); }
+
+/* Histórico de mudanças: lista densa, sem marcador redondo, para caber muito
+   item sem virar parede de texto. */
+.hist { margin-block: var(--sp-6); }
+.hist h2 { margin-bottom: var(--sp-3); }
+.hist__lista { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
+.hist__lista li {
+  padding-left: var(--sp-4);
+  border-left: 2px solid var(--c-line);
+  font-size: .96rem;
+}
+.hist__lista strong { color: var(--c-ink); }
+
+/* Linha de revisão no fim das páginas de conteúdo. Discreta: serve de sinal
+   de manutenção, não é o que a pessoa veio ler. */
+.revisao {
+  margin-block: var(--sp-6) 0;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--c-line);
+  font-size: .85rem;
+  color: var(--c-muted);
+}
+
+/* Chamada destacada dentro do texto, para ligar uma página à evidência que a
+   sustenta sem depender de o leitor achar o link no rodapé. */
+.nota-destaque {
+  background: var(--c-primary-soft);
+  border-left: 3px solid var(--c-primary);
+  padding: var(--sp-4) var(--sp-5);
+  margin-block: var(--sp-5);
+}
+.nota-destaque p { margin: 0; font-size: .95rem; }

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validação numérica das calculadoras | Calculadora Estatística</title>
+<meta name="description" content="Cada calculadora deste site conferida contra o SciPy, com os dois resultados publicados lado a lado e as diferenças de método declaradas.">
+<link rel="canonical" href="https://calculadoraestatistica.com.br/validacao.html">
+<link rel="alternate" hreflang="pt-BR" href="https://calculadoraestatistica.com.br/validacao.html">
+<link rel="alternate" hreflang="da-DK" href="https://statistikberegner.dk/metodologi.html">
+<link rel="alternate" hreflang="x-default" href="https://calculadoraestatistica.com.br/validacao.html">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Calculadora Estatística">
+<meta property="og:title" content="Validação numérica das calculadoras">
+<meta property="og:description" content="Cada calculadora deste site conferida contra o SciPy, com os dois resultados publicados lado a lado e as diferenças de método declaradas.">
+<meta property="og:url" content="https://calculadoraestatistica.com.br/validacao.html">
+<meta property="og:image" content="https://calculadoraestatistica.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/cookie-consent.js" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://calculadoraestatistica.com.br/"},{"@type":"ListItem","position":2,"name":"Validação numérica","item":"https://calculadoraestatistica.com.br/validacao.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Calculadora Estatística — página inicial">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#2563eb"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Calculadora <span>Estatística</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Menu principal">
+      <ul>
+        <li><a href="/#calculadoras">Calculadoras</a></li>
+        <li><a href="/#guias">Guias por área</a></li>
+        <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+        <li><a href="/artigos/">Artigos</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+        <li><a class="nav-cta" href="/teste-ab.html">Calcular Teste A/B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <div class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li>Validação numérica</li>
+        </ol>
+      </nav>
+      <h1>Validação numérica</h1>
+      <p class="lead">Todo site de calculadora pede que você confie num número que não tem como
+        conferir. Esta página existe para você não precisar confiar: cada calculadora é rodada
+        contra uma implementação independente e os dois resultados ficam publicados lado a lado.</p>
+    </div>
+  </div>
+
+  <div class="container narrow">
+    <article class="prose">
+
+      <p class="val__selo"><strong>27 grandezas conferidas, 0 divergentes.</strong>
+        Última execução em 28 de setembro de 2026.</p>
+
+      <h2>Como a conferência é feita</h2>
+      <p>As calculadoras deste site são escritas em JavaScript e rodam no seu navegador. Isso é bom
+        para a sua privacidade, porque nenhum dado sai do seu computador, e ruim para a sua
+        confiança, porque você não tem como saber se a conta está certa.</p>
+      <p>A conferência resolve isso comparando com o <a href="https://scipy.org/" rel="noopener"
+        target="_blank">SciPy</a>, a biblioteca estatística usada em pesquisa acadêmica e na
+        indústria há mais de duas décadas. O mesmo conjunto de números entra nas duas
+        implementações. Se as duas chegam ao mesmo resultado, o erro teria que estar nas duas ao
+        mesmo tempo e do mesmo jeito.</p>
+      <p>Nada aqui é escrito à mão. A tabela é gerada por um script que roda as duas
+        implementações no momento da geração, então ela não tem como ficar desatualizada em
+        relação ao código sem que alguém perceba.</p>
+
+      <h2>O resultado</h2>
+      <div class="table-wrap"><table class="data val"><caption>Cada grandeza calculada duas vezes, com a mesma entrada, por dois programas independentes.</caption><thead><tr><th scope="col">Calculadora e entrada</th><th scope="col">Grandeza</th><th scope="col">Este site</th><th scope="col">SciPy</th><th scope="col">Diferença</th></tr></thead><tbody><tr><th scope="row" rowspan="2"><a href="/teste-t.html">Teste t para uma amostra</a><span class="val__in">média 5,2 · desvio 1,1 · n 15 · hipótese μ₀ = 5</span></th><td>estatística t</td><td>0,7041787902</td><td>0,7041787902</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,4928691134</td><td>0,4928691134</td><td class="val__dif">8e&minus;15</td></tr><tr><th scope="row" rowspan="2"><a href="/teste-t.html">Teste t de Welch, duas amostras</a><span class="val__in">grupo A (n 10) e grupo B (n 10), variâncias desiguais</span></th><td>estatística t</td><td>-4,721768007</td><td>-4,721768007</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,0001820095681</td><td>0,0001820095681</td><td class="val__dif">9e&minus;18</td></tr><tr><th scope="row" rowspan="2"><a href="/teste-z.html">Teste Z para uma média</a><span class="val__in">média 100 · σ conhecido 15 · n 25 · hipótese μ₀ = 95</span></th><td>estatística z</td><td>1,666666667</td><td>1,666666667</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,09558070121</td><td>0,09558070455</td><td class="val__dif">3e&minus;9</td></tr><tr><th scope="row" rowspan="2"><a href="/teste-proporcao.html">Teste de uma proporção</a><span class="val__in">60 sucessos em 200 · hipótese p₀ = 0,25</span></th><td>estatística z</td><td>1,632993162</td><td>1,632993162</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,1024704322</td><td>0,1024704349</td><td class="val__dif">3e&minus;9</td></tr><tr><th scope="row" rowspan="2"><a href="/teste-ab.html">Teste A/B de duas proporções</a><span class="val__in">A: 50/500 · B: 70/500 · bicaudal</span></th><td>estatística z</td><td>1,94624736</td><td>1,94624736</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,05162502895</td><td>0,05162503339</td><td class="val__dif">4e&minus;9</td></tr><tr><th scope="row" rowspan="2"><a href="/qui-quadrado.html">Qui-quadrado de independência</a><span class="val__in">tabela 2×3: [10, 20, 30] e [20, 20, 20]</span></th><td>qui-quadrado</td><td>5,333333333</td><td>5,333333333</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,06948345122</td><td>0,06948345122</td><td class="val__dif">3e&minus;17</td></tr><tr><th scope="row" rowspan="2"><a href="/k-amostras.html">ANOVA de um fator</a><span class="val__in">três grupos de 10 observações</span></th><td>estatística F</td><td>44,2592073</td><td>44,2592073</td><td class="val__dif">7e&minus;14</td></tr><tr><td>valor-p</td><td>3,003e-09</td><td>3,003e-09</td><td class="val__dif">4e&minus;17</td></tr><tr><th scope="row" rowspan="2"><a href="/k-amostras.html">Kruskal-Wallis</a><span class="val__in">mesmos três grupos, sem supor normalidade</span></th><td>estatística H</td><td>22,57262408</td><td>22,57262408</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>1,254e-05</td><td>1,254e-05</td><td class="val__dif">8e&minus;18</td></tr><tr><th scope="row" rowspan="2"><a href="/correlacao.html">Correlação de Pearson</a><span class="val__in">dez pares (x, y)</span></th><td>coeficiente r</td><td>0,9980912581</td><td>0,9980912581</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>5,794e-11</td><td>5,794e-11</td><td class="val__dif">2e&minus;23</td></tr><tr><th scope="row" rowspan="2"><a href="/wilcoxon.html">Mann-Whitney U</a><span class="val__in">grupo A e grupo B, 10 observações cada</span></th><td>estatística U</td><td>6</td><td>6</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,0008807432538</td><td>0,0008807431907</td><td class="val__dif">6e&minus;11</td></tr><tr><th scope="row" rowspan="2"><a href="/wilcoxon.html">Wilcoxon pareado</a><span class="val__in">dez medidas antes e depois</span></th><td>estatística W</td><td>0</td><td>0</td><td class="val__dif">0 (idêntico)</td></tr><tr><td>valor-p</td><td>0,004976730745</td><td>0,004976730754</td><td class="val__dif">9e&minus;12</td></tr><tr><th scope="row" rowspan="2"><a href="/intervalo-confianca.html">Intervalo de confiança da média</a><span class="val__in">média 7,43 · desvio 0,70 · n 10 · 95%</span></th><td>limite inferior</td><td>6,936628415</td><td>6,936628415</td><td class="val__dif">2e&minus;14</td></tr><tr><td>limite superior</td><td>7,923371585</td><td>7,923371585</td><td class="val__dif">2e&minus;14</td></tr><tr><th scope="row" rowspan="2"><a href="/intervalo-confianca.html">Intervalo de Wilson para proporção</a><span class="val__in">30 sucessos em 100 · 95%</span></th><td>limite inferior</td><td>0,2189488543</td><td>0,2189488529</td><td class="val__dif">1e&minus;9</td></tr><tr><td>limite superior</td><td>0,3958485444</td><td>0,3958485463</td><td class="val__dif">2e&minus;9</td></tr><tr><th scope="row" rowspan="1"><a href="/tamanho-amostra.html">Tamanho de amostra para pesquisa</a><span class="val__in">margem de erro 3% · confiança 95% · p 0,5</span></th><td>n necessário</td><td>1068</td><td>1068</td><td class="val__dif">0 (idêntico)</td></tr></tbody></table></div>
+      <p class="val__nota">As diferenças na ordem de 10⁻⁹ ou menores são ruído de ponto flutuante,
+        não discordância: computador guarda número decimal com precisão finita, e duas rotinas
+        diferentes chegam ao mesmo valor com o último dígito diferente. Para efeito prático, uma
+        diferença dessa ordem não muda nenhuma decisão.</p>
+
+      <h2>Onde este site é menos preciso, e por quê</h2>
+      <p>Em dois testes não paramétricos a conta deste site usa a <strong>aproximação normal</strong>,
+        que é o método dos livros-texto e o que a maioria dos programas mostra por padrão. Para
+        amostra pequena existe alternativa melhor: a <strong>distribuição exata</strong>, que o
+        SciPy e o R usam automaticamente quando o número de observações é baixo.</p>
+      <p>Os dois valores estão abaixo. A diferença aparece a partir da terceira casa decimal, e é
+        maior quanto menor a amostra.</p>
+      <div class="table-wrap"><table class="data val">
+        <caption>Diferença entre os dois métodos, nos mesmos dados.</caption>
+        <thead><tr><th scope="col">Teste</th><th scope="col">Amostra</th>
+          <th scope="col">Valor-p deste site</th><th scope="col">Valor-p exato</th>
+          <th scope="col">Método alternativo</th></tr></thead>
+        <tbody><tr><th scope="row"><a href="/wilcoxon.html">Mann-Whitney U</a></th><td>10 por grupo</td><td>0,0008807431907</td><td>0,0003247526467</td><td>distribuição exata</td></tr><tr><th scope="row"><a href="/wilcoxon.html">Wilcoxon pareado</a></th><td>10 pares</td><td>0,004976730754</td><td>0,001953125</td><td>distribuição exata</td></tr></tbody></table></div>
+      <p>Na prática: se o seu valor-p ficar perto do limiar que você usa para decidir, e a sua
+        amostra tiver menos de vinte observações, confira no R ou no Python antes de concluir.
+        Quando a amostra é grande, os dois métodos convergem e a diferença some.</p>
+
+      <h2>Além desta página</h2>
+      <p>O site também tem uma suíte de regressão com 41 asserções, que compara as
+        funções internas contra valores de referência a cada mudança no código. Ela roda em
+        v24.15.0 sem dependência nenhuma e falha se qualquer conta sair do lugar. A tabela acima
+        é a parte que dá para publicar; a suíte é a rede de proteção de quem mexe no código.</p>
+
+      <h2>Como refazer por conta própria</h2>
+      <p>Você não precisa acreditar nesta página. As entradas de cada linha estão na primeira
+        coluna, e dá para colar no programa da sua preferência. Em Python, por exemplo, um teste t
+        de Welch com os mesmos números é uma linha:</p>
+      <pre><code>from scipy import stats
+stats.ttest_ind(grupo_a, grupo_b, equal_var=False)</code></pre>
+      <p>Achou divergência que não seja ruído de ponto flutuante? Escreva para
+        <a href="/contato.html">o contato do site</a> com os números que você usou. Erro de conta
+        em calculadora é o pior tipo de erro que este site pode ter, e correção dessas entra na
+        frente de qualquer outra coisa.</p>
+
+      <div class="card-grid card-grid--3">
+          <a class="card" href="/metodologia.html"><h3>Metodologia</h3><p>As fórmulas por trás de cada calculadora e o que elas não fazem.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/fontes.html"><h3>Fontes</h3><p>Os livros e referências em que as fórmulas se apoiam.</p><span class="card__cta">Abrir →</span></a>
+          <a class="card" href="/historico.html"><h3>Histórico de mudanças</h3><p>O que mudou no site e quando.</p><span class="card__cta">Abrir →</span></a>
+      </div>
+
+    </article>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2563eb"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Calculadora Estatística</span>
+        </a>
+        <p>Calculadoras estatísticas online e gratuitas, com explicação didática de cada teste.</p>
+      </div>
+      <div>
+        <h3>Calculadoras</h3>
+        <ul>
+          <li><a href="/teste-ab.html">Teste A/B</a></li>
+          <li><a href="/tamanho-amostra-ab.html">Amostra de Teste A/B</a></li>
+          <li><a href="/teste-t.html">Teste t de Student</a></li>
+          <li><a href="/teste-z.html">Teste Z</a></li>
+          <li><a href="/teste-proporcao.html">Teste de Proporção</a></li>
+          <li><a href="/qui-quadrado.html">Qui-quadrado</a></li>
+          <li><a href="/k-amostras.html">ANOVA e k amostras</a></li>
+          <li><a href="/wilcoxon.html">Wilcoxon e Mann-Whitney</a></li>
+          <li><a href="/correlacao.html">Correlação de Pearson</a></li>
+          <li><a href="/intervalo-confianca.html">Intervalo de Confiança</a></li>
+          <li><a href="/tamanho-amostra.html">Tamanho de Amostra</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guias por área</h3>
+        <ul>
+          <li><a href="/guias/estatistica-enfermagem.html">Para Enfermagem</a></li>
+          <li><a href="/guias/estatistica-psicologia.html">Para Psicologia</a></li>
+          <li><a href="/guias/estatistica-marketing-cro.html">Para Marketing e CRO</a></li>
+          <li><a href="/guias/como-escolher-teste-estatistico.html">Como escolher o teste</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/busca-ia.html">Pergunte à IA</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/metodologia.html">Metodologia</a></li>
+          <li><a href="/validacao.html">Validação numérica</a></li>
+          <li><a href="/historico.html">Histórico de mudanças</a></li>
+          <li><a href="/fontes.html">Fontes</a></li>
+          <li><a href="/politica-editorial.html">Política editorial</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+          <li><a href="/termos.html">Termos de uso</a></li>
+          <li><a href="/apoiar.html">Apoiar o projeto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>As calculadoras têm finalidade educacional e informativa. Para decisões críticas (clínicas, acadêmicas ou de negócio) confirme os resultados com um profissional de estatística.</p>
+      <p>© <span data-year>2026</span> Calculadora Estatística · Feito no Brasil.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
