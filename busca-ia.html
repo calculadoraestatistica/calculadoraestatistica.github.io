@@ -370,12 +370,24 @@
   var pwrap = $('ai-progress-wrap'), pbar = $('ai-progress-bar');
   var resultEl = $('ai-result');
 
-  // Sempre tentamos carregar a IA assim que a pagina abre, em background.
-  // Se o usuario submeter antes do modelo ficar pronto, o BM25 responde
-  // instantaneamente e a IA refina depois.
-  CalcAISearch.ensureReady(onProgress).catch(function (e) {
-    console.warn('Falha ao carregar IA, continuamos so com BM25:', e);
-  });
+  // O modelo so comeca a baixar quando a pessoa demonstra intencao de usar:
+  // ao tocar no campo de pergunta. Sao 10 MB, e quem abre a pagina e sai sem
+  // perguntar nada nao deve pagar por isso.
+  //
+  // Disparar no foco, e nao no envio, da folego: enquanto a pessoa escreve a
+  // pergunta o download ja esta correndo. Se ela enviar antes de terminar, o
+  // BM25 responde na hora e o proprio envio espera a IA para refinar, que e o
+  // caminho que ja existia.
+  var iaIniciada = false;
+  function iniciarIA() {
+    if (iaIniciada) return;
+    iaIniciada = true;
+    CalcAISearch.ensureReady(onProgress).catch(function (e) {
+      console.warn('Falha ao carregar IA, continuamos so com BM25:', e);
+    });
+  }
+  input.addEventListener('focus', iniciarIA, { once: true });
+  input.addEventListener('input', iniciarIA, { once: true });
 
   function setStatus(msg, isError) {
     status.textContent = msg;

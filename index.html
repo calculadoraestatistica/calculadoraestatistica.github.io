@@ -379,27 +379,17 @@
 <script src="/js/config.js"></script>
 <script src="/js/app.js"></script>
 <script>
-  // Preload da IA do buscador em segundo plano, depois que a home pintou.
-  // Carrega ai-search.js no idle e dispara o download do modelo so se a
-  // conexao for boa (nao 2G/3G, sem Save-Data). Quem nunca clicar em
-  // "Pergunte a IA" so paga 3 KB pelo ai-search.js — o modelo de ~30 MB
-  // so vem se passar pela checagem de conexao.
-  (function () {
-    function startPreload() {
-      var s = document.createElement('script');
-      s.src = '/js/ai-search.js';
-      s.async = true;
-      s.onload = function () {
-        if (window.CalcAISearch && CalcAISearch.preload) CalcAISearch.preload();
-      };
-      document.head.appendChild(s);
-    }
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(startPreload, { timeout: 4000 });
-    } else {
-      setTimeout(startPreload, 2500);
-    }
-  })();
+  // A home NAO carrega o modelo da busca por IA.
+  //
+  // Ela carregava, em preload no idle, atras de uma checagem de conexao. A
+  // checagem nao segurava quase ninguem: navigator.connection nao existe no
+  // Safari, no Firefox nem em nenhum navegador de iPhone, e nesses casos a
+  // funcao devolve true. Medido no site publicado, a home baixava 11,6 MB,
+  // dos quais 10,4 MB eram o transformers.js e o ort-wasm-simd.wasm vindos de
+  // CDN. Quem entrava para usar uma calculadora pagava isso sem usar a IA.
+  //
+  // Agora o modelo so e baixado em /busca-ia.html, e la so quando a pessoa
+  // demonstra intencao de usar. A home voltou para cerca de 1,1 MB.
 </script>
 </body>
 </html>
