@@ -145,7 +145,7 @@
               <textarea class="input" id="wx-g2" rows="4" placeholder="Ex.: 20 22 19 25 21 23" autocomplete="off"></textarea>
             </div>
           </div>
-          <p class="help">Cole os valores separados por espaço, vírgula ou quebra de linha.</p>
+          <p class="help">Cole os valores separados por espaço, vírgula, ponto e vírgula ou quebra de linha. O decimal pode ser vírgula ou ponto: 5,1 e 5.1 valem o mesmo.</p>
         </fieldset>
       </div>
 
@@ -447,15 +447,12 @@
   }
 
   // Converte um texto livre em um array de números.
+  // A leitura mora em js/stats.js, que decide uma vez por campo se a vírgula
+  // é decimal ou separador. Aqui o texto era partido em /[\s,;]+/, tratando
+  // toda vírgula como separador: quem digitava "12,5 15,5" perdia os dados
+  // sem aviso e recebia a conclusão invertida.
   function parseList(texto) {
-    var partes = String(texto).split(/[\s,;]+/);
-    var nums = [];
-    for (var i = 0; i < partes.length; i++) {
-      if (partes[i] === '') continue;
-      var v = parseNum(partes[i]);
-      if (!isNaN(v)) nums.push(v);
-    }
-    return nums;
+    return Stats.parseList(texto);
   }
 
   // Mediana de um array de números.

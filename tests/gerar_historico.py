@@ -27,8 +27,29 @@ HOJE = datetime.date.today()
 DATA_EXT = "%d de %s de %d" % (HOJE.day, MESES[HOJE.month - 1], HOJE.year)
 
 # (mês de referência, título, entradas). Escritas a partir do histórico real.
+#
+# O mês de cada bloco é literal. O primeiro bloco usava MESES[HOJE.month - 1],
+# e isso reetiquetava entradas antigas com o mês da última execução: em outubro
+# as mudanças de setembro apareciam como de outubro.
 HISTORICO = [
- ("%s de %d" % (MESES[HOJE.month - 1], HOJE.year), [
+ ("outubro de 2026", [
+   ("Leitura de número no formato brasileiro",
+    "As calculadoras de lista (Wilcoxon, ANOVA e correlação) tratavam toda vírgula "
+    "como separador de valores, então quem digitava \"5,1\" no formato daqui perdia o "
+    "dado sem aviso e recebia a conclusão invertida: três grupos de cinco valores "
+    "viravam três grupos de dez, e a ANOVA respondia \"diferença não significativa\" "
+    "com p = 0,574 onde o correto era p = 5,8e-09. Em correlação, os próprios exemplos "
+    "impressos nos campos derrubavam a conta. A leitura passou a decidir uma vez por "
+    "campo se a vírgula é decimal ou separador, e os dois formatos funcionam."),
+   ("Caixa de leituras na coluna do texto",
+    "A caixa de livros ficava fora do container e era o elemento mais largo da página. "
+    "Agora acompanha a largura do texto e fica logo depois da explicação, não no fim."),
+   ("Divulgação de afiliado reescrita",
+    "O aviso saiu da primeira pessoa, passou a vir antes dos links e deixou de ser "
+    "letra miúda. A política editorial dizia não haver links de afiliado, e agora "
+    "descreve o que existe."),
+ ]),
+ ("setembro de 2026", [
    ("Validação numérica publicada",
     "Cada calculadora passou a ser conferida contra o SciPy, com os dois resultados "
     "e a diferença publicados em <a href=\"/validacao.html\">uma página aberta</a>. "
@@ -40,8 +61,6 @@ HISTORICO = [
    ("Datas de revisão em todas as páginas de conteúdo",
     "Cada calculadora e cada artigo passou a mostrar quando foi revisado pela última vez, "
     "e a informar isso também nos dados estruturados."),
- ]),
- ("setembro de 2026", [
    ("Leituras recomendadas nas calculadoras",
     "As páginas de teste ganharam indicação de livros-texto, com aviso de que são links "
     "de afiliado."),
@@ -96,6 +115,13 @@ HISTORICO = [
     "proporção, qui-quadrado, ANOVA, intervalo de confiança e tamanho de amostra."),
  ]),
 ]
+
+# O mesmo mes nao pode aparecer em dois blocos: a pagina ja ficou com dois
+# "Setembro de 2026" seguidos, porque um bloco usava o mes da execucao e o
+# outro era literal.
+_meses = [m for m, _ in HISTORICO]
+assert len(_meses) == len(set(_meses)), "mes repetido no HISTORICO: %s" % _meses
+
 
 
 def main() -> int:

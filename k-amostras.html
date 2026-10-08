@@ -131,7 +131,7 @@
 
       <fieldset class="field-group">
         <legend>Seus grupos</legend>
-        <p class="help help--block">Cole os valores de cada grupo separados por espaço, vírgula ou quebra de linha.</p>
+        <p class="help help--block">Cole os valores de cada grupo separados por espaço, vírgula, ponto e vírgula ou quebra de linha. O decimal pode ser vírgula ou ponto: 5,1 e 5.1 valem o mesmo.</p>
         <div class="group-list" id="ka-groups"></div>
         <div class="matrix-controls">
           <button type="button" class="btn btn--ghost btn--sm" id="ka-add">+ Grupo</button>
@@ -282,6 +282,15 @@
       </ol>
       <p>Como o valor-p é muito menor que 0,05, a conclusão é que <strong>pelo menos um método difere</strong> dos demais: o método de estudo está associado à nota. O eta-quadrado, próximo de 0,9, indica um efeito grande: boa parte da variação nas notas é explicada pelo grupo. A ANOVA, porém, não diz se os três métodos diferem entre si ou apenas um deles; isso exigiria um teste post-hoc. Use o botão <em>"Preencher com exemplo"</em> para ver o cálculo completo na calculadora.</p>
 
+      <!-- afiliado:inicio -->
+      <aside class="amz">
+        <p class="amz__t">Para ir além da calculadora</p>
+        <p class="amz__p">ANOVA e Kruskal-Wallis aparecem inteiros nestes dois:</p>
+        <p class="amz__why">Os livros são escolhidos por quem mantém o site, pelo assunto de cada calculadora, e nenhuma editora paga por aparecer aqui. A comissão dessas compras ajuda a custear a manutenção.</p>
+        <p class="amz__d">Publicidade. Este site participa do Programa de Associados da Amazon e é remunerado pelas compras qualificadas efetuadas. A comissão é paga pela Amazon e não é somada ao valor da compra.</p>
+        <ul class="amz__l"><li><a href="https://www.amazon.com.br/s?k=Montgomery+Runger+Estat%C3%ADstica+Aplicada+Engenheiros&i=stripbooks&tag=calculadoraes-20" target="_blank" rel="sponsored nofollow noopener">Estatística Aplicada e Probabilidade para Engenheiros</a><span> — com análise de variância detalhada</span></li><li><a href="https://www.amazon.com.br/s?k=Andy+Field+Descobrindo+a+Estat%C3%ADstica+SPSS&i=stripbooks&tag=calculadoraes-20" target="_blank" rel="sponsored nofollow noopener">Descobrindo a Estatística Usando o SPSS</a><span> — Andy Field, com os testes post hoc</span></li></ul>
+      </aside>
+      <!-- afiliado:fim -->
       <h2 id="faq">Perguntas frequentes</h2>
       <div class="faq">
         <details>
@@ -336,17 +345,6 @@
     <p class="editorial-note">Última revisão: 1º de agosto de 2026 · Conheça nossa <a href="/metodologia.html">metodologia</a> e as <a href="/fontes.html">fontes</a>.</p>
   </div>
       
-      <!-- afiliado:inicio -->
-      <div class="container narrow">
-        <aside class="amz">
-          <p class="amz__t">Para ir além da calculadora</p>
-          <p class="amz__p">ANOVA e Kruskal-Wallis aparecem inteiros nestes dois:</p>
-          <p class="amz__why">Os livros são escolhidos por quem mantém o site, pelo assunto de cada calculadora, e nenhuma editora paga por aparecer aqui. A comissão dessas compras ajuda a custear a manutenção.</p>
-          <p class="amz__d">Publicidade. Este site participa do Programa de Associados da Amazon e é remunerado pelas compras qualificadas efetuadas. A comissão é paga pela Amazon e não é somada ao valor da compra.</p>
-          <ul class="amz__l"><li><a href="https://www.amazon.com.br/s?k=Montgomery+Runger+Estat%C3%ADstica+Aplicada+Engenheiros&i=stripbooks&tag=calculadoraes-20" target="_blank" rel="sponsored nofollow noopener">Estatística Aplicada e Probabilidade para Engenheiros</a><span> — com análise de variância detalhada</span></li><li><a href="https://www.amazon.com.br/s?k=Andy+Field+Descobrindo+a+Estat%C3%ADstica+SPSS&i=stripbooks&tag=calculadoraes-20" target="_blank" rel="sponsored nofollow noopener">Descobrindo a Estatística Usando o SPSS</a><span> — Andy Field, com os testes post hoc</span></li></ul>
-        </aside>
-      </div>
-      <!-- afiliado:fim -->
 <!-- revisao-linha -->
   <div class="container narrow"><p class="revisao">Publicada em 22 de maio de 2026 e revisada pela última vez em 26 de setembro de 2026. As contas desta página são conferidas contra o SciPy na <a href="/validacao.html">validação numérica</a>, e o que mudou no site está no <a href="/historico.html">histórico</a>.</p></div>
 </main>
@@ -475,16 +473,14 @@
     errBox.classList.remove('is-visible');
   }
 
-  // Converte um texto em lista de números (espaço, vírgula ou ; como separador)
+  // Converte um texto em lista de números.
+  // A leitura mora em js/stats.js, que decide uma vez por campo se a vírgula
+  // é decimal ou separador. Aqui o texto era partido em /[\s,;]+/, tratando
+  // toda vírgula como separador: três grupos de cinco valores digitados
+  // "5,1 5,4 4,9 5,3 5,2" viravam três grupos de dez, e a ANOVA devolvia
+  // "diferença não significativa" para dados altamente significativos.
   function parseList(text) {
-    var parts = String(text == null ? '' : text).split(/[\s,;]+/);
-    var out = [];
-    for (var i = 0; i < parts.length; i++) {
-      if (parts[i] === '') continue;
-      var v = parseNum(parts[i]);
-      if (!isNaN(v)) out.push(v);
-    }
-    return out;
+    return Stats.parseList(text);
   }
 
   $('ka-example').addEventListener('click', function (e) {
@@ -516,7 +512,8 @@
       var vals = parseList(texts[i]);
       if (vals.length < 2) {
         showError('O Grupo ' + (i + 1) + ' precisa de pelo menos 2 valores numéricos. ' +
-          'Cole os valores separados por espaço, vírgula ou quebra de linha.');
+          'Cole os valores separados por espaço, vírgula ou quebra de linha. '+
+          'O decimal pode ser vírgula ou ponto.');
         return;
       }
       groups.push(vals);

@@ -1,3 +1,5 @@
 node_modules/
 build_embeddings.js
 Instru*.txt
+
+__pycache__/

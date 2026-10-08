@@ -36,6 +36,25 @@ except OSError:
     NODE = "Node.js"
 
 
+def contar_assercoes() -> int:
+    """Quantas asserções a suíte roda de verdade.
+
+    Estava escrito à mão como 41 aqui dentro, então a página continuou
+    publicando 41 depois de a suíte crescer. O número agora sai da saída do
+    próprio teste, do mesmo jeito que a versão do Node sai de `node --version`.
+    """
+    try:
+        saida = subprocess.run(
+            ["node", os.path.join(AQUI, "test_calculadoras.js")],
+            capture_output=True, text=True, encoding="utf-8", timeout=120).stdout
+        m = re.search(r"(\d+)\s*/\s*(\d+)\s+asserções", saida)
+        if m:
+            return int(m.group(2))
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return 0
+
+
 def num(v: float) -> str:
     """Número com casas suficientes para o leitor conferir, em português."""
     if v is None:
@@ -173,7 +192,7 @@ stats.ttest_ind(grupo_a, grupo_b, equal_var=False)</code></pre>
   </div>
 
 </main>""" % dict(total=total, divergentes=divergentes, data=DATA_EXT, tabela=tabela,
-                  ressalvas=res_linhas, assercoes=41, node=NODE)
+                  ressalvas=res_linhas, assercoes=contar_assercoes(), node=NODE)
 
 # ── Monta a página usando metodologia.html como molde ──────────────────────
 molde = io.open(os.path.join(RAIZ, "metodologia.html"), encoding="utf-8").read()
