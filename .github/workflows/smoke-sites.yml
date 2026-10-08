@@ -1,0 +1,77 @@
+name: Teste de fumaça dos sites
+
+# Percorre os dez sites publicados, clica nas coisas e confere que as
+# calculadoras devolvem o número certo. Existe porque o defeito da vírgula
+# decimal ficou meses no ar invertendo conclusões sem ninguém notar: a suíte de
+# regressão testa as funções de stats.js, não a página montada e servida.
+#
+# Isto NÃO é gerador de tráfego. O script bloqueia AdSense e medição na camada
+# de rede e se identifica como robô no User-Agent. Uma passada visita umas 50
+# páginas, uma vez por dia. Tráfego automatizado para página com AdSense é
+# "invalid traffic" na política do programa e leva a banimento permanente.
+#
+# Quando falha, o GitHub manda e-mail para o dono do repositório. O resumo da
+# execução, com a semente para repetir exatamente a mesma caminhada, fica no
+# sumário do job.
+on:
+  schedule:
+    # 06:10 UTC = 03:10 BRT e 08:10 em Copenhague. Longe das janelas dos
+    # scrapers de cotação, que rodam 13:05 e 21:00-23:30 UTC.
+    - cron: '10 6 * * *'
+  workflow_dispatch:
+    inputs:
+      paginas:
+        description: 'Páginas sorteadas por site'
+        required: false
+        default: '5'
+      seed:
+        description: 'Semente, para repetir uma execução que falhou'
+        required: false
+        default: ''
+      sites:
+        description: 'Domínios específicos, separados por espaço (vazio = todos)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smoke-sites
+  cancel-in-progress: false
+
+jobs:
+  fumaca:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instala o Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Percorre os sites
+        # Os inputs entram por env e não interpolados no shell: ${{ }} direto
+        # numa linha de comando é injeção de script esperando acontecer, mesmo
+        # que hoje só o dono do repositório possa disparar o workflow.
+        env:
+          PAGINAS: ${{ github.event.inputs.paginas || '5' }}
+          SEED: ${{ github.event.inputs.seed }}
+          SITES: ${{ github.event.inputs.sites }}
+        run: |
+          set -euo pipefail
+          args=(--paginas "${PAGINAS:-5}")
+          if [ -n "${SEED:-}" ]; then args+=(--seed "$SEED"); fi
+          if [ -n "${SITES:-}" ]; then
+            # shellcheck disable=SC2206
+            args+=(--sites ${SITES})
+          fi
+          printf 'rodando: tools/smoke_sites.py %s\n' "${args[*]}"
+          python tools/smoke_sites.py "${args[@]}"
