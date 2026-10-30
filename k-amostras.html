@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-7516029395999799">
 <title>Calculadora de ANOVA e k Amostras — Online e Grátis</title>
 <meta name="description" content="Calculadora de ANOVA grátis e em português para comparar três ou mais grupos. Faça a ANOVA de uma via (paramétrica) ou o teste de Kruskal-Wallis (não-paramétrico): estatística, graus de liberdade, valor-p e tamanho do efeito.">
@@ -25,7 +23,6 @@
 <link rel="apple-touch-icon" href="/favicon-192.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
-<script src="/js/cookie-consent.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -164,8 +161,6 @@
       <section class="result" id="ka-result" hidden aria-live="polite"></section>
     </form>
 
-    <div class="ad-slot" data-ad-slot=""></div>
-
     <article class="prose">
 
       <nav class="toc" aria-label="Conteúdo do artigo">
@@ -215,8 +210,6 @@
       <p>O <strong>teste de Kruskal-Wallis</strong> é a alternativa <strong>não-paramétrica</strong>. Em vez de trabalhar com os valores originais, ele os converte em <strong>postos</strong>: junta todas as observações de todos os grupos, ordena-as do menor para o maior e substitui cada valor pela sua posição (1, 2, 3, …). A análise passa a ser feita sobre esses postos.</p>
       <p>A lógica é intuitiva. Se os grupos forem equivalentes, os postos altos e baixos devem se espalhar de forma parecida entre eles: a soma de postos de cada grupo será proporcional ao seu tamanho. Se um grupo concentra os valores mais altos (postos grandes) e outro os mais baixos, a estatística do teste, chamada <strong>H</strong>, cresce. Sob a hipótese de grupos iguais, o H segue aproximadamente uma distribuição qui-quadrado com k − 1 graus de liberdade, e daí sai o valor-p.</p>
       <p>Como usa apenas a ordem dos dados, o Kruskal-Wallis é <strong>robusto a valores extremos</strong> e não exige normalidade. Ele é, para três ou mais grupos, o equivalente do que o teste de <a href="/wilcoxon.html">Mann-Whitney</a> é para dois grupos. O preço é uma perda modesta de poder estatístico quando os dados <em>de fato</em> são normais: nesse caso, a ANOVA detecta diferenças com um pouco mais de sensibilidade.</p>
-
-      <div class="ad-slot" data-ad-slot=""></div>
 
       <h2 id="pressupostos">Pressupostos da ANOVA</h2>
       <p>Para que o valor-p da ANOVA seja confiável, três condições devem ser razoavelmente atendidas:</p>
