@@ -33,6 +33,14 @@ DATA_EXT = "%d de %s de %d" % (HOJE.day, MESES[HOJE.month - 1], HOJE.year)
 # as mudanças de setembro apareciam como de outubro.
 HISTORICO = [
  ("outubro de 2026", [
+   ("AdSense removido",
+    "Os espaços de anúncio nunca chegaram a servir anúncio, porque o campo de "
+    "publisher estava vazio. O que sobrava era cada página pedindo a biblioteca do "
+    "Google sem contrapartida. Saíram as tags de script, os espaços, o código que "
+    "montava as unidades e o CSS, e com eles o banner de consentimento de cookies, "
+    "que deixou de ter o que consentir. Fora da página Pergunte à IA, que baixa a "
+    "biblioteca do modelo de uma rede pública, nenhuma página carrega script de "
+    "terceiro."),
    ("Leitura de número no formato brasileiro",
     "As calculadoras de lista (Wilcoxon, ANOVA e correlação) tratavam toda vírgula "
     "como separador de valores, então quem digitava \"5,1\" no formato daqui perdia o "
